@@ -1,0 +1,240 @@
+<h3>Admission Details</h3>
+<div class="row">
+  <div class="small-6 columns">
+      <dl>
+          <dt>Data carried over :</dt>
+          <dd>{{ patient.admission.dataCarriedOver }}</dd>
+
+          <dt>Patient first name :</dt>
+          <dd>{{ patient.admission.patientFirstName }}</dd>
+
+          <dt>Patient last name :</dt>
+          <dd>{{ patient.admission.patientLastName }}</dd>
+
+          <dt>Patient other name :</dt>
+          <dd>{{ patient.admission.patientOtherName }}</dd>
+
+          <dt>Date of birth :</dt>
+          <dd>{{ patient.admission.dateOfBirth | date: "dd/MM/yyyy HH:mm" }}</dd>
+
+          <dt>Admission date and time :</dt>
+          <dd>{{ patient.admission.admissionDateAndTime | date: "dd/MM/yyyy HH:mm" }}</dd>
+
+          <dt>Emergency Vs Elective :</dt>
+          <dd>{{ patient.admission.roots }}</dd>
+
+          <dt>Hospital admitted from :</dt>
+          <dd>{{ patient.admission.admittedFrom }}</dd>
+
+          <dt>Days in Hospital before ICU :</dt>
+          <dd>{{ patient.admission.numOfdaysInhospitalBeforeICU }}</dd>
+
+          <dt>Admitting doctor :</dt>
+          <dd>{{ patient.admission.admittingDoctor }}</dd>
+
+          <dt>Admitting consultant :</dt>
+          <dd>{{ patient.admission.admittingConsultant }}</dd>
+      </dl>
+  </div>
+</div>
+<h3>Condition on arrival</h3>
+<div class="row">
+    <div class="small-6 columns">
+        <dl>
+          <dt>Time of arrival :</dt>
+          <dd>{{ patient.admission.timeOfArrival | date: "dd/MM/yyyy HH:mm" }}</dd>
+
+          <dt>Temperature :</dt>
+          <dd>{{ patient.scores[1].temperature }} &deg;C</dd>
+
+          <dt>Systolic pressure :</dt>
+          <dd>{{ patient.scores[1].systolicPressure }} mmHg</dd>
+
+          <dt>Diastolic pressure :</dt>
+          <dd>{{ patient.scores[1].diastolicPressure }} mmHg</dd>
+
+          <dt>Heart rate :</dt>
+          <dd>{{ patient.scores[1].heartRate }} bpm</dd>
+
+          <dt>Saturation :</dt>
+          <dd>{{ patient.scores[1].saturation }} %</dd>
+
+          <dt>Respiratory rate :</dt>
+          <dd>{{ patient.scores[1].respiratoryRate }} brpm</dd>
+
+          <dt>FiO2 :</dt>
+          <dd>{{ patient.scores[1].fiO2 }} %</dd>
+
+          <dt>Eye opening :</dt>
+          <dd>{{ patient.scores[1].eyeOpening }}</dd>
+
+          <dt>Verbal response :</dt>
+          <dd>{{ patient.scores[1].verbalResponse }}</dd>
+
+          <dt>Motor response :</dt>
+          <dd>{{ patient.scores[1].motorResponse }}</dd>
+
+          <dt>Glasgow coma scale :</dt>
+          <dd>{{ patient.scores[1].glasgowComaScale }}</dd>
+
+          <dt>Sedated :</dt>
+          <dd>{{ patient.scores[1].sedated }}</dd>
+
+          <dt>Airway :</dt>
+          <dd>{{ patient.scores[1].airway }}</dd>
+
+          <dt>Haematocrit :</dt>
+          <dd>{{ patient.scores[1].haematocrit }} %</dd>
+
+          <dt>Glucose :</dt>
+          <dd>{{ patient.scores[1].glucose }} mmol/l</dd>
+
+          <dt>Lactate :</dt>
+          <dd>{{ patient.scores[1].lactate }} mmol</dd>
+
+          <dt>pH :</dt>
+          <dd>{{ patient.scores[1].pH }}</dd>
+
+          <dt>pCO2 :</dt>
+          <dd>{{ patient.scores[1].pCO2 }} kPa</dd>
+
+          <dt>pO2 :</dt>
+          <dd>{{ patient.scores[1].pO2 }} kPa</dd>
+
+          <dt>Base excess :</dt>
+          <dd>{{ patient.scores[1].baseExcess }} mmol</dd>
+
+          <dt>Bicarbonate :</dt>
+          <dd>{{ patient.scores[1].bicarbonate }} mmol/l</dd>
+
+          <dt>Current antibiotic therapy in ward :</dt>
+          <dd>{{ patient.scores[1].currentAntibioticTherapyInWard }}</dd>
+
+          <dt>Duration of antibtioics :</dt>
+          <dd>{{ patient.scores[1].durationOfAntibtioics }}</dd>
+        </dl>
+    </div>
+</div>
+<h3>Operative details</h3>
+<div class="row">
+  <div class="small-6 columns">
+      <dl>
+          <dt>Operative details :</dt>
+          <dd>{{ patient.admission.operativeDetails }}</dd>
+
+          <dt>Date and time of surgery :</dt>
+          <dd>{{ patient.admission.surgeryDateAndTime | date: "dd/MM/yyyy HH:mm" }}</dd>
+
+          <dt>Operation performed :</dt>
+          <dd>{{ patient.admission.operationPerformed }}</dd>
+
+          <dt>Operative findings :</dt>
+          <dd>{{ patient.admission.operativeFindings }}</dd>
+
+          <dt>Operative plan :</dt>
+          <dd>{{ patient.admission.operativePlan }}</dd>
+
+          <dt>Duration of operation :</dt>
+          <dd>{{ patient.admission.durationOfOperation }}</dd>
+
+          <dt>Anaesthesia :</dt>
+          <dd>{{ patient.admission.anaesthesia }}</dd>
+
+          <dt>Grade of laryngoscopy :</dt>
+          <dd>{{ patient.admission.gradeOfLaryngoscopy }}</dd>
+
+          <dt>Duration of anaesthesia :</dt>
+          <dd>{{ patient.admission.durationOfAnaesthesia }}</dd>
+
+          <dt>Antibiotic :</dt>
+          <dd>{{ patient.admission.antibiotics }}</dd>
+
+          <dt>Intra-operative total volumes :</dt>
+          <dd>{{ patient.admission.intraOperativeTotalVolumes }}</dd>
+
+          <dt>Blood loss :</dt>
+          <dd>{{ patient.admission.bloodLoss }}</dd>
+
+          <dt>Urine output :</dt>
+          <dd>{{ patient.admission.urineOutput }}</dd>
+
+          <dt>Crystalloid volume :</dt>
+          <dd>{{ patient.admission.crystalloidVolume }}</dd>
+
+          <dt>Colloid volume :</dt>
+          <dd>{{ patient.admission.colloidVolume }}</dd>
+
+          <dt>Packed cells :</dt>
+          <dd>{{ patient.operative.packedCells }}</dd>
+
+          <dt>Freeze dried plasma :</dt>
+          <dd>{{ patient.admission.freezeDriedPlasma }}</dd>
+
+          <dt>Platelets :</dt>
+          <dd>{{ patient.admission.platelets }}</dd>
+
+          <dt>Cruoprecipitate :</dt>
+          <dd>{{ patient.admission.cruoprecipitate }}</dd>
+      </dl>
+  </div>
+</div>
+<h3>Admission history</h3>
+  <div class="row">
+      <div class="small-6 columns">
+        <dl>
+            <dt>Past medical history :</dt>
+            <dd>{{ patient.admission.pastMedicalHistory }}</dd>
+
+            <dt>Past surgical history :</dt>
+            <dd>{{ patient.admission.pastSurgicalHistory }}</dd>
+
+            <dt>Chronic medications :</dt>
+            <dd>{{ patient.admission.medications }}</dd>
+        </dl>
+      </div>
+  </div>
+  <h3>Admission summary</h3>
+  <div class="row">
+    <div class="small-6 columns">
+      <dl>
+        <dt>Admission summary notes :</dt>
+        <dd>{{ patient.admission.admissionSummaryNotes }}</dd>
+      </dl>
+    </div>
+  </div>
+<h3>Admission plan</h3>
+  <div class="row">
+    <div class="small-6 columns">
+      <dl>
+        <dt>Airway and breathing :</dt>
+        <dd>{{ patient.admission.airwayAndBreathing }}</dd>
+
+        <dt>Circulation :</dt>
+        <dd>{{ patient.admission.circulation }}</dd>
+
+        <dt>Renal and electrolytes :</dt>
+        <dd>{{ patient.admission.renalAndElectrolytes }}</dd>
+
+        <dt>Fluids and feeds :</dt>
+        <dd>{{ patient.admission.fluids }}</dd>
+
+        <dt>Antibiotics :</dt>
+        <dd>{{ patient.admission.antibiotics }}</dd>
+
+        <dt>Lines :</dt>
+        <dd>{{ patient.admission.lines }}</dd>
+
+        <dt>Analgesia And Sedation :</dt>
+        <dd>{{ patient.admission.analgesiaAndSedation }}</dd>
+
+        <dt>Thrombosis Management :</dt>
+        <dd>{{ patient.admission.thrombosisManagement }}</dd>
+
+        <dt>Ulcer prophylaxis :</dt>
+        <dd>{{ patient.admission.ulcerProphylaxis }}</dd>
+
+        <dt>Other :</dt>
+        <dd>{{ patient.admission.other }}</dd>
+      </dl>
+    </div>
+</div>

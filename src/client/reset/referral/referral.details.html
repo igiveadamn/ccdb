@@ -1,0 +1,222 @@
+<h3>Referral Details</h3>
+<div class="row">
+    <div class="small-6 columns">
+        <dl>
+            <dt>Root :</dt>
+            <dd>{{ patient.referral.emergencyVsElective }}</dd>
+
+            <dt>Referring hospital :</dt>
+            <dd>{{ patient.referral.referringHospital }}</dd>
+
+            <dt>ICU registrar :</dt>
+            <dd>{{ patient.referral.icuRegistrar }}</dd>
+
+            <dt>ICU consultant :</dt>
+            <dd>{{ patient.referral.icuConsultant }}</dd>
+
+            <dt>Referral date :</dt>
+            <dd>{{ patient.referral.referralDate | date: "dd/MM/yyyy HH:mm" }}</dd>
+
+            <dt>Base discipline :</dt>
+            <dd>{{ patient.referral.baseDiscipline }}</dd>
+
+            <dt>Discipline consultant :</dt>
+            <dd>{{ patient.referral.disciplineConsultant }}</dd>
+
+            <dt>Referring doctor :</dt>
+            <dd>{{ patient.referral.referringDoctor }}</dd>
+
+            <dt>Finalising doctor :</dt>
+            <dd>{{ patient.referral.finalisingDoctor }}</dd>
+
+            <dt>Patient location :</dt>
+            <dd>{{ patient.referral.patientLocation }}</dd>
+
+            <dt>Level of care required :</dt>
+            <dd>{{ patient.referral.levelOfCareRequired }}</dd>
+
+            <dt>Icu referral reason :</dt>
+            <dd>{{ patient.referral.reason }}</dd>
+
+            <dt>Planned operation :</dt>
+            <dd>{{ patient.referral.plannedOperation }}</dd>
+
+            <dt>Operation reason :</dt>
+            <dd>{{ patient.referral.plannedOperationReason }}</dd>
+
+            <dt>Operation date :</dt>
+            <dd>{{ patient.referral.plannedOperationDate | date: "dd/MM/yyyy HH:mm" }}</dd>
+
+            <dt>Comorbidities :</dt>
+            <dd>{{ patient.referral.comorbidities.join(", ") }}</dd>
+       </dl>
+    </div>
+  </div>
+<h3>Referral</h3>
+  <div class="row">
+    <div class="small-6 columns">
+      <dl>
+        <dt>Reason of referral to ICU :</dt>
+        <dd>{{ patient.referral.reasonOfReferralToICU }}</dd>
+
+        <dt>Is the referral for a complication of :</dt>
+        <dd>{{ patient.referral.referralForComplicationOf }}</dd>
+
+        <dt>Current patient location :</dt>
+        <dd>{{ patient.referral.CurrentPatientLocation }}</dd>
+
+        <dt>Number of days in hospital :</dt>
+        <dd>{{ patient.referral.numberOfDaysInHospital }}</dd>
+
+        <dt>Is the patient currently ventilated :</dt>
+        <dd>{{ patient.referral.patientCurrentlyVentilated }}</dd>
+
+        <dt>Was this patient in ICU in the previous 48 hours :</dt>
+        <dd>{{ patient.referral.wasThisPatientInIcuInThePrevious48Hours }}</dd>
+
+        <dt>SCCM :</dt>
+        <dd>{{ patient.referral.sCCM }}</dd>
+
+        <dt>Level of care required :</dt>
+        <dd>{{ patient.referral.levelOfCareRequired }}</dd>
+
+        <dt>Decision :</dt>
+        <dd>{{ patient.referral.decision }}</dd>
+
+        <dt>Decision reason :</dt>
+        <dd>{{ patient.referral.decisionReason }}</dd>
+      </dl>
+    </div>
+  </div>
+<h3>Patient Status</h3>
+  <div class="row">
+    <div class="small-6 columns">
+      <dl>
+          <dt>Temperature :</dt>
+          <dd>{{ patient.examination.temperature }}</dd>
+
+          <dt>Systolic pressure :</dt>
+          <dd>{{ patient.examination.systolicBP }}</dd>
+
+          <dt>Diastolic pressure :</dt>
+          <dd>{{ patient.examination.diastolicBP }}</dd>
+
+          <dt>Heart rate :</dt>
+          <dd>{{ patient.examination.heartRate }}</dd>
+
+          <dt>Urine output :</dt>
+          <dd>{{ patient.examination.urineOutput }}</dd>
+
+          <dt>Eye opening :</dt>
+          <dd>{{ patient.examination.eyeOpening }}</dd>
+
+          <dt>Verbal response :</dt>
+          <dd>{{ patient.examination.verbalResponse }}</dd>
+
+          <dt>Motor response :</dt>
+          <dd>{{ patient.examination.motorResponse }}</dd>
+
+          <dt>Glasgow coma scale :</dt>
+          <dd>{{ patient.examination.glasgowcomaScale }}</dd>
+
+          <dt>Haematocrit :</dt>
+          <dd>{{ patient.examination.Haematocrit }}</dd>
+
+          <dt>WBC :</dt>
+          <dd>{{ patient.examination.wBC }}</dd>
+
+          <dt>Sodium :</dt>
+          <dd>{{ patient.examination.sodium }}</dd>
+
+          <dt>Urea :</dt>
+          <dd>{{ patient.examination.urea }}</dd>
+
+          <dt>Creatinine :</dt>
+          <dd>{{ patient.examination.creatinine }}</dd>
+
+          <dt>Albumin :</dt>
+          <dd>{{ patient.examination.albumin }}</dd>
+
+          <dt>Bilirubin :</dt>
+          <dd>{{ patient.examination.bilirubin}}</dd>
+
+          <dt>Glucose :</dt>
+          <dd>{{ patient.examination.glucose }}</dd>
+
+          <dt>FiO2 :</dt>
+          <dd>{{ patient.examination.fiO2 }}</dd>
+
+          <dt>PH :</dt>
+          <dd>{{ patient.examination.pH }}</dd>
+
+          <dt>PCO2 :</dt>
+          <dd>{{ patient.examination.pCO2 }}</dd>
+
+          <dt>PO2 :</dt>
+          <dd>{{ patient.examination.pO2 }}</dd>
+
+          <dt>Lactate :</dt>
+          <dd>{{ patient.examination.lactate }}</dd>
+      </dl>
+    </div>
+  </div>
+<h3>Assessment details</h3>
+  </div class="row">
+    <div class="small-6 columns">
+      <dl>
+        <dt>History :</dt>
+        <dd>{{ patient.referral.History }}</dd>
+
+        <dt>Examination :</dt>
+        <dd>{{ patient.referral.examination }}</dd>
+
+        <dt>Management plan</dt>
+        <dd>{{ patient.referral.managementPlan }}</dd>
+      </dl>
+    </div>
+  </div>
+<h3>Summary note outcome</h3>
+  <div class="row">
+    <div class="small-6 columns">
+      <dl>
+        <dt>Final outcome :</dt>
+        <dd>{{ patient.referral.finalOutcome }}</dd>
+
+        <dt>SCCM score :</dt>
+        <dd>{{ patient.referral.sCCMScore }}</dd>
+
+        <dt>Date and time :</dt>
+        <dd>{{ patient.referral.dateAndTime }}</dd>
+      </dl>
+    </div>
+  </div>
+<h3>Outcome Details</h3>
+  <div class="row">
+    <div class="small-6 columns">
+      <dl>
+        <dt>Outcome entry time and date :</dt>
+        <dd>{{ patient.referral.outcomeEntryTimeandDate }}</dd>
+
+        <dt>Doctor finalising :</dt>
+        <dd>{{ patient.referral.doctorFinalising }}</dd>
+
+        <dt>Revised SCCCM :</dt>
+        <dd>{{ patient.referral.revisedSCCCM }}</dd>
+
+        <dt>If accepted for admission any delays :</dt>
+        <dd>{{ patient.referral.ifAcceptedAnyDelay }}</dd>
+
+        <dt>Reason for delay :</dt>
+        <dd>{{ patient.referral.delayReason }}</dd>
+
+        <dt>If accepted but never admitted :</dt>
+        <dd>{{ patient.referral.IfAcceptedButNeverAdmitted }}</dd>
+
+        <dt>Unit trasnferred to if trasnferred :</dt>
+        <dd>{{ patient.referral.unitTrasnferredToIfTransferred }}</dd>
+
+        <dt>The final outcome of the patient is :</dt>
+        <dd>{{ patient.referral.theFinalOutcomeOfThePatientIs }}</dd>
+      </dl>
+    </div>
+</div>

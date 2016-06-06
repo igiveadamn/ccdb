@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="small-8 columns">
+        <div class="row">
+            <div class="small-2 columns">
+                <label class="right inline">{{ label }}</label>
+            </div>
+            <div class="small-6 columns end">
+                <label ng-repeat="option in options">
+                    <input type="checkbox" checklist-model="value" checklist-value="option" />{{option}}
+                </label>
+            </div>
+        </div>
+    </div>
+</div>

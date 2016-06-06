@@ -1,0 +1,10 @@
+angular.module('ices.utils.form',
+    [
+        'ices.score.form.directive',
+        'ices.utils.form.date.directive',
+        'ices.utils.form.multiselect.directive',
+        'ices.utils.form.select.directive',
+        'ices.utils.form.textarea.directive',
+        'ices.utils.form.text.directive'
+    ]
+);

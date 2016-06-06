@@ -1,0 +1,114 @@
+
+<ices-form-date label="Score date" value="patient.score.scoreDate" ng-hide="referral || admission"></ices-form-date>
+
+<ices-form-text label="Creatinine (mg/dL)" value="patient.scores[0].creatinine" ng-hide="admission"></ices-form-text>
+
+<ices-form-text label="Creatinine (mg/dL)" value="patient.scores[1]" ng-hide="referral"></ices-form-text>
+
+<ices-form-text label="Diastolic blood pressure (mm Hg)" value="patient.scores[0].diastolicPressure" ng-hide="admission"></ices-form-text>
+
+<ices-form-text label="Diastolic blood pressure (mm Hg)" value="patient.scores[1].diastolicPressure" ng-hide="referral"></ices-form-text>
+
+<ices-form-text label="Glucose (mmol/L)" value="patient.scores[0].glucose" ng-hide="admission"></ices-form-text>
+
+<ices-form-text label="Glucose (mmol/L)" value="patient.scores[1].glucose" ng-hide="referral"></ices-form-text>
+
+<ices-form-text label="Heart rate (beats/minute)" value="patient.scores[0].heartRate"></ices-form-text>
+
+<ices-form-text label="Respiratory heart rate (breaths/minute)" value="patient.scores[1].respiratoryRate" ng-hide="referral"></ices-form-text>
+
+<ices-form-text label="Sodium (mEq/L)" value="patient.scores[0].sodium" ng-hide="admission"></ices-form-text>
+
+<ices-form-text label="Sodium (mEq/L)" value="patient.scores[1].sodium" ng-hide="referral"></ices-form-text>
+
+<ices-form-text label="Systolic blood pressure (mm Hg)" value="patient.scores[0].systolicPressure" ng-hide="admission"></ices-form-text>
+
+<ices-form-text label="Systolic blood pressure (mm Hg)" value="patient.scores[1].systolicPressure" ng-hide="referral"></ices-form-text>
+
+<ices-form-text label="Temperature (&deg;C)" value="patient.score.temperature" ng-hide="admission"></ices-form-text>
+
+<ices-form-text label="Temperature (&deg;C)" value="patient.scores[1].temperature" ng-hide="referral"></ices-form-text>
+
+<ices-form-text label="Urine output (mls/hr)" value="patient.scores[0].urineOutput" ng-hide="admission"></ices-form-text>
+
+<ices-form-text label="Urine output (mls/hr)" value="patient.scores[1].urineOutput" ng-hide="referral"></ices-form-text>
+
+<ices-form-select label="Eye opening" options="eyeOpening" value="patient.scores[0].eyeOpening" ng-hide="admission"></ices-form-select>
+
+<ices-form-select label="Eye opening" options="eyeOpening" value="patient.scores[1].eyeOpening" ng-hide="referral"></ices-form-select>
+
+<ices-form-select label="Verbal response" options="verbalResponse" value="patient.scores[0].verbalResponse" ng-hide="admission"></ices-form-select>
+
+<ices-form-select label="Verbal response" options="verbalResponse" value="patient.scores[1].verbalResponse" ng-hide="referral"></ices-form-select>
+
+<ices-form-select label="Motor response" options="motorResponse" value="patient.scores[0].motorResponse" ng-hide="admission"></ices-form-select>
+
+<ices-form-select label="Motor response" options="motorResponse" value="patient.scores[1].motorResponse" ng-hide="referral"><ices-form-select>
+
+<ices-form-text label="Glasgow coma scale" value="patient.scores[0].glasgowcomaScale" ng-hide="admission"></ices-form-text>
+
+<ices-form-text label="Glasgow coma scale" value="patient.scores[1].glasgowComaScale" ng-hide="referral"></ices-form-text>
+
+<ices-form-text label="Pupils" value="patient.score.pupils" ng-hide="admission || referral"></ices-form-text>
+
+<ices-form-text label="Ventilated" value="patient.score.ventilated" ng-hide="referral || admission"></ices-form-text>
+
+<ices-form-text label="Thrombolytic therapy" value="patient.score.thrombolyticTherapy" ng-hide="referral || admission"></ices-form-text>
+
+<ices-form-text label="Haematocrit (%)" value="patient.scores[0].haematocrit" ng-hide="admission"></ices-form-text>
+
+<ices-form-text label="Haematocrit (%)" value="patient.scores[1].haematocrit" ng-hide="referral"></ices-form-text>
+
+<ices-form-text label="WBC (x103/mm3)" value="patient.scores[0].wBC" ng-hide="admission"></ices-form-text>
+
+<ices-form-text label="WBC (x103/mm3)" value="patient.scores[1].wBC" ng-hide="referral"></ices-form-text>
+
+<ices-form-text label="Potassium (mEq/L)" value="patient.score.potassium" ng-hide="referral || admission"></ices-form-text>
+
+<ices-form-text label="Corr Calcium (mmol/l)" value="patient.score.corrCalcium" ng-hide="referral || admission"></ices-form-text>
+
+<ices-form-text label="Urea (mmol/l)" value="patient.scores[0].urea" ng-hide="admission"></ices-form-text>
+
+<ices-form-text label="Albumin (g/l)" value="patient.scores[0].albumin" ng-hide="admission"></ices-form-text>
+
+<ices-form-text label="Bilirubin (umol/l)" value="patient.scores[0].bilirubin" ng-hide="admission"></ices-form-text>
+
+<ices-form-text label="INR" value="patient.score.iNR" ng-hide="referral || admission"></ices-form-text>
+
+<ices-form-text label="FiO2 (%)" value="patient.scores[0].fiO2" ng-hide="admission"></ices-form-text>
+
+<ices-form-text label="Fio2 (%)" value="patient.scores[1].fiO2" ng-hide="referral"></ices-form-text>
+
+<ices-form-text label="PH (%)" value="patient.scores[0].pH" ng-hide="admission"></ices-form-text>
+
+<ices-form-text label="PH" value="patient.scores[1].pH" ng-hide="referral"></ices-form-text>
+
+<ices-form-text label="PCO2 (kPa)" value="patient.scores[0].pCO2" ng-hide="admission"></ices-form-text>
+
+<ices-form-text label="PCO2 (kPa)" value="patient.scores[1].pCO2" ng-hide="referral"></ices-form-text>
+
+<ices-form-text label="pO2 (kPa)" value="patient.scores[0].pO2" ng-hide="admission"></ices-form-text>
+
+<ices-form-text label="pO2 (kPa)" value="patient.scores[1].pO2" ng-hide="referral"></ices-form-text>
+
+<ices-form-text label="Lactate" value="patient.scores[0].lactate"></ices-form-text>
+
+<ices-form-text label="Lactate" value="patient.scores[1].lactate" ng-hide="referral"></ices-form-text>
+
+<ices-form-text label="HCO3 (mEq/L)" value="patient.scores.hCO3" ng-hide="referral || admission"></ices-form-text>
+
+<ices-form-text label="Base excess" value="patient.scores[1].baseExcess" ng-hide="referral"></ices-form-text>
+
+<ices-form-text label="Airway" value="patient.scores[1].airway" ng-hide="referral"></ices-form-text>
+
+<ices-form-text label="Bicarbonate" value="patient.scores[1].bicarbonate" ng-hide="referral"></ices-form-text>
+
+<ices-form-text label="Current antibiotic therapy in ward" value="patient.scores[1].currentAntibioticTherapyInWard" ng-hide="referral"></ices-form-text>
+
+<ices-form-text label="Duration of antibtioics" value="patient.scores[1].durationOfAntibtioics" ng-hide="referral"></ices-form-text>
+
+<ices-form-textarea label="Notes" value="patient.scores.notes" ng-hide="admission || referral"></ices-form-textarea>
+
+<ices-form-text label="Saturation" value="patient.scores[1].saturation" ng-hide="referral"></ices-form-text>
+
+<ices-form-text label="Sedated" value="patient.scores[1].sedated" ng-hide="referral"></ices-form-text>

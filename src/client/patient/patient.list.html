@@ -1,0 +1,25 @@
+<div class="callout">
+    <h3>{{title}}</h3>
+    <table class="hover">
+        <thead>
+        <tr>
+            <th width="250">Last name</th>
+            <th width="250">First name</th>
+            <th width="100">Age</th>
+            <th width="100">Gender</th>
+            <th width="250">Reference</th>
+            <th width="280">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="patient in patients">
+            <td>{{patient.lastName}}</td>
+            <td>{{patient.firstName}}</td>
+            <td>{{patient.birthDate | ageFilter}}</td>
+            <td>{{patient.gender}}</td>
+            <td>{{patient.reference}}</td>
+            <td> <span ng-repeat="button in btns"><a ng-click="act(button, patient)" class="small hollow button">{{button}}</a> </span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,25 @@
+<div id="nav-guy" data-sticky-container style="background-color: #f8f8f8;">
+    <nav class="sticky" data-sticky data-options="marginTop: 0;">
+        <div class="top-bar">
+            <div class="row column">
+                <div class="top-bar-left">
+                    <ul class="dropdown menu" data-dropdown-menu>
+                        <li class="menu-text"><a href="#/dashboard">Ices</a></li>
+                    </ul>
+                </div>
+                <div class="top-bar-right">
+                    <ul class="menu">
+                        <li><a href="#/dashboard">Dashboard</a></li>
+                        <li><a href="#/search">Search</a></li>
+                        <li><a href="#/editPatient/new">New Referral</a></li>
+                        <li><a href="#/users">Users</a></li>
+                        <li><a href="#/login" ng-show="!isLoggedIn">Log In</a></li>
+                        <li><a href="#/logout" ng-show="isLoggedIn" ng-click="logout()">Log Out</a></li>
+                        <li ng-show="online"><a><span class="round success label">Online</span></a></li>
+                        <li ng-hide="online"><a><span class="round alert label">Offline</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

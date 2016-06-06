@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="small-8 columns">
+        <div class="row">
+            <div class="small-2 columns">
+                <label for="right-label" class="right inline">{{ label }}</label>
+            </div>
+            <div class="small-6 columns end">
+                <input
+                    type="text"
+                    id="right-label"
+                    placeholder="{{ label }}"
+                    ng-model="value"
+                    typeahead="item for item in getSuggestions($viewValue) | filter:$viewValue"
+                    typeahead-loading="loading"
+                >
+            </div>
+        </div>
+    </div>
+</div>

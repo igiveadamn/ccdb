@@ -1,0 +1,11 @@
+<h3>Discharge Details</h3>
+<dl>
+    <dt>Discharge date :</dt>
+    <dd>{{ patient.discharge.dischargeDate | date: "dd/MM/yyyy HH:mm"  || 'empty' }}</dd>
+
+    <dt>Status :</dt>
+    <dd>{{ patient.discharge.status }}</dd>
+
+    <dt>Comments :</dt>
+    <dd><pre>{{ patient.discharge.comments }}</pre></dd>
+</dl>
