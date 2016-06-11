@@ -23,7 +23,8 @@ angular.module('ices',
         'ices.reset',
         'ices.user',
         'ices.utils.age.filter',
-        'ices.utils.localStorage.factory'
+        'ices.utils.localStorage.factory',
+        'ui.bootstrap'
     ])
     .config(function ($routeProvider, $httpProvider, angularCombineConfigProvider) {
         $routeProvider.otherwise(
