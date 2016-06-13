@@ -14,7 +14,7 @@ var patient = require('./models/patient');
 var user = require('./models/user.js');
 
 var connect = function () {
-    mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/ices');
+    mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost:29017');
 };
 connect();
 
