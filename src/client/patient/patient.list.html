@@ -1,6 +1,6 @@
-<div class="callout">
-    <h3>{{title}}</h3>
-    <table class="hover">
+<div class="panel panel-default">
+    <table class="table table-hover">
+        <caption>{{title}}</caption>
         <thead>
         <tr>
             <th width="250">Last name</th>
@@ -18,7 +18,7 @@
             <td>{{patient.birthDate | ageFilter}}</td>
             <td>{{patient.gender}}</td>
             <td>{{patient.reference}}</td>
-            <td> <span ng-repeat="button in btns"><a ng-click="act(button, patient)" class="small hollow button">{{button}}</a> </span></td>
+            <td> <span ng-repeat="button in btns"><a ng-click="act(button, patient)" class="btn btn-default">{{button}}</a> </span></td>
         </tr>
         </tbody>
     </table>
