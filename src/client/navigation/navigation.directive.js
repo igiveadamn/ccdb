@@ -1,5 +1,4 @@
-angular
-  .module('ices.navigation', ['ices.authentication.authentication', 'ices.authentication.user.authentication'])
+angular.module('ices.navigation', ['ices.authentication.authentication', 'ices.authentication.user.authentication', 'ui.bootstrap'])
 
   .directive('navigation', function navigation(Authentication, UserAuthentication) {
     return {
