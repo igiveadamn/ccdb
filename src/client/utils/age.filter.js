@@ -1,4 +1,4 @@
-angular.module('ices.utils.age.filter', [])
+angular.module('ccdb.utils.age.filter', [])
 
     .filter('ageFilter', function () {
         return function calculateAge(dateOfBirth) {

@@ -1,4 +1,4 @@
-angular.module('ices.patient.service', [])
+angular.module('ccdb.patient.service', [])
 
     .factory('PatientService', function ($http) {
 

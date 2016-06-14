@@ -1,6 +1,6 @@
-angular.module('ices.score.directive', [])
+angular.module('ccdb.score.directive', [])
 
-    .directive('icesScore', function () {
+    .directive('ccdbScore', function () {
         return {
             restrict: 'E',
             templateUrl: 'score/score.html',

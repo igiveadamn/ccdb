@@ -95,7 +95,7 @@ module.exports = function (grunt) {
                     args: [],
                     env: {
                         POSTMARK_API_TOKEN: 'be96d532-a26f-4ac9-bdbc-055467d26ed8',
-                        ICES_SERVER: 'http://localhost/'
+                        CCDB_SERVER: 'http://localhost/'
                     },
                     ext: 'js',
                     nodeArgs: ['--debug'],

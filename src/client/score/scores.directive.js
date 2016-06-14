@@ -1,6 +1,6 @@
-angular.module('ices.scores.directive', ['ices.patient', 'ices.score.directive'])
+angular.module('ccdb.scores.directive', ['ccdb.patient', 'ccdb.score.directive'])
 
-    .directive('icesScores', function () {
+    .directive('ccdbScores', function () {
         return {
             restrict: 'E',
             templateUrl: 'score/scores.html',

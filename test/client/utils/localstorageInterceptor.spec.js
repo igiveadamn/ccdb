@@ -1,7 +1,7 @@
 describe('Local storage Interceptor', function () {
     'use strict';
 
-    beforeEach(module('ices.cache.localStorage.interceptor'));
+    beforeEach(module('ccdb.cache.localStorage.interceptor'));
     var nativeLocalStorage, localStorageInterceptor;
 
     beforeEach(inject(function ($localStorage, LocalStorageInterceptor) {

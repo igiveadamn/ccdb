@@ -1,4 +1,4 @@
-angular.module('ices.authentication.authentication', [])
+angular.module('ccdb.authentication.authentication', [])
     .factory('Authentication', function ($window) {
         return {
             isLoggedIn: false,

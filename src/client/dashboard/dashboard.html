@@ -1,25 +1,25 @@
 <div class="well">
-    <ices-patient-list title="Referrals"
+    <ccdb-patient-list title="Referrals"
                        buttons="Edit,Admit"
                        filter='{"referral.decision": "Cannot make decision now"}'
-    ></ices-patient-list>
-    <ices-patient-list title="Admitted patients"
+    ></ccdb-patient-list>
+    <ccdb-patient-list title="Admitted patients"
                        buttons="Edit,Discharge"
                        filter='{"referral.decision": "Accepted", "discharge.dischargeDate": null}'
-    ></ices-patient-list>
+    ></ccdb-patient-list>
 
     <div class="panel panel-default">
         <h3>Weekly Reports</h3>
-        <ices-date-range></ices-date-range>
+        <ccdb-date-range></ccdb-date-range>
         <dl>
-            <ices-patient-count title="Number of Referrals"
+            <ccdb-patient-count title="Number of Referrals"
                                 range-field="referral.referralDate"
                                 filter='{"referral.decision": "Cannot make decision now"}'
-            ></ices-patient-count>
-            <ices-patient-count title="Admitted patients"
+            ></ccdb-patient-count>
+            <ccdb-patient-count title="Admitted patients"
                                 range-field="admission.firstAdmittedDate"
                                 filter='{"referral.decision": "Accepted", "discharge.dischargeDate": null}'
-            ></ices-patient-count>
+            ></ccdb-patient-count>
         </dl>
     </div>
 </div>

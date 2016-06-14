@@ -1,6 +1,6 @@
-angular.module('ices.date.range.directive', ['ices.date.range.service'])
+angular.module('ccdb.date.range.directive', ['ccdb.date.range.service'])
 
-    .directive('icesDateRange', function (DateRangeService) {
+    .directive('ccdbDateRange', function (DateRangeService) {
         return {
             restrict: 'E',
             templateUrl: 'utils/date.range.html',

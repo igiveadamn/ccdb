@@ -1,9 +1,11 @@
-<div class="panel">
+<div class="well">
+    <div class="panel panel-default">
     <form>
-        <ices-form-text no-suggestions="true" label="Username" value="user.username"></ices-form-text>
-        <ices-form-text no-suggestions="true" label="Name" value="user.name"></ices-form-text>
-        <ices-form-select label="Hospital" options="hospitals" value="user.hospital"></ices-form-select>
-        <ices-form-select label="Role" options="roles" value="user.role"></ices-form-select>
-        <a ng-click="save(user)" class="button radius">Save</a>
+        <ccdb-form-text no-suggestions="true" label="Username" value="user.username"></ccdb-form-text>
+        <ccdb-form-text no-suggestions="true" label="Name" value="user.name"></ccdb-form-text>
+        <ccdb-form-select label="Hospital" options="hospitals" value="user.hospital"></ccdb-form-select>
+        <ccdb-form-select label="Role" options="roles" value="user.role"></ccdb-form-select>
+        <a ng-click="save(user)" class="btn btn-default">Save</a>
     </form>
+</div>
 </div>

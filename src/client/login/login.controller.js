@@ -1,4 +1,4 @@
-angular.module('ices.login', ['ices.authentication.authentication', 'ices.authentication.user.authentication', 'ui.bootstrap'])
+angular.module('ccdb.login', ['ccdb.authentication.authentication', 'ccdb.authentication.user.authentication', 'ui.bootstrap'])
 
     .config(function ($routeProvider) {
         $routeProvider.when(

@@ -3,7 +3,7 @@ var localStorageFeature = true;
 describe('Local storage', function () {
     'use strict';
 
-    beforeEach(module('ices.utils.localStorage.factory'));
+    beforeEach(module('ccdb.utils.localStorage.factory'));
     var localStorage, nativeLocalStorage, patientRule;
 
     beforeEach(inject(function (LocalStorage, $localStorage, PatientRule) {

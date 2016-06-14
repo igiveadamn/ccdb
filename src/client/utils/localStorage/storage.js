@@ -1,6 +1,6 @@
 var localStorageFeature = true;
 
-angular.module('ices.utils.localStorage.factory', ['ngStorage'])
+angular.module('ccdb.utils.localStorage.factory', ['ngStorage'])
     .factory('StorageService', function ($localStorage, $log) {
         var store = function (namespace, data, markAsDirty) {
             if (_.isUndefined(namespace)) {

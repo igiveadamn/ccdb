@@ -1,0 +1,76 @@
+<ccdb-form-select label="Roots" options="roots" value="patient.referral.emergencyVsElective"></ccdb-form-select>
+<ccdb-form-text label="ICU registrar/Doctor" value="patient.referral.icuRegistrar"></ccdb-form-text>
+<ccdb-form-text label="ICU consultant" value="patient.referral.icuConsultant"></ccdb-form-text>
+<ccdb-form-date label="Entry time and date" ng-model="patient.referral.entryTimeAndDate"></ccdb-form-date>
+<ccdb-form-date label="Referral date" ng-model="patient.referral.referralDate"></ccdb-form-date>
+<ccdb-form-date label="Time patient seen by ICU" ng-model="patient.referral.timePatientSeenByICU" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-date>
+<ccdb-form-select label="Operative status at time of referral" options="operativeStatusAtTimeOfReferral" value="patient.referral.operativeStatusAtTimeOfReferral" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-select>
+<ccdb-form-text label="Base discipline referring" value="patient.referral.baseDisciplineReferring"></ccdb-form-text>
+<ccdb-form-text label="Base discipline consultant" value="patient.referral.baseDisciplineConsultant"></ccdb-form-text>
+<ccdb-form-text label="Referring doctor" value="patient.referral.referringDoctor"></ccdb-form-text>
+<ccdb-form-text label="Discipline of referring doctor" value="patient.referral.disciplineOfReferringDoctor"></ccdb-form-text>
+<ccdb-form-text label="Referring hospital" value="patient.referral.referringHospital" ng-show="patient.referral.emergencyVsElective =='Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Referral hospital" value="patient.referral.referralHospital" ng-show="patient.referral.emergencyVsElective =='Emergency'"></ccdb-form-text>
+<ccdb-form-select label="Diagnosis" options="diagnosis" value="patient.referral.diagnosis" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-select>
+<ccdb-form-select label="Patient location" options="patientLocation" value="patient.referral.patientLocation" ng-show="patient.referral.emergencyVsElective == 'Elective'"></ccdb-form-select>
+<ccdb-form-select label="Level of care required" options="levelsOfCare" value="patient.referral.levelOfCareRequired" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-select>
+<ccdb-form-select label="Reason of referral to ICU" options="reasonOfReferralToICU" value="patient.referral.reasonOfReferralToICU" ng-show="patient.referral.emergencyVsElective == 'Elective'"></ccdb-form-select>
+<ccdb-form-textarea label="Planned operation" value="patient.referral.plannedOperation" ng-show="patient.referral.emergencyVsElective == 'Elective'"></ccdb-form-textarea>
+<ccdb-form-textarea label="Planned operation reason" value="patient.referral.reasonForOperation" ng-show="patient.referral.emergencyVsElective == 'Elective'"></ccdb-form-textarea>
+<ccdb-form-date label="Date operation planned" ng-model="patient.referral.dateOperationPlanned" ng-show="patient.referral.emergencyVsElective == 'Elective'"></ccdb-form-date>
+<ccdb-form-text label="Diagnosis details" value="patient.referral.diagnosisDetails" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-multiselect label="Comorbidities" options="comorbidities" value="patient.referral.comorbidities"></ccdb-form-multiselect>
+
+<ccdb-form-select label="Reason of referral to ICU" options="reasonOfReferralToICU" value="patient.referral.reasonOfReferralToICU" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-select>
+<ccdb-form-select label="Is the referral for a complication of" options="referralForComplicationOf" value="patient.referral.referralForComplicationOf" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-select>
+<ccdb-form-select label="Current patient location" options="CurrentPatientLocation" value="patient.referral.CurrentPatientLocation" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-select>
+<ccdb-form-text label="Number of days in hospital" value="patient.referral.numberOfDaysInHospital" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Is the patient currently ventilated" value="patient.referral.patientCurrentlyVentilated" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Was this patient in ICU in the previous 48 hours" value="patient.referral.wasThisPatientInIcuInThePrevious48Hours" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-select label="SCCM" options="sCCM" value="patient.referral.sCCM" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-select>
+<ccdb-form-select label="Level of care required" options="levelOfCareRequired" value="patient.referral.levelOfCareRequired" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-select>
+<ccdb-form-select label="Decision" options="decision" value="patient.referral.decision" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-select>
+<ccdb-form-text label="Decision reason" value="patient.referral.decisionReason" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+
+<ccdb-form-text label="History" value="patient.referral.history" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Examination" value="patient.referral.examination" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Management plan" value="patient.referral.managementPlan" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+
+<ccdb-form-select label="Final outcome" options="finalOutcomeNote" value="patient.referral.finalOutcomeNote" ng-show="patient.referral.emergencyVsElective == 'Elective'"></ccdb-form-select>
+<ccdb-form-select label="Sccm score"options="sccmScore" value="patient.referral.sccmScore" ng-show="patient.referral.emergencyVsElective == 'Elective'"></ccdb-form-select>
+<ccdb-form-date label="Date and time" ng-model="patient.referral.dateAndTimeNote" ng-show="patient.referral.emergencyVsElective == 'Elective'"></ccdb-form-date>
+
+
+<ccdb-form-date label="Outcome entry time and date" ng-model="patient.referral.outcomeEntryTimeandDate"></ccdb-form-date>
+<ccdb-form-text label="Doctor finalising" value="patient.referral.doctorFinalising"></ccdb-form-text>
+<ccdb-form-select label="Revised SCCCM" options="revisedScccm" value="patient.referral.revisedScccm"></ccdb-form-select>
+<ccdb-form-textarea label="Any delay on admission" value="patient.referral.ifAcceptedAnyDelay"></ccdb-form-textarea>
+<ccdb-form-textarea label="Reason for delay" value="patient.referral.delayReason"></ccdb-form-textarea>
+<ccdb-form-textarea label="If accepted but never admitted" value="patient.referral.IfAcceptedButNeverAdmitted"></ccdb-form-textarea>
+<ccdb-form-text label="Unit trasnferred to if trasnferred" value="patient.referral.unitTrasnferredToIfTrasnferred "></ccdb-form-text>
+<ccdb-form-textarea label="The final outcome of the patient is" value="patient.referral.theFinalOutcomeOfThePatientIs"></ccdb-form-textarea>
+
+
+<!-- score -->
+<ccdb-form-text label="Temperature (&deg;C)" value="patient.scores[0].temperature" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Systolic blood pressure (mmHg)" value="patient.scores[0].systolicPressure" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Diastolic blood pressure (mmHg)" value="patient.scores[0].diastolicPressure" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Heart rate (bpm)" value="patient.scores[0].heartRate" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Urine output (mls/hr)" value="patient.scores[0].urineOutput" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-select label="Eye opening" options="eyeOpening" value="patient.scores[0].eyeOpening" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-select>
+<ccdb-form-select label="Verbal response" options="verbalResponse" value="patient.scores[0].verbalResponse" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-select>
+<ccdb-form-select label="Motor response" options="motorResponse" value="patient.scores[0].motorResponse" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-select>
+<ccdb-form-text label="Glasgow coma scale" value="patient.scores[0].glasgowComaScale" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Haematocrit (%)" value="patient.scores[0].haematocrit" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="WBC (x103/mm3)" value="patient.scores[0].wBC" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Sodium (mEq/L)" value="patient.scores[0].sodium" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Urea (mmol/l)" value="patient.scores[0].urea" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Creatinine (mg/dL)" value="patient.scores[0].creatinine" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Albumin (g/l)" value="patient.scores[0].albumin" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Bilirubin (umol/l)" value="patient.scores[0].bilirubin" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Glucose (mmol/L)" value="patient.scores[0].glucose" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="FiO2 (%)" value="patient.scores[0].fiO2" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="PH (%)" value="patient.scores[0].pH" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="PCO2 (kPa)" value="patient.scores[0].pCO2" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="pO2 (kPa)" value="patient.scores[0].pO2" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Lactate" value="patient.scores[0].lactate" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>

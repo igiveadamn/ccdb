@@ -1,6 +1,6 @@
-angular.module('ices.user',
+angular.module('ccdb.user',
     [
-        'ices.user.controller',
-        'ices.user.service'
+        'ccdb.user.controller',
+        'ccdb.user.service'
     ]
 );

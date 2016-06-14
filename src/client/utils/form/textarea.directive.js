@@ -1,6 +1,6 @@
-angular.module('ices.utils.form.textarea.directive', [])
+angular.module('ccdb.utils.form.textarea.directive', [])
 
-    .directive('icesFormTextarea', function () {
+    .directive('ccdbFormTextarea', function () {
         return {
             restrict: 'E',
             templateUrl: 'utils/form/textarea.html',

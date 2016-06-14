@@ -1,6 +1,6 @@
-angular.module('ices.utils.form.multiselect.directive', ['checklist-model'])
+angular.module('ccdb.utils.form.multiselect.directive', ['checklist-model'])
 
-    .directive('icesFormMultiselect', function () {
+    .directive('ccdbFormMultiselect', function () {
         return {
             restrict: 'E',
             templateUrl: 'utils/form/multiselect.html',

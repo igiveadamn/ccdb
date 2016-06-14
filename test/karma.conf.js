@@ -42,7 +42,7 @@ module.exports = function (config) {
             //prependPrefix: "web/path/to/templates/",
 
             // the name of the Angular module to create
-            moduleName: "ices.templates"
+            moduleName: "ccdb.templates"
         },
 
         junitReporter: {

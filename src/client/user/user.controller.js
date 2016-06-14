@@ -1,4 +1,4 @@
-angular.module('ices.user.controller', ['ngRoute', 'ices.user.service', 'ices.utils.form'])
+angular.module('ccdb.user.controller', ['ngRoute', 'ccdb.user.service', 'ccdb.utils.form'])
 
     .config(function ($routeProvider) {
         $routeProvider.when(

@@ -1,4 +1,4 @@
-angular.module('ices.date.range.service', [])
+angular.module('ccdb.date.range.service', [])
 
     .service('DateRangeService', function () {
         var listeners = [];

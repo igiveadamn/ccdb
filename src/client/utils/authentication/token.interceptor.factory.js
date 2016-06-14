@@ -1,4 +1,4 @@
-angular.module('ices.authentication.token.interceptor', [])
+angular.module('ccdb.authentication.token.interceptor', [])
     .factory('TokenInterceptor', function ($q, $window) {
         return {
             request: function (config) {

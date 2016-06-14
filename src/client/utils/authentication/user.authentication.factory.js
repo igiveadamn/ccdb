@@ -1,4 +1,4 @@
-angular.module('ices.authentication.user.authentication', ['ices.authentication.authentication'])
+angular.module('ccdb.authentication.user.authentication', ['ccdb.authentication.authentication'])
     .factory('UserAuthentication', function ($window, $location, $http, Authentication) {
         return {
             login: function (username, password) {

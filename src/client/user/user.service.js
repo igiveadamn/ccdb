@@ -1,4 +1,4 @@
-angular.module('ices.user.service', [])
+angular.module('ccdb.user.service', [])
 
     .factory('UserService', function ($http) {
 

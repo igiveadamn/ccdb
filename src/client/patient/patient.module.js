@@ -1,6 +1,6 @@
-angular.module('ices.patient',
+angular.module('ccdb.patient',
     [
-        'ices.patient.controller',
-        'ices.patient.service'
+        'ccdb.patient.controller',
+        'ccdb.patient.service'
     ]
 );

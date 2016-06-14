@@ -1,6 +1,6 @@
-angular.module('ices.score.form.directive', [])
+angular.module('ccdb.score.form.directive', [])
 
-    .directive('icesScoreForm', function () {
+    .directive('ccdbScoreForm', function () {
         return {
             restrict: 'E',
             templateUrl: 'score/score.form.html',

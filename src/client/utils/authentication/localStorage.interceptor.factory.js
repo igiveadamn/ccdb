@@ -1,4 +1,4 @@
-angular.module('ices.cache.localStorage.interceptor', ['ices.utils.localStorage.factory'])
+angular.module('ccdb.cache.localStorage.interceptor', ['ccdb.utils.localStorage.factory'])
     .factory('LocalStorageInterceptor', function ($q, LocalStorage, $rootScope, $log) {
         function isPatientCall(config) {
             return _.startsWith(config.url, '/api/patient/') && config.url.indexOf('/api/patient/suggestions') < 0;

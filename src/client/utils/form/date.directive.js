@@ -1,6 +1,6 @@
-angular.module('ices.utils.form.date.directive', [])
+angular.module('ccdb.utils.form.date.directive', [])
 
-    .directive('icesFormDate', function () {
+    .directive('ccdbFormDate', function () {
 
         function range(a, z) {
             var list = [];

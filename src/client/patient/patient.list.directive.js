@@ -1,6 +1,6 @@
-angular.module('ices.patient.list.directive', ['ices.patient.service', 'ices.utils.age.filter'])
+angular.module('ccdb.patient.list.directive', ['ccdb.patient.service', 'ccdb.utils.age.filter'])
 
-    .directive('icesPatientList', function () {
+    .directive('ccdbPatientList', function () {
         return {
             restrict: 'E',
             templateUrl: 'patient/patient.list.html',

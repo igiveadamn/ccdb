@@ -1,6 +1,6 @@
-angular.module('ices.utils.form.text.directive', ['ices.patient.service'])
+angular.module('ccdb.utils.form.text.directive', ['ccdb.patient.service'])
 
-    .directive('icesFormText', function (PatientService) {
+    .directive('ccdbFormText', function (PatientService) {
         return {
             restrict: 'E',
             templateUrl: 'utils/form/text.html',

@@ -1,10 +1,10 @@
-angular.module('ices.utils.form',
+angular.module('ccdb.utils.form',
     [
-        'ices.score.form.directive',
-        'ices.utils.form.date.directive',
-        'ices.utils.form.multiselect.directive',
-        'ices.utils.form.select.directive',
-        'ices.utils.form.textarea.directive',
-        'ices.utils.form.text.directive'
+        'ccdb.score.form.directive',
+        'ccdb.utils.form.date.directive',
+        'ccdb.utils.form.multiselect.directive',
+        'ccdb.utils.form.select.directive',
+        'ccdb.utils.form.textarea.directive',
+        'ccdb.utils.form.text.directive'
     ]
 );

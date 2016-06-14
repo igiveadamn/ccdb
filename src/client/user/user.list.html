@@ -1,19 +1,22 @@
-<h2>Users</h2>
-<a href="#/editUser/new" class="button radius">New User</a>
-<table class="users">
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Hospital</th>
-        <th>Role</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr ng-repeat="user in users">
-        <td>{{user.name}}</td>
-        <td>{{user.hospital}}</td>
-        <td>{{user.role}}</td>
-        <td><a href="#/editUser/{{user._id}}" class="button radius">Edit</a></td>
-    </tr>
-    </tbody>
-</table>
+<div class="well">
+    <div class="panel panel-default">
+    <h2>Users</h2>
+    <a href="#/editUser/new" class="btn btn-default">New User</a>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Hospital</th>
+            <th>Role</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="user in users">
+            <td>{{user.name}}</td>
+            <td>{{user.hospital}}</td>
+            <td>{{user.role}}</td>
+            <td><a href="#/editUser/{{user._id}}" class="button radius">Edit</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div></div>

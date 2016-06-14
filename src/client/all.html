@@ -240,32 +240,112 @@
     </div>
 </div>
 </script>
+<script type="text/ng-template" id="admission/admission.form.html">
+<ccdb-form-text label="Data carried over" value="patient.admission.dataCarriedOver"></ccdb-form-text>
+<ccdb-form-text label="Patient first name" value="patient.admission.patientFirstName "></ccdb-form-text>
+<ccdb-form-text label="Patient last name" value="patient.admission.patientLastName"></ccdb-form-text>
+<ccdb-form-text label="Other name" value="patient.admission.patientOtherName"></ccdb-form-text>
+<ccdb-form-date label="Date of birth" ng-model="patient.admission.dateOfBirth"></ccdb-form-date>
+<ccdb-form-date label="Admission date and time" ng-model="patient.admission.admissionDateAndTime"></ccdb-form-date>
+<ccdb-form-select label="Emergency vs elective" options="roots" value="patient.admission.roots"></ccdb-form-select>
+<ccdb-form-text label="Hospital admitted from" value="patient.admission.admittedFrom"></ccdb-form-text>
+<ccdb-form-text label="Days in Hospital before ICU" value="patient.admission.numOfdaysInhospitalBeforeICU"></ccdb-form-text>
+<ccdb-form-text label="Admitting doctor" value="patient.admission.admittingDoctor"></ccdb-form-text>
+<ccdb-form-text label="Admitting consultant" value="patient.admission.admittingConsultant"></ccdb-form-text>
+
+<ccdb-form-select label="Operative Details" options="operativeDetails" value="patient.admission.operativeDetails"></ccdb-form-select>
+<ccdb-form-date label="Date and time of surgery" ng-model="patient.admission.surgeryDateAndTime"></ccdb-form-date>
+<ccdb-form-text label="Operation performed" value="patient.admission.operationPerformed"></ccdb-form-text>
+<ccdb-form-text label="Operative findings" value="patient.admission.operativeFindings"></ccdb-form-text>
+<ccdb-form-textarea label="Operative Plan" value="patient.admission.operativePlan"></ccdb-form-textarea>
+<ccdb-form-text label="Duration of operation" value="patient.admission.durationOfOperation"></ccdb-form-text>
+<ccdb-form-text label="Anaesthesia" value="patient.admission.anaesthesia"></ccdb-form-text>
+<ccdb-form-text label="Grade of laryngoscopy" value="patient.admission.gradeOfLaryngoscopy"></ccdb-form-text>
+<ccdb-form-text label="Duration of anaesthesia" value="patient.admission.durationOfAnaesthesia"></ccdb-form-text>
+<ccdb-form-text label="Antibiotic" value="patient.admission.antibiotics"></ccdb-form-text>
+<ccdb-form-text label="Intra-operative total volumes" value="patient.admission.intraOperativeTotalVolumes"></ccdb-form-text>
+<ccdb-form-text label="Blood loss" value="patient.admission.bloodLoss"></ccdb-form-text>
+<ccdb-form-text label="Urine output (mls/hr)" value="patient.admission.urineOutput"></ccdb-form-text>
+<ccdb-form-text label="Crystalloid volume" value="patient.admission.crystalloidVolume"></ccdb-form-text>
+<ccdb-form-text label="Colloid volume" value="patient.admission.colloidVolume"></ccdb-form-text>
+<ccdb-form-text label="Packed cell" value=" patient.admission.packedCells"></ccdb-form-text>
+<ccdb-form-text label="Freeze dried plasma" value="patient.admission.freezeDriedPlasma"></ccdb-form-text>
+<ccdb-form-text label="Platelets" value="patient.admission.platelets"></ccdb-form-text>
+<ccdb-form-text label="Cruoprecipitate" value="patient.admission.cruoprecipitate"></ccdb-form-text>
+
+<ccdb-form-text label="Airway and breathing" value="patient.admission.airwayAndBreathing"></ccdb-form-text>
+<ccdb-form-text label="Circulation" value="patient.admission.circulation"></ccdb-form-text>
+<ccdb-form-text label="Renal and electrolytes" value="patient.admission.renalAndElectrolytes"></ccdb-form-text>
+<ccdb-form-text label="Fluids and feeds" value="patient.admission.fluids"></ccdb-form-text>
+<ccdb-form-text label="Antibiotics" value="patient.admission.antibiotics"></ccdb-form-text>
+<ccdb-form-text label="Lines" value="patient.admission.lines"></ccdb-form-text>
+<ccdb-form-text label="Analgesia And Sedation" value="patient.admission.analgesiaAndSedation"></ccdb-form-text>
+<ccdb-form-text label="Thrombosis Management" value="patient.admission.thrombosisManagement"></ccdb-form-text>
+<ccdb-form-text label="Ulcer prophylaxis" value="patient.admission.ulcerProphylaxis"></ccdb-form-text>
+<ccdb-form-text label="Other" value="patient.admission.other"></ccdb-form-text>
+
+<ccdb-form-textarea label="Admission summary notes" value="patient.admission.admissionSummaryNotes"></ccdb-form-textarea>
+
+<ccdb-form-textarea label="Past medical history" value="patient.admission.pastMedicalHistory"></ccdb-form-textarea>
+<ccdb-form-textarea label="Past surgical history" value="patient.admission.pastSurgicalHistory"></ccdb-form-textarea>
+<ccdb-form-textarea label="Chronic medications" value="patient.admission.medications"></ccdb-form-textarea>
+
+
+<!-- score -->
+<ccdb-form-date label="Time of arrival" ng-model="patient.admission.timeOfArrival"></ccdb-form-date>
+<ccdb-form-text label="Temperature (&deg;C)" value="patient.scores[1].temperature"></ccdb-form-text>
+<ccdb-form-text label="Systolic blood pressure (mm Hg)" value="patient.scores[1].systolicPressure"></ccdb-form-text>
+<ccdb-form-text label="Diastolic blood pressure (mm Hg)" value="patient.scores[1].diastolicPressure"></ccdb-form-text>
+<ccdb-form-text label="Heart rate (beats/minute)" value="patient.scores[1].heartRate"></ccdb-form-text>
+<ccdb-form-text label="Saturation" value="patient.scores[1].saturation"></ccdb-form-text>
+<ccdb-form-text label="Respiratory heart rate (breaths/minute)" value="patient.scores[1].respiratoryRate"></ccdb-form-text>
+<ccdb-form-text label="Fio2 (%)" value="patient.scores[1].fiO2"></ccdb-form-text>
+<ccdb-form-text label="Sedated" value="patient.scores[1].sedated"></ccdb-form-text>
+<ccdb-form-text label="Airway" value="patient.scores[1].airway"></ccdb-form-text>
+<ccdb-form-text label="Haematocrit (%)" value="patient.scores[1].haematocrit"></ccdb-form-text>
+<ccdb-form-text label="Glucose (mmol/L)" value="patient.scores[1].glucose"></ccdb-form-text>
+<ccdb-form-text label="Lactate" value="patient.scores[1].lactate"></ccdb-form-text>
+<ccdb-form-text label="PH" value="patient.scores[1].pH"></ccdb-form-text>
+<ccdb-form-text label="PCO2 (kPa)" value="patient.scores[0].pCO2"></ccdb-form-text>
+<ccdb-form-text label="pO2 (kPa)" value="patient.scores[1].pO2"></ccdb-form-text>
+<ccdb-form-text label="Base excess" value="patient.scores[1].baseExcess"></ccdb-form-text>
+<ccdb-form-text label="Bicarbonate" value="patient.scores[1].bicarbonate"></ccdb-form-text>
+<ccdb-form-text label="Current antibiotic therapy in ward" value="patient.scores[1].currentAntibioticTherapyInWard"></ccdb-form-text>
+<ccdb-form-select label="Eye opening" options="eyeOpening" value="patient.scores[1].eyeOpening"></ccdb-form-select>
+<ccdb-form-select label="Verbal response" options="verbalResponse" value="patient.scores[1].verbalResponse"></ccdb-form-select>
+<ccdb-form-select label="Motor response" options="motorResponse" value="patient.scores[1].motorResponse"><ccdb-form-select>
+</script>
 <script type="text/ng-template" id="dashboard/dashboard.html">
 <div class="well">
-    <ices-patient-list title="Referrals"
+    <ccdb-patient-list title="Referrals"
                        buttons="Edit,Admit"
                        filter='{"referral.decision": "Cannot make decision now"}'
-    ></ices-patient-list>
-    <ices-patient-list title="Admitted patients"
+    ></ccdb-patient-list>
+    <ccdb-patient-list title="Admitted patients"
                        buttons="Edit,Discharge"
                        filter='{"referral.decision": "Accepted", "discharge.dischargeDate": null}'
-    ></ices-patient-list>
+    ></ccdb-patient-list>
 
     <div class="panel panel-default">
         <h3>Weekly Reports</h3>
-        <ices-date-range></ices-date-range>
+        <ccdb-date-range></ccdb-date-range>
         <dl>
-            <ices-patient-count title="Number of Referrals"
+            <ccdb-patient-count title="Number of Referrals"
                                 range-field="referral.referralDate"
                                 filter='{"referral.decision": "Cannot make decision now"}'
-            ></ices-patient-count>
-            <ices-patient-count title="Admitted patients"
+            ></ccdb-patient-count>
+            <ccdb-patient-count title="Admitted patients"
                                 range-field="admission.firstAdmittedDate"
                                 filter='{"referral.decision": "Accepted", "discharge.dischargeDate": null}'
-            ></ices-patient-count>
+            ></ccdb-patient-count>
         </dl>
     </div>
 </div></script>
+<script type="text/ng-template" id="discharge/discharge.form.html">
+<ccdb-form-date label="Discharge date" ng-model="patient.discharge.dischargeDate"></ccdb-form-date>
+<ccdb-form-select label="Discharge status" options="dischargeStatuses" value="patient.discharge.dischargeStatus"></ccdb-form-select>
+<ccdb-form-textarea label="Comments" value="patient.discharge.comments"></ccdb-form-textarea>
+</script>
 <script type="text/ng-template" id="discharge/discharge.html">
 <h3>Discharge Details</h3>
 <dl>
@@ -277,20 +357,6 @@
 
     <dt>Comments :</dt>
     <dd><pre>{{ patient.discharge.comments }}</pre></dd>
-</dl>
-</script>
-<script type="text/ng-template" id="history/history.html">
-<h3>{{history.notes}}</h3>
-<dl class="wide">
-
-    <dt>Past medical history :</dt>
-    <dd><pre>{{ patient.admission.pastMedicalHistory }}</pre></dd>
-
-    <dt>Past surgical history :</dt>
-    <dd><pre>{{ history.pastSurgicalHistory }}</pre></dd>
-
-    <dt>Chronic medications :</dt>
-    <dd><pre>{{ history.medications}}</pre></dd>
 </dl>
 </script>
 <script type="text/ng-template" id="login/login.html">
@@ -357,6 +423,13 @@
     <div>{{title}}: {{count}}</div>
 </div>
 </script>
+<script type="text/ng-template" id="patient/patient.details.form.html">
+<ccdb-form-text label="Last name" value="patient.lastName"></ccdb-form-text>
+<ccdb-form-text label="First name" value="patient.firstName"></ccdb-form-text>
+<ccdb-form-select label="Race" options="races" value="patient.race"></ccdb-form-select>
+<ccdb-form-select label="Gender" options="genders" value="patient.gender"></ccdb-form-select>
+<ccdb-form-date label="Birth date" ng-model="patient.birthDate"></ccdb-form-date>
+</script>
 <script type="text/ng-template" id="patient/patient.details.html">
 <div class="clearfix">
     <h3 class="float-left">{{ patient.lastName }}, {{ patient.firstName }}</h3>
@@ -370,364 +443,8 @@
 </div>
 </script>
 <script type="text/ng-template" id="patient/patient.form.html">
-<div class="row">
-    <div class="small-10 columns">
-        <form>
-            <div class="sections">
-                <section>
-                  <h3>Patient Details</h3>
-                    <ices-form-text label="Last name" value="patient.lastName"></ices-form-text>
-                    <ices-form-text label="First name" value="patient.firstName"></ices-form-text>
-                    <ices-form-select label="Race" options="races" value="patient.race"></ices-form-select>
-                    <ices-form-select label="Gender" options="genders" value="patient.gender"></ices-form-select>
-                    <ices-form-date label="Birth date" ng-model="patient.birthDate"></ices-form-date>
-                    <a ng-click="save(patient)" class="small hollow button">Save</a>
-                </section>
-                <section>
-                <section>
-                  <h3>Referral Details</h3>
-                    <ices-form-select label="Roots" options="roots" value="patient.referral.emergencyVsElective"></ices-form-select>
-                    <ices-form-text label="ICU registrar/Doctor" value="patient.referral.icuRegistrar"></ices-form-text>
-                    <ices-form-text label="ICU consultant" value="patient.referral.icuConsultant"></ices-form-text>
-                    <ices-form-date label="Entry time and date" ng-model="patient.referral.entryTimeAndDate"></ices-form-date>
-                    <ices-form-date label="Referral date" ng-model="patient.referral.referralDate"></ices-form-date>
-                    <ices-form-date label="Time patient seen by ICU" ng-model="patient.referral.timePatientSeenByICU" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-date>
-                    <ices-form-select label="Operative status at time of referral" options="operativeStatusAtTimeOfReferral" value="patient.referral.operativeStatusAtTimeOfReferral" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-select>
-                    <ices-form-text label="Base discipline referring" value="patient.referral.baseDisciplineReferring"></ices-form-text>
-                    <ices-form-text label="Base discipline consultant" value="patient.referral.baseDisciplineConsultant"></ices-form-text>
-                    <ices-form-text label="Referring doctor" value="patient.referral.referringDoctor"></ices-form-text>
-                    <ices-form-text label="Discipline of referring doctor" value="patient.referral.disciplineOfReferringDoctor"></ices-form-text>
-                    <ices-form-text label="Referring hospital" value="patient.referral.referringHospital" ng-show="patient.referral.emergencyVsElective =='Emergency'"></ices-form-text>
-                    <ices-form-text label="Referral hospital" value="patient.referral.referralHospital" ng-show="patient.referral.emergencyVsElective =='Emergency'"></ices-form-text>
-                    <ices-form-select label="Diagnosis" options="diagnosis" value="patient.referral.diagnosis" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-select>
-                    <ices-form-select label="Patient location" options="patientLocation" value="patient.referral.patientLocation" ng-show="patient.referral.emergencyVsElective == 'Elective'"></ices-form-select>
-                    <ices-form-select label="Level of care required" options="levelsOfCare" value="patient.referral.levelOfCareRequired" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-select>
-                    <ices-form-select label="Reason of referral to ICU" options="reasonOfReferralToICU" value="patient.referral.reasonOfReferralToICU" ng-show="patient.referral.emergencyVsElective == 'Elective'"></ices-form-select>
-                    <ices-form-textarea label="Planned operation" value="patient.referral.plannedOperation" ng-show="patient.referral.emergencyVsElective == 'Elective'"></ices-form-textarea>
-                    <ices-form-textarea label="Planned operation reason" value="patient.referral.reasonForOperation" ng-show="patient.referral.emergencyVsElective == 'Elective'"></ices-form-textarea>
-                    <ices-form-date label="Date operation planned" ng-model="patient.referral.dateOperationPlanned" ng-show="patient.referral.emergencyVsElective == 'Elective'"></ices-form-date>
-                    <ices-form-text label="Diagnosis details" value="patient.referral.diagnosisDetails" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-text>
-                    <ices-form-multiselect label="Comorbidities" options="comorbidities" value="patient.referral.comorbidities"></ices-form-multiselect>
-                    <a ng-click="save(patient)" class="small hollow button">Save</a>
-                </section>
-                <section>
-                  <h3>Referral</h3>
-                    <ices-form-select label="Reason of referral to ICU" options="reasonOfReferralToICU" value="patient.referral.reasonOfReferralToICU" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-select>
-                    <ices-form-select label="Is the referral for a complication of" options="referralForComplicationOf" value="patient.referral.referralForComplicationOf" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-select>
-                    <ices-form-select label="Current patient location" options="CurrentPatientLocation" value="patient.referral.CurrentPatientLocation" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-select>
-                    <ices-form-text label="Number of days in hospital" value="patient.referral.numberOfDaysInHospital" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-text>
-                    <ices-form-text label="Is the patient currently ventilated" value="patient.referral.patientCurrentlyVentilated" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-text>
-                    <ices-form-text label="Was this patient in ICU in the previous 48 hours" value="patient.referral.wasThisPatientInIcuInThePrevious48Hours" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-text>
-                    <ices-form-select label="SCCM" options="sCCM" value="patient.referral.sCCM" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-select>
-                    <ices-form-select label="Level of care required" options="levelOfCareRequired" value="patient.referral.levelOfCareRequired" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-select>
-                    <ices-form-select label="Decision" options="decision" value="patient.referral.decision" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-select>
-                    <ices-form-text label="Decision reason" value="patient.referral.decisionReason" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-text>
-                    <a ng-click="save(patient)" class="small hollow button">Save</a>
-                </section>
-                <section>
-                  <h3>Patient status</h3>
-                    <ices-form-text label="Temperature (&deg;C)" value="patient.scores[0].temperature" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-text>
-                    <ices-form-text label="Systolic blood pressure (mmHg)" value="patient.scores[0].systolicPressure" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-text>
-                    <ices-form-text label="Diastolic blood pressure (mmHg)" value="patient.scores[0].diastolicPressure" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-text>
-                    <ices-form-text label="Heart rate (bpm)" value="patient.scores[0].heartRate" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-text>
-                    <ices-form-text label="Urine output (mls/hr)" value="patient.scores[0].urineOutput" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-text>
-                    <ices-form-select label="Eye opening" options="eyeOpening" value="patient.scores[0].eyeOpening" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-select>
-                    <ices-form-select label="Verbal response" options="verbalResponse" value="patient.scores[0].verbalResponse" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-select>
-                    <ices-form-select label="Motor response" options="motorResponse" value="patient.scores[0].motorResponse" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-select>
-                    <ices-form-text label="Glasgow coma scale" value="patient.scores[0].glasgowComaScale" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-text>
-                    <ices-form-text label="Haematocrit (%)" value="patient.scores[0].haematocrit" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-text>
-                    <ices-form-text label="WBC (x103/mm3)" value="patient.scores[0].wBC" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-text>
-                    <ices-form-text label="Sodium (mEq/L)" value="patient.scores[0].sodium" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-text>
-                    <ices-form-text label="Urea (mmol/l)" value="patient.scores[0].urea" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-text>
-                    <ices-form-text label="Creatinine (mg/dL)" value="patient.scores[0].creatinine" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-text>
-                    <ices-form-text label="Albumin (g/l)" value="patient.scores[0].albumin" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-text>
-                    <ices-form-text label="Bilirubin (umol/l)" value="patient.scores[0].bilirubin" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-text>
-                    <ices-form-text label="Glucose (mmol/L)" value="patient.scores[0].glucose" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-text>
-                    <ices-form-text label="FiO2 (%)" value="patient.scores[0].fiO2" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-text>
-                    <ices-form-text label="PH (%)" value="patient.scores[0].pH" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-text>
-                    <ices-form-text label="PCO2 (kPa)" value="patient.scores[0].pCO2" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-text>
-                    <ices-form-text label="pO2 (kPa)" value="patient.scores[0].pO2" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-text>
-                    <ices-form-text label="Lactate" value="patient.scores[0].lactate" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-text>
-                    <a ng-click="save(patient)" class="small hollow button">Save</a>
-                <section>
-                  <h3>Assessment details</h3>
-                    <ices-form-text label="History" value="patient.referral.history" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-text>
-                    <ices-form-text label="Examination" value="patient.referral.examination" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-text>
-                    <ices-form-text label="Management plan" value="patient.referral.managementPlan" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ices-form-text>
-                    <a ng-click="save(patient)" class="small hollow button" >Save</a>
-                </section>
-                <section>
-                  <h3>Summary note outcome</h3>
-                    <ices-form-select label="Final outcome" options="finalOutcomeNote" value="patient.referral.finalOutcomeNote" ng-show="patient.referral.emergencyVsElective == 'Elective'"></ices-form-select>
-                    <ices-form-select label="Sccm score"options="sccmScore" value="patient.referral.sccmScore" ng-show="patient.referral.emergencyVsElective == 'Elective'"></ices-form-select>
-                    <ices-form-date label="Date and time" ng-model="patient.referral.dateAndTimeNote" ng-show="patient.referral.emergencyVsElective == 'Elective'"></ices-form-date>
-                    <a ng-click="save(patient)" class="small hollow button">Save</a>
-                </section>
-                <section>
-                  <h3>Referral scores</h3>
-                    <ices-score-form score="patient.scores[0]" referral="true"></ices-score-form>
-                    <ices-form-text label="Respiratory heart rate" value="patient.scores[0].respiratoryRate"></ices-form-text>
-                    <a ng-click="save(patient)" class="small hollow button" >Save</a>
-                </section>
-                </section>
-                <section>
-                  <h3>Outcome details</h3>
-                    <ices-form-date label="Outcome entry time and date" ng-model="patient.referral.outcomeEntryTimeandDate"></ices-form-date>
-                    <ices-form-text label="Doctor finalising" value="patient.referral.doctorFinalising"></ices-form-text>
-                    <ices-form-select label="Revised SCCCM" options="revisedScccm" value="patient.referral.revisedScccm"></ices-form-select>
-                    <ices-form-textarea label="Any delay on admission" value="patient.referral.ifAcceptedAnyDelay"></ices-form-textarea>
-                    <ices-form-textarea label="Reason for delay" value="patient.referral.delayReason"></ices-form-textarea>
-                    <ices-form-textarea label="If accepted but never admitted" value="patient.referral.IfAcceptedButNeverAdmitted"></ices-form-textarea>
-                    <ices-form-text label="Unit trasnferred to if trasnferred" value="patient.referral.unitTrasnferredToIfTrasnferred "></ices-form-text>
-                    <ices-form-textarea label="The final outcome of the patient is" value="patient.referral.theFinalOutcomeOfThePatientIs"></ices-form-textarea>
-                    <a ng-click="save(patient)" class="small hollow button">Save</a>
-                </section>
-                </section>
-                <section>
-                <section>
-                  <h3>Admission Details</h3>
-                    <ices-form-text label="Data carried over" value="patient.admission.dataCarriedOver"></ices-form-text>
-                    <ices-form-text label="Patient first name" value="patient.admission.patientFirstName "></ices-form-text>
-                    <ices-form-text label="Patient last name" value="patient.admission.patientLastName"></ices-form-text>
-                    <ices-form-text label="Other name" value="patient.admission.patientOtherName"></ices-form-text>
-                    <ices-form-date label="Date of birth" ng-model="patient.admission.dateOfBirth"></ices-form-date>
-                    <ices-form-date label="Admission date and time" ng-model="patient.admission.admissionDateAndTime"></ices-form-date>
-                    <ices-form-select label="Emergency vs elective" options="roots" value="patient.admission.roots"></ices-form-select>
-                    <ices-form-text label="Hospital admitted from" value="patient.admission.admittedFrom"></ices-form-text>
-                    <ices-form-text label="Days in Hospital before ICU" value="patient.admission.numOfdaysInhospitalBeforeICU"></ices-form-text>
-                    <ices-form-text label="Admitting doctor" value="patient.admission.admittingDoctor"></ices-form-text>
-                    <ices-form-text label="Admitting consultant" value="patient.admission.admittingConsultant"></ices-form-text>
-                    <a ng-click="save(patient)" class="small hollow button">Save</a>
-                  </section>
-                  <section>
-                    <h3>condition on arrival</h3>
-                    <ices-form-date label="Time of arrival" ng-model="patient.admission.timeOfArrival"></ices-form-date>
-                    <ices-form-text label="Temperature (&deg;C)" value="patient.scores[1].temperature"></ices-form-text>
-                    <ices-form-text label="Systolic blood pressure (mm Hg)" value="patient.scores[1].systolicPressure"></ices-form-text>
-                    <ices-form-text label="Diastolic blood pressure (mm Hg)" value="patient.scores[1].diastolicPressure"></ices-form-text>
-                    <ices-form-text label="Heart rate (beats/minute)" value="patient.scores[1].heartRate"></ices-form-text>
-                    <ices-form-text label="Saturation" value="patient.scores[1].saturation"></ices-form-text>
-                    <ices-form-text label="Respiratory heart rate (breaths/minute)" value="patient.scores[1].respiratoryRate"></ices-form-text>
-                    <ices-form-text label="Fio2 (%)" value="patient.scores[1].fiO2"></ices-form-text>
-                    <ices-form-text label="Sedated" value="patient.scores[1].sedated"></ices-form-text>
-                    <ices-form-text label="Airway" value="patient.scores[1].airway"></ices-form-text>
-                    <ices-form-text label="Haematocrit (%)" value="patient.scores[1].haematocrit"></ices-form-text>
-                    <ices-form-text label="Glucose (mmol/L)" value="patient.scores[1].glucose"></ices-form-text>
-                    <ices-form-text label="Lactate" value="patient.scores[1].lactate"></ices-form-text>
-                    <ices-form-text label="PH" value="patient.scores[1].pH"></ices-form-text>
-                    <ices-form-text label="PCO2 (kPa)" value="patient.scores[0].pCO2"></ices-form-text>
-                    <ices-form-text label="pO2 (kPa)" value="patient.scores[1].pO2"></ices-form-text>
-                    <ices-form-text label="Base excess" value="patient.scores[1].baseExcess"></ices-form-text>
-                    <ices-form-text label="Bicarbonate" value="patient.scores[1].bicarbonate"></ices-form-text>
-                    <ices-form-text label="Current antibiotic therapy in ward" value="patient.scores[1].currentAntibioticTherapyInWard"></ices-form-text>
-                    <ices-form-select label="Eye opening" options="eyeOpening" value="patient.scores[1].eyeOpening"></ices-form-select>
-                    <ices-form-select label="Verbal response" options="verbalResponse" value="patient.scores[1].verbalResponse"></ices-form-select>
-                    <ices-form-select label="Motor response" options="motorResponse" value="patient.scores[1].motorResponse"><ices-form-select>
-
-                    <a ng-click="save(patient)" class="small hollow button">Save</a>
-                  </section>
-                  <!--section>
-                    <h3>Condition on Arrival</h3>
-                      <ices-form-date label="Time of arrival" ng-model="patient.admission.timeOfArrival"></ices-form-date>
-                      <ices-form-text label="Temperature (&deg;C)" value="patient.scores[1].temperature"></ices-form-text>
-                      <ices-form-text label="Systolic blood pressure (mm Hg)" value="patient.scores[1].systolicPressure"></ices-form-text>
-                      <ices-form-text label="Diastolic blood pressure (mm Hg)" value="patient.scores[1].diastolicPressure"></ices-form-text>
-                      <ices-form-text label="Heart rate (beats/minute)" value="patient.scores[1].heartRate"></ices-form-text>
-                      <ices-form-text label="Saturation" value="patient.scores[1].saturation"></ices-form-text>
-                      <ices-form-text label="Respiratory heart rate (breaths/minute)" value="patient.scores[1].respiratoryRate"></ices-form-text>
-                      <ices-form-text label="Fio2 (%)" value="patient.scores[1].fiO2"></ices-form-text>
-                      <ices-form-select label="Eye opening" options="eyeOpening" value="patient.scores[1].eyeOpening"></ices-form-select>
-                      <ices-form-select label="Verbal response" options="verbalResponse" value="patient.scores[1].verbalResponse"></ices-form-select>
-                      <ices-form-select label="Motor response" options="motorResponse" value="patient.scores[1].motorResponse"><ices-form-select>
-
-                      <ices-form-text label="Glasgow coma scale" value="patient.scores[1].glasgowComaScale"></ices-form-text>
-
-                      <ices-form-text label="Sedated" value="patient.scores[1].sedated"></ices-form-text>
-
-                      <ices-form-text label="Airway" value="patient.scores[1].airway"></ices-form-text>
-
-                      <ices-form-text label="Haematocrit (%)" value="patient.scores[1].haematocrit"></ices-form-text>
-                      <ices-form-text label="Glucose (mmol/L)" value="patient.scores[1].glucose"></ices-form-text>
-                      <ices-form-text label="Lactate" value="patient.scores[1].lactate"></ices-form-text>
-                      <ices-form-text label="PH" value="patient.scores[1].pH"></ices-form-text>
-                      <ices-form-text label="PCO2 (kPa)" value="patient.scores[0].pCO2"></ices-form-text>
-                      <ices-form-text label="pO2 (kPa)" value="patient.scores[1].pO2"></ices-form-text>
-                      <ices-form-text label="Base excess" value="patient.scores[1].baseExcess"></ices-form-text>
-                      <ices-form-text label="Bicarbonate" value="patient.scores[1].bicarbonate"></ices-form-text>
-                      <ices-form-text label="Current antibiotic therapy in ward" value="patient.scores[1].currentAntibioticTherapyInWard"></ices-form-text>
-                      <ices-form-text label="Duration of antibiotics" value="patient.scores[1].durationOfAntibtioics"></ices-form-text>
-
-                      <a ng-click="save(patient)" class="small hollow button">Save</a>
-
-                  </section-->
-                  <section>
-                    <h3>Operative Details</h3>
-                      <ices-form-select label="Operative Details" options="operativeDetails" value="patient.admission.operativeDetails"></ices-form-select>
-                      <ices-form-date label="Date and time of surgery" ng-model="patient.admission.surgeryDateAndTime"></ices-form-date>
-                      <ices-form-text label="Operation performed" value="patient.admission.operationPerformed"></ices-form-text>
-                      <ices-form-text label="Operative findings" value="patient.admission.operativeFindings"></ices-form-text>
-                      <ices-form-textarea label="Operative Plan" value="patient.admission.operativePlan"></ices-form-textarea>
-                      <ices-form-text label="Duration of operation" value="patient.admission.durationOfOperation"></ices-form-text>
-                      <ices-form-text label="Anaesthesia" value="patient.admission.anaesthesia"></ices-form-text>
-                      <ices-form-text label="Grade of laryngoscopy" value="patient.admission.gradeOfLaryngoscopy"></ices-form-text>
-                      <ices-form-text label="Duration of anaesthesia" value="patient.admission.durationOfAnaesthesia"></ices-form-text>
-                      <ices-form-text label="Antibiotic" value="patient.admission.antibiotics"></ices-form-text>
-                      <ices-form-text label="Intra-operative total volumes" value="patient.admission.intraOperativeTotalVolumes"></ices-form-text>
-                      <ices-form-text label="Blood loss" value="patient.admission.bloodLoss"></ices-form-text>
-                      <ices-form-text label="Urine output (mls/hr)" value="patient.admission.urineOutput"></ices-form-text>
-                      <ices-form-text label="Crystalloid volume" value="patient.admission.crystalloidVolume"></ices-form-text>
-                      <ices-form-text label="Colloid volume" value="patient.admission.colloidVolume"></ices-form-text>
-                      <ices-form-text label="Packed cell" value=" patient.admission.packedCells"></ices-form-text>
-                      <ices-form-text label="Freeze dried plasma" value="patient.admission.freezeDriedPlasma"></ices-form-text>
-                      <ices-form-text label="Platelets" value="patient.admission.platelets"></ices-form-text>
-                      <ices-form-text label="Cruoprecipitate" value="patient.admission.cruoprecipitate"></ices-form-text>
-                      <a ng-click="save(patient)" class="small hollow button">Save</a>
-                  </section>
-                  <section>
-                    <h3>Admission plan</h3>
-                      <ices-form-text label="Airway and breathing" value="patient.admission.airwayAndBreathing"></ices-form-text>
-                      <ices-form-text label="Circulation" value="patient.admission.circulation"></ices-form-text>
-                      <ices-form-text label="Renal and electrolytes" value="patient.admission.renalAndElectrolytes"></ices-form-text>
-                      <ices-form-text label="Fluids and feeds" value="patient.admission.fluids"></ices-form-text>
-                      <ices-form-text label="Antibiotics" value="patient.admission.antibiotics"></ices-form-text>
-                      <ices-form-text label="Lines" value="patient.admission.lines"></ices-form-text>
-                      <ices-form-text label="Analgesia And Sedation" value="patient.admission.analgesiaAndSedation"></ices-form-text>
-                      <ices-form-text label="Thrombosis Management" value="patient.admission.thrombosisManagement"></ices-form-text>
-                      <ices-form-text label="Ulcer prophylaxis" value="patient.admission.ulcerProphylaxis"></ices-form-text>
-                      <ices-form-text label="Other" value="patient.admission.other"></ices-form-text>
-                      <a ng-click="save(patient)" class="small hollow button">Save</a>
-                  </section>
-                  <section>
-                    <h3>Admission summary notes</h3>
-                      <ices-form-textarea label="Admission summary notes" value="patient.admission.admissionSummaryNotes"></ices-form-textarea>
-                      <a ng-click="save(patient)" class="small hollow button">Save</a>
-                  </section>
-                  <section>
-                    <h3>Admission History</h3>
-                      <ices-form-textarea label="Past medical history" value="patient.admission.pastMedicalHistory"></ices-form-textarea>
-                      <ices-form-textarea label="Past surgical history" value="patient.admission.pastSurgicalHistory"></ices-form-textarea>
-                      <ices-form-textarea label="Chronic medications" value="patient.admission.medications"></ices-form-textarea>
-                      <a ng-click="save(patient)" class="small hollow button">Save</a>
-                  </section>
-                  <section>
-                    <h3>Admission scores</h3>
-                      <ices-score-form score="patient.scores[1]" admission="true"></ices-score-form>
-
-                      <h3>Create a new score</h3>
-                        <form ng-click="scoreAdd()">
-                            <input type="text" ng-model="scoreInput" size="50" placeholder="Add new score">
-                            <input type="submit" value="Add new score">
-                        </form>
-
-                          <br>
-
-                          <div ng-repeat="x in scoreList">
-                              <input type="checkbox" ng-model="x.done"> <span ng-bind="x.scoreText"></span>
-                          </div>
-
-                          <p><button ng-click="remove()">Remove score</button></p>
-
-                          <script>
-                          var app = angular.module('myApp', []);
-                          app.controller('scoreCtrl', function($scope) { //a todoCtrl is what controlls the scope
-                              $scope.scoreList = [{scoreText:'New score', done:false}];
-
-                              $scope.scoreAdd = function() {
-                                  $scope.scoreList.push({scoreText:$scope.scoreInput, done:false});
-                                  $scope.scoreInput = "";
-                              };
-
-                              $scope.remove = function() {
-                                  var oldList = $scope.scoreList;
-                                  $scope.scoreList = [];
-                                  angular.forEach(oldList, function(x) {
-                                      if (!x.done) $scope.scoreList.push(x);
-                                  });
-                              };
-                          });
-                          </script>
-
-                      <a ng-click="save(patient)" class="small hollow button">Save</a>
-                  </section>
-                  <section>
-                    <h3>Discharge</h3>
-                      <ices-form-date label="Discharge date" ng-model="patient.discharge.dischargeDate"></ices-form-date>
-                      <ices-form-select label="Discharge status" options="dischargeStatuses" value="patient.discharge.dischargeStatus"></ices-form-select>
-                      <ices-form-textarea label="Comments" value="patient.discharge.comments"></ices-form-textarea>
-                      <a ng-click="save(patient)" class="small hollow button">Save</a>
-                  </section>
-                </section>
-            </div>
-        </form>
-    </div>
-</div>
 </script>
 <script type="text/ng-template" id="patient/patient.html">
-<div class="row">
-    <div class="small-2 columns" data-sticky-container>
-        <div class="sticky" data-sticky data-options="stickTo: nav-guy">
-            <div>
-                <ul class="vertical menu" data-magellan data-options="barOffset: 50; activeClass: 'active' ; animationDuration: 200">
-                    <li><a href="#patient_details">Patient Details</a></li>
-                    <li>
-                        <a href="#referral">Referral</a>
-                        <ul class="nested vertical menu">
-                            <li><a href="#referral_details">Details</a></li>
-                            <li><a href="#referral_score">Score</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#admission">Admission</a>
-                        <ul class="nested vertical menu">
-                            <li><a href="#admission_details">Details</a></li>
-                            <li><a href="#admission_score">Score</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#scores">Scores</a></li>
-                    <li><a href="#discharge">Discharge</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="small-10 columns">
-        <div class="callout">
-            <section id="patient_details" data-magellan-target="patient_details">
-                <ng-include src="'patient/patient.details.html'"></ng-include>
-            </section>
-        </div>
-
-        <div>
-            <div class="sections">
-                <section id="referral" data-magellan-target="referral">
-                    <section id="referral_details" data-magellan-target="referral_details">
-                        <ng-include src="'referral/referral.details.html'"></ng-include>
-                    </section>
-                    <section id="referral_score" data-magellan-target="referral_score">
-                        <ices-score score="patient.scores[0]"></ices-score>
-                    </section>
-                </section>
-                <section id="admission" data-magellan-target="admission">
-                    <section id="admission_details" data-magellan-target="admission_details">
-                        <ng-include src="'admission/admission.details.html'"></ng-include>
-                    </section>
-                    <section id="admission_history" data-magellan-target="admission_history">
-                        <ices-history history="patient.admission.history"></ices-history>
-                    </section>
-                    <section id="admission_score" data-magellan-target="admission_score">
-                        <ices-score score="patient.scores[1]"></ices-score>
-                    </section>
-                </section>
-                <section id="scores" data-magellan-target="scores">
-                    <ices-scores></ices-scores>
-                </section>
-
-                <section id="discharge" class="bottom-of-page" data-magellan-target="discharge">
-                    <ng-include src="'discharge/discharge.html'"></ng-include>
-                </section>
-            </div>
-
-        </div>
-    </div>
-</div>
 </script>
 <script type="text/ng-template" id="patient/patient.list.html">
 <div class="panel panel-default">
@@ -1028,229 +745,83 @@
     </div>
 </div>
 </script>
-<script type="text/ng-template" id="reset/referral/referral.details.html">
-<h3>Referral Details</h3>
-<div class="row">
-    <div class="small-6 columns">
-        <dl>
-            <dt>Root :</dt>
-            <dd>{{ patient.referral.emergencyVsElective }}</dd>
+<script type="text/ng-template" id="referral/referral.form.html">
+<ccdb-form-select label="Roots" options="roots" value="patient.referral.emergencyVsElective"></ccdb-form-select>
+<ccdb-form-text label="ICU registrar/Doctor" value="patient.referral.icuRegistrar"></ccdb-form-text>
+<ccdb-form-text label="ICU consultant" value="patient.referral.icuConsultant"></ccdb-form-text>
+<ccdb-form-date label="Entry time and date" ng-model="patient.referral.entryTimeAndDate"></ccdb-form-date>
+<ccdb-form-date label="Referral date" ng-model="patient.referral.referralDate"></ccdb-form-date>
+<ccdb-form-date label="Time patient seen by ICU" ng-model="patient.referral.timePatientSeenByICU" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-date>
+<ccdb-form-select label="Operative status at time of referral" options="operativeStatusAtTimeOfReferral" value="patient.referral.operativeStatusAtTimeOfReferral" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-select>
+<ccdb-form-text label="Base discipline referring" value="patient.referral.baseDisciplineReferring"></ccdb-form-text>
+<ccdb-form-text label="Base discipline consultant" value="patient.referral.baseDisciplineConsultant"></ccdb-form-text>
+<ccdb-form-text label="Referring doctor" value="patient.referral.referringDoctor"></ccdb-form-text>
+<ccdb-form-text label="Discipline of referring doctor" value="patient.referral.disciplineOfReferringDoctor"></ccdb-form-text>
+<ccdb-form-text label="Referring hospital" value="patient.referral.referringHospital" ng-show="patient.referral.emergencyVsElective =='Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Referral hospital" value="patient.referral.referralHospital" ng-show="patient.referral.emergencyVsElective =='Emergency'"></ccdb-form-text>
+<ccdb-form-select label="Diagnosis" options="diagnosis" value="patient.referral.diagnosis" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-select>
+<ccdb-form-select label="Patient location" options="patientLocation" value="patient.referral.patientLocation" ng-show="patient.referral.emergencyVsElective == 'Elective'"></ccdb-form-select>
+<ccdb-form-select label="Level of care required" options="levelsOfCare" value="patient.referral.levelOfCareRequired" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-select>
+<ccdb-form-select label="Reason of referral to ICU" options="reasonOfReferralToICU" value="patient.referral.reasonOfReferralToICU" ng-show="patient.referral.emergencyVsElective == 'Elective'"></ccdb-form-select>
+<ccdb-form-textarea label="Planned operation" value="patient.referral.plannedOperation" ng-show="patient.referral.emergencyVsElective == 'Elective'"></ccdb-form-textarea>
+<ccdb-form-textarea label="Planned operation reason" value="patient.referral.reasonForOperation" ng-show="patient.referral.emergencyVsElective == 'Elective'"></ccdb-form-textarea>
+<ccdb-form-date label="Date operation planned" ng-model="patient.referral.dateOperationPlanned" ng-show="patient.referral.emergencyVsElective == 'Elective'"></ccdb-form-date>
+<ccdb-form-text label="Diagnosis details" value="patient.referral.diagnosisDetails" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-multiselect label="Comorbidities" options="comorbidities" value="patient.referral.comorbidities"></ccdb-form-multiselect>
 
-            <dt>Referring hospital :</dt>
-            <dd>{{ patient.referral.referringHospital }}</dd>
+<ccdb-form-select label="Reason of referral to ICU" options="reasonOfReferralToICU" value="patient.referral.reasonOfReferralToICU" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-select>
+<ccdb-form-select label="Is the referral for a complication of" options="referralForComplicationOf" value="patient.referral.referralForComplicationOf" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-select>
+<ccdb-form-select label="Current patient location" options="CurrentPatientLocation" value="patient.referral.CurrentPatientLocation" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-select>
+<ccdb-form-text label="Number of days in hospital" value="patient.referral.numberOfDaysInHospital" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Is the patient currently ventilated" value="patient.referral.patientCurrentlyVentilated" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Was this patient in ICU in the previous 48 hours" value="patient.referral.wasThisPatientInIcuInThePrevious48Hours" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-select label="SCCM" options="sCCM" value="patient.referral.sCCM" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-select>
+<ccdb-form-select label="Level of care required" options="levelOfCareRequired" value="patient.referral.levelOfCareRequired" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-select>
+<ccdb-form-select label="Decision" options="decision" value="patient.referral.decision" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-select>
+<ccdb-form-text label="Decision reason" value="patient.referral.decisionReason" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
 
-            <dt>ICU registrar :</dt>
-            <dd>{{ patient.referral.icuRegistrar }}</dd>
+<ccdb-form-text label="History" value="patient.referral.history" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Examination" value="patient.referral.examination" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Management plan" value="patient.referral.managementPlan" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
 
-            <dt>ICU consultant :</dt>
-            <dd>{{ patient.referral.icuConsultant }}</dd>
+<ccdb-form-select label="Final outcome" options="finalOutcomeNote" value="patient.referral.finalOutcomeNote" ng-show="patient.referral.emergencyVsElective == 'Elective'"></ccdb-form-select>
+<ccdb-form-select label="Sccm score"options="sccmScore" value="patient.referral.sccmScore" ng-show="patient.referral.emergencyVsElective == 'Elective'"></ccdb-form-select>
+<ccdb-form-date label="Date and time" ng-model="patient.referral.dateAndTimeNote" ng-show="patient.referral.emergencyVsElective == 'Elective'"></ccdb-form-date>
 
-            <dt>Referral date :</dt>
-            <dd>{{ patient.referral.referralDate | date: "dd/MM/yyyy HH:mm" }}</dd>
 
-            <dt>Base discipline :</dt>
-            <dd>{{ patient.referral.baseDiscipline }}</dd>
+<ccdb-form-date label="Outcome entry time and date" ng-model="patient.referral.outcomeEntryTimeandDate"></ccdb-form-date>
+<ccdb-form-text label="Doctor finalising" value="patient.referral.doctorFinalising"></ccdb-form-text>
+<ccdb-form-select label="Revised SCCCM" options="revisedScccm" value="patient.referral.revisedScccm"></ccdb-form-select>
+<ccdb-form-textarea label="Any delay on admission" value="patient.referral.ifAcceptedAnyDelay"></ccdb-form-textarea>
+<ccdb-form-textarea label="Reason for delay" value="patient.referral.delayReason"></ccdb-form-textarea>
+<ccdb-form-textarea label="If accepted but never admitted" value="patient.referral.IfAcceptedButNeverAdmitted"></ccdb-form-textarea>
+<ccdb-form-text label="Unit trasnferred to if trasnferred" value="patient.referral.unitTrasnferredToIfTrasnferred "></ccdb-form-text>
+<ccdb-form-textarea label="The final outcome of the patient is" value="patient.referral.theFinalOutcomeOfThePatientIs"></ccdb-form-textarea>
 
-            <dt>Discipline consultant :</dt>
-            <dd>{{ patient.referral.disciplineConsultant }}</dd>
 
-            <dt>Referring doctor :</dt>
-            <dd>{{ patient.referral.referringDoctor }}</dd>
-
-            <dt>Finalising doctor :</dt>
-            <dd>{{ patient.referral.finalisingDoctor }}</dd>
-
-            <dt>Patient location :</dt>
-            <dd>{{ patient.referral.patientLocation }}</dd>
-
-            <dt>Level of care required :</dt>
-            <dd>{{ patient.referral.levelOfCareRequired }}</dd>
-
-            <dt>Icu referral reason :</dt>
-            <dd>{{ patient.referral.reason }}</dd>
-
-            <dt>Planned operation :</dt>
-            <dd>{{ patient.referral.plannedOperation }}</dd>
-
-            <dt>Operation reason :</dt>
-            <dd>{{ patient.referral.plannedOperationReason }}</dd>
-
-            <dt>Operation date :</dt>
-            <dd>{{ patient.referral.plannedOperationDate | date: "dd/MM/yyyy HH:mm" }}</dd>
-
-            <dt>Comorbidities :</dt>
-            <dd>{{ patient.referral.comorbidities.join(", ") }}</dd>
-       </dl>
-    </div>
-  </div>
-<h3>Referral</h3>
-  <div class="row">
-    <div class="small-6 columns">
-      <dl>
-        <dt>Reason of referral to ICU :</dt>
-        <dd>{{ patient.referral.reasonOfReferralToICU }}</dd>
-
-        <dt>Is the referral for a complication of :</dt>
-        <dd>{{ patient.referral.referralForComplicationOf }}</dd>
-
-        <dt>Current patient location :</dt>
-        <dd>{{ patient.referral.CurrentPatientLocation }}</dd>
-
-        <dt>Number of days in hospital :</dt>
-        <dd>{{ patient.referral.numberOfDaysInHospital }}</dd>
-
-        <dt>Is the patient currently ventilated :</dt>
-        <dd>{{ patient.referral.patientCurrentlyVentilated }}</dd>
-
-        <dt>Was this patient in ICU in the previous 48 hours :</dt>
-        <dd>{{ patient.referral.wasThisPatientInIcuInThePrevious48Hours }}</dd>
-
-        <dt>SCCM :</dt>
-        <dd>{{ patient.referral.sCCM }}</dd>
-
-        <dt>Level of care required :</dt>
-        <dd>{{ patient.referral.levelOfCareRequired }}</dd>
-
-        <dt>Decision :</dt>
-        <dd>{{ patient.referral.decision }}</dd>
-
-        <dt>Decision reason :</dt>
-        <dd>{{ patient.referral.decisionReason }}</dd>
-      </dl>
-    </div>
-  </div>
-<h3>Patient Status</h3>
-  <div class="row">
-    <div class="small-6 columns">
-      <dl>
-          <dt>Temperature :</dt>
-          <dd>{{ patient.examination.temperature }}</dd>
-
-          <dt>Systolic pressure :</dt>
-          <dd>{{ patient.examination.systolicBP }}</dd>
-
-          <dt>Diastolic pressure :</dt>
-          <dd>{{ patient.examination.diastolicBP }}</dd>
-
-          <dt>Heart rate :</dt>
-          <dd>{{ patient.examination.heartRate }}</dd>
-
-          <dt>Urine output :</dt>
-          <dd>{{ patient.examination.urineOutput }}</dd>
-
-          <dt>Eye opening :</dt>
-          <dd>{{ patient.examination.eyeOpening }}</dd>
-
-          <dt>Verbal response :</dt>
-          <dd>{{ patient.examination.verbalResponse }}</dd>
-
-          <dt>Motor response :</dt>
-          <dd>{{ patient.examination.motorResponse }}</dd>
-
-          <dt>Glasgow coma scale :</dt>
-          <dd>{{ patient.examination.glasgowcomaScale }}</dd>
-
-          <dt>Haematocrit :</dt>
-          <dd>{{ patient.examination.Haematocrit }}</dd>
-
-          <dt>WBC :</dt>
-          <dd>{{ patient.examination.wBC }}</dd>
-
-          <dt>Sodium :</dt>
-          <dd>{{ patient.examination.sodium }}</dd>
-
-          <dt>Urea :</dt>
-          <dd>{{ patient.examination.urea }}</dd>
-
-          <dt>Creatinine :</dt>
-          <dd>{{ patient.examination.creatinine }}</dd>
-
-          <dt>Albumin :</dt>
-          <dd>{{ patient.examination.albumin }}</dd>
-
-          <dt>Bilirubin :</dt>
-          <dd>{{ patient.examination.bilirubin}}</dd>
-
-          <dt>Glucose :</dt>
-          <dd>{{ patient.examination.glucose }}</dd>
-
-          <dt>FiO2 :</dt>
-          <dd>{{ patient.examination.fiO2 }}</dd>
-
-          <dt>PH :</dt>
-          <dd>{{ patient.examination.pH }}</dd>
-
-          <dt>PCO2 :</dt>
-          <dd>{{ patient.examination.pCO2 }}</dd>
-
-          <dt>PO2 :</dt>
-          <dd>{{ patient.examination.pO2 }}</dd>
-
-          <dt>Lactate :</dt>
-          <dd>{{ patient.examination.lactate }}</dd>
-      </dl>
-    </div>
-  </div>
-<h3>Assessment details</h3>
-  </div class="row">
-    <div class="small-6 columns">
-      <dl>
-        <dt>History :</dt>
-        <dd>{{ patient.referral.History }}</dd>
-
-        <dt>Examination :</dt>
-        <dd>{{ patient.referral.examination }}</dd>
-
-        <dt>Management plan</dt>
-        <dd>{{ patient.referral.managementPlan }}</dd>
-      </dl>
-    </div>
-  </div>
-<h3>Summary note outcome</h3>
-  <div class="row">
-    <div class="small-6 columns">
-      <dl>
-        <dt>Final outcome :</dt>
-        <dd>{{ patient.referral.finalOutcome }}</dd>
-
-        <dt>SCCM score :</dt>
-        <dd>{{ patient.referral.sCCMScore }}</dd>
-
-        <dt>Date and time :</dt>
-        <dd>{{ patient.referral.dateAndTime }}</dd>
-      </dl>
-    </div>
-  </div>
-<h3>Outcome Details</h3>
-  <div class="row">
-    <div class="small-6 columns">
-      <dl>
-        <dt>Outcome entry time and date :</dt>
-        <dd>{{ patient.referral.outcomeEntryTimeandDate }}</dd>
-
-        <dt>Doctor finalising :</dt>
-        <dd>{{ patient.referral.doctorFinalising }}</dd>
-
-        <dt>Revised SCCCM :</dt>
-        <dd>{{ patient.referral.revisedSCCCM }}</dd>
-
-        <dt>If accepted for admission any delays :</dt>
-        <dd>{{ patient.referral.ifAcceptedAnyDelay }}</dd>
-
-        <dt>Reason for delay :</dt>
-        <dd>{{ patient.referral.delayReason }}</dd>
-
-        <dt>If accepted but never admitted :</dt>
-        <dd>{{ patient.referral.IfAcceptedButNeverAdmitted }}</dd>
-
-        <dt>Unit trasnferred to if trasnferred :</dt>
-        <dd>{{ patient.referral.unitTrasnferredToIfTransferred }}</dd>
-
-        <dt>The final outcome of the patient is :</dt>
-        <dd>{{ patient.referral.theFinalOutcomeOfThePatientIs }}</dd>
-      </dl>
-    </div>
-</div>
+<!-- score -->
+<ccdb-form-text label="Temperature (&deg;C)" value="patient.scores[0].temperature" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Systolic blood pressure (mmHg)" value="patient.scores[0].systolicPressure" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Diastolic blood pressure (mmHg)" value="patient.scores[0].diastolicPressure" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Heart rate (bpm)" value="patient.scores[0].heartRate" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Urine output (mls/hr)" value="patient.scores[0].urineOutput" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-select label="Eye opening" options="eyeOpening" value="patient.scores[0].eyeOpening" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-select>
+<ccdb-form-select label="Verbal response" options="verbalResponse" value="patient.scores[0].verbalResponse" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-select>
+<ccdb-form-select label="Motor response" options="motorResponse" value="patient.scores[0].motorResponse" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-select>
+<ccdb-form-text label="Glasgow coma scale" value="patient.scores[0].glasgowComaScale" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Haematocrit (%)" value="patient.scores[0].haematocrit" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="WBC (x103/mm3)" value="patient.scores[0].wBC" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Sodium (mEq/L)" value="patient.scores[0].sodium" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Urea (mmol/l)" value="patient.scores[0].urea" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Creatinine (mg/dL)" value="patient.scores[0].creatinine" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Albumin (g/l)" value="patient.scores[0].albumin" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Bilirubin (umol/l)" value="patient.scores[0].bilirubin" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Glucose (mmol/L)" value="patient.scores[0].glucose" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="FiO2 (%)" value="patient.scores[0].fiO2" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="PH (%)" value="patient.scores[0].pH" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="PCO2 (kPa)" value="patient.scores[0].pCO2" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="pO2 (kPa)" value="patient.scores[0].pO2" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
+<ccdb-form-text label="Lactate" value="patient.scores[0].lactate" ng-show="patient.referral.emergencyVsElective == 'Emergency'"></ccdb-form-text>
 </script>
 <script type="text/ng-template" id="reset/reset.html">
 <div class="container">
@@ -1264,119 +835,119 @@
 </div></script>
 <script type="text/ng-template" id="score/score.form.html">
 
-<ices-form-date label="Score date" value="patient.score.scoreDate" ng-hide="referral || admission"></ices-form-date>
+<ccdb-form-date label="Score date" value="patient.score.scoreDate" ng-hide="referral || admission"></ccdb-form-date>
 
-<ices-form-text label="Creatinine (mg/dL)" value="patient.scores[0].creatinine" ng-hide="admission"></ices-form-text>
+<ccdb-form-text label="Creatinine (mg/dL)" value="patient.scores[0].creatinine" ng-hide="admission"></ccdb-form-text>
 
-<ices-form-text label="Creatinine (mg/dL)" value="patient.scores[1]" ng-hide="referral"></ices-form-text>
+<ccdb-form-text label="Creatinine (mg/dL)" value="patient.scores[1]" ng-hide="referral"></ccdb-form-text>
 
-<ices-form-text label="Diastolic blood pressure (mm Hg)" value="patient.scores[0].diastolicPressure" ng-hide="admission"></ices-form-text>
+<ccdb-form-text label="Diastolic blood pressure (mm Hg)" value="patient.scores[0].diastolicPressure" ng-hide="admission"></ccdb-form-text>
 
-<ices-form-text label="Diastolic blood pressure (mm Hg)" value="patient.scores[1].diastolicPressure" ng-hide="referral"></ices-form-text>
+<ccdb-form-text label="Diastolic blood pressure (mm Hg)" value="patient.scores[1].diastolicPressure" ng-hide="referral"></ccdb-form-text>
 
-<ices-form-text label="Glucose (mmol/L)" value="patient.scores[0].glucose" ng-hide="admission"></ices-form-text>
+<ccdb-form-text label="Glucose (mmol/L)" value="patient.scores[0].glucose" ng-hide="admission"></ccdb-form-text>
 
-<ices-form-text label="Glucose (mmol/L)" value="patient.scores[1].glucose" ng-hide="referral"></ices-form-text>
+<ccdb-form-text label="Glucose (mmol/L)" value="patient.scores[1].glucose" ng-hide="referral"></ccdb-form-text>
 
-<ices-form-text label="Heart rate (beats/minute)" value="patient.scores[0].heartRate"></ices-form-text>
+<ccdb-form-text label="Heart rate (beats/minute)" value="patient.scores[0].heartRate"></ccdb-form-text>
 
-<ices-form-text label="Respiratory heart rate (breaths/minute)" value="patient.scores[1].respiratoryRate" ng-hide="referral"></ices-form-text>
+<ccdb-form-text label="Respiratory heart rate (breaths/minute)" value="patient.scores[1].respiratoryRate" ng-hide="referral"></ccdb-form-text>
 
-<ices-form-text label="Sodium (mEq/L)" value="patient.scores[0].sodium" ng-hide="admission"></ices-form-text>
+<ccdb-form-text label="Sodium (mEq/L)" value="patient.scores[0].sodium" ng-hide="admission"></ccdb-form-text>
 
-<ices-form-text label="Sodium (mEq/L)" value="patient.scores[1].sodium" ng-hide="referral"></ices-form-text>
+<ccdb-form-text label="Sodium (mEq/L)" value="patient.scores[1].sodium" ng-hide="referral"></ccdb-form-text>
 
-<ices-form-text label="Systolic blood pressure (mm Hg)" value="patient.scores[0].systolicPressure" ng-hide="admission"></ices-form-text>
+<ccdb-form-text label="Systolic blood pressure (mm Hg)" value="patient.scores[0].systolicPressure" ng-hide="admission"></ccdb-form-text>
 
-<ices-form-text label="Systolic blood pressure (mm Hg)" value="patient.scores[1].systolicPressure" ng-hide="referral"></ices-form-text>
+<ccdb-form-text label="Systolic blood pressure (mm Hg)" value="patient.scores[1].systolicPressure" ng-hide="referral"></ccdb-form-text>
 
-<ices-form-text label="Temperature (&deg;C)" value="patient.score.temperature" ng-hide="admission"></ices-form-text>
+<ccdb-form-text label="Temperature (&deg;C)" value="patient.score.temperature" ng-hide="admission"></ccdb-form-text>
 
-<ices-form-text label="Temperature (&deg;C)" value="patient.scores[1].temperature" ng-hide="referral"></ices-form-text>
+<ccdb-form-text label="Temperature (&deg;C)" value="patient.scores[1].temperature" ng-hide="referral"></ccdb-form-text>
 
-<ices-form-text label="Urine output (mls/hr)" value="patient.scores[0].urineOutput" ng-hide="admission"></ices-form-text>
+<ccdb-form-text label="Urine output (mls/hr)" value="patient.scores[0].urineOutput" ng-hide="admission"></ccdb-form-text>
 
-<ices-form-text label="Urine output (mls/hr)" value="patient.scores[1].urineOutput" ng-hide="referral"></ices-form-text>
+<ccdb-form-text label="Urine output (mls/hr)" value="patient.scores[1].urineOutput" ng-hide="referral"></ccdb-form-text>
 
-<ices-form-select label="Eye opening" options="eyeOpening" value="patient.scores[0].eyeOpening" ng-hide="admission"></ices-form-select>
+<ccdb-form-select label="Eye opening" options="eyeOpening" value="patient.scores[0].eyeOpening" ng-hide="admission"></ccdb-form-select>
 
-<ices-form-select label="Eye opening" options="eyeOpening" value="patient.scores[1].eyeOpening" ng-hide="referral"></ices-form-select>
+<ccdb-form-select label="Eye opening" options="eyeOpening" value="patient.scores[1].eyeOpening" ng-hide="referral"></ccdb-form-select>
 
-<ices-form-select label="Verbal response" options="verbalResponse" value="patient.scores[0].verbalResponse" ng-hide="admission"></ices-form-select>
+<ccdb-form-select label="Verbal response" options="verbalResponse" value="patient.scores[0].verbalResponse" ng-hide="admission"></ccdb-form-select>
 
-<ices-form-select label="Verbal response" options="verbalResponse" value="patient.scores[1].verbalResponse" ng-hide="referral"></ices-form-select>
+<ccdb-form-select label="Verbal response" options="verbalResponse" value="patient.scores[1].verbalResponse" ng-hide="referral"></ccdb-form-select>
 
-<ices-form-select label="Motor response" options="motorResponse" value="patient.scores[0].motorResponse" ng-hide="admission"></ices-form-select>
+<ccdb-form-select label="Motor response" options="motorResponse" value="patient.scores[0].motorResponse" ng-hide="admission"></ccdb-form-select>
 
-<ices-form-select label="Motor response" options="motorResponse" value="patient.scores[1].motorResponse" ng-hide="referral"><ices-form-select>
+<ccdb-form-select label="Motor response" options="motorResponse" value="patient.scores[1].motorResponse" ng-hide="referral"><ccdb-form-select>
 
-<ices-form-text label="Glasgow coma scale" value="patient.scores[0].glasgowcomaScale" ng-hide="admission"></ices-form-text>
+<ccdb-form-text label="Glasgow coma scale" value="patient.scores[0].glasgowcomaScale" ng-hide="admission"></ccdb-form-text>
 
-<ices-form-text label="Glasgow coma scale" value="patient.scores[1].glasgowComaScale" ng-hide="referral"></ices-form-text>
+<ccdb-form-text label="Glasgow coma scale" value="patient.scores[1].glasgowComaScale" ng-hide="referral"></ccdb-form-text>
 
-<ices-form-text label="Pupils" value="patient.score.pupils" ng-hide="admission || referral"></ices-form-text>
+<ccdb-form-text label="Pupils" value="patient.score.pupils" ng-hide="admission || referral"></ccdb-form-text>
 
-<ices-form-text label="Ventilated" value="patient.score.ventilated" ng-hide="referral || admission"></ices-form-text>
+<ccdb-form-text label="Ventilated" value="patient.score.ventilated" ng-hide="referral || admission"></ccdb-form-text>
 
-<ices-form-text label="Thrombolytic therapy" value="patient.score.thrombolyticTherapy" ng-hide="referral || admission"></ices-form-text>
+<ccdb-form-text label="Thrombolytic therapy" value="patient.score.thrombolyticTherapy" ng-hide="referral || admission"></ccdb-form-text>
 
-<ices-form-text label="Haematocrit (%)" value="patient.scores[0].haematocrit" ng-hide="admission"></ices-form-text>
+<ccdb-form-text label="Haematocrit (%)" value="patient.scores[0].haematocrit" ng-hide="admission"></ccdb-form-text>
 
-<ices-form-text label="Haematocrit (%)" value="patient.scores[1].haematocrit" ng-hide="referral"></ices-form-text>
+<ccdb-form-text label="Haematocrit (%)" value="patient.scores[1].haematocrit" ng-hide="referral"></ccdb-form-text>
 
-<ices-form-text label="WBC (x103/mm3)" value="patient.scores[0].wBC" ng-hide="admission"></ices-form-text>
+<ccdb-form-text label="WBC (x103/mm3)" value="patient.scores[0].wBC" ng-hide="admission"></ccdb-form-text>
 
-<ices-form-text label="WBC (x103/mm3)" value="patient.scores[1].wBC" ng-hide="referral"></ices-form-text>
+<ccdb-form-text label="WBC (x103/mm3)" value="patient.scores[1].wBC" ng-hide="referral"></ccdb-form-text>
 
-<ices-form-text label="Potassium (mEq/L)" value="patient.score.potassium" ng-hide="referral || admission"></ices-form-text>
+<ccdb-form-text label="Potassium (mEq/L)" value="patient.score.potassium" ng-hide="referral || admission"></ccdb-form-text>
 
-<ices-form-text label="Corr Calcium (mmol/l)" value="patient.score.corrCalcium" ng-hide="referral || admission"></ices-form-text>
+<ccdb-form-text label="Corr Calcium (mmol/l)" value="patient.score.corrCalcium" ng-hide="referral || admission"></ccdb-form-text>
 
-<ices-form-text label="Urea (mmol/l)" value="patient.scores[0].urea" ng-hide="admission"></ices-form-text>
+<ccdb-form-text label="Urea (mmol/l)" value="patient.scores[0].urea" ng-hide="admission"></ccdb-form-text>
 
-<ices-form-text label="Albumin (g/l)" value="patient.scores[0].albumin" ng-hide="admission"></ices-form-text>
+<ccdb-form-text label="Albumin (g/l)" value="patient.scores[0].albumin" ng-hide="admission"></ccdb-form-text>
 
-<ices-form-text label="Bilirubin (umol/l)" value="patient.scores[0].bilirubin" ng-hide="admission"></ices-form-text>
+<ccdb-form-text label="Bilirubin (umol/l)" value="patient.scores[0].bilirubin" ng-hide="admission"></ccdb-form-text>
 
-<ices-form-text label="INR" value="patient.score.iNR" ng-hide="referral || admission"></ices-form-text>
+<ccdb-form-text label="INR" value="patient.score.iNR" ng-hide="referral || admission"></ccdb-form-text>
 
-<ices-form-text label="FiO2 (%)" value="patient.scores[0].fiO2" ng-hide="admission"></ices-form-text>
+<ccdb-form-text label="FiO2 (%)" value="patient.scores[0].fiO2" ng-hide="admission"></ccdb-form-text>
 
-<ices-form-text label="Fio2 (%)" value="patient.scores[1].fiO2" ng-hide="referral"></ices-form-text>
+<ccdb-form-text label="Fio2 (%)" value="patient.scores[1].fiO2" ng-hide="referral"></ccdb-form-text>
 
-<ices-form-text label="PH (%)" value="patient.scores[0].pH" ng-hide="admission"></ices-form-text>
+<ccdb-form-text label="PH (%)" value="patient.scores[0].pH" ng-hide="admission"></ccdb-form-text>
 
-<ices-form-text label="PH" value="patient.scores[1].pH" ng-hide="referral"></ices-form-text>
+<ccdb-form-text label="PH" value="patient.scores[1].pH" ng-hide="referral"></ccdb-form-text>
 
-<ices-form-text label="PCO2 (kPa)" value="patient.scores[0].pCO2" ng-hide="admission"></ices-form-text>
+<ccdb-form-text label="PCO2 (kPa)" value="patient.scores[0].pCO2" ng-hide="admission"></ccdb-form-text>
 
-<ices-form-text label="PCO2 (kPa)" value="patient.scores[1].pCO2" ng-hide="referral"></ices-form-text>
+<ccdb-form-text label="PCO2 (kPa)" value="patient.scores[1].pCO2" ng-hide="referral"></ccdb-form-text>
 
-<ices-form-text label="pO2 (kPa)" value="patient.scores[0].pO2" ng-hide="admission"></ices-form-text>
+<ccdb-form-text label="pO2 (kPa)" value="patient.scores[0].pO2" ng-hide="admission"></ccdb-form-text>
 
-<ices-form-text label="pO2 (kPa)" value="patient.scores[1].pO2" ng-hide="referral"></ices-form-text>
+<ccdb-form-text label="pO2 (kPa)" value="patient.scores[1].pO2" ng-hide="referral"></ccdb-form-text>
 
-<ices-form-text label="Lactate" value="patient.scores[0].lactate"></ices-form-text>
+<ccdb-form-text label="Lactate" value="patient.scores[0].lactate"></ccdb-form-text>
 
-<ices-form-text label="Lactate" value="patient.scores[1].lactate" ng-hide="referral"></ices-form-text>
+<ccdb-form-text label="Lactate" value="patient.scores[1].lactate" ng-hide="referral"></ccdb-form-text>
 
-<ices-form-text label="HCO3 (mEq/L)" value="patient.scores.hCO3" ng-hide="referral || admission"></ices-form-text>
+<ccdb-form-text label="HCO3 (mEq/L)" value="patient.scores.hCO3" ng-hide="referral || admission"></ccdb-form-text>
 
-<ices-form-text label="Base excess" value="patient.scores[1].baseExcess" ng-hide="referral"></ices-form-text>
+<ccdb-form-text label="Base excess" value="patient.scores[1].baseExcess" ng-hide="referral"></ccdb-form-text>
 
-<ices-form-text label="Airway" value="patient.scores[1].airway" ng-hide="referral"></ices-form-text>
+<ccdb-form-text label="Airway" value="patient.scores[1].airway" ng-hide="referral"></ccdb-form-text>
 
-<ices-form-text label="Bicarbonate" value="patient.scores[1].bicarbonate" ng-hide="referral"></ices-form-text>
+<ccdb-form-text label="Bicarbonate" value="patient.scores[1].bicarbonate" ng-hide="referral"></ccdb-form-text>
 
-<ices-form-text label="Current antibiotic therapy in ward" value="patient.scores[1].currentAntibioticTherapyInWard" ng-hide="referral"></ices-form-text>
+<ccdb-form-text label="Current antibiotic therapy in ward" value="patient.scores[1].currentAntibioticTherapyInWard" ng-hide="referral"></ccdb-form-text>
 
-<ices-form-text label="Duration of antibtioics" value="patient.scores[1].durationOfAntibtioics" ng-hide="referral"></ices-form-text>
+<ccdb-form-text label="Duration of antibtioics" value="patient.scores[1].durationOfAntibtioics" ng-hide="referral"></ccdb-form-text>
 
-<ices-form-textarea label="Notes" value="patient.scores.notes" ng-hide="admission || referral"></ices-form-textarea>
+<ccdb-form-textarea label="Notes" value="patient.scores.notes" ng-hide="admission || referral"></ccdb-form-textarea>
 
-<ices-form-text label="Saturation" value="patient.scores[1].saturation" ng-hide="referral"></ices-form-text>
+<ccdb-form-text label="Saturation" value="patient.scores[1].saturation" ng-hide="referral"></ccdb-form-text>
 
-<ices-form-text label="Sedated" value="patient.scores[1].sedated" ng-hide="referral"></ices-form-text>
+<ccdb-form-text label="Sedated" value="patient.scores[1].sedated" ng-hide="referral"></ccdb-form-text>
 </script>
 <script type="text/ng-template" id="score/score.html">
 <h3>{{score.notes}}</h3>
@@ -1502,7 +1073,7 @@
 </script>
 <script type="text/ng-template" id="score/scores.html">
 <!-- add a dropdown or something to select the visible score -->
-<section ng-repeat="score in patient.scores" id="{{score.scoreDate | date:'EEE' }}"><ices-score score="score"></ices-score></section>
+<section ng-repeat="score in patient.scores" id="{{score.scoreDate | date:'EEE' }}"><ccdb-score score="score"></ccdb-score></section>
 </script>
 <script type="text/ng-template" id="search/search.html">
 <div>
@@ -1511,41 +1082,44 @@
         <input autofocus type="text" ng-model="query" ng-change="search(query)"/>
     </div>
 
-    <ices-patient-list title="" buttons="Edit" query="query"></ices-patient-list>
+    <ccdb-patient-list title="" buttons="Edit" query="query"></ccdb-patient-list>
 </div>
 </script>
 <script type="text/ng-template" id="user/user.form.html">
-<div class="panel">
+<div class="well">
+    <div class="panel panel-default">
     <form>
-        <ices-form-text no-suggestions="true" label="Username" value="user.username"></ices-form-text>
-        <ices-form-text no-suggestions="true" label="Name" value="user.name"></ices-form-text>
-        <ices-form-select label="Hospital" options="hospitals" value="user.hospital"></ices-form-select>
-        <ices-form-select label="Role" options="roles" value="user.role"></ices-form-select>
-        <a ng-click="save(user)" class="button radius">Save</a>
+        <ccdb-form-text no-suggestions="true" label="Username" value="user.username"></ccdb-form-text>
+        <ccdb-form-text no-suggestions="true" label="Name" value="user.name"></ccdb-form-text>
+        <ccdb-form-select label="Hospital" options="hospitals" value="user.hospital"></ccdb-form-select>
+        <ccdb-form-select label="Role" options="roles" value="user.role"></ccdb-form-select>
+        <a ng-click="save(user)" class="btn btn-default">Save</a>
     </form>
 </div>
-</script>
+</div></script>
 <script type="text/ng-template" id="user/user.list.html">
-<h2>Users</h2>
-<a href="#/editUser/new" class="button radius">New User</a>
-<table class="users">
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Hospital</th>
-        <th>Role</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr ng-repeat="user in users">
-        <td>{{user.name}}</td>
-        <td>{{user.hospital}}</td>
-        <td>{{user.role}}</td>
-        <td><a href="#/editUser/{{user._id}}" class="button radius">Edit</a></td>
-    </tr>
-    </tbody>
-</table>
-</script>
+<div class="well">
+    <div class="panel panel-default">
+    <h2>Users</h2>
+    <a href="#/editUser/new" class="btn btn-default">New User</a>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Hospital</th>
+            <th>Role</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="user in users">
+            <td>{{user.name}}</td>
+            <td>{{user.hospital}}</td>
+            <td>{{user.role}}</td>
+            <td><a href="#/editUser/{{user._id}}" class="button radius">Edit</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div></div></script>
 <script type="text/ng-template" id="utils/date.range.html">
 <span class="noselect"><a ng-click="dateRangeService.previous()" class="btn btn-default noselect">&lt;</a> <a ng-click="dateRangeService.next()" class="btn btn-default noselect">&gt;</a> </span>{{dateRangeService.dateRange.startDate | date : 'MMM d'}} - {{dateRangeService.dateRange.endDate | date : 'MMM d, y'}}
 </script>

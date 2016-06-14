@@ -1,4 +1,4 @@
-angular.module('ices.dashboard', ['ngRoute', 'ices.authentication.user.authentication'])
+angular.module('ccdb.dashboard', ['ngRoute', 'ccdb.authentication.user.authentication'])
 
     .config(function ($routeProvider) {
         $routeProvider.when(

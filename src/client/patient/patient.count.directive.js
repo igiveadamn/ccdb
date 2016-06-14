@@ -1,6 +1,6 @@
-angular.module('ices.patient.count.directive', ['ices.date.range.service', 'ices.patient.service'])
+angular.module('ccdb.patient.count.directive', ['ccdb.date.range.service', 'ccdb.patient.service'])
 
-    .directive('icesPatientCount', function (DateRangeService, PatientService) {
+    .directive('ccdbPatientCount', function (DateRangeService, PatientService) {
         return {
             restrict: 'E',
             templateUrl: 'patient/patient.count.html',

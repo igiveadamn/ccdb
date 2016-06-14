@@ -1,4 +1,4 @@
-angular.module('ices.search', ['ngRoute', 'ices.authentication.user.authentication'])
+angular.module('ccdb.search', ['ngRoute', 'ccdb.authentication.user.authentication'])
 
     .config(function ($routeProvider) {
         $routeProvider.when(

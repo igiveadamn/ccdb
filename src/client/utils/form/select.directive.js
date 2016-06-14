@@ -1,6 +1,6 @@
-angular.module('ices.utils.form.select.directive', [])
+angular.module('ccdb.utils.form.select.directive', [])
 
-    .directive('icesFormSelect', function () {
+    .directive('ccdbFormSelect', function () {
         return {
             restrict: 'E',
             templateUrl: 'utils/form/select.html',

@@ -1,7 +1,7 @@
 describe('multi select', function () {
 
-    beforeEach(module('ices.utils.form'));
-    beforeEach(module('ices.templates'));
+    beforeEach(module('ccdb.utils.form'));
+    beforeEach(module('ccdb.templates'));
 
     var html, scope, compile, element, directiveScope, doc;
 
