@@ -27,11 +27,6 @@ angular.module('ices.patient.controller', ['ngRoute', 'ices.patient.service', 'i
 
         var patientId = $routeParams.patientId;
 
-        $timeout(function () {
-            $anchorScroll();
-            $(document).foundation();
-        });
-
         var score = function(patient) {
           patient.newScore = [];
           patient.addScore = function () {

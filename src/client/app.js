@@ -1,7 +1,6 @@
 angular.module('ices',
     [
         'ngRoute',
-        'mm.foundation',
         'angularCombine',
         'ices.authentication.authentication',
         'ices.authentication.token.interceptor',

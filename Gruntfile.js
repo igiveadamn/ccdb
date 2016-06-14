@@ -15,7 +15,6 @@ module.exports = function (grunt) {
                 // generate these automagically?
                 files: {
                     'angular/angular.js': 'angular/angular.js',
-                    'angular-foundation/mm-foundation-tpls.js': 'angular-foundation/mm-foundation-tpls.js',
                     'angular-route/angular-route.js': 'angular-route/angular-route.js',
                     'angular-animate/angular-animate.js': 'angular-animate/angular-animate.js',
                     'angular-touch/angular-touch.js': 'angular-touch/angular-touch.js',
@@ -23,8 +22,6 @@ module.exports = function (grunt) {
                     'bootstrap-css/js/bootstrap.min.js':'bootstrap-css/js/bootstrap.min.js',
                     'angular-bootstrap/ui-bootstrap-tpls.js':'angular-bootstrap/ui-bootstrap-tpls.js',
                     'checklist-model/checklist-model.js': 'checklist-model/checklist-model.js',
-                    'foundation-sites/dist/foundation.css': 'foundation-sites/dist/foundation.css',
-                    'foundation-sites/dist/foundation.js': 'foundation-sites/dist/foundation.js',
                     'what-input/what-input.js': 'what-input/what-input.js',
                     'moment/moment.js': 'moment/moment.js',
                     'jquery/dist/jquery.js': 'jquery/dist/jquery.js',

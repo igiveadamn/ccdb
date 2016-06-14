@@ -8,7 +8,6 @@ module.exports = function (config) {
             "bower_components/angular/angular.js",
             "bower_components/angular-route/angular-route.js",
             "bower_components/lodash/lodash.js",
-            "bower_components/angular-foundation/mm-foundation-tpls.js",
             "bower_components/checklist-model/checklist-model.js",
             "bower_components/ngstorage/ngStorage.js",
             "node_modules/angular-mocks/angular-mocks.js",

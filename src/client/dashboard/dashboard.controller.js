@@ -15,10 +15,6 @@ angular.module('ices.dashboard', ['ngRoute', 'ices.authentication.user.authentic
 
     .controller('DashboardController', function ($scope, $location, $timeout, UserAuthentication) {
 
-        $timeout(function () {
-            $(document).foundation();
-        });
-
         $scope.newPatient = function () {
             return $location.path('/editPatient/new');
         };

@@ -15,10 +15,6 @@ angular.module('ices.login', ['ices.authentication.authentication', 'ices.authen
 
     .controller('LoginController', function($scope, $window, $location, $timeout, UserAuthentication, Authentication) {
 
-        $timeout(function () {
-            $(document).foundation();
-        });
-
         $scope.errorHandler = {};
 
         $scope.reset = function () {
