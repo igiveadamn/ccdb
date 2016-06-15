@@ -390,6 +390,7 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
+                <li><a href="#/dashboard">Dashboard</a></li>
                 <li><a href="#/search">Search</a></li>
                 <li><a href="#/editPatient/new">New Referral</a></li>
                 <li><a href="#/users">Users</a></li>
@@ -443,7 +444,23 @@
 </div>
 </script>
 <script type="text/ng-template" id="patient/patient.form.html">
-</script>
+<div class="well">
+
+    <uib-tabset active="active">
+        <uib-tab index="0" heading="Referral">
+            <ng-include src="'referral/referral.form.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="1" heading="Admission">
+            <ng-include src="'admission/admission.form.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="2" heading="Scores">
+            <ng-include src="'scores/scores.form.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="3" heading="Discharge">
+            <ng-include src="'discharge/discharge.form.html'"></ng-include>
+        </uib-tab>
+    </uib-tabset>
+</div></script>
 <script type="text/ng-template" id="patient/patient.html">
 </script>
 <script type="text/ng-template" id="patient/patient.list.html">

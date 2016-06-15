@@ -15,11 +15,11 @@
     <base href="/">
 </head>
 
-<body style="background-color: #f8f8f8;">
+<body>
 
 <navigation></navigation>
+<div class="container-fluid" ng-view></div>
 
-<div ng-view></div>
 <div class="loader-layer" ng-show="sync">
     <div class="loader-outer">
         <div class="loader"></div>
