@@ -1,21 +1,13 @@
-<div class="row">
-    <div class="small-8 columns">
-        <div class="row">
-            <div class="small-2 columns">
-                <label class="right inline">{{ label }}</label>
-            </div>
-            <div class="small-6 columns end dates">
-                <select ng-model="date" ng-change="modelChanged()" class="date">
-                    <option ng-repeat="date in dates">{{ date }}</option>
-                </select>
-                <select ng-model="month" ng-change="modelChanged()" ng-options="m.key as m.value for m in months" class="month">
-                </select>
-                <select ng-model="year" ng-change="modelChanged()" class="year" >
-                    <option ng-repeat="year in years">{{ year }}</option>
-                </select>
+<div class="form-group">
+    <label>{{ label }}</label>
+    <select ng-model="date" ng-change="modelChanged()" class="date">
+        <option ng-repeat="date in dates">{{ date }}</option>
+    </select>
+    <select ng-model="month" ng-change="modelChanged()" ng-options="m.key as m.value for m in months" class="month">
+    </select>
+    <select ng-model="year" ng-change="modelChanged()" class="year">
+        <option ng-repeat="year in years">{{ year }}</option>
+    </select>
 
-                <a class="small-button noselect" ng-click="modelChanged(true)">now</a>
-            </div>
-        </div>
-    </div>
+    <a class="btn btn-default noselect" ng-click="modelChanged(true)">now</a>
 </div>

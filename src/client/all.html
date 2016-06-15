@@ -812,7 +812,7 @@
 <ccdb-form-textarea label="Any delay on admission" value="patient.referral.ifAcceptedAnyDelay"></ccdb-form-textarea>
 <ccdb-form-textarea label="Reason for delay" value="patient.referral.delayReason"></ccdb-form-textarea>
 <ccdb-form-textarea label="If accepted but never admitted" value="patient.referral.IfAcceptedButNeverAdmitted"></ccdb-form-textarea>
-<ccdb-form-text label="Unit trasnferred to if trasnferred" value="patient.referral.unitTrasnferredToIfTrasnferred "></ccdb-form-text>
+<ccdb-form-text label="Unit transferred to if transferred" value="patient.referral.unitTransferredToIfTransferred "></ccdb-form-text>
 <ccdb-form-textarea label="The final outcome of the patient is" value="patient.referral.theFinalOutcomeOfThePatientIs"></ccdb-form-textarea>
 
 
@@ -1141,92 +1141,52 @@
 <span class="noselect"><a ng-click="dateRangeService.previous()" class="btn btn-default noselect">&lt;</a> <a ng-click="dateRangeService.next()" class="btn btn-default noselect">&gt;</a> </span>{{dateRangeService.dateRange.startDate | date : 'MMM d'}} - {{dateRangeService.dateRange.endDate | date : 'MMM d, y'}}
 </script>
 <script type="text/ng-template" id="utils/form/date.html">
-<div class="row">
-    <div class="small-8 columns">
-        <div class="row">
-            <div class="small-2 columns">
-                <label class="right inline">{{ label }}</label>
-            </div>
-            <div class="small-6 columns end dates">
-                <select ng-model="date" ng-change="modelChanged()" class="date">
-                    <option ng-repeat="date in dates">{{ date }}</option>
-                </select>
-                <select ng-model="month" ng-change="modelChanged()" ng-options="m.key as m.value for m in months" class="month">
-                </select>
-                <select ng-model="year" ng-change="modelChanged()" class="year" >
-                    <option ng-repeat="year in years">{{ year }}</option>
-                </select>
+<div class="form-group">
+    <label>{{ label }}</label>
+    <select ng-model="date" ng-change="modelChanged()" class="date">
+        <option ng-repeat="date in dates">{{ date }}</option>
+    </select>
+    <select ng-model="month" ng-change="modelChanged()" ng-options="m.key as m.value for m in months" class="month">
+    </select>
+    <select ng-model="year" ng-change="modelChanged()" class="year">
+        <option ng-repeat="year in years">{{ year }}</option>
+    </select>
 
-                <a class="small-button noselect" ng-click="modelChanged(true)">now</a>
-            </div>
-        </div>
-    </div>
+    <a class="btn btn-default noselect" ng-click="modelChanged(true)">now</a>
 </div>
 </script>
 <script type="text/ng-template" id="utils/form/multiselect.html">
-<div class="row">
-    <div class="small-8 columns">
-        <div class="row">
-            <div class="small-2 columns">
-                <label class="right inline">{{ label }}</label>
-            </div>
-            <div class="small-6 columns end">
-                <label ng-repeat="option in options">
-                    <input type="checkbox" checklist-model="value" checklist-value="option" />{{option}}
-                </label>
-            </div>
-        </div>
-    </div>
+<div class="form-group">
+    <label>{{ label }}</label>
+    <label ng-repeat="option in options">
+        <input type="checkbox" checklist-model="value" checklist-value="option"/>{{option}}
+    </label>
 </div>
 </script>
 <script type="text/ng-template" id="utils/form/select.html">
-<div class="row">
-    <div class="small-8 columns">
-        <div class="row">
-            <div class="small-2 columns">
-                <label for="right-label" class="right inline">{{ label }}</label>
-            </div>
-            <div class="small-6 columns end">
-                <select id="right-label" ng-model="value" ng-change="function(){alert("yo!");}">
-                    <option ng-repeat="option in options">{{ option }}</option>
-                </select>
-            </div>
-        </div>
-    </div>
+<div class="form-group">
+    <label for="right-label">{{ label }}</label>
+    <select id="right-label" class="form-control" ng-model="value" >
+    <option ng-repeat="option in options">{{ option }}</option>
+    </select>
 </div>
 </script>
 <script type="text/ng-template" id="utils/form/text.html">
-<div class="row">
-    <div class="small-8 columns">
-        <div class="row">
-            <div class="small-2 columns">
-                <label for="right-label" class="right inline">{{ label }}</label>
-            </div>
-            <div class="small-6 columns end">
-                <input
-                    type="text"
-                    id="right-label"
-                    placeholder="{{ label }}"
-                    ng-model="value"
-                    typeahead="item for item in getSuggestions($viewValue) | filter:$viewValue"
-                    typeahead-loading="loading"
-                >
-            </div>
-        </div>
-    </div>
+<div class="form-group">
+    <label for="right-label">{{ label }}</label>
+    <input  type="text"
+            class="form-control"
+            id="right-label"
+            placeholder="{{ label }}"
+            ng-model="value"
+            typeahead="item for item in getSuggestions($viewValue) | filter:$viewValue"
+            typeahead-loading="loading"
+    >
 </div>
 </script>
 <script type="text/ng-template" id="utils/form/textarea.html">
-<div class="row">
-    <div class="small-8 columns">
-        <div class="row">
-            <div class="small-2 columns">
-                <label for="right-label" class="right inline">{{ label }}</label>
-            </div>
-            <div class="small-6 columns end">
-                <textarea rows="5" cols="30" id="right-label" placeholder="{{ label }}" ng-model="value"></textarea>
-            </div>
-        </div>
-    </div>
+<div class="form-group">
+    <label for="right-label">{{ label }}</label>
+    <textarea class="form-control" rows="5" cols="30" id="right-label" placeholder="{{ label }}" ng-model="value"></textarea>
 </div>
 </script>

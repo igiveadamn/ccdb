@@ -1,14 +1,6 @@
-<div class="row">
-    <div class="small-8 columns">
-        <div class="row">
-            <div class="small-2 columns">
-                <label for="right-label" class="right inline">{{ label }}</label>
-            </div>
-            <div class="small-6 columns end">
-                <select id="right-label" ng-model="value" ng-change="function(){alert("yo!");}">
-                    <option ng-repeat="option in options">{{ option }}</option>
-                </select>
-            </div>
-        </div>
-    </div>
+<div class="form-group">
+    <label for="right-label">{{ label }}</label>
+    <select id="right-label" class="form-control" ng-model="value" >
+    <option ng-repeat="option in options">{{ option }}</option>
+    </select>
 </div>

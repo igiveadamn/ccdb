@@ -1,12 +1,4 @@
-<div class="row">
-    <div class="small-8 columns">
-        <div class="row">
-            <div class="small-2 columns">
-                <label for="right-label" class="right inline">{{ label }}</label>
-            </div>
-            <div class="small-6 columns end">
-                <textarea rows="5" cols="30" id="right-label" placeholder="{{ label }}" ng-model="value"></textarea>
-            </div>
-        </div>
-    </div>
+<div class="form-group">
+    <label for="right-label">{{ label }}</label>
+    <textarea class="form-control" rows="5" cols="30" id="right-label" placeholder="{{ label }}" ng-model="value"></textarea>
 </div>
