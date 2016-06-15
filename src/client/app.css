@@ -3,22 +3,6 @@ body {
     padding-top: 70px;
 }
 
-.date {
-    padding: 0.5em;
-}
-
-.dates .date {
-    width: 3em;
-}
-
-.dates .month {
-    width: 7em;
-}
-
-.dates .year {
-    width: 5em;
-}
-
 .noselect {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -26,10 +10,6 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-}
-
-.button {
-    margin: 0.25em 0 0.25em 0;
 }
 
 .loader {

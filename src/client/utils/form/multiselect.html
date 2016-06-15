@@ -1,6 +1,8 @@
 <div class="form-group">
     <label>{{ label }}</label>
-    <label ng-repeat="option in options">
-        <input type="checkbox" checklist-model="value" checklist-value="option"/>{{option}}
-    </label>
+    <div class="checkbox" ng-repeat="option in options">
+        <label >
+            <input type="checkbox" checklist-model="value" checklist-value="option"/>{{option}}
+        </label>
+    </div>
 </div>

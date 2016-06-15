@@ -448,16 +448,19 @@
 <div class="well">
 
     <uib-tabset active="active">
-        <uib-tab index="0" heading="Referral">
+        <uib-tab index="0" heading="Patient Details">
+            <ng-include src="'patient/patient.details.form.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="1" heading="Referral">
             <ng-include src="'referral/referral.form.html'"></ng-include>
         </uib-tab>
-        <uib-tab index="1" heading="Admission">
+        <uib-tab index="2" heading="Admission">
             <ng-include src="'admission/admission.form.html'"></ng-include>
         </uib-tab>
-        <uib-tab index="2" heading="Scores">
+        <uib-tab index="3" heading="Scores">
             <ng-include src="'scores/scores.form.html'"></ng-include>
         </uib-tab>
-        <uib-tab index="3" heading="Discharge">
+        <uib-tab index="4" heading="Discharge">
             <ng-include src="'discharge/discharge.form.html'"></ng-include>
         </uib-tab>
     </uib-tabset>
@@ -1144,14 +1147,9 @@
 <script type="text/ng-template" id="utils/form/date.html">
 <div class="form-group">
     <label>{{ label }}</label>
-    <select ng-model="date" ng-change="modelChanged()" class="date">
-        <option ng-repeat="date in dates">{{ date }}</option>
-    </select>
-    <select ng-model="month" ng-change="modelChanged()" ng-options="m.key as m.value for m in months" class="month">
-    </select>
-    <select ng-model="year" ng-change="modelChanged()" class="year">
-        <option ng-repeat="year in years">{{ year }}</option>
-    </select>
+    <select ng-model="date" ng-change="modelChanged()" ng-options="d as d for d in dates"></select>
+    <select ng-model="month" ng-change="modelChanged()" ng-options="m.key as m.value for m in months"></select>
+    <select ng-model="year" ng-change="modelChanged()" ng-options="y as y for y in years"></select>
 
     <a class="btn btn-default noselect" ng-click="modelChanged(true)">now</a>
 </div>
@@ -1159,9 +1157,11 @@
 <script type="text/ng-template" id="utils/form/multiselect.html">
 <div class="form-group">
     <label>{{ label }}</label>
-    <label ng-repeat="option in options">
-        <input type="checkbox" checklist-model="value" checklist-value="option"/>{{option}}
-    </label>
+    <div class="checkbox" ng-repeat="option in options">
+        <label >
+            <input type="checkbox" checklist-model="value" checklist-value="option"/>{{option}}
+        </label>
+    </div>
 </div>
 </script>
 <script type="text/ng-template" id="utils/form/select.html">

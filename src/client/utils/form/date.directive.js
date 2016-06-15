@@ -29,6 +29,11 @@ angular.module('ccdb.utils.form.date.directive', [])
                         scope.date = moment(modelValue).date();
                         scope.month = moment(modelValue).month();
                         scope.year = moment(modelValue).year();
+
+                      console.log(scope.date);
+                      console.log(scope.month);
+                      console.log(scope.year);
+
                     }
                 };
 
