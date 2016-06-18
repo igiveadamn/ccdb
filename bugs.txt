@@ -1,0 +1,67 @@
+======================== START =============================
+Attempt to make new user 'jake' - guess: missing return somewhere
+============================================================
+
+{ [Error: Cannot find module '../build/Release/bson'] code: 'MODULE_NOT_FOUND' }
+js-bson: Failed to load c++ bson extension, using pure JS version
+Express server listening on port 8080
+GET /downloads/csv 401 3.576 ms - 47
+POST /api/login 200 151.866 ms - 489
+{"referral.decision":"Cannot make decision now"}
+{"referral.decision":"Accepted","discharge.dischargeDate":null}
+first and...
+{"$and":[{"referral.decision":"Cannot make decision now"},{"referral.referralDate":{"$gte":"2016-06-13T06:00:00.000Z","$lt":"2016-06-20T06:00:00.000Z"}},{"hospital":"Baragwanath"}]}
+first and...
+{"$and":[{"referral.decision":"Accepted","discharge.dischargeDate":null},{"admission.firstAdmittedDate":{"$gte":"2016-06-13T06:00:00.000Z","$lt":"2016-06-20T06:00:00.000Z"}},{"hospital":"Baragwanath"}]}
+GET /api/patient/patients/?countOnly=true&filter=%257B%2522referral.decision%2522%253A%2520%2522Cannot%2520make%2520decision%2520now%2522%257D&range=%7B%22startDate%22:%222016-06-13T06:00:00.000Z%22,%22endDate%22:%222016-06-20T06:00:00.000Z%22%7D&rangeField=referral.referralDate 200 14.687 ms - 1
+GET /api/patient/patients/?filter=%257B%2522referral.decision%2522%253A%2520%2522Cannot%2520make%2520decision%2520now%2522%257D 200 26.174 ms - 1089
+GET /api/patient/patients/?filter=%257B%2522referral.decision%2522%253A%2520%2522Accepted%2522%252C%2520%2522discharge.dischargeDate%2522%253A%2520null%257D 200 25.003 ms - 558
+GET /api/patient/patients/?countOnly=true&filter=%257B%2522referral.decision%2522%253A%2520%2522Accepted%2522%252C%2520%2522discharge.dischargeDate%2522%253A%2520null%257D&range=%7B%22startDate%22:%222016-06-13T06:00:00.000Z%22,%22endDate%22:%222016-06-20T06:00:00.000Z%22%7D&rangeField=admission.firstAdmittedDate 200 25.284 ms - 1
+GET /downloads/csv 401 0.334 ms - 47
+GET /api/patient/search/ 200 17.389 ms - 3336
+GET /api/user/users/ 200 4.058 ms - 521
+GET /api/user/users/ 304 2.432 ms - -
+GET /bower_components/bootstrap-css/css/bootstrap.css.map 404 3.914 ms - 1434
+Error: Not Found
+    at /Users/jhoward/Development/Personal/ccdb/target/src/server/server.js:73:15
+    at Layer.handle [as handle_request] (/Users/jhoward/Development/Personal/ccdb/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/jhoward/Development/Personal/ccdb/node_modules/express/lib/router/index.js:312:13)
+    at /Users/jhoward/Development/Personal/ccdb/node_modules/express/lib/router/index.js:280:7
+    at Function.process_params (/Users/jhoward/Development/Personal/ccdb/node_modules/express/lib/router/index.js:330:12)
+    at next (/Users/jhoward/Development/Personal/ccdb/node_modules/express/lib/router/index.js:271:10)
+    at SendStream.error (/Users/jhoward/Development/Personal/ccdb/node_modules/express/node_modules/serve-static/index.js:121:7)
+    at emitOne (events.js:77:13)
+    at SendStream.emit (events.js:169:7)
+    at SendStream.error (/Users/jhoward/Development/Personal/ccdb/node_modules/express/node_modules/send/index.js:275:17)
+    at SendStream.onStatError (/Users/jhoward/Development/Personal/ccdb/node_modules/express/node_modules/send/index.js:392:12)
+    at onstat (/Users/jhoward/Development/Personal/ccdb/node_modules/express/node_modules/send/index.js:674:26)
+    at FSReqWrap.oncomplete (fs.js:82:15)
+Unable to send via postmark: Error parsing 'To': Illegal email address 'jake'. It must contain the '@' symbol.
+POST /api/user/user/ 200 1030.436 ms - 119
+{"referral.decision":"Cannot make decision now"}
+{"referral.decision":"Accepted","discharge.dischargeDate":null}
+GET /api/patient/patients/?filter=%257B%2522referral.decision%2522%253A%2520%2522Cannot%2520make%2520decision%2520now%2522%257D 200 20.224 ms - 1089
+first and...
+{"$and":[{"referral.decision":"Cannot make decision now"},{"referral.referralDate":{"$gte":"2016-06-13T06:00:00.000Z","$lt":"2016-06-20T06:00:00.000Z"}},{"hospital":"Baragwanath"}]}
+first and...
+{"$and":[{"referral.decision":"Accepted","discharge.dischargeDate":null},{"admission.firstAdmittedDate":{"$gte":"2016-06-13T06:00:00.000Z","$lt":"2016-06-20T06:00:00.000Z"}},{"hospital":"Baragwanath"}]}
+GET /api/patient/patients/?filter=%257B%2522referral.decision%2522%253A%2520%2522Accepted%2522%252C%2520%2522discharge.dischargeDate%2522%253A%2520null%257D 200 21.650 ms - 558
+GET /api/patient/patients/?countOnly=true&filter=%257B%2522referral.decision%2522%253A%2520%2522Cannot%2520make%2520decision%2520now%2522%257D&range=%7B%22startDate%22:%222016-06-13T06:00:00.000Z%22,%22endDate%22:%222016-06-20T06:00:00.000Z%22%7D&rangeField=referral.referralDate 200 17.529 ms - 1
+GET /api/patient/patients/?countOnly=true&filter=%257B%2522referral.decision%2522%253A%2520%2522Accepted%2522%252C%2520%2522discharge.dischargeDate%2522%253A%2520null%257D&range=%7B%22startDate%22:%222016-06-13T06:00:00.000Z%22,%22endDate%22:%222016-06-20T06:00:00.000Z%22%7D&rangeField=admission.firstAdmittedDate 200 17.055 ms - 1
+GET /api/user/users/ 200 4.419 ms - 740
+{"referral.decision":"Cannot make decision now"}
+{"referral.decision":"Accepted","discharge.dischargeDate":null}
+first and...
+{"$and":[{"referral.decision":"Cannot make decision now"},{"referral.referralDate":{"$gte":"2016-06-13T06:00:00.000Z","$lt":"2016-06-20T06:00:00.000Z"}},{"hospital":"Baragwanath"}]}
+first and...
+{"$and":[{"referral.decision":"Accepted","discharge.dischargeDate":null},{"admission.firstAdmittedDate":{"$gte":"2016-06-13T06:00:00.000Z","$lt":"2016-06-20T06:00:00.000Z"}},{"hospital":"Baragwanath"}]}
+GET /api/patient/patients/?filter=%257B%2522referral.decision%2522%253A%2520%2522Cannot%2520make%2520decision%2520now%2522%257D 200 18.057 ms - 1089
+GET /api/patient/patients/?countOnly=true&filter=%257B%2522referral.decision%2522%253A%2520%2522Accepted%2522%252C%2520%2522discharge.dischargeDate%2522%253A%2520null%257D&range=%7B%22startDate%22:%222016-06-13T06:00:00.000Z%22,%22endDate%22:%222016-06-20T06:00:00.000Z%22%7D&rangeField=admission.firstAdmittedDate 200 12.504 ms - 1
+GET /api/patient/patients/?filter=%257B%2522referral.decision%2522%253A%2520%2522Accepted%2522%252C%2520%2522discharge.dischargeDate%2522%253A%2520null%257D 200 20.308 ms - 558
+GET /api/patient/patients/?countOnly=true&filter=%257B%2522referral.decision%2522%253A%2520%2522Cannot%2520make%2520decision%2520now%2522%257D&range=%7B%22startDate%22:%222016-06-13T06:00:00.000Z%22,%22endDate%22:%222016-06-20T06:00:00.000Z%22%7D&rangeField=referral.referralDate 200 17.200 ms - 1
+Attempt failed to login with jake
+[Error: data and hash arguments required]
+_http_outgoing.js:344
+    throw new Error('Can\'t set headers after they are sent.');
+
+======================== END =============================

@@ -60,6 +60,10 @@ app.get('/api/user/users', user.list);
 app.get('/api/user/user', user.single);
 app.post('/api/user/user', user.save);
 
+// Download - admin only (authenticated & authorised users)
+app.all('/downloads/*', [require('./middlewares/authenticate'), require('./middlewares/authorise')]);
+app.get('/downloads/csv', require('./csv-export/req-handler')(mongoose.connection));
+
 // static content (angular stuff)
 app.use(cache(3 * 3600));
 app.use(express.static(path.join(__dirname, '../client')));
