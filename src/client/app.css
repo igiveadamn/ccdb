@@ -70,7 +70,9 @@ body {
     padding: 15px;
     margin: 0 auto;
 }
-.form-signin .form-signin-heading,
+.form-signin .form-signin-heading {
+    text-align: left;
+}
 
 .form-signin .form-control {
     position: relative;
@@ -86,13 +88,18 @@ body {
 }
 .form-signin input[type="username"] {
     margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
 }
+
 .form-signin input[type="password"] {
     margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.form-signin .form-signing-reset-btn {
+    padding-right: 0px;
 }
 
 .form-reset {

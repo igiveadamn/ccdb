@@ -368,11 +368,11 @@
     <form class="form-signin">
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="username" class="sr-only">username</label>
-        <input autofocus type="text" class="form-control" id="username" placeholder="Username (email address)" ng-model="user.username">
+        <input autofocus type="username" class="form-control" id="username" placeholder="Username (email address)" ng-model="user.username">
         <label for="password" class="sr-only">Password</label>
         <input type="password" class="form-control" id="password" placeholder="Password" ng-model="user.password">
         <button type="submit" ng-click="login()" class="btn btn-lg btn-primary btn-block">Submit</button>
-        <button type="button" ng-click="reset()" class="btn btn-secondary pull-right text-right">Forgotten your password?</button>
+        <button type="button" ng-click="reset()" class="btn btn-link pull-right form-signing-reset-btn">Forgotten your password?</button>
     </form>
 </div></script>
 <script type="text/ng-template" id="navigation/navigation.html">
