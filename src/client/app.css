@@ -2,6 +2,13 @@ body {
     min-height: 2000px;
     padding-top: 70px;
 }
+.form-panel {
+    padding: 9.5px;
+    border-radius: inherit;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
 
 .noselect {
     -webkit-touch-callout: none;
