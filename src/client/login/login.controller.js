@@ -29,6 +29,8 @@ angular.module('ccdb.login', ['ccdb.authentication.authentication', 'ccdb.authen
             if (username !== undefined && password !== undefined) {
                 UserAuthentication.login(username, password).success(function(data) {
 
+                    if (data.status === 401) return null;
+
                     Authentication.isLoggedIn = true;
                     Authentication.user = data.user.username;
                     Authentication.userRole = data.user.role;
@@ -46,5 +48,4 @@ angular.module('ccdb.login', ['ccdb.authentication.authentication', 'ccdb.authen
             }
         };
    }
-)
-;
+);

@@ -92,7 +92,7 @@ module.exports = {
                     }
                     callBack(isMatch ? user : undefined);
                 });
-            }else{
+            } else {
                 console.log('Incorrect Username or Password');
                 return callBack(undefined);
             }
