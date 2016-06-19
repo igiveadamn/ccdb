@@ -354,10 +354,18 @@
 </div></script>
 <script type="text/ng-template" id="discharge/discharge.form.html">
 <div class="panel form-panel">
-    <ccdb-form-date label="Discharge date" ng-model="patient.discharge.dischargeDate"></ccdb-form-date>
-    <ccdb-form-select label="Discharge status" options="dischargeStatuses"
-                      value="patient.discharge.dischargeStatus"></ccdb-form-select>
-    <ccdb-form-textarea label="Comments" value="patient.discharge.comments"></ccdb-form-textarea>
+    <div class="row">
+        <div class="col-sm-6">
+            <ccdb-form-date label="Discharge date" ng-model="patient.discharge.dischargeDate"></ccdb-form-date>
+            <ccdb-form-textarea label="Comments" value="patient.discharge.comments"></ccdb-form-textarea>
+
+        </div>
+        <div class="col-sm-6">
+            <ccdb-form-select label="Discharge status" options="dischargeStatuses"
+                              value="patient.discharge.dischargeStatus"></ccdb-form-select>
+            <button>Save</button>
+        </div>
+    </div>
 </div></script>
 <script type="text/ng-template" id="discharge/discharge.html">
 <h3>Discharge Details</h3>
