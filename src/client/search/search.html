@@ -1,8 +1,9 @@
-<div>
-    <h2>Search</h2>
-    <div class="callout">
-        <input autofocus type="text" ng-model="query" ng-change="search(query)"/>
+<div class="well">
+    <div class="panel-heading">
+        <h2>Search</h2>
+        <input autofocus type="text" ng-model="query"/>
     </div>
-
-    <ccdb-patient-list title="" buttons="Edit" query="query"></ccdb-patient-list>
+    <div class="panel panel-default">
+        <ccdb-patient-list title="" buttons="Edit" query="query"></ccdb-patient-list>
+    </div>
 </div>

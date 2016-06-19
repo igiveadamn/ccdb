@@ -13,14 +13,9 @@ angular.module('ccdb.search', ['ngRoute', 'ccdb.authentication.user.authenticati
         );
     })
 
-    .controller('SearchController', function ($scope, $location, UserAuthentication) {
+    .controller('SearchController', function ($scope, $location) {
         $scope.dashboard = function () {
             return $location.path('/dashboard');
-        };
-
-        $scope.search = function () {
-            console.log('in search ' + $scope.query);
-            $scope.filter = $scope.query;
         };
     }
 );

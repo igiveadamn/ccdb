@@ -446,7 +446,6 @@
 </script>
 <script type="text/ng-template" id="patient/patient.form.html">
 <div class="well">
-
     <uib-tabset active="active">
         <uib-tab index="0" heading="Patient Details">
             <ng-include src="'patient/patient.details.form.html'"></ng-include>
@@ -1097,13 +1096,14 @@
 <section ng-repeat="score in patient.scores" id="{{score.scoreDate | date:'EEE' }}"><ccdb-score score="score"></ccdb-score></section>
 </script>
 <script type="text/ng-template" id="search/search.html">
-<div>
-    <h2>Search</h2>
-    <div class="callout">
-        <input autofocus type="text" ng-model="query" ng-change="search(query)"/>
+<div class="well">
+    <div class="panel-heading">
+        <h2>Search</h2>
+        <input autofocus type="text" ng-model="query"/>
     </div>
-
-    <ccdb-patient-list title="" buttons="Edit" query="query"></ccdb-patient-list>
+    <div class="panel panel-default">
+        <ccdb-patient-list title="" buttons="Edit" query="query"></ccdb-patient-list>
+    </div>
 </div>
 </script>
 <script type="text/ng-template" id="user/user.form.html">
