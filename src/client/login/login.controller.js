@@ -42,7 +42,7 @@ angular.module('ccdb.login', ['ccdb.authentication.authentication', 'ccdb.authen
                     $window.sessionStorage.user = data.user.username;
                     $window.sessionStorage.userRole = data.user.role;
 
-                    $scope.$emit('login-success');
+                    $scope.$emit('login-success', [data.user.username]);
                 }).error(function(error) {
                     $scope.errorHandler.message = (error) ? error.message : 'An error occurred';
                 });

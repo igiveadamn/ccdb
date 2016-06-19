@@ -7,9 +7,11 @@ angular.module('ccdb.navigation', ['ccdb.authentication.authentication', 'ccdb.a
 
       controller: function controller($rootScope) {
         $rootScope.isLoggedIn = Authentication.isLoggedIn;
+
         $rootScope.logout = function logout() {
           UserAuthentication.logout();
           $rootScope.isLoggedIn = Authentication.isLoggedIn;
+          $rootScope.loggedInUser = null;
         };
       }
     };

@@ -113,7 +113,8 @@ angular.module('ccdb',
             $log.debug('sync...', newValue, '->', oldValue);
         });
 
-        $rootScope.$on('login-success', function() {
+        $rootScope.$on('login-success', function(event, username) {
+          $rootScope.loggedInUser = username[0];
           $rootScope.isLoggedIn = Authentication.isLoggedIn;
           $location.path('/');
         });
