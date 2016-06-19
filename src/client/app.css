@@ -126,3 +126,7 @@ body {
 .form-reset input[type="username"] {
     margin-bottom: 10px;
 }
+
+.form-reset .form-reset-message {
+    margin-bottom: 10px;
+}
