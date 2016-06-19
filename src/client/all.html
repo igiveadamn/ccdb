@@ -357,12 +357,17 @@
     <div class="row">
         <div class="col-sm-6">
             <ccdb-form-date label="Discharge date" ng-model="patient.discharge.dischargeDate"></ccdb-form-date>
-            <ccdb-form-textarea label="Comments" value="patient.discharge.comments"></ccdb-form-textarea>
-
         </div>
         <div class="col-sm-6">
             <ccdb-form-select label="Discharge status" options="dischargeStatuses"
                               value="patient.discharge.dischargeStatus"></ccdb-form-select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <ccdb-form-textarea label="Comments" value="patient.discharge.comments"></ccdb-form-textarea>
+        </div>
+        <div class="col-sm-6">
             <button>Save</button>
         </div>
     </div>
@@ -451,12 +456,24 @@
     <div class="row">
         <div class="col-sm-6">
             <ccdb-form-text label="Last name" value="patient.lastName"></ccdb-form-text>
-            <ccdb-form-select label="Race" options="races" value="patient.race"></ccdb-form-select>
-            <ccdb-form-date label="Birth date" ng-model="patient.birthDate"></ccdb-form-date>
         </div>
         <div class="col-sm-6">
             <ccdb-form-text label="First name" value="patient.firstName"></ccdb-form-text>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <ccdb-form-select label="Race" options="races" value="patient.race"></ccdb-form-select>
+        </div>
+        <div class="col-sm-6">
             <ccdb-form-select label="Gender" options="genders" value="patient.gender"></ccdb-form-select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <ccdb-form-date label="Birth date" ng-model="patient.birthDate"></ccdb-form-date>
+        </div>
+        <div class="col-sm-6">
             <button>Save</button>
         </div>
     </div>
