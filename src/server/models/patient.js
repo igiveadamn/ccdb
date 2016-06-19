@@ -40,10 +40,6 @@ function updateOrInsertPatient(id, patient, response) {
     });
 }
 
-var dateString = function (date) {
-    return 'new Date(' + date.getYear() + ',' + date.getMonth() + ',' + date.getDate() + ',' + date.getHours() + ')';
-};
-
 module.exports = {
     search: function (request, response) {
         var query = request.query.query;
@@ -55,7 +51,10 @@ module.exports = {
             ]
         };
         filter.hospital = request.hospital;
-        Patient.find(filter, function (err, patients) {
+        Patient.find(filter)
+        .sort('-referral.referralDate')
+        .limit(20)
+        .exec(function (err, patients) {
             if (err) {
                 console.log(err);
             }
@@ -76,11 +75,9 @@ module.exports = {
             var range = {};
             range[query.rangeField] = {"$gte": new Date(rangeParam.startDate), "$lt": new Date(rangeParam.endDate)};
             if (filter.$and) {
-                console.log('already ands...');
                 filter.$and.push(range);
                 filter.$and.push(hospitalFilter);
             } else {
-                console.log('first and...');
                 filter = {"$and": [filter, range, hospitalFilter]};
             }
         }
