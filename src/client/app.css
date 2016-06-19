@@ -107,7 +107,9 @@ body {
     padding: 15px;
     margin: 0 auto;
 }
-.form-reset .form-reset-heading,
+.form-reset .form-reset-heading{
+    text-align: left;
+}
 
 .form-reset .form-control {
     position: relative;
@@ -122,7 +124,5 @@ body {
     z-index: 2;
 }
 .form-reset input[type="username"] {
-    margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
+    margin-bottom: 10px;
 }
