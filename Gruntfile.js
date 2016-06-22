@@ -22,7 +22,6 @@ module.exports = function (grunt) {
                     'bootstrap-css/js/bootstrap.min.js':'bootstrap-css/js/bootstrap.min.js',
                     'angular-bootstrap/ui-bootstrap-tpls.js':'angular-bootstrap/ui-bootstrap-tpls.js',
                     'checklist-model/checklist-model.js': 'checklist-model/checklist-model.js',
-                    'what-input/what-input.js': 'what-input/what-input.js',
                     'moment/moment.js': 'moment/moment.js',
                     'jquery/dist/jquery.js': 'jquery/dist/jquery.js',
                     'lodash/lodash.js': 'lodash/lodash.js',
