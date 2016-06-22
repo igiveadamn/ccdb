@@ -7,7 +7,7 @@ var postmark = require('postmark')(process.env.POSTMARK_API_TOKEN);
 
 var User = mongoose.model('User', schema.userSchema);
 
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt-nodejs');
 var SALT_WORK_FACTOR = 10;
 
 module.exports = {
