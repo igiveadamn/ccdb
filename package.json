@@ -6,7 +6,7 @@
     "node": "4.4.0"
   },
   "scripts": {
-    "postinstall": "grunt cleanup"
+    "postinstall": "grunt clean bowercopy deploy"
   },
   "description": "icu data",
   "repository": "",
