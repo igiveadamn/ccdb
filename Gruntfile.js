@@ -153,6 +153,4 @@ module.exports = function (grunt) {
 
     grunt.registerTask('cleanup', ['clean', 'bowercopy', 'dev']);
     grunt.registerTask('default', ['clean', 'dev']);
-
-    grunt.registerTask('heroku:production', 'clean', 'bowercopy', 'deploy');
 };
