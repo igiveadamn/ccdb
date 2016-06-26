@@ -82,7 +82,7 @@ angular.module('ccdb',
             if (!top) {
                 $rootScope.sync = false;
                 $log.info('refresh after sync');
-                $location.path('/search');
+                // $location.path('/search');
                 return;
             }
             $rootScope.sync = true;

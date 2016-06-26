@@ -6,21 +6,16 @@
         <div class="col-sm-6">
             <ccdb-form-text label="First name" value="patient.firstName"></ccdb-form-text>
         </div>
-    </div>
-    <div class="row">
         <div class="col-sm-6">
             <ccdb-form-select label="Race" options="races" value="patient.race"></ccdb-form-select>
         </div>
         <div class="col-sm-6">
             <ccdb-form-select label="Gender" options="genders" value="patient.gender"></ccdb-form-select>
         </div>
-    </div>
-    <div class="row">
         <div class="col-sm-6">
-            <ccdb-form-date label="Birth date" ng-model="patient.birthDate"></ccdb-form-date>
+            <ccdb-form-date label="Birth date" ng-model="patient.birthDate" ></ccdb-form-date>
         </div>
-        <div class="col-sm-6">
-            <button>Save</button>
-        </div>
-    </div>
+      </div>
+      <div class="divider"></div>
+      <button class="btn btn-primary">Save</button>
 </div>

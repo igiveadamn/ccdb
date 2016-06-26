@@ -1,9 +1,6 @@
-<div class="well">
-    <div class="panel-heading">
-        <h2>Search</h2>
-        <input autofocus type="text" ng-model="query"/>
-    </div>
-    <div class="panel panel-default">
-        <ccdb-patient-list title="" buttons="Edit" query="query"></ccdb-patient-list>
-    </div>
+<h1>Find patient</h1>
+<div class="divider"></div>
+<div class="panel panel-default">
+  <input autofocus type="text" ng-model="query" class="form-control" placeholder="Search by patient detail..."/>
+  <ccdb-patient-list title="" buttons="Edit" query="query"></ccdb-patient-list>
 </div>

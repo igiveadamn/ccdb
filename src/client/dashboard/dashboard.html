@@ -1,25 +1,51 @@
-<div class="well">
-    <ccdb-patient-list title="Referrals"
-                       buttons="Edit,Admit"
-                       filter='{"referral.decision": "Cannot make decision now"}'
-    ></ccdb-patient-list>
-    <ccdb-patient-list title="Admitted patients"
-                       buttons="Edit,Discharge"
-                       filter='{"referral.decision": "Accepted", "discharge.dischargeDate": null}'
-    ></ccdb-patient-list>
+<div class="row">
+  <div class="col-md-6">
+    <h1>Dashboard</h1>
+  </div>
+  <div class="col-md-6">
+    <span class="pull-right">
+      New referral:
+      <div class="btn-group" role="group" aria-label="...">
+        <a href="#/editPatient/new?t=elective" class="btn btn-default">Elective</a>
+        <a href="#/editPatient/new?t=elective" class="btn btn-default">Emergency</a>
+      </div>
+    </span>
+  </div>
+</div>
+<div class="divider"></div>
+<div class="panel panel-default">
+  <ccdb-patient-list title="Referrals"
+                     buttons="Edit,Admit"
+                     filter='{"referral.decision": "Cannot make decision now"}'
+  ></ccdb-patient-list>
+</div>
+<div class="panel panel-default">
+  <ccdb-patient-list title="Admitted patients"
+                     buttons="Edit,Discharge"
+                     filter='{"referral.decision": "Accepted", "discharge.dischargeDate": null}'
+  ></ccdb-patient-list>
+</div>
 
-    <div class="panel panel-default">
-        <h3>Weekly Reports</h3>
-        <ccdb-date-range></ccdb-date-range>
-        <dl>
-            <ccdb-patient-count title="Number of Referrals"
-                                range-field="referral.referralDate"
-                                filter='{"referral.decision": "Cannot make decision now"}'
-            ></ccdb-patient-count>
-            <ccdb-patient-count title="Admitted patients"
-                                range-field="admission.firstAdmittedDate"
-                                filter='{"referral.decision": "Accepted", "discharge.dischargeDate": null}'
-            ></ccdb-patient-count>
-        </dl>
-    </div>
+<div class="row">
+  <div class="col-md-6">
+    <h3>Weekly Reports</h3>
+  </div>
+  <div class="col-md-6">
+    <span class="pull-right">
+      <ccdb-date-range></ccdb-date-range>
+    </span>
+  </div>
+</div>
+<div class="divider"></div>
+<div class="panel box">
+  <ccdb-patient-count title="Number of Referrals"
+                          range-field="referral.referralDate"
+                          filter='{"referral.decision": "Cannot make decision now"}'
+      ></ccdb-patient-count>
+</div>
+<div class="panel box">
+      <ccdb-patient-count title="Admitted patients"
+                          range-field="admission.firstAdmittedDate"
+                          filter='{"referral.decision": "Accepted", "discharge.dischargeDate": null}'
+      ></ccdb-patient-count>
 </div>

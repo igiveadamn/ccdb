@@ -16,7 +16,7 @@ Start mongod
 mongod 1> mongod-log.tmp 2> mongod-log.err.tmp &
 ```
 
-You may have to crate the db folder:
+You may have to create the db folder:
 ```
 sudo mkdir -p /data/db
 sudo chown -R $USER /data/db
