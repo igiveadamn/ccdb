@@ -12,6 +12,16 @@ angular.module('ccdb.patient.controller', ['ngRoute', 'ccdb.patient.service', 'c
             }
         );
         $routeProvider.when(
+            '/newReferral/:type',
+            {
+                templateUrl: 'referral/referral.form.html',
+                controller: 'PatientController',
+                access: {
+                    requiredLogin: true
+                }
+            }
+        );
+        $routeProvider.when(
             '/editPatient/:patientId',
             {
                 templateUrl: 'patient/patient.form.html',
@@ -25,7 +35,8 @@ angular.module('ccdb.patient.controller', ['ngRoute', 'ccdb.patient.service', 'c
 
     .controller('PatientController', function ($scope, $location, $routeParams, $filter, $anchorScroll, $timeout, PatientService) {
 
-        var patientId = $routeParams.patientId;
+        var patientId = $routeParams.patientId || 'new';
+        var referralType = $routeParams.type;
 
         var score = function(patient) {
           patient.newScore = [];
@@ -46,6 +57,7 @@ angular.module('ccdb.patient.controller', ['ngRoute', 'ccdb.patient.service', 'c
 
         if (patientId === 'new') {
             $scope.patient = initialisePatient({});
+            $scope.patient.referral.emergencyVsElective = referralType;
         } else {
             PatientService.patient(patientId)
                 .then(function (patient) {
@@ -74,7 +86,6 @@ angular.module('ccdb.patient.controller', ['ngRoute', 'ccdb.patient.service', 'c
 
         // common
         $scope.yesNo = ['Yes', 'No'];
-        $scope.outcomes = ['Admitted', 'Not Admitted'];
         $scope.operativeStatuses = ['Pre-', 'Intra-', 'Post-', 'Non-'];
 
         // patient details
@@ -82,7 +93,7 @@ angular.module('ccdb.patient.controller', ['ngRoute', 'ccdb.patient.service', 'c
         $scope.races = ['Black African', 'Coloured', 'Indian or other Asian', 'White'];
 
         // referral
-        $scope.finalOutcomeNote = ['Admitted', 'Not admitted'];
+        $scope.finalOutcome = ['Admitted', 'Not admitted'];
         $scope.motorResponse = ['1', '2' , '3', '4', '5', '6'];
         $scope.verbalResponse = ['1', '2', '3', '4', '5'];
         $scope.levelOfCareRequired = ['ICU', 'High Care'];
@@ -91,7 +102,6 @@ angular.module('ccdb.patient.controller', ['ngRoute', 'ccdb.patient.service', 'c
         $scope.revisedScccm = ['1', '2', '3', '4a', '4b'];
         $scope.operativeStatusAtTimeOfReferral = ['Pre-op', 'Post-op', 'Intra-op', 'Not for surgery'];
         $scope.referralToICU = ['Sepsis', 'Airway', 'Respiratory', 'Cardiac', 'Renal', 'Metabolic', 'Neurological', 'Bleeding', 'Polytrauma', 'Pain', 'Perioperative physiological support'];
-        $scope.roots = ['Emergency', 'Elective'];
         $scope.baseDisciplines = ['Anaesthetics', 'Orthodontics', 'Paediatrics', 'Obstetrics'];
         $scope.comorbidities = ['None', 'Unknown', 'Chronic cardiovascular disease', 'Chronic respiratory disease', 'Diabetes Mellitus', 'HIV positive', 'HIV positive on HAART', 'Chronic renal failure/haemodialysis', 'Hepatic failure', 'Cirrhosis', 'Lymphoma', 'Metastatic cancer', 'Leukaemia/Multiple myeloma', 'Immunosupression', 'Neurological', 'Other'];
         $scope.diagnosisTypes = ['Infectious', 'Non-communicable', 'Trauma'];

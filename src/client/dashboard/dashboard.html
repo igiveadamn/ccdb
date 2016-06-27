@@ -6,21 +6,21 @@
     <span class="pull-right">
       New referral:
       <div class="btn-group" role="group" aria-label="...">
-        <a href="#/editPatient/new?t=elective" class="btn btn-default">Elective</a>
-        <a href="#/editPatient/new?t=elective" class="btn btn-default">Emergency</a>
+        <a href="#/newReferral/Elective" class="btn btn-default">Elective</a>
+        <a href="#/newReferral/Emergency" class="btn btn-default">Emergency</a>
       </div>
     </span>
   </div>
 </div>
 <div class="divider"></div>
 <div class="panel panel-default">
-  <ccdb-patient-list title="Referrals"
+  <ccdb-patient-list title="Active Referrals"
                      buttons="Edit,Admit"
                      filter='{"referral.decision": "Cannot make decision now"}'
   ></ccdb-patient-list>
 </div>
 <div class="panel panel-default">
-  <ccdb-patient-list title="Admitted patients"
+  <ccdb-patient-list title="Current Admissions"
                      buttons="Edit,Discharge"
                      filter='{"referral.decision": "Accepted", "discharge.dischargeDate": null}'
   ></ccdb-patient-list>

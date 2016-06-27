@@ -15,10 +15,6 @@ angular.module('ccdb.dashboard', ['ngRoute', 'ccdb.authentication.user.authentic
 
     .controller('DashboardController', function ($scope, $location, $timeout, UserAuthentication) {
 
-        $scope.newPatient = function () {
-            return $location.path('/editPatient/new');
-        };
-
         $scope.search = function () {
             return $location.path('/search');
         };

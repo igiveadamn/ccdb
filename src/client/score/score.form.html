@@ -1,15 +1,17 @@
+in order to facilitate the apache2 model, we take the highest and lowest of each, and then the model creates a score based on all that.
+
+use the screen to record two full sets of scores at once (maybe a few minutes apart, or something).
+for now, that will facilitate the apache score model, but allows us to move towards recording on an ongoing basis
+
+sort according to the screenshot
+
 
 <ccdb-form-date label="Score date" value="patient.score.scoreDate" ng-hide="referral || admission"></ccdb-form-date>
 
-<ccdb-form-text label="Creatinine (mg/dL)" value="patient.scores[0].creatinine" ng-hide="admission"></ccdb-form-text>
 
 <ccdb-form-text label="Creatinine (mg/dL)" value="patient.scores[1]" ng-hide="referral"></ccdb-form-text>
 
-<ccdb-form-text label="Diastolic blood pressure (mm Hg)" value="patient.scores[0].diastolicPressure" ng-hide="admission"></ccdb-form-text>
-
 <ccdb-form-text label="Diastolic blood pressure (mm Hg)" value="patient.scores[1].diastolicPressure" ng-hide="referral"></ccdb-form-text>
-
-<ccdb-form-text label="Glucose (mmol/L)" value="patient.scores[0].glucose" ng-hide="admission"></ccdb-form-text>
 
 <ccdb-form-text label="Glucose (mmol/L)" value="patient.scores[1].glucose" ng-hide="referral"></ccdb-form-text>
 
