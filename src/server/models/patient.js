@@ -78,7 +78,7 @@ module.exports = {
                 filter.$and.push(range);
                 filter.$and.push(hospitalFilter);
             } else {
-                filter = {$and: [filter, range, hospitalFilter]};
+                filter = {"$and": [filter, range, hospitalFilter]};
             }
         }
         console.log(JSON.stringify(filter));
