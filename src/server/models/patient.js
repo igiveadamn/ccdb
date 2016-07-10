@@ -67,6 +67,7 @@ module.exports = {
     // maybe do the whole list by default, add a parameter now for count, and do n constraint later.
     list: function (request, response) {
         var requestFilterParameters = url.parse(request.url, true).query;
+        var listLength = Number(requestFilterParameters.listLength);
         var dateRangeFilterRequested = Boolean(requestFilterParameters.range && requestFilterParameters.rangeField);
 
         function getDateRangeFilter(dateRange, field) {
@@ -92,7 +93,7 @@ module.exports = {
             } else {
                 response.json(patients);
             }
-        });
+        }).limit(listLength);
     },
 
     single: function (request, response) {
