@@ -80,6 +80,8 @@ module.exports = {
             } else {
                 filter = {"$and": [filter, range, hospitalFilter]};
             }
+        } else {
+            filter = {"$and": [filter, hospitalFilter]};
         }
         console.log(JSON.stringify(filter));
 
