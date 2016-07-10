@@ -1,3 +1,4 @@
+/*jshint laxbreak:true*/
 var mongoose = require('mongoose');
 var schema = require('./schema');
 var url = require('url');
@@ -65,31 +66,28 @@ module.exports = {
     // add a parameter to say whether to return the whole set, the top n, or just the count.
     // maybe do the whole list by default, add a parameter now for count, and do n constraint later.
     list: function (request, response) {
-        var query = url.parse(request.url, true).query;
-        var filter = JSON.parse(unescape(query.filter));
+        var requestFilterParameters = url.parse(request.url, true).query;
+        var dateRangeFilterRequested = Boolean(requestFilterParameters.range && requestFilterParameters.rangeField);
 
-        var hospitalFilter = {hospital: request.hospital};
-
-        if (query.range && query.rangeField) {
-            var rangeParam = JSON.parse(query.range);
-            var range = {};
-            range[query.rangeField] = {"$gte": new Date(rangeParam.startDate), "$lt": new Date(rangeParam.endDate)};
-            if (filter.$and) {
-                filter.$and.push(range);
-                filter.$and.push(hospitalFilter);
-            } else {
-                filter = {"$and": [filter, range, hospitalFilter]};
-            }
-        } else {
-            filter = {"$and": [filter, hospitalFilter]};
+        function getDateRangeFilter(dateRange, field) {
+            var dateRangeFilter = {};
+            dateRangeFilter[field] = {"$gte": new Date(dateRange.startDate), "$lt": new Date(dateRange.endDate)};
+            return dateRangeFilter;
         }
-        console.log(JSON.stringify(filter));
+
+        var patientDataFilter = JSON.parse(unescape(requestFilterParameters.filter));
+        var patientDateRangeFilter = Boolean(dateRangeFilterRequested)
+          ? getDateRangeFilter(JSON.parse(requestFilterParameters.range), requestFilterParameters.rangeField)
+          : {};
+        var loggedInUserHospitalFilter = {hospital: request.hospital};
+
+        var filter = {$and: [patientDataFilter, patientDateRangeFilter, loggedInUserHospitalFilter]};
 
         Patient.find(filter, function (err, patients) {
             if (err) {
                 console.log(err);
             }
-            if (query.countOnly) {
+            if (requestFilterParameters.countOnly) {
                 response.json(patients.length);
             } else {
                 response.json(patients);
