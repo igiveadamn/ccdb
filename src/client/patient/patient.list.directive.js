@@ -13,7 +13,7 @@ angular.module('ccdb.patient.list.directive', ['ccdb.patient.service', 'ccdb.uti
             },
 
             link: function (scope) {
-                scope.btns = ['View'].concat(scope.buttons? scope.buttons.split(','): []);
+                scope.btns = scope.buttons ? scope.buttons.split(',') : [];
             },
 
             controller: function ($scope, $location, PatientService, $attrs) {
