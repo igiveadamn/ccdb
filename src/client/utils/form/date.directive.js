@@ -21,7 +21,7 @@ angular.module('ccdb.utils.form.date.directive', [])
             link: function (scope, element, attrs, ngModel) {
 
                 // also need a directive that will set a related date field when another field gets a first value
-                // e.g. first admitted date. and then add a <today> button.
+                // e.g. first admitted date.
 
                 ngModel.$render = function () {
                     var modelValue = ngModel.$modelValue;
