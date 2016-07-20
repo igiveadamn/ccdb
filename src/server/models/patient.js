@@ -63,8 +63,6 @@ module.exports = {
         });
     },
 
-    // add a parameter to say whether to return the whole set, the top n, or just the count.
-    // maybe do the whole list by default, add a parameter now for count, and do n constraint later.
     list: function (request, response) {
         var requestFilterParameters = url.parse(request.url, true).query;
         var dateRangeFilterRequested = Boolean(requestFilterParameters.range && requestFilterParameters.rangeField);
