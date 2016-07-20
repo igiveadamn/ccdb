@@ -40,6 +40,8 @@ angular.module('ccdb.patient.list.directive', ['ccdb.patient.service', 'ccdb.uti
                         return $location.path('/editPatient/' + patient._id).hash('Patient details');
                     } else if (task === 'Admit') {
                         return $location.path('/editPatient/' + patient._id).hash('Admission details');
+                    } else if (task === 'Score') {
+                        return $location.path('/editPatient/' + patient._id).hash('Score');
                     } else if (task === 'Discharge') {
                         return $location.path('/editPatient/' + patient._id).hash('Discharge');
                     }
