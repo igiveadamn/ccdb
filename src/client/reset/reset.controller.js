@@ -21,9 +21,9 @@ angular.module('ccdb.reset', ['ccdb.authentication.authentication', 'ccdb.authen
 
             if (username !== undefined) {
                 UserAuthentication.reset(username).success(function(user) {
-                    $scope.message = 'Reset password message sent to ' + user.name + ' at ' + user.hospital;
+                    $scope.message = 'Your password reset email has been sent if this email/username exists';
                 }).error(function(status) {
-                    $scope.message = 'Unable to send password to ' + username + '. please try again.';
+                    $scope.message = 'Unable to send password reset message. Please try again.';
                 });
             }
         };
