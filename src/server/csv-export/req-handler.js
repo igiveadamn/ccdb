@@ -2,10 +2,13 @@ var stream = require('stream');
 var schema = require('../models/schema');
 var _ = require('lodash');
 
+var DELIMITER = ',';
+var IGNORED_FIELDS = ['_id', '__v'];
+
 module.exports = function (dbConn) {
   return function (req, res) {
     var cursor = dbConn.collection('patients').find({}).stream({ transform: JSON.stringify });
-    var columns = _.keys(schema.patientSchema.paths);
+    var columns = _.filter(_.keys(schema.patientSchema.paths), function(k) { return !contains(IGNORED_FIELDS, k); });
     var titleRow = buildTitleRow(columns);
     res.write(titleRow);
     // return cursor.pipe(transform(_.identity)).pipe(res);
@@ -13,13 +16,21 @@ module.exports = function (dbConn) {
   };
 };
 
-// TODO: Implement this
-function csvEscape(v) {
-  return v;
+function csvEscape(delimiter) {
+  return function(value) {
+    // If it contains a quote, escape it with a quote
+    var escapedValue = value.replace(/"/g, '""');
+
+    // If it contains particular characters, it needs wrapping in quotes
+    if (value.indexOf(delimiter) !== -1 || value.indexOf('"') !== -1 || value.indexOf('\n') !== -1) {
+      escapedValue = '"' + escapedValue + '"';
+    }
+    return escapedValue;
+  };
 }
 
 function buildTitleRow(patientSchemaProperties) {
-  return patientSchemaProperties.map(csvEscape).join(',') + '\n';
+  return patientSchemaProperties.map(csvEscape(DELIMITER)).join(DELIMITER) + '\n';
 }
 
 function jsonToCsv(patientSchemaProperties) {
@@ -35,7 +46,7 @@ function jsonToCsv(patientSchemaProperties) {
       }
       return value ? JSON.stringify(value) : '';
     };
-    return patientSchemaProperties.map(extractValue).map(csvEscape).join(',');
+    return patientSchemaProperties.map(extractValue).map(csvEscape(DELIMITER)).join(DELIMITER);
   };
 }
 
@@ -52,6 +63,9 @@ function transform(transformer) {
   });
 }
 
+function contains(iterable, value) {
+  return iterable.filter(function(v){ return v === value; }).length > 0;
+}
 /* 
  Andy Duncan
  How about everything except scores in one report.	11:16 AM
