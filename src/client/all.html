@@ -3,26 +3,8 @@
 <div class="row">
   <div class="small-6 columns">
       <dl>
-          <dt>Data carried over :</dt>
-          <dd>{{ patient.admission.dataCarriedOver }}</dd>
-
-          <dt>Patient first name :</dt>
-          <dd>{{ patient.admission.patientFirstName }}</dd>
-
-          <dt>Patient last name :</dt>
-          <dd>{{ patient.admission.patientLastName }}</dd>
-
-          <dt>Patient other name :</dt>
-          <dd>{{ patient.admission.patientOtherName }}</dd>
-
-          <dt>Date of birth :</dt>
-          <dd>{{ patient.admission.dateOfBirth | date: "dd/MM/yyyy HH:mm" }}</dd>
-
           <dt>Admission date and time :</dt>
           <dd>{{ patient.admission.admissionDateAndTime | date: "dd/MM/yyyy HH:mm" }}</dd>
-
-          <dt>Emergency Vs Elective :</dt>
-          <dd>{{ patient.admission.roots }}</dd>
 
           <dt>Hospital admitted from :</dt>
           <dd>{{ patient.admission.admittedFrom }}</dd>
@@ -595,7 +577,7 @@
 </uib-tabset>
 </script>
 <script type="text/ng-template" id="patient/patient.html">
-</script>
+this is the view page</script>
 <script type="text/ng-template" id="patient/patient.list.html">
 <table class="table table-hover">
     <h3>{{title}}</h3>

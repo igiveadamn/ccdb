@@ -22,9 +22,29 @@ angular.module('ccdb.patient.controller', ['ngRoute', 'ccdb.patient.service', 'c
             }
         );
         $routeProvider.when(
-            '/editPatient/:patientId',
+            '/admitPatient/:patientId',
             {
-                templateUrl: 'patient/patient.form.html',
+                templateUrl: 'admission/admission.form.html',
+                controller: 'PatientController',
+                access: {
+                    requiredLogin: true
+                }
+            }
+        );
+        $routeProvider.when(
+            '/scorePatient/:patientId',
+            {
+                templateUrl: 'score/score.form.html',
+                controller: 'PatientController',
+                access: {
+                    requiredLogin: true
+                }
+            }
+        );
+        $routeProvider.when(
+            '/dischargePatient/:patientId',
+            {
+                templateUrl: 'discharge/discharge.form.html',
                 controller: 'PatientController',
                 access: {
                     requiredLogin: true
@@ -39,6 +59,10 @@ angular.module('ccdb.patient.controller', ['ngRoute', 'ccdb.patient.service', 'c
         var referralType = $routeParams.type;
 
         var score = function(patient) {
+          // we are likely to end up with 4 scores (for now).
+          // referral (subset of values)
+          // admission (subset of values)
+          // 2 scores together after 24 hours (for an APACHE score)
           patient.newScore = [];
           patient.addScore = function () {
             patient.newScore.push({

@@ -43,11 +43,6 @@ var score = {
 };
 
 var admission = {
-    dataCarriedOver: String,
-    patientFirstName: String,
-    patientLastName: String,
-    patientOtherName: String,
-    dateOfBirth: Date,
     admissionDateAndTime: Date,
     surgeryDateAndTime: Date,
     operativeDetails: String,
@@ -67,7 +62,6 @@ var admission = {
     freezeDriedPlasma: String,
     platelets: String,
     cruoprecipitate: String,
-    roots: String,
     admittedFrom: String,
     numOfdaysInhospitalBeforeICU: String,
     admittingDoctor: String,
