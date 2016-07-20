@@ -28,8 +28,7 @@ angular.module('ccdb.login', ['ccdb.authentication.authentication', 'ccdb.authen
 
             if (username !== undefined && password !== undefined) {
                 UserAuthentication.login(username, password).success(function(data) {
-
-                    if (data.status === 401) {
+                    if (!data.user) {
                       alert('Invalid credentials');
                       return null;
                     }
