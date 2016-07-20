@@ -63,7 +63,8 @@ app.post('/api/user/user', user.save);
 // Download - admin only (authenticated & authorised users)
 // TODO: fix authentication for non JS => API calls
 app.all('/downloads/*', [require('./middlewares/authenticate'), require('./middlewares/authorise')]);
-app.get('/downloads/csv', require('./csv-export/req-handler')(mongoose.connection));
+app.get('/downloads/csv/patients', require('./csv-export/req-handler').patientsHandler(mongoose.connection));
+// app.get('/downloads/csv/scores', require('./csv-export/req-handler').scoresHandler(mongoose.connection));
 
 // static content (angular stuff)
 app.use(cache(3 * 3600));

@@ -5,7 +5,7 @@ var _ = require('lodash');
 var DELIMITER = ',';
 var IGNORED_FIELDS = ['_id', '__v', 'scores'];
 
-module.exports = function (dbConn) {
+var patientsHandler = function (dbConn) {
   return function (req, res) {
     var cursor = dbConn.collection('patients').find({}).stream({ transform: JSON.stringify });
     var columns = _.filter(_.keys(schema.patientSchema.paths), function (k) {
@@ -13,10 +13,23 @@ module.exports = function (dbConn) {
     });
     var titleRow = buildTitleRow(columns);
     res.write(titleRow);
-    // return cursor.pipe(transform(_.identity)).pipe(res);
     return cursor.pipe(transform(jsonToCsv(columns))).pipe(res);
   };
 };
+
+// TODO: make this pull out score data...
+// var scoresHandler = function (dbConn) {
+//   return function (req, res) {
+//     var cursor = dbConn.collection('patients').find({}).stream({ transform: JSON.stringify });
+//     var columns = _.filter(_.keys(schema.patientSchema.paths.scores.schema.paths), function (k) {
+//       return !contains(['_id', '__v'], k);
+//     });
+//     var titleRow = buildTitleRow(columns);
+//     res.write(titleRow);
+//     // return cursor.pipe(transform(_.identity)).pipe(res);
+//     return cursor.pipe(transform(jsonToCsv(columns))).pipe(res);
+//   };
+// };
 
 function csvEscape(delimiter) {
   return function (value) {
@@ -32,7 +45,6 @@ function csvEscape(delimiter) {
 }
 
 function concatIfArray(value) {
-  if (value) console.log(value, value.constructor);
   if (value && value.constructor === Array) {
     var joinDelimiter = DELIMITER === ',' ? ';' : ',';
     return value.join(joinDelimiter);
@@ -84,26 +96,7 @@ function contains(iterable, value) {
       return v === value;
     }).length > 0;
 }
-/* 
- Andy Duncan
- How about everything except scores in one report.	11:16 AM
- And then only scores in another. Multiple rows per patient who has multiple scores?	11:16 AM
- Then csv is doable.	11:17 AM
- And you can use the scheme to get columns.	11:17 AM
- Maybe flatten, with concatenation of fields like 'admission - blah blah' whatever the fields are (sorry not at my desk)	11:18 AM
- Then you don't need the whole database in memory to get column headers.	11:18 AM
- Schema.	11:18 AM
- What do you think?	11:19 AM
 
- Jake Howard
- Sounds like a plan. Comorbidities and scores in separate files. Just like RDBMS mapping tables.	11:22 AM
- (On a train) (bad signal)	11:22 AM
-
- Andy Duncan
- Mmmmm	11:22 AM
- No. Just concatenate comorbidities	11:23 AM
- In the main csv
- */
-
-// This end point does the main chunk of the data
-// Call a separate end point to get the other file (look into downloading two files from one call later)
+module.exports = {
+  patientsHandler: patientsHandler/*, scoresHandler: scoresHandler*/
+};
