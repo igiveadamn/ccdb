@@ -43,18 +43,21 @@ function updateOrInsertPatient(id, patient, response) {
 
 module.exports = {
     search: function (request, response) {
-        var query = request.query.query;
+        var requestSearchParams = url.parse(request.url, true).query;
+        var searchQuery = requestSearchParams.query;
+        var listLength = Number(requestSearchParams.listLength);
+
         var filter = {
             $or: [
-                {reference: new RegExp(query, 'i')},
-                {firstName: new RegExp(query, 'i')},
-                {lastName: new RegExp(query, 'i')}
+                {reference: new RegExp(searchQuery, 'i')},
+                {firstName: new RegExp(searchQuery, 'i')},
+                {lastName: new RegExp(searchQuery, 'i')}
             ]
         };
         filter.hospital = request.hospital;
         Patient.find(filter)
         .sort('-referral.referralDate')
-        .limit(20)
+        .limit(listLength)
         .exec(function (err, patients) {
             if (err) {
                 console.log(err);
@@ -66,9 +69,9 @@ module.exports = {
     // add a parameter to say whether to return the whole set, the top n, or just the count.
     // maybe do the whole list by default, add a parameter now for count, and do n constraint later.
     list: function (request, response) {
-        var requestFilterParameters = url.parse(request.url, true).query;
-        var listLength = Number(requestFilterParameters.listLength);
-        var dateRangeFilterRequested = Boolean(requestFilterParameters.range && requestFilterParameters.rangeField);
+        var requestFilterParams = url.parse(request.url, true).query;
+        var listLength = Number(requestFilterParams.listLength);
+        var dateRangeFilterRequested = Boolean(requestFilterParams.range && requestFilterParams.rangeField);
 
         function getDateRangeFilter(dateRange, field) {
             var dateRangeFilter = {};
@@ -76,9 +79,9 @@ module.exports = {
             return dateRangeFilter;
         }
 
-        var patientDataFilter = JSON.parse(unescape(requestFilterParameters.filter));
+        var patientDataFilter = JSON.parse(unescape(requestFilterParams.filter));
         var patientDateRangeFilter = Boolean(dateRangeFilterRequested)
-          ? getDateRangeFilter(JSON.parse(requestFilterParameters.range), requestFilterParameters.rangeField)
+          ? getDateRangeFilter(JSON.parse(requestFilterParams.range), requestFilterParams.rangeField)
           : {};
         var loggedInUserHospitalFilter = {hospital: request.hospital};
 
@@ -88,7 +91,7 @@ module.exports = {
             if (err) {
                 console.log(err);
             }
-            if (requestFilterParameters.countOnly) {
+            if (requestFilterParams.countOnly) {
                 response.json(patients.length);
             } else {
                 response.json(patients);

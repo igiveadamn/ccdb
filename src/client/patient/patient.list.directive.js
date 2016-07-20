@@ -35,7 +35,7 @@ angular.module('ccdb.patient.list.directive', ['ccdb.patient.service', 'ccdb.uti
 
                 if ($attrs.query) {
                     $scope.$watch('query', function () {
-                        PatientService.search($scope.query).then(function (patients) {
+                        PatientService.search($scope.query, $scope.listLength).then(function (patients) {
                             $scope.patients = patients;
                         });
                     });

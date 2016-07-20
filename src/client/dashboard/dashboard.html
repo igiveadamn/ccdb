@@ -17,14 +17,12 @@
   <ccdb-patient-list title="Active Referrals"
                      buttons="Edit,Admit"
                      filter='{"referral.decision": "Cannot make decision now"}'
-                     list-length="5"
   ></ccdb-patient-list>
 </div>
 <div class="panel panel-default">
   <ccdb-patient-list title="Current Admissions"
                      buttons="Edit,Discharge"
                      filter='{"referral.decision": "Accepted", "discharge.dischargeDate": null}'
-                     list-length="5"
   ></ccdb-patient-list>
 </div>
 

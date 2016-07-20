@@ -428,14 +428,12 @@
   <ccdb-patient-list title="Active Referrals"
                      buttons="Edit,Admit"
                      filter='{"referral.decision": "Cannot make decision now"}'
-                     list-length="5"
   ></ccdb-patient-list>
 </div>
 <div class="panel panel-default">
   <ccdb-patient-list title="Current Admissions"
                      buttons="Edit,Discharge"
                      filter='{"referral.decision": "Accepted", "discharge.dischargeDate": null}'
-                     list-length="5"
   ></ccdb-patient-list>
 </div>
 
@@ -1358,7 +1356,7 @@ sort according to the screenshot
 <div class="divider"></div>
 <div class="panel panel-default">
   <input autofocus type="text" ng-model="query" class="form-control" placeholder="Search by patient detail..."/>
-  <ccdb-patient-list title="" buttons="Edit" query="query"></ccdb-patient-list>
+  <ccdb-patient-list title="" buttons="Edit" query="query" list-length="15"></ccdb-patient-list>
 </div>
 </script>
 <script type="text/ng-template" id="user/user.form.html">

@@ -42,8 +42,16 @@ angular.module('ccdb.patient.service', [])
                 return go($http.get, '/api/patient/patients/', { params: params });
             },
 
-            search: function (query) {
-                return go($http.get, '/api/patient/search/', { params: { query : query } });
+            search: function (query, listLength) {
+              var params = {
+                query: query
+              };
+
+              if (listLength) {
+                  params.listLength = listLength;
+              }
+
+              return go($http.get, '/api/patient/search/', { params: params });
             }
         };
     }
