@@ -14,7 +14,7 @@ angular.module('ccdb.patient.count.directive', ['ccdb.date.range.service', 'ccdb
                 var update = function (dateRange) {
                     console.log('patient count being update with new dateRange :: ' + dateRange);
 
-                    PatientService.patients(scope.filter, true, dateRange, scope.rangeField).then(function (count) {
+                    PatientService.patients(scope.filter, false, true, dateRange, scope.rangeField).then(function (count) {
                         scope.count = count;
                     });
                 };

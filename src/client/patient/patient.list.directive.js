@@ -9,7 +9,8 @@ angular.module('ccdb.patient.list.directive', ['ccdb.patient.service', 'ccdb.uti
                 title: '@',
                 filter: '@',
                 buttons: '@',
-                query: '='
+                query: '=',
+                listLength: '@'
             },
 
             link: function (scope) {
@@ -19,15 +20,22 @@ angular.module('ccdb.patient.list.directive', ['ccdb.patient.service', 'ccdb.uti
             controller: function ($scope, $location, PatientService, $attrs) {
 
                 if ($attrs.filter) {
-                    PatientService.patients($scope.filter).then(function (patients) {
-                        $scope.patients = patients;
-                        $scope.count = patients.length;
-                    });
+                    if($attrs.listLength) {
+                        PatientService.patients($scope.filter, $scope.listLength).then(function (patients) {
+                            $scope.patients = patients;
+                            $scope.count = patients.length;
+                        });
+                    } else {
+                        PatientService.patients($scope.filter).then(function (patients) {
+                            $scope.patients = patients;
+                            $scope.count = patients.length;
+                        });
+                    }
                 }
 
                 if ($attrs.query) {
                     $scope.$watch('query', function () {
-                        PatientService.search($scope.query).then(function (patients) {
+                        PatientService.search($scope.query, $scope.listLength).then(function (patients) {
                             $scope.patients = patients;
                         });
                     });
