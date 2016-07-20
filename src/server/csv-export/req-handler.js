@@ -3,12 +3,14 @@ var schema = require('../models/schema');
 var _ = require('lodash');
 
 var DELIMITER = ',';
-var IGNORED_FIELDS = ['_id', '__v'];
+var IGNORED_FIELDS = ['_id', '__v', 'scores'];
 
 module.exports = function (dbConn) {
   return function (req, res) {
     var cursor = dbConn.collection('patients').find({}).stream({ transform: JSON.stringify });
-    var columns = _.filter(_.keys(schema.patientSchema.paths), function(k) { return !contains(IGNORED_FIELDS, k); });
+    var columns = _.filter(_.keys(schema.patientSchema.paths), function (k) {
+      return !contains(IGNORED_FIELDS, k);
+    });
     var titleRow = buildTitleRow(columns);
     res.write(titleRow);
     // return cursor.pipe(transform(_.identity)).pipe(res);
@@ -17,16 +19,25 @@ module.exports = function (dbConn) {
 };
 
 function csvEscape(delimiter) {
-  return function(value) {
+  return function (value) {
     // If it contains a quote, escape it with a quote
-    var escapedValue = value.replace(/"/g, '""');
+    var escapedValue = String(value).replace(/"/g, '""');
 
     // If it contains particular characters, it needs wrapping in quotes
-    if (value.indexOf(delimiter) !== -1 || value.indexOf('"') !== -1 || value.indexOf('\n') !== -1) {
+    if (escapedValue.indexOf(delimiter) !== -1 || escapedValue.indexOf('"') !== -1 || escapedValue.indexOf('\n') !== -1) {
       escapedValue = '"' + escapedValue + '"';
     }
     return escapedValue;
   };
+}
+
+function concatIfArray(value) {
+  if (value) console.log(value, value.constructor);
+  if (value && value.constructor === Array) {
+    var joinDelimiter = DELIMITER === ',' ? ';' : ',';
+    return value.join(joinDelimiter);
+  }
+  return value;
 }
 
 function buildTitleRow(patientSchemaProperties) {
@@ -44,9 +55,14 @@ function jsonToCsv(patientSchemaProperties) {
       } else {
         value = json[property];
       }
-      return value ? JSON.stringify(value) : '';
+      return value ? value : '';
     };
-    return patientSchemaProperties.map(extractValue).map(csvEscape(DELIMITER)).join(DELIMITER);
+    // TODO: change this to a pipe/flow
+    return patientSchemaProperties
+      .map(extractValue)
+      .map(concatIfArray)
+      .map(csvEscape(DELIMITER))
+      .join(DELIMITER);
   };
 }
 
@@ -54,7 +70,7 @@ function transform(transformer) {
   return new stream.Transform({
     transform: function (chunk, encoding, next) {
       // TODO: handles UTF-8 ?
-      this.push(transformer(String(chunk)));
+      this.push(transformer(String(chunk)) + '\n');
       next();
     },
     flush: function (done) {
@@ -64,7 +80,9 @@ function transform(transformer) {
 }
 
 function contains(iterable, value) {
-  return iterable.filter(function(v){ return v === value; }).length > 0;
+  return iterable.filter(function (v) {
+      return v === value;
+    }).length > 0;
 }
 /* 
  Andy Duncan
