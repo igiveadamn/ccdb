@@ -34,7 +34,7 @@ angular.module('ccdb.patient.controller', ['ngRoute', 'ccdb.patient.service', 'c
         $routeProvider.when(
             '/scorePatient/:patientId',
             {
-                templateUrl: 'score/score.form.html',
+                templateUrl: 'score/score.html',
                 controller: 'PatientController',
                 access: {
                     requiredLogin: true
@@ -55,26 +55,25 @@ angular.module('ccdb.patient.controller', ['ngRoute', 'ccdb.patient.service', 'c
 
     .controller('PatientController', function ($scope, $location, $routeParams, $filter, $anchorScroll, $timeout, PatientService) {
 
-        var patientId = $routeParams.patientId || 'new';
-        var referralType = $routeParams.type;
+      var patientId = $routeParams.patientId || 'new';
+      var referralType = $routeParams.type;
 
-        var score = function(patient) {
-          // we are likely to end up with 4 scores (for now).
-          // referral (subset of values)
-          // admission (subset of values)
-          // 2 scores together after 24 hours (for an APACHE score)
-          patient.newScore = [];
-          patient.addScore = function () {
-            patient.newScore.push({
-              score: score.newScore
-            });
-          };
-        };
+      function initialiseScores() {
+        // referral (subset of values)
+        // admission (subset of values)
+        // 2 scores together after 24 hours (for an APACHE score)
+        return [
+          {notes: 'Referral Score'},
+          {notes: 'Admission Score'},
+          {notes: 'Apache Score Low'},
+          {notes: 'Apache Score High'}
+        ];
+      }
 
-        function initialisePatient(patient) {
+      function initialisePatient(patient) {
             patient.referral = patient.referral || {};
             patient.admission = patient.admission || {};
-            patient.scores = patient.scores || [{ notes: 'Referral Score' }, { notes: 'Admission Score' }];
+            patient.scores = patient.scores || initialiseScores();
             patient.discharge = patient.discharge || {};
             return patient;
         }
@@ -110,41 +109,40 @@ angular.module('ccdb.patient.controller', ['ngRoute', 'ccdb.patient.service', 'c
 
         // common
         $scope.yesNo = ['Yes', 'No'];
-        $scope.operativeStatuses = ['Pre-', 'Intra-', 'Post-', 'Non-'];
 
         // patient details
         $scope.genders = ['Male', 'Female'];
         $scope.races = ['Black African', 'Coloured', 'Indian or other Asian', 'White'];
 
         // referral
-        $scope.finalOutcome = ['Admitted', 'Not admitted'];
-        $scope.motorResponse = ['1', '2' , '3', '4', '5', '6'];
-        $scope.verbalResponse = ['1', '2', '3', '4', '5'];
-        $scope.levelOfCareRequired = ['ICU', 'High Care'];
-        $scope.sCCM = ['1', '2', '3', '4a', '4b'];
-        $scope.sccmScore = ['1', '2', '3'];
-        $scope.revisedScccm = ['1', '2', '3', '4a', '4b'];
         $scope.operativeStatusAtTimeOfReferral = ['Pre-op', 'Post-op', 'Intra-op', 'Not for surgery'];
-        $scope.referralToICU = ['Sepsis', 'Airway', 'Respiratory', 'Cardiac', 'Renal', 'Metabolic', 'Neurological', 'Bleeding', 'Polytrauma', 'Pain', 'Perioperative physiological support'];
-        $scope.baseDisciplines = ['Anaesthetics', 'Orthodontics', 'Paediatrics', 'Obstetrics'];
-        $scope.comorbidities = ['None', 'Unknown', 'Chronic cardiovascular disease', 'Chronic respiratory disease', 'Diabetes Mellitus', 'HIV positive', 'HIV positive on HAART', 'Chronic renal failure/haemodialysis', 'Hepatic failure', 'Cirrhosis', 'Lymphoma', 'Metastatic cancer', 'Leukaemia/Multiple myeloma', 'Immunosupression', 'Neurological', 'Other'];
+        $scope.patientLocation = ['Ward', 'Emergency Unit', 'Theatre', 'Another Hospital', 'Other'];
+        $scope.levelsOfCare = ['ICU', 'High Care'];
+        $scope.reasonOfReferralToICU = ['Sepsis', 'Airway', 'Respiratory', 'Cardiac', 'Renal', 'Metabolic', 'Neurological', 'Bleeding', 'Polytrauma', 'Pain', 'Perioperative physiological support'];
         $scope.diagnosisTypes = ['Infectious', 'Non-communicable', 'Trauma'];
         $scope.diagnosis = ['Cardiovascular', 'Respiratory', 'Neurological', 'Gastrointestinal', 'Metabolic', 'Haematological', 'Genitourinary', 'Musculoskeletal', 'Skin'];
-        $scope.diagnosisDetails = ['Describe diagnosis details'];
-        $scope.complications = ['Operation',  'Anaesthesia '];
-        $scope.levelsOfCare = ['ICU', 'High Care'];
-        $scope.decision = ['Admit', 'Do not admit', 'Can not make decision now'];
-        $scope.patientLocation = ['Ward', 'Emergency unit', 'Theatre', 'Others'];
-        $scope.reasonOfReferralToICU = ['Sepsis', 'Airway', 'Respiratory', 'Cardiac', 'Renal', 'Metabolic', 'Neurological', 'Bleeding', 'Polytrauma', 'Pain', 'Perioperative physiological support'];
+        $scope.comorbidities = ['None', 'Unknown', 'Chronic cardiovascular disease', 'Chronic respiratory disease', 'Diabetes Mellitus', 'HIV positive', 'HIV positive on HAART', 'Chronic renal failure/haemodialysis', 'Hepatic failure', 'Cirrhosis', 'Lymphoma', 'Metastatic cancer', 'Leukaemia/Multiple myeloma', 'Immunosupression', 'Neurological', 'Other'];
         $scope.referralForComplicationOf = ['Surgical procedure', 'Anaesthesia', 'Underlying comorbidities', 'Acute pathology'];
-        $scope.CurrentPatientLocation = ['Emergency department', 'Ward', 'theatre', 'Another hospital'];
-        // admission
-        $scope.eyeOpening = ['1', '2', '3', '4'];
+        $scope.sCCM = ['1', '2', '3', '4a', '4b'];
+        $scope.decision = ['Admit', 'Do not admit', 'Can not make decision now'];
+        $scope.revisedScccm = ['1', '2', '3', '4a', '4b'];
         $scope.delayReasons = ['No bed', 'No staff', 'Decision making'];
-        $scope.admissionFailureReasons = ['Became too well', 'Became too sick', 'Transferred to another unit', 'Died', 'Referral withdrawn'];
+        $scope.finalOutcome = ['Admitted', 'Not admitted'];
+        $scope.admissionFailureReasons = ['Became too well', 'Became too sick', 'Transferred to another unit', 'Died', 'Referral withdrawn']; // if patient is decision:admit but not admitted
+
+        $scope.referralToICU = ['Sepsis', 'Airway', 'Respiratory', 'Cardiac', 'Renal', 'Metabolic', 'Neurological', 'Bleeding', 'Polytrauma', 'Pain', 'Perioperative physiological support'];
+        $scope.baseDisciplines = ['Anaesthetics', 'Orthodontics', 'Paediatrics', 'Obstetrics'];
+        $scope.complications = ['Operation',  'Anaesthesia '];
+
+        // admission
+        $scope.operativeDetails = ['Pre-op', 'Post-op', 'Non-operative'];
+
+        //scores
+        $scope.eyeOpening = ['1', '2', '3', '4'];
+        $scope.verbalResponse = ['1', '2', '3', '4', '5'];
+        $scope.motorResponse = ['1', '2' , '3', '4', '5', '6'];
+        $scope.airway = ['Own', 'OPA', 'NPA', 'ETT', 'Tracheostomy'];
 
         // discharge
         $scope.dischargeStatuses = ['Alive', 'Deceased'];
-        // operative
-        $scope.operativeDetails = ['Pre-op', 'Post-op', 'Non-operative'];
     });

@@ -7,7 +7,8 @@ angular.module('ccdb.score.form.directive', [])
             scope: {
                 score: '=',
                 referral: '@',
-                admission: '@'
+                admission: '@',
+                apache: '@'
             }
         };
     })

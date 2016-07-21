@@ -16,9 +16,8 @@
         <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/assessment.form.html'"></ng-include>
         <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/assessment.form.html'"></ng-include>
     </uib-tab>
-    <uib-tab index="4" heading="Vitals and Results"><!-- score -->
-        <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/.form.html'"></ng-include>
-        <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/.form.html'"></ng-include>
+    <uib-tab index="4" heading="Vitals and Results" ng-if="patient.referral.emergencyVsElective=='Emergency'" ><!-- score -->
+        <ng-include src="'referral/emergency/score.form.html'"></ng-include>
     </uib-tab>
     <uib-tab index="5" heading="Decision">
         <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/decision.form.html'"></ng-include>

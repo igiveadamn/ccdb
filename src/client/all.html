@@ -51,70 +51,7 @@
 </div>
 </script>
 <script type="text/ng-template" id="admission/condition.form.html">
-<!--leave out. haematocrit, wbc, sodium, urea, creatinine, albumin, bilirubin extras. sedated (yes,no); airway (own, opa, npa, ett, tracheostomy); current antibiotic therapoy in ward (list of dropdowns with durations)-->
-<div class="panel form-panel">
-    <div class="row">
-        <div class="col-sm-6">
-            <ccdb-form-text label="Temperature (&deg;C)" value="patient.scores[0].temperature"></ccdb-form-text>
-        </div>
-
-        <div class="col-sm-6">
-            <ccdb-form-text label="Systolic blood pressure (mmHg)" value="patient.scores[0].systolicPressure"></ccdb-form-text>
-        </div>
-
-        <div class="col-sm-6">
-            <ccdb-form-text label="Diastolic blood pressure (mmHg)" value="patient.scores[0].diastolicPressure"></ccdb-form-text>
-        </div>
-
-        <div class="col-sm-6">
-            <ccdb-form-text label="Heart rate (bpm)" value="patient.scores[0].heartRate"></ccdb-form-text>
-        </div>
-
-        <div class="col-sm-6">
-            <ccdb-form-text label="Urine output (mls/hr)" value="patient.scores[0].urineOutput"></ccdb-form-text>
-        </div>
-
-        <div class="col-sm-6">
-            <ccdb-form-select label="Eye opening" options="eyeOpening" value="patient.scores[0].eyeOpening"></ccdb-form-select>
-        </div>
-
-        <div class="col-sm-6">
-            <ccdb-form-select label="Verbal response" options="verbalResponse" value="patient.scores[0].verbalResponse"></ccdb-form-select>
-        </div>
-
-        <div class="col-sm-6">
-            <ccdb-form-select label="Motor response" options="motorResponse" value="patient.scores[0].motorResponse"></ccdb-form-select>
-        </div>
-
-        <div class="col-sm-6">
-            <ccdb-form-text label="Glasgow coma scale" value="patient.scores[0].glasgowComaScale""></ccdb-form-text>
-        </div>
-
-        <div class="col-sm-6">
-            <ccdb-form-text label="Glucose (mmol/L)" value="patient.scores[0].glucose"></ccdb-form-text>
-        </div>
-
-        <div class="col-sm-6">
-            <ccdb-form-text label="FiO2 (%)" value="patient.scores[0].fiO2"></ccdb-form-text>
-        </div>
-
-        <div class="col-sm-6">
-            <ccdb-form-text label="PH (%)" value="patient.scores[0].pH"></ccdb-form-text>
-        </div>
-
-        <div class="col-sm-6">
-            <ccdb-form-text label="PCO2 (kPa)" value="patient.scores[0].pCO2"></ccdb-form-text>
-        </div>
-
-        <div class="col-sm-6">
-            <ccdb-form-text label="pO2 (kPa)" value="patient.scores[0].pO2"></ccdb-form-text>
-        </div>
-
-        <div class="col-sm-6">
-            <ccdb-form-text label="Lactate" value="patient.scores[0].lactate"></ccdb-form-text>
-        </div>
-    </div>
-</div></script>
+<ccdb-score-form score="patient.scores[1]" admission="true"></ccdb-score-form></script>
 <script type="text/ng-template" id="admission/history.form.html">
 <div class="panel form-panel">
     <div class="row">
@@ -628,8 +565,8 @@ this is the view page</script>
                               value="patient.referral.revisedScccm"></ccdb-form-select>
         </div>
         <div class="col-sm-6">
-            <ccdb-form-textarea label="Any delay on admission"
-                                value="patient.referral.ifAcceptedAnyDelay"></ccdb-form-textarea>
+            <ccdb-form-select label="Any delay on admission" options="yesNo"
+                                value="patient.referral.ifAcceptedAnyDelay"></ccdb-form-select>
         </div>
         <div class="col-sm-6">
             <ccdb-form-textarea label="Reason for delay" value="patient.referral.delayReason"></ccdb-form-textarea>
@@ -874,6 +811,8 @@ this is the view page</script>
         </div>
     </div>
 </div></script>
+<script type="text/ng-template" id="referral/emergency/score.form.html">
+<ccdb-score-form score="patient.scores[0]" referral="true"></ccdb-score-form></script>
 <script type="text/ng-template" id="referral/referral.form.html">
 <h1>New {{patient.referral.emergencyVsElective}} Referral:</h1>
 <div class="divider"></div>
@@ -893,9 +832,8 @@ this is the view page</script>
         <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/assessment.form.html'"></ng-include>
         <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/assessment.form.html'"></ng-include>
     </uib-tab>
-    <uib-tab index="4" heading="Vitals and Results"><!-- score -->
-        <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/.form.html'"></ng-include>
-        <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/.form.html'"></ng-include>
+    <uib-tab index="4" heading="Vitals and Results" ng-if="patient.referral.emergencyVsElective=='Emergency'" ><!-- score -->
+        <ng-include src="'referral/emergency/score.form.html'"></ng-include>
     </uib-tab>
     <uib-tab index="5" heading="Decision">
         <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/decision.form.html'"></ng-include>
@@ -954,249 +892,59 @@ this is the view page</script>
   </div>
 </div></script>
 <script type="text/ng-template" id="score/score.form.html">
-in order to facilitate the apache2 model, we take the highest and lowest of each, and then the model creates a score based on all that.
-
-use the screen to record two full sets of scores at once (maybe a few minutes apart, or something).
-for now, that will facilitate the apache score model, but allows us to move towards recording on an ongoing basis
-
-sort according to the screenshot
-
-
-<ccdb-form-date label="Score date" value="patient.score.scoreDate" ng-hide="referral || admission"></ccdb-form-date>
-
-
-<ccdb-form-text label="Creatinine (mg/dL)" value="patient.scores[1]" ng-hide="referral"></ccdb-form-text>
-
-<ccdb-form-text label="Diastolic blood pressure (mm Hg)" value="patient.scores[1].diastolicPressure" ng-hide="referral"></ccdb-form-text>
-
-<ccdb-form-text label="Glucose (mmol/L)" value="patient.scores[1].glucose" ng-hide="referral"></ccdb-form-text>
-
-<ccdb-form-text label="Heart rate (beats/minute)" value="patient.scores[0].heartRate"></ccdb-form-text>
-
-<ccdb-form-text label="Respiratory heart rate (breaths/minute)" value="patient.scores[1].respiratoryRate" ng-hide="referral"></ccdb-form-text>
-
-<ccdb-form-text label="Sodium (mEq/L)" value="patient.scores[0].sodium" ng-hide="admission"></ccdb-form-text>
-
-<ccdb-form-text label="Sodium (mEq/L)" value="patient.scores[1].sodium" ng-hide="referral"></ccdb-form-text>
-
-<ccdb-form-text label="Systolic blood pressure (mm Hg)" value="patient.scores[0].systolicPressure" ng-hide="admission"></ccdb-form-text>
-
-<ccdb-form-text label="Systolic blood pressure (mm Hg)" value="patient.scores[1].systolicPressure" ng-hide="referral"></ccdb-form-text>
-
-<ccdb-form-text label="Temperature (&deg;C)" value="patient.score.temperature" ng-hide="admission"></ccdb-form-text>
-
-<ccdb-form-text label="Temperature (&deg;C)" value="patient.scores[1].temperature" ng-hide="referral"></ccdb-form-text>
-
-<ccdb-form-text label="Urine output (mls/hr)" value="patient.scores[0].urineOutput" ng-hide="admission"></ccdb-form-text>
-
-<ccdb-form-text label="Urine output (mls/hr)" value="patient.scores[1].urineOutput" ng-hide="referral"></ccdb-form-text>
-
-<ccdb-form-select label="Eye opening" options="eyeOpening" value="patient.scores[0].eyeOpening" ng-hide="admission"></ccdb-form-select>
-
-<ccdb-form-select label="Eye opening" options="eyeOpening" value="patient.scores[1].eyeOpening" ng-hide="referral"></ccdb-form-select>
-
-<ccdb-form-select label="Verbal response" options="verbalResponse" value="patient.scores[0].verbalResponse" ng-hide="admission"></ccdb-form-select>
-
-<ccdb-form-select label="Verbal response" options="verbalResponse" value="patient.scores[1].verbalResponse" ng-hide="referral"></ccdb-form-select>
-
-<ccdb-form-select label="Motor response" options="motorResponse" value="patient.scores[0].motorResponse" ng-hide="admission"></ccdb-form-select>
-
-<ccdb-form-select label="Motor response" options="motorResponse" value="patient.scores[1].motorResponse" ng-hide="referral"><ccdb-form-select>
-
-<ccdb-form-text label="Glasgow coma scale" value="patient.scores[0].glasgowcomaScale" ng-hide="admission"></ccdb-form-text>
-
-<ccdb-form-text label="Glasgow coma scale" value="patient.scores[1].glasgowComaScale" ng-hide="referral"></ccdb-form-text>
-
-<ccdb-form-text label="Pupils" value="patient.score.pupils" ng-hide="admission || referral"></ccdb-form-text>
-
-<ccdb-form-text label="Ventilated" value="patient.score.ventilated" ng-hide="referral || admission"></ccdb-form-text>
-
-<ccdb-form-text label="Thrombolytic therapy" value="patient.score.thrombolyticTherapy" ng-hide="referral || admission"></ccdb-form-text>
-
-<ccdb-form-text label="Haematocrit (%)" value="patient.scores[0].haematocrit" ng-hide="admission"></ccdb-form-text>
-
-<ccdb-form-text label="Haematocrit (%)" value="patient.scores[1].haematocrit" ng-hide="referral"></ccdb-form-text>
-
-<ccdb-form-text label="WBC (x103/mm3)" value="patient.scores[0].wBC" ng-hide="admission"></ccdb-form-text>
-
-<ccdb-form-text label="WBC (x103/mm3)" value="patient.scores[1].wBC" ng-hide="referral"></ccdb-form-text>
-
-<ccdb-form-text label="Potassium (mEq/L)" value="patient.score.potassium" ng-hide="referral || admission"></ccdb-form-text>
-
-<ccdb-form-text label="Corr Calcium (mmol/l)" value="patient.score.corrCalcium" ng-hide="referral || admission"></ccdb-form-text>
-
-<ccdb-form-text label="Urea (mmol/l)" value="patient.scores[0].urea" ng-hide="admission"></ccdb-form-text>
-
-<ccdb-form-text label="Albumin (g/l)" value="patient.scores[0].albumin" ng-hide="admission"></ccdb-form-text>
-
-<ccdb-form-text label="Bilirubin (umol/l)" value="patient.scores[0].bilirubin" ng-hide="admission"></ccdb-form-text>
-
-<ccdb-form-text label="INR" value="patient.score.iNR" ng-hide="referral || admission"></ccdb-form-text>
-
-<ccdb-form-text label="FiO2 (%)" value="patient.scores[0].fiO2" ng-hide="admission"></ccdb-form-text>
-
-<ccdb-form-text label="Fio2 (%)" value="patient.scores[1].fiO2" ng-hide="referral"></ccdb-form-text>
-
-<ccdb-form-text label="PH (%)" value="patient.scores[0].pH" ng-hide="admission"></ccdb-form-text>
-
-<ccdb-form-text label="PH" value="patient.scores[1].pH" ng-hide="referral"></ccdb-form-text>
-
-<ccdb-form-text label="PCO2 (kPa)" value="patient.scores[0].pCO2" ng-hide="admission"></ccdb-form-text>
-
-<ccdb-form-text label="PCO2 (kPa)" value="patient.scores[1].pCO2" ng-hide="referral"></ccdb-form-text>
-
-<ccdb-form-text label="pO2 (kPa)" value="patient.scores[0].pO2" ng-hide="admission"></ccdb-form-text>
-
-<ccdb-form-text label="pO2 (kPa)" value="patient.scores[1].pO2" ng-hide="referral"></ccdb-form-text>
-
-<ccdb-form-text label="Lactate" value="patient.scores[0].lactate"></ccdb-form-text>
-
-<ccdb-form-text label="Lactate" value="patient.scores[1].lactate" ng-hide="referral"></ccdb-form-text>
-
-<ccdb-form-text label="HCO3 (mEq/L)" value="patient.scores.hCO3" ng-hide="referral || admission"></ccdb-form-text>
-
-<ccdb-form-text label="Base excess" value="patient.scores[1].baseExcess" ng-hide="referral"></ccdb-form-text>
-
-<ccdb-form-text label="Airway" value="patient.scores[1].airway" ng-hide="referral"></ccdb-form-text>
-
-<ccdb-form-text label="Bicarbonate" value="patient.scores[1].bicarbonate" ng-hide="referral"></ccdb-form-text>
-
-<ccdb-form-text label="Current antibiotic therapy in ward" value="patient.scores[1].currentAntibioticTherapyInWard" ng-hide="referral"></ccdb-form-text>
-
-<ccdb-form-text label="Duration of antibtioics" value="patient.scores[1].durationOfAntibtioics" ng-hide="referral"></ccdb-form-text>
-
-<ccdb-form-textarea label="Notes" value="patient.scores.notes" ng-hide="admission || referral"></ccdb-form-textarea>
-
-<ccdb-form-text label="Saturation" value="patient.scores[1].saturation" ng-hide="referral"></ccdb-form-text>
-
-<ccdb-form-text label="Sedated" value="patient.scores[1].sedated" ng-hide="referral"></ccdb-form-text>
-</script>
-<script type="text/ng-template" id="score/score.html">
-<h3>{{score.notes}}</h3>
-<dl class="wide row">
-    <div class="small-6 columns">
-
-        <dt>Temperature :</dt>
-        <dd><pre>{{ patient.scores[1].temperature }} &deg;C</pre></dd>
-
-        <dt>Systolic pressure :</dt>
-        <dd><pre>{{ patient.scores[1].systolicPressure }} mmHg</pre></dd>
-
-        <dt>Diastolic pressure :</dt>
-        <dd><pre>{{ patient.score[1].diastolicPressure }} mmHg</pre></dd>
-
-        <dt>Heart rate :</dt>
-        <dd><pre>{{ patient.score[1].heartRate }} bpm</pre></dd>
-
-        <dt>Respiratory rate :</dt>
-        <dd><pre>{{ patient.score[1].respiratoryRate }}</pre></dd>
-
-        <dt>Urine output :</dt>
-        <dd><pre>{{ patient.score[1].urineOutput }} mls/hr</pre></dd>
-
-        <dt>Eye opening :</dt>
-        <dd><pre>{{ patient.score[1].eyeOpening }}</pre></dd>
-
-        <dt>Verbal response :</dt>
-        <dd><pre>{{ score.laboratoryResults.verbalResponse }}</pre></dd>
-
-        <dt>Motor response :</dt>
-        <dd><pre>{{ score.laboratoryResults.motorResponse }}</pre></dd>
-
-        <dt>Glasgow coma scale :</dt>
-        <dd><pre>{{ score.laboratoryResults.glasgowComaScale }}</pre></dd>
-
-        <dt>Pupils :</dt>
-        <dd><pre>{{ score.laboratoryResults.pupils }}</pre></dd>
-
-        <dt>Ventilated :</dt>
-        <dd><pre>{{ score.laboratoryResults.ventilated }}</pre></dd>
-
-        <dt>Thrombolytic therapy :</dt>
-        <dd><pre>{{ score.laboratoryResults.thrombolyticTherapy }}</pre></dd>
-
-        <dt>Haematocrit :</dt>
-        <dd><pre>{{ score.laboratoryResults.haematocrit }}</pre></dd>
-
-        <dt>WBC :</dt>
-        <dd><pre>{{ score.laboratoryResults.wBC }} x103/mm3</pre></dd>
-
-        <dt>Sodium</dt>
-        <dd><pre>{{ score.laboratoryResults.sodium }} mmol/l</pre></dd>
-
-        <dt>Potassium :</dt>
-        <dd><pre>{{ score.laboratoryResults.potassium }} mEq/L</pre></dd>
-
-        <dt>Corr Calcium :</dt>
-        <dd><pre>{{ score.laboratoryResults.corrCalcium }} mmol/l</pre></dd>
-
-        <dt>Urea :</dt>
-        <dd><pre>{{ score.laboratoryResults.urea }} mmol/l</pre></dd>
-
-        <dt>Creatinine :</dt>
-        <dd><pre>{{ score.laboratoryResults.creatinine }} umol/l</pre></dd>
-
-        <dt>Albumin :</dt>
-        <dd><pre>{{ score.laboratoryResults.albumin }} g/l</pre></dd>
-
-        <dt>Bilirubin :</dt>
-        <dd><pre>{{ score.laboratoryResults.bilirubin }} umol/l</pre></dd>
-
-        <dt>INR :</dt>
-        <dd><pre>{{ score.laboratoryResults.iNR }}</pre></dd>
-
-        <dt>FiO2 :</dt>
-        <dd><pre>{{ score.laboratoryResults.fiO2 }} %</pre></dd>
-
-        <dt>pH :</dt>
-        <dd><pre>{{ score.laboratoryResults.pH }}</pre></dd>
-
-        <dt>PCO2 :</dt>
-        <dd><pre>{{ score.laboratoryResults.pCO2 }} kPa</pre></dd>
-
-        <dt>PO2 :</dt>
-        <dd><pre>{{ score.laboratoryResults.pO2 }} kPa</pre></dd>
-
-        <dt>Lactate :</dt>
-        <dd><pre>{{ score.laboratoryResults.lactate }} mmol</pre></dd>
-
-        <dt>HCO3 :</dt>
-        <dd><pre>{{ score.laboratoryResults.hCO3 }}</pre></dd>
-
-        <dt>Base excess :</dt>
-        <dd><pre>{{ score.laboratoryResults.baseExcessStd }} (std)</pre></dd>
-
-        <dt>Bicarbonate :</dt>
-        <dd><pre>{{ score.bicarbonate }}</pre></dd>
-
-        <dt>Current antibiotics therapy in ward :</dt>
-        <dd><pre>{{ score.currentAntibioticTherapyInWard }}</pre></dd>
-
-        <dt>Duration of antibiotics :</dt>
-        <dd><pre>{{ score.durationOfAntibtioics }}</pre></dd>
-
-        <dt>Glucose :</dt>
-        <dd><pre>{{ score.glucose }}</pre></dd>
-
-        <dt>Saturation :</dt>
-        <dd><pre>{{ score.saturation }}</pre></dd>
-
-        <dt>Sedated :</dt>
-        <dd><pre>{{ score.sedated }}</pre></dd>
-
-        <dt>Score date :</dt>
-        <dd><pre>{{ score.scoreDate | date: "dd/MM/yyyy HH:mm" }}</pre></dd>
-
-        <dt>Airway :</dt>
-        <dd><pre>{{ score.airway }}</pre></dd>
-
+<div class="panel form-panel">
+    <div class="row">
+        <div class="col-sm-6">
+            <ccdb-form-text label="Temperature (&deg;C)" value="score.temperature"></ccdb-form-text>
+            <ccdb-form-text label="Systolic blood pressure (mm Hg)" value="score.systolicPressure"></ccdb-form-text>
+            <ccdb-form-text label="Diastolic blood pressure (mm Hg)" value="score.diastolicPressure"></ccdb-form-text>
+            <ccdb-form-text label="Heart rate (beats/minute)" value="score.heartRate"></ccdb-form-text>
+            <ccdb-form-text label="Saturation" value="score.saturation" ng-hide="referral || apache"></ccdb-form-text>
+            <ccdb-form-text label="Respiratory heart rate (breaths/minute)" value="score.respiratoryRate" ng-hide="referral"></ccdb-form-text>
+            <ccdb-form-text label="Urine output (mls/hr)" value="score.urineOutput" ng-hide="admission"></ccdb-form-text>
+            <ccdb-form-text label="Glucose (mmol/L)" value="score.glucose" ng-hide="referral || admission"></ccdb-form-text>
+            <ccdb-form-select label="Eye opening" options="eyeOpening" value="score.eyeOpening"></ccdb-form-select>
+            <ccdb-form-select label="Verbal response" options="verbalResponse" value="score.verbalResponse"></ccdb-form-select>
+            <ccdb-form-select label="Motor response" options="motorResponse" value="score.motorResponse"></ccdb-form-select>
+            <!-- this one is a calculated, we still want to write it to the database, but would be good to sum the three above automagically -->
+            <ccdb-form-text label="Glasgow coma scale" value="score.glasgowcomaScale"></ccdb-form-text>
+            <ccdb-form-select label="Sedated" options="yesNo" value="score.sedated" ng-hide="referral || apache"></ccdb-form-select>
+            <ccdb-form-select label="Airway" options="airway" value="patient.score.airway" ng-hide="referral || apache"></ccdb-form-select>
+            <ccdb-form-text label="Pupils" value="score.pupils" ng-hide="referral" ng-hide="referral"></ccdb-form-text>
+            <ccdb-form-text label="Ventilated" value="score.ventilated" ng-hide="referral"></ccdb-form-text>
+            <ccdb-form-text label="Thrombolytic therapy" value="score.thrombolyticTherapy" ng-hide="referral"></ccdb-form-text>
+        </div>
+        <div class="col-sm-6">
+            <ccdb-form-text label="Haematocrit (%)" value="score.haematocrit" ng-hide="admission"></ccdb-form-text>
+            <ccdb-form-text label="WBC (x103/mm3)" value="score.wBC" ng-hide="admission"></ccdb-form-text>
+            <ccdb-form-text label="Sodium (mEq/L)" value="score.sodium" ng-hide="admission"></ccdb-form-text>
+            <ccdb-form-text label="Potassium (mEq/L)" value="score.potassium" ng-hide="referral"></ccdb-form-text>
+            <ccdb-form-text label="Corr Calcium (mmol/l)" value="score.corrCalcium" ng-hide="referral"></ccdb-form-text>
+            <ccdb-form-text label="Urea (mmol/l)" value="score.urea" ng-hide="admission"></ccdb-form-text>
+            <ccdb-form-text label="Creatinine (mg/dL)" value="patient.score" ng-hide="admission"></ccdb-form-text>
+            <ccdb-form-text label="Albumin (g/l)" value="score.albumin" ng-hide="admission"></ccdb-form-text>
+            <ccdb-form-text label="Bilirubin (umol/l)" value="score.bilirubin" ng-hide="admission"></ccdb-form-text>
+            <ccdb-form-text label="Glucose (mmol/L)" value="score.glucose"></ccdb-form-text>
+            <ccdb-form-text label="INR" value="score.iNR" ng-hide="referral || admission"></ccdb-form-text>
+            <ccdb-form-text label="FiO2 (%)" value="score.fiO2"></ccdb-form-text>
+            <ccdb-form-text label="PH (%)" value="score.pH"></ccdb-form-text>
+            <ccdb-form-text label="pO2 (kPa)" value="score.pO2"></ccdb-form-text>
+            <ccdb-form-text label="PCO2 (kPa)" value="score.pCO2"></ccdb-form-text>
+            <ccdb-form-text label="Lactate" value="score.lactate"></ccdb-form-text>
+            <ccdb-form-text label="HCO3 (mEq/L)" value="patient.scores.hCO3" ng-hide="referral"></ccdb-form-text>
+            <ccdb-form-text label="Base excess" value="score.baseExcess" ng-hide="referral"></ccdb-form-text>
+            <ccdb-form-text label="Bicarbonate" value="score.bicarbonate" ng-hide="referral || apache"></ccdb-form-text>
+            <ccdb-form-text label="Current antibiotic therapy in ward" value="score.currentAntibioticTherapyInWard" ng-hide="referral || apache"></ccdb-form-text>
+            <ccdb-form-text label="Duration of antibiotics" value="score.durationOfAntibiotics" ng-hide="referral || apache"></ccdb-form-text>
+        </div>
     </div>
-</dl>
-</script>
-<script type="text/ng-template" id="score/scores.html">
-<!-- add a dropdown or something to select the visible score -->
-<section ng-repeat="score in patient.scores" id="{{score.scoreDate | date:'EEE' }}"><ccdb-score score="score"></ccdb-score></section>
-</script>
+</div></script>
+<script type="text/ng-template" id="score/score.html">
+<!-- next we need to create a special layout for side-by-side apache high-low scores -->
+high
+<ccdb-score-form score="patient.scores[2]" apache="true"></ccdb-score-form>
+low
+<ccdb-score-form score="patient.scores[3]" apache="true"></ccdb-score-form></script>
 <script type="text/ng-template" id="search/search.html">
 <h1>Find patient</h1>
 <div class="divider"></div>

@@ -1,4 +1,4 @@
-angular.module('ccdb.utils.form.text.directive', ['ccdb.patient.service'])
+angular.module('ccdb.utils.form.text.directive', ['ccdb.patient.service', 'ui.bootstrap'])
 
     .directive('ccdbFormText', function (PatientService) {
         return {
