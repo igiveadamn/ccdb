@@ -14,12 +14,6 @@ body h1:first-child {
     border-right: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
 }
-.panel-default .panel-heading {
-    background-color: #5BD080;
-}
-.panel-title {
-    color: white;
-}
 .panel h3:first-child {
   margin-top: 5px;
 }
@@ -27,6 +21,17 @@ body h1:first-child {
     display: inline-block;
     width: 100%;
     max-width: 250px;
+}
+.panel-group {
+    margin-bottom: 0px;
+}
+.btn-save {
+    margin-top: 5px;
+}
+.alert-missing-data {
+    background-color:#F9685C;
+    color:#A01B10;
+    margin-top: 5px;
 }
 .info-box {
     text-align: center;

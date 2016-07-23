@@ -1,21 +1,33 @@
 <h1>Admission</h1>
-<uib-accordion close-others="oneAtATime">
-    <div uib-accordion-group class="panel-default" heading="Admission" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
-        <ng-include src="'admission/admission.info.form.html'"></ng-include>
+    <uib-accordion close-others="oneAtATime">
+        <div uib-accordion-group class="panel-default" heading="Admission">
+            <ng-include src="'admission/admission.info.form.html'"></ng-include>
+        </div>
+        <div uib-accordion-group class="panel-default" heading="Condition on arrival">
+            <ng-include src="'admission/condition.form.html'"></ng-include>
+        </div>
+        <div uib-accordion-group class="panel-default" heading="History">
+            <ng-include src="'admission/history.form.html'"></ng-include>
+        </div>
+        <div uib-accordion-group class="panel-default" heading="Operative details">
+            <ng-include src="'admission/operative.form.html'"></ng-include>
+        </div>
+        <div uib-accordion-group class="panel-default" heading="Plan">
+            <ng-include src="'admission/plan.form.html'"></ng-include>
+        </div>
+        <div uib-accordion-group class="panel-default" heading="Summary">
+            <ng-include src="'admission/summary.form.html'"></ng-include>
+        </div>
+    </uib-accordion>
+    <button type="button" ng-click="save()" class="btn btn-primary btn-lg btn-save">Save</button>
+    <div ng-show='missingFields.length > 0'>
+        <div>
+            <div uib-alert class="alert-missing-data">
+                There is missing data, you must fill these fields before saving:
+                    <li ng-repeat='field in missingFields'>
+                        <span>{{field}}</span>
+                    </li>
+                </span>
+            </div>
+        </div>
     </div>
-    <div uib-accordion-group class="panel-default" heading="Condition on arrival" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
-        <ng-include src="'admission/condition.form.html'"></ng-include>
-    </div>
-    <div uib-accordion-group class="panel-default" heading="History" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
-        <ng-include src="'admission/history.form.html'"></ng-include>
-    </div>
-    <div uib-accordion-group class="panel-default" heading="Operative details" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
-        <ng-include src="'admission/operative.form.html'"></ng-include>
-    </div>
-    <div uib-accordion-group class="panel-default" heading="Plan" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
-        <ng-include src="'admission/plan.form.html'"></ng-include>
-    </div>
-    <div uib-accordion-group class="panel-default" heading="Summary" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
-        <ng-include src="'admission/summary.form.html'"></ng-include>
-    </div>
-</uib-accordion>
