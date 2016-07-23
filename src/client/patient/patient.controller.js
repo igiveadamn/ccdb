@@ -96,15 +96,46 @@ angular.module('ccdb.patient.controller', ['ngRoute', 'ccdb.patient.service', 'c
             return $location.path('/editPatient/' + $scope.patient._id).hash('Patient details');
         };
 
+        // TODO: this is sample data from the schema and should not be stored here
+        var admission = {
+          admissionDateAndTime: 'Admission date and time',
+          surgeryDateAndTime: 'Surgery date and time',
+          operativeDetails: 'Operative details',
+          operativeFindings: 'Operative findings',
+          operationPerformed: 'Operation performed',
+          operativePlan: 'Operative plan',
+          admissionSummaryNotes:'Admission summary notes',
+          admittingConsultant: 'Admitting consultant',
+        };
+
+        // TODO: save only currently works for admission. Work required to wire it up for the other form types
         $scope.save = function () {
-            PatientService.save($scope.patient)
-                .then(function (patient) {
-                    $location.path('/dashboard');
-                })
-                .catch(function (error) {
-                    console.log('error'.error);
-                }
-            );
+           function missingData() {
+             function dataNotProvided(field) {
+               return providedData.indexOf(field) < 0;
+             }
+             function mapToDisplayName(field) {
+               return admission[field];
+             }
+             var requiredData = Object.keys(admission);
+             var providedData = Object.keys($scope.patient.admission);
+
+             return requiredData.filter(dataNotProvided).map(mapToDisplayName);
+           }
+
+            if (missingData().length > 0) {
+              $scope.missingFields = missingData();
+              $location.path('/admitPatient/' + patientId);
+            } else {
+              PatientService.save($scope.patient)
+                  .then(function () {
+                      $location.path('/dashboard');
+                  })
+                  .catch(function (error) {
+                      console.log('error'.error);
+                  }
+              );
+            }
         };
 
         // common
