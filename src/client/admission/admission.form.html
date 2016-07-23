@@ -1,22 +1,21 @@
 <h1>Admission</h1>
-<div class="divider"></div>
-<uib-tabset active="active">
-    <uib-tab index="0" heading="Admission">
+<uib-accordion close-others="oneAtATime">
+    <div uib-accordion-group class="panel-default" heading="Admission" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
         <ng-include src="'admission/admission.info.form.html'"></ng-include>
-    </uib-tab>
-    <uib-tab index="1" heading="Condition on arrival">
+    </div>
+    <div uib-accordion-group class="panel-default" heading="Condition on arrival" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
         <ng-include src="'admission/condition.form.html'"></ng-include>
-    </uib-tab>
-    <uib-tab index="2" heading="History">
+    </div>
+    <div uib-accordion-group class="panel-default" heading="History" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
         <ng-include src="'admission/history.form.html'"></ng-include>
-    </uib-tab>
-    <uib-tab index="3" heading="Operative details">
+    </div>
+    <div uib-accordion-group class="panel-default" heading="Operative details" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
         <ng-include src="'admission/operative.form.html'"></ng-include>
-    </uib-tab>
-    <uib-tab index="4" heading="Plan"><!-- score -->
+    </div>
+    <div uib-accordion-group class="panel-default" heading="Plan" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
         <ng-include src="'admission/plan.form.html'"></ng-include>
-    </uib-tab>
-    <uib-tab index="5" heading="Summary">
+    </div>
+    <div uib-accordion-group class="panel-default" heading="Summary" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
         <ng-include src="'admission/summary.form.html'"></ng-include>
-    </uib-tab>
-</uib-tabset>
+    </div>
+</uib-accordion>

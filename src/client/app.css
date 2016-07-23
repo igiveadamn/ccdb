@@ -2,7 +2,6 @@ body {
     overflow-y: scroll;
     padding-top: 70px;
     color: #333333;
-    background-color: #f5f5f5;
 }
 body h1:first-child {
   margin-top: 5px;
@@ -15,10 +14,11 @@ body h1:first-child {
     border-right: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
 }
-.panel {
-  border-radius: 0;
-  border: none;
-  padding: 20px;
+.panel-default .panel-heading {
+    background-color: #5BD080;
+}
+.panel-title {
+    color: white;
 }
 .panel h3:first-child {
   margin-top: 5px;
