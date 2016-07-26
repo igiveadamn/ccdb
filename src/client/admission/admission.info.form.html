@@ -1,22 +1,26 @@
-<div class="col-sm-6">
-    <!-- this can be hidden. record when they hit save -->
-    <ccdb-form-date label="Admission entry date and time" <!-- this can be hidden. record when they hit save -->
-    ng-model="patient.admission.admissionDateEntrtyAndTime"></ccdb-form-date>
-</div>
-<div class="col-sm-6">
-    <ccdb-form-date label="Admission date and time"
-                    ng-model="patient.admission.admissionDateAndTime"></ccdb-form-date>
-</div>
-<div class="col-sm-6"> <!-- select : Emergency Dep; Ward; Theatre; Another Hospital -->
-    <ccdb-form-text label="Hospital admitted from" value="patient.admission.admittedFrom"></ccdb-form-text>
-</div>
-<div class="col-sm-6">
-    <ccdb-form-text label="Days in Hospital before ICU"
-                    value="patient.admission.numOfdaysInhospitalBeforeICU"></ccdb-form-text>
-</div>
-<div class="col-sm-6">
-    <ccdb-form-text label="Admitting doctor" value="patient.admission.admittingDoctor"></ccdb-form-text>
-</div>
-<div class="col-sm-6">
-    <ccdb-form-text label="Admitting consultant" value="patient.admission.admittingConsultant"></ccdb-form-text>
+<div class="panel form-panel">
+    <div class="row">
+        <div class="col-sm-6">
+            <!-- this can be hidden. record when they hit save -->
+            <ccdb-form-date label="Admission entry date and time"
+                            ng-model="patient.admission.admissionDateEntrtyAndTime"></ccdb-form-date>
+        </div>
+        <div class="col-sm-6">
+            <ccdb-form-date label="Admission date and time"
+                            ng-model="patient.admission.admissionDateAndTime"></ccdb-form-date>
+        </div>
+        <div class="col-sm-6"> <!-- select : Emergency Dep; Ward; Theatre; Another Hospital -->
+            <ccdb-form-text label="Hospital admitted from" value="patient.admission.admittedFrom"></ccdb-form-text>
+        </div>
+        <div class="col-sm-6">
+            <ccdb-form-text label="Days in Hospital before ICU"
+                            value="patient.admission.numOfdaysInhospitalBeforeICU"></ccdb-form-text>
+        </div>
+        <div class="col-sm-6">
+            <ccdb-form-text label="Admitting doctor" value="patient.admission.admittingDoctor"></ccdb-form-text>
+        </div>
+        <div class="col-sm-6">
+            <ccdb-form-text label="Admitting consultant" value="patient.admission.admittingConsultant"></ccdb-form-text>
+        </div>
+    </div>
 </div>
