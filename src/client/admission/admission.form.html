@@ -1,22 +1,29 @@
 <h1>Admission</h1>
 <div class="divider"></div>
-<uib-tabset active="active">
-    <uib-tab index="0" heading="Admission">
-        <ng-include src="'admission/admission.info.form.html'"></ng-include>
-    </uib-tab>
-    <uib-tab index="1" heading="Condition on arrival">
-        <ng-include src="'admission/condition.form.html'"></ng-include>
-    </uib-tab>
-    <uib-tab index="2" heading="History">
-        <ng-include src="'admission/history.form.html'"></ng-include>
-    </uib-tab>
-    <uib-tab index="3" heading="Operative details">
-        <ng-include src="'admission/operative.form.html'"></ng-include>
-    </uib-tab>
-    <uib-tab index="4" heading="Plan"><!-- score -->
-        <ng-include src="'admission/plan.form.html'"></ng-include>
-    </uib-tab>
-    <uib-tab index="5" heading="Summary">
-        <ng-include src="'admission/summary.form.html'"></ng-include>
-    </uib-tab>
-</uib-tabset>
+
+<form name="patientForm" ng-submit="save(patientForm.$valid)" novalidate>
+
+    <uib-tabset active="active">
+        <uib-tab index="0" heading="Admission">
+            <ng-include src="'admission/admission.info.form.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="1" heading="Condition on arrival">
+            <ng-include src="'admission/condition.form.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="2" heading="History">
+            <ng-include src="'admission/history.form.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="3" heading="Operative details">
+            <ng-include src="'admission/operative.form.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="4" heading="Plan"><!-- score -->
+            <ng-include src="'admission/plan.form.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="5" heading="Summary">
+            <ng-include src="'admission/summary.form.html'"></ng-include>
+        </uib-tab>
+    </uib-tabset>
+
+    <button type="submit" ng-disabled="patientForm.$invalid" class="btn btn-primary">Submit</button>
+
+</form>
