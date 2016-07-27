@@ -1,17 +1,11 @@
 <div class="form-group">
     <label for="right-label">{{ label }}</label>
-    <ng-form name="innerForm">
-        <input name="textField"
-               type="text"
+        <input type="text"
                class="form-control"
                id="right-label"
                placeholder="{{ label }}"
                ng-model="value"
                typeahead="item for item in getSuggestions($viewValue) | filter:$viewValue"
                typeahead-loading="loading"
-               required
         >
-        <p ng-show="innerForm.textField.$invalid && innerForm.textField.$touched" class="help-block">Value is
-            required.</p>
-    </ng-form>
 </div>

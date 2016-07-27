@@ -1,7 +1,7 @@
 <h1>Admission</h1>
 <div class="divider"></div>
 
-<form name="patientForm" ng-submit="save(patientForm.$valid)" novalidate>
+<form name="patientForm" ng-submit="save()" novalidate>
 
     <uib-tabset active="active">
         <uib-tab index="0" heading="Admission">
@@ -24,6 +24,6 @@
         </uib-tab>
     </uib-tabset>
 
-    <button type="submit" ng-disabled="patientForm.$invalid" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
 
 </form>

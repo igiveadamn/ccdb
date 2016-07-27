@@ -96,17 +96,14 @@ angular.module('ccdb.patient.controller', ['ngRoute', 'ccdb.patient.service', 'c
     return $location.path('/editPatient/' + $scope.patient._id).hash('Patient details');
   };
 
-  $scope.save = function (validForm) {
-
-    console.log('this is save', validForm);
+  $scope.save = function () {
     PatientService.save($scope.patient)
     .then(function (patient) {
       $location.path('/dashboard');
     })
     .catch(function (error) {
       console.log('error'.error);
-    }
-    );
+    });
   };
 
   // common
