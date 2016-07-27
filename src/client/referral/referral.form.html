@@ -1,30 +1,36 @@
 <h1>New {{patient.referral.emergencyVsElective}} Referral:</h1>
 <div class="divider"></div>
-<uib-tabset active="active">
-    <uib-tab index="0" heading="Patient Details">
-        <ng-include src="'referral/referral.patient.details.form.html'"></ng-include>
-    </uib-tab>
-    <uib-tab index="1" heading="Referral Details">
-        <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/referral.details.form.html'"></ng-include>
-        <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/referral.details.form.html'"></ng-include>
-    </uib-tab>
-    <uib-tab index="2" heading="Referral">
-        <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/referral.form.html'"></ng-include>
-        <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/referral.form.html'"></ng-include>
-    </uib-tab>
-    <uib-tab index="3" heading="Assessment">
-        <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/assessment.form.html'"></ng-include>
-        <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/assessment.form.html'"></ng-include>
-    </uib-tab>
-    <uib-tab index="4" heading="Vitals and Results" ng-if="patient.referral.emergencyVsElective=='Emergency'" ><!-- score -->
-        <ng-include src="'referral/emergency/score.form.html'"></ng-include>
-    </uib-tab>
-    <uib-tab index="5" heading="Decision">
-        <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/decision.form.html'"></ng-include>
-        <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/decision.form.html'"></ng-include>
-    </uib-tab>
-    <uib-tab index="6" heading="Outcome">
-        <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/outcome.form.html'"></ng-include>
-        <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/outcome.form.html'"></ng-include>
-    </uib-tab>
-</uib-tabset>
+
+<form name="patientForm" ng-submit="save()" novalidate>
+
+    <uib-tabset active="active">
+        <uib-tab index="0" heading="Patient Details">
+            <ng-include src="'referral/referral.patient.details.form.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="1" heading="Referral Details">
+            <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/referral.details.form.html'"></ng-include>
+            <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/referral.details.form.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="2" heading="Referral">
+            <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/referral.form.html'"></ng-include>
+            <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/referral.form.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="3" heading="Assessment">
+            <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/assessment.form.html'"></ng-include>
+            <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/assessment.form.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="4" heading="Vitals and Results" ng-if="patient.referral.emergencyVsElective=='Emergency'" ><!-- score -->
+            <ng-include src="'referral/emergency/score.form.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="5" heading="Decision">
+            <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/decision.form.html'"></ng-include>
+            <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/decision.form.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="6" heading="Outcome">
+            <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/outcome.form.html'"></ng-include>
+            <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/outcome.form.html'"></ng-include>
+        </uib-tab>
+    </uib-tabset>
+    <button type="submit" class="btn btn-primary">Save</button>
+
+</form>

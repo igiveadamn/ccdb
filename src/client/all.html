@@ -25,7 +25,7 @@
         </uib-tab>
     </uib-tabset>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Save</button>
 
 </form></script>
 <script type="text/ng-template" id="admission/admission.info.form.html">
@@ -250,24 +250,27 @@
 </script>
 <script type="text/ng-template" id="discharge/discharge.form.html">
 <div class="panel form-panel">
-    <div class="row">
-        <div class="col-sm-6">
-            <ccdb-form-date label="Discharge date" ng-model="patient.discharge.dischargeDate"></ccdb-form-date>
+    <form name="patientForm" ng-submit="save()" novalidate>
+        <div class="row">
+            <div class="col-sm-6">
+                <ccdb-form-date label="Discharge date" ng-model="patient.discharge.dischargeDate"></ccdb-form-date>
+            </div>
+            <div class="col-sm-6">
+                <ccdb-form-select label="Discharge status" options="dischargeStatuses"
+                                  value="patient.discharge.dischargeStatus"></ccdb-form-select>
+            </div>
         </div>
-        <div class="col-sm-6">
-            <ccdb-form-select label="Discharge status" options="dischargeStatuses"
-                              value="patient.discharge.dischargeStatus"></ccdb-form-select>
+        <div class="row">
+            <div class="col-sm-6">
+                <ccdb-form-textarea label="Comments" value="patient.discharge.comments"></ccdb-form-textarea>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-6">
-            <ccdb-form-textarea label="Comments" value="patient.discharge.comments"></ccdb-form-textarea>
-        </div>
-        <div class="col-sm-6">
-            <button>Save</button>
-        </div>
-    </div>
-</div></script>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+
+    </form>
+</div>
+</script>
 <script type="text/ng-template" id="discharge/discharge.html">
 <h3>Discharge Details</h3>
 <dl>
@@ -822,35 +825,40 @@ this is the view page</script>
 <script type="text/ng-template" id="referral/referral.form.html">
 <h1>New {{patient.referral.emergencyVsElective}} Referral:</h1>
 <div class="divider"></div>
-<uib-tabset active="active">
-    <uib-tab index="0" heading="Patient Details">
-        <ng-include src="'referral/referral.patient.details.form.html'"></ng-include>
-    </uib-tab>
-    <uib-tab index="1" heading="Referral Details">
-        <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/referral.details.form.html'"></ng-include>
-        <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/referral.details.form.html'"></ng-include>
-    </uib-tab>
-    <uib-tab index="2" heading="Referral">
-        <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/referral.form.html'"></ng-include>
-        <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/referral.form.html'"></ng-include>
-    </uib-tab>
-    <uib-tab index="3" heading="Assessment">
-        <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/assessment.form.html'"></ng-include>
-        <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/assessment.form.html'"></ng-include>
-    </uib-tab>
-    <uib-tab index="4" heading="Vitals and Results" ng-if="patient.referral.emergencyVsElective=='Emergency'" ><!-- score -->
-        <ng-include src="'referral/emergency/score.form.html'"></ng-include>
-    </uib-tab>
-    <uib-tab index="5" heading="Decision">
-        <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/decision.form.html'"></ng-include>
-        <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/decision.form.html'"></ng-include>
-    </uib-tab>
-    <uib-tab index="6" heading="Outcome">
-        <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/outcome.form.html'"></ng-include>
-        <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/outcome.form.html'"></ng-include>
-    </uib-tab>
-</uib-tabset>
-</script>
+
+<form name="patientForm" ng-submit="save()" novalidate>
+
+    <uib-tabset active="active">
+        <uib-tab index="0" heading="Patient Details">
+            <ng-include src="'referral/referral.patient.details.form.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="1" heading="Referral Details">
+            <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/referral.details.form.html'"></ng-include>
+            <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/referral.details.form.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="2" heading="Referral">
+            <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/referral.form.html'"></ng-include>
+            <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/referral.form.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="3" heading="Assessment">
+            <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/assessment.form.html'"></ng-include>
+            <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/assessment.form.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="4" heading="Vitals and Results" ng-if="patient.referral.emergencyVsElective=='Emergency'" ><!-- score -->
+            <ng-include src="'referral/emergency/score.form.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="5" heading="Decision">
+            <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/decision.form.html'"></ng-include>
+            <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/decision.form.html'"></ng-include>
+        </uib-tab>
+        <uib-tab index="6" heading="Outcome">
+            <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/outcome.form.html'"></ng-include>
+            <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/outcome.form.html'"></ng-include>
+        </uib-tab>
+    </uib-tabset>
+    <button type="submit" class="btn btn-primary">Save</button>
+
+</form></script>
 <script type="text/ng-template" id="referral/referral.patient.details.form.html">
 <div class="panel form-panel">
     <div class="row">
@@ -884,7 +892,6 @@ this is the view page</script>
         </div>
     </div>
     <div class="divider"></div>
-    <button class="btn btn-primary">Save</button>
 </div>
 </script>
 <script type="text/ng-template" id="reset/reset.html">
@@ -899,51 +906,71 @@ this is the view page</script>
 </div></script>
 <script type="text/ng-template" id="score/score.form.html">
 <div class="panel form-panel">
-    <div class="row">
-        <div class="col-sm-6">
-            <ccdb-form-text label="Temperature (&deg;C)" value="score.temperature"></ccdb-form-text>
-            <ccdb-form-text label="Systolic blood pressure (mm Hg)" value="score.systolicPressure"></ccdb-form-text>
-            <ccdb-form-text label="Diastolic blood pressure (mm Hg)" value="score.diastolicPressure"></ccdb-form-text>
-            <ccdb-form-text label="Heart rate (beats/minute)" value="score.heartRate"></ccdb-form-text>
-            <ccdb-form-text label="Saturation" value="score.saturation" ng-if="!referral && !apache"></ccdb-form-text>
-            <ccdb-form-text label="Respiratory heart rate (breaths/minute)" value="score.respiratoryRate" ng-if="!referral"></ccdb-form-text>
-            <ccdb-form-text label="Urine output (mls/hr)" value="score.urineOutput" ng-if="!admission"></ccdb-form-text>
-            <ccdb-form-text label="Glucose (mmol/L)" value="score.glucose" ng-if="!referral && !admission"></ccdb-form-text>
-            <ccdb-form-select label="Eye opening" options="eyeOpening" value="score.eyeOpening"></ccdb-form-select>
-            <ccdb-form-select label="Verbal response" options="verbalResponse" value="score.verbalResponse"></ccdb-form-select>
-            <ccdb-form-select label="Motor response" options="motorResponse" value="score.motorResponse"></ccdb-form-select>
-            <!-- this one is a calculated, we still want to write it to the database, but would be good to sum the three above automagically -->
-            <ccdb-form-text label="Glasgow coma scale" value="score.glasgowcomaScale"></ccdb-form-text>
-            <ccdb-form-select label="Sedated" options="yesNo" value="score.sedated" ng-if="!referral && !apache"></ccdb-form-select>
-            <ccdb-form-select label="Airway" options="airway" value="patient.score.airway" ng-if="!referral && !apache"></ccdb-form-select>
-            <ccdb-form-text label="Pupils" value="score.pupils" ng-if="!referral"></ccdb-form-text>
-            <ccdb-form-text label="Ventilated" value="score.ventilated" ng-if="!referral"></ccdb-form-text>
-            <ccdb-form-text label="Thrombolytic therapy" value="score.thrombolyticTherapy" ng-if="!referral"></ccdb-form-text>
+    <form name="patientForm" ng-submit="save()" novalidate>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <ccdb-form-text label="Temperature (&deg;C)" value="score.temperature"></ccdb-form-text>
+                <ccdb-form-text label="Systolic blood pressure (mm Hg)" value="score.systolicPressure"></ccdb-form-text>
+                <ccdb-form-text label="Diastolic blood pressure (mm Hg)"
+                                value="score.diastolicPressure"></ccdb-form-text>
+                <ccdb-form-text label="Heart rate (beats/minute)" value="score.heartRate"></ccdb-form-text>
+                <ccdb-form-text label="Saturation" value="score.saturation"
+                                ng-if="!referral && !apache"></ccdb-form-text>
+                <ccdb-form-text label="Respiratory heart rate (breaths/minute)" value="score.respiratoryRate"
+                                ng-if="!referral"></ccdb-form-text>
+                <ccdb-form-text label="Urine output (mls/hr)" value="score.urineOutput"
+                                ng-if="!admission"></ccdb-form-text>
+                <ccdb-form-text label="Glucose (mmol/L)" value="score.glucose"
+                                ng-if="!referral && !admission"></ccdb-form-text>
+                <ccdb-form-select label="Eye opening" options="eyeOpening" value="score.eyeOpening"></ccdb-form-select>
+                <ccdb-form-select label="Verbal response" options="verbalResponse"
+                                  value="score.verbalResponse"></ccdb-form-select>
+                <ccdb-form-select label="Motor response" options="motorResponse"
+                                  value="score.motorResponse"></ccdb-form-select>
+                <!-- this one is a calculated, we still want to write it to the database, but would be good to sum the three above automagically -->
+                <ccdb-form-text label="Glasgow coma scale" value="score.glasgowcomaScale"></ccdb-form-text>
+                <ccdb-form-select label="Sedated" options="yesNo" value="score.sedated"
+                                  ng-if="!referral && !apache"></ccdb-form-select>
+                <ccdb-form-select label="Airway" options="airway" value="patient.score.airway"
+                                  ng-if="!referral && !apache"></ccdb-form-select>
+                <ccdb-form-text label="Pupils" value="score.pupils" ng-if="!referral"></ccdb-form-text>
+                <ccdb-form-text label="Ventilated" value="score.ventilated" ng-if="!referral"></ccdb-form-text>
+                <ccdb-form-text label="Thrombolytic therapy" value="score.thrombolyticTherapy"
+                                ng-if="!referral"></ccdb-form-text>
+            </div>
+            <div class="col-sm-6">
+                <ccdb-form-text label="Haematocrit (%)" value="score.haematocrit" ng-if="!admission"></ccdb-form-text>
+                <ccdb-form-text label="WBC (x103/mm3)" value="score.wBC" ng-if="!admission"></ccdb-form-text>
+                <ccdb-form-text label="Sodium (mEq/L)" value="score.sodium" ng-if="!admission"></ccdb-form-text>
+                <ccdb-form-text label="Potassium (mEq/L)" value="score.potassium" ng-if="!referral"></ccdb-form-text>
+                <ccdb-form-text label="Corr Calcium (mmol/l)" value="score.corrCalcium"
+                                ng-if="!referral"></ccdb-form-text>
+                <ccdb-form-text label="Urea (mmol/l)" value="score.urea" ng-if="!admission"></ccdb-form-text>
+                <ccdb-form-text label="Creatinine (mg/dL)" value="patient.score" ng-if="!admission"></ccdb-form-text>
+                <ccdb-form-text label="Albumin (g/l)" value="score.albumin" ng-if="!admission"></ccdb-form-text>
+                <ccdb-form-text label="Bilirubin (umol/l)" value="score.bilirubin" ng-if="!admission"></ccdb-form-text>
+                <ccdb-form-text label="Glucose (mmol/L)" value="score.glucose"></ccdb-form-text>
+                <ccdb-form-text label="INR" value="score.iNR" ng-if="!referral && !admission"></ccdb-form-text>
+                <ccdb-form-text label="FiO2 (%)" value="score.fiO2"></ccdb-form-text>
+                <ccdb-form-text label="PH (%)" value="score.pH"></ccdb-form-text>
+                <ccdb-form-text label="pO2 (kPa)" value="score.pO2"></ccdb-form-text>
+                <ccdb-form-text label="PCO2 (kPa)" value="score.pCO2"></ccdb-form-text>
+                <ccdb-form-text label="Lactate" value="score.lactate"></ccdb-form-text>
+                <ccdb-form-text label="HCO3 (mEq/L)" value="patient.scores.hCO3" ng-if="!referral"></ccdb-form-text>
+                <ccdb-form-text label="Base excess" value="score.baseExcess" ng-if="!referral"></ccdb-form-text>
+                <ccdb-form-text label="Bicarbonate" value="score.bicarbonate"
+                                ng-if="!referral && !apache"></ccdb-form-text>
+                <ccdb-form-text label="Current antibiotic therapy in ward" value="score.currentAntibioticTherapyInWard"
+                                ng-if="!referral && !apache"></ccdb-form-text>
+                <ccdb-form-text label="Duration of antibiotics" value="score.durationOfAntibiotics"
+                                ng-if="!referral && !apache"></ccdb-form-text>
+            </div>
         </div>
-        <div class="col-sm-6">
-            <ccdb-form-text label="Haematocrit (%)" value="score.haematocrit" ng-if="!admission"></ccdb-form-text>
-            <ccdb-form-text label="WBC (x103/mm3)" value="score.wBC" ng-if="!admission"></ccdb-form-text>
-            <ccdb-form-text label="Sodium (mEq/L)" value="score.sodium" ng-if="!admission"></ccdb-form-text>
-            <ccdb-form-text label="Potassium (mEq/L)" value="score.potassium" ng-if="!referral"></ccdb-form-text>
-            <ccdb-form-text label="Corr Calcium (mmol/l)" value="score.corrCalcium" ng-if="!referral"></ccdb-form-text>
-            <ccdb-form-text label="Urea (mmol/l)" value="score.urea" ng-if="!admission"></ccdb-form-text>
-            <ccdb-form-text label="Creatinine (mg/dL)" value="patient.score" ng-if="!admission"></ccdb-form-text>
-            <ccdb-form-text label="Albumin (g/l)" value="score.albumin" ng-if="!admission"></ccdb-form-text>
-            <ccdb-form-text label="Bilirubin (umol/l)" value="score.bilirubin" ng-if="!admission"></ccdb-form-text>
-            <ccdb-form-text label="Glucose (mmol/L)" value="score.glucose"></ccdb-form-text>
-            <ccdb-form-text label="INR" value="score.iNR" ng-if="!referral && !admission"></ccdb-form-text>
-            <ccdb-form-text label="FiO2 (%)" value="score.fiO2"></ccdb-form-text>
-            <ccdb-form-text label="PH (%)" value="score.pH"></ccdb-form-text>
-            <ccdb-form-text label="pO2 (kPa)" value="score.pO2"></ccdb-form-text>
-            <ccdb-form-text label="PCO2 (kPa)" value="score.pCO2"></ccdb-form-text>
-            <ccdb-form-text label="Lactate" value="score.lactate"></ccdb-form-text>
-            <ccdb-form-text label="HCO3 (mEq/L)" value="patient.scores.hCO3" ng-if="!referral"></ccdb-form-text>
-            <ccdb-form-text label="Base excess" value="score.baseExcess" ng-if="!referral"></ccdb-form-text>
-            <ccdb-form-text label="Bicarbonate" value="score.bicarbonate" ng-if="!referral && !apache"></ccdb-form-text>
-            <ccdb-form-text label="Current antibiotic therapy in ward" value="score.currentAntibioticTherapyInWard" ng-if="!referral && !apache"></ccdb-form-text>
-            <ccdb-form-text label="Duration of antibiotics" value="score.durationOfAntibiotics" ng-if="!referral && !apache"></ccdb-form-text>
-        </div>
-    </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+
+    </form>
 </div></script>
 <script type="text/ng-template" id="score/score.html">
 <!-- next we need to create a special layout for side-by-side apache high-low scores -->
