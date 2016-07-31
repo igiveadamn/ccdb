@@ -5,7 +5,11 @@
 <form name="patientForm" ng-submit="save()" novalidate>
 
     <uib-tabset active="active">
-        <uib-tab index="0" heading="Admission">
+        <uib-tab index="0">
+            <uib-tab-heading>
+                Admission
+                <i ng-show="patientForm.admissionInfoForm.$invalid" class="glyphicon glyphicon-flag red"></i>
+            </uib-tab-heading>
             <ng-include src="'admission/admission.info.form.html'"></ng-include>
         </uib-tab>
         <uib-tab index="1" heading="Condition on arrival">
@@ -25,37 +29,38 @@
         </uib-tab>
     </uib-tabset>
 
-    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="submit" ng-disabled="patientForm.$invalid" class="btn btn-primary">Save</button>
 
 </form></script>
 <script type="text/ng-template" id="admission/admission.info.form.html">
-<div class="panel form-panel">
-    <div class="row">
-        <div class="col-sm-6">
-            <!-- this can be hidden. record when they hit save -->
-            <ccdb-form-date label="Admission entry date and time"
-                            ng-model="patient.admission.admissionDateEntrtyAndTime"></ccdb-form-date>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-date label="Admission date and time"
-                            ng-model="patient.admission.admissionDateAndTime"></ccdb-form-date>
-        </div>
-        <div class="col-sm-6"> <!-- select : Emergency Dep; Ward; Theatre; Another Hospital -->
-            <ccdb-form-text label="Hospital admitted from" value="patient.admission.admittedFrom"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-text label="Days in Hospital before ICU"
-                            value="patient.admission.numOfdaysInhospitalBeforeICU"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-text label="Admitting doctor" value="patient.admission.admittingDoctor"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-text label="Admitting consultant" value="patient.admission.admittingConsultant"></ccdb-form-text>
+<ng-form name="admissionInfoForm">
+    <div class="panel form-panel">
+        <div class="row">
+            <div class="col-sm-6">
+                <!-- this can be hidden. record when they hit save -->
+                <ccdb-form-date label="Admission entry date and time"
+                                ng-model="patient.admission.admissionDateEntrtyAndTime"></ccdb-form-date>
+            </div>
+            <div class="col-sm-6">
+                <ccdb-form-date label="Admission date and time"
+                                ng-model="patient.admission.admissionDateAndTime"></ccdb-form-date>
+            </div>
+            <div class="col-sm-6"> <!-- select : Emergency Dep; Ward; Theatre; Another Hospital -->
+                <ccdb-form-text label="Hospital admitted from" value="patient.admission.admittedFrom"></ccdb-form-text>
+            </div>
+            <div class="col-sm-6">
+                <ccdb-form-text label="Days in Hospital before ICU"
+                                value="patient.admission.numOfdaysInhospitalBeforeICU"></ccdb-form-text>
+            </div>
+            <div class="col-sm-6">
+                <ccdb-form-text label="Admitting doctor" value="patient.admission.admittingDoctor"></ccdb-form-text>
+            </div>
+            <div class="col-sm-6">
+                <ccdb-form-text label="Admitting consultant" value="patient.admission.admittingConsultant"></ccdb-form-text>
+            </div>
         </div>
     </div>
-</div>
-</script>
+</ng-form></script>
 <script type="text/ng-template" id="admission/condition.form.html">
 <ccdb-score-form score="patient.scores[1]" admission="true"></ccdb-score-form></script>
 <script type="text/ng-template" id="admission/history.form.html">
@@ -1070,6 +1075,7 @@ low
                ng-model="value"
                typeahead="item for item in getSuggestions($viewValue) | filter:$viewValue"
                typeahead-loading="loading"
+               required
         >
 </div>
 </script>

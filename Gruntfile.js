@@ -20,6 +20,7 @@ module.exports = function (grunt) {
                     'angular-touch/angular-touch.js': 'angular-touch/angular-touch.js',
                     'bootstrap-css/css/bootstrap.css':'bootstrap-css/css/bootstrap.css',
                     'bootstrap-css/js/bootstrap.min.js':'bootstrap-css/js/bootstrap.min.js',
+                    'bootstrap-css/fonts/glyphicons-halflings-regular.woff2':'bootstrap-css/fonts/glyphicons-halflings-regular.woff2',
                     'angular-bootstrap/ui-bootstrap-tpls.js':'angular-bootstrap/ui-bootstrap-tpls.js',
                     'checklist-model/checklist-model.js': 'checklist-model/checklist-model.js',
                     'moment/moment.js': 'moment/moment.js',

@@ -4,7 +4,11 @@
 <form name="patientForm" ng-submit="save()" novalidate>
 
     <uib-tabset active="active">
-        <uib-tab index="0" heading="Admission">
+        <uib-tab index="0">
+            <uib-tab-heading>
+                Admission
+                <i ng-show="patientForm.admissionInfoForm.$invalid" class="glyphicon glyphicon-flag red"></i>
+            </uib-tab-heading>
             <ng-include src="'admission/admission.info.form.html'"></ng-include>
         </uib-tab>
         <uib-tab index="1" heading="Condition on arrival">
@@ -24,6 +28,6 @@
         </uib-tab>
     </uib-tabset>
 
-    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="submit" ng-disabled="patientForm.$invalid" class="btn btn-primary">Save</button>
 
 </form>

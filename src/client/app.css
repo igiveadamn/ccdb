@@ -31,7 +31,9 @@ body h1:first-child {
 .info-box {
     text-align: center;
 }
-
+.red, .red a {
+    color: red;
+}
 .noselect {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
