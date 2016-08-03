@@ -43,9 +43,9 @@ var score = {
 };
 
 var admission = {
-    admissionEntryAndTime: Date,
-    admissionDateAndTime: Date,
-    surgeryDateAndTime: Date,
+    admissionEntryDateTime: Date,
+    admissionDateTime: Date,
+    surgeryDateTime: Date,
     operativeDetails: String,
     operativeFindings: String,
     operationPerformed: String,
@@ -113,7 +113,7 @@ var referral = {
     wasThisPatientInIcuInThePrevious48Hours: String,
     theFinalOutcomeOfThePatientIs: String,
     finalOutcome: String,
-    outcomeEntryTimeandDate: Date,
+    outcomeEntryDateTime: Date,
     doctorFinalising: String,
     revisedScccm: String,
     ifAcceptedAnyDelay: String,
@@ -128,9 +128,7 @@ var referral = {
     dateOperationPlanned: Date,
     comorbidities: [String],
     summaryNote: String,
-    finalOutcomeNote: String,
     sccmScore: String,
-    dateAndTimeNote: Date,
     history: String,
     examination: String,
     managementPlan: String

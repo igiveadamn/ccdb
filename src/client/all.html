@@ -37,25 +37,13 @@
     <div class="panel form-panel">
         <div class="row">
             <div class="col-sm-6">
-                <!-- this can be hidden. record when they hit save -->
-                <ccdb-form-date label="Admission entry date and time"
-                                ng-model="patient.admission.admissionEntryAndTime"></ccdb-form-date>
-            </div>
-            <div class="col-sm-6">
-                <ccdb-form-date label="Admission date and time"
-                                ng-model="patient.admission.admissionDateAndTime"></ccdb-form-date>
-            </div>
-            <div class="col-sm-6"> <!-- select : Emergency Dep; Ward; Theatre; Another Hospital -->
+                <ccdb-form-date label="Admission entry date and time" ng-model="patient.admission.admissionEntryDateTime"></ccdb-form-date><!-- this can be hidden. record when they hit save -->
+                <ccdb-form-date label="Admission date and time" ng-model="patient.admission.admissionDateTime"></ccdb-form-date>
                 <ccdb-form-text label="Hospital admitted from" value="patient.admission.admittedFrom"></ccdb-form-text>
-            </div>
-            <div class="col-sm-6">
-                <ccdb-form-text label="Days in Hospital before ICU"
-                                value="patient.admission.numOfdaysInhospitalBeforeICU"></ccdb-form-text>
+                <ccdb-form-text label="Days in Hospital before ICU" value="patient.admission.numOfdaysInhospitalBeforeICU"></ccdb-form-text>
             </div>
             <div class="col-sm-6">
                 <ccdb-form-text label="Admitting doctor" value="patient.admission.admittingDoctor"></ccdb-form-text>
-            </div>
-            <div class="col-sm-6">
                 <ccdb-form-text label="Admitting consultant" value="patient.admission.admittingConsultant"></ccdb-form-text>
             </div>
         </div>
@@ -70,8 +58,6 @@
         <div class="col-sm-6">
             <ccdb-form-textarea label="Past medical history"
                                 value="patient.admission.pastMedicalHistory"></ccdb-form-textarea>
-        </div>
-        <div class="col-sm-6">
             <ccdb-form-textarea label="Past surgical history"
                                 value="patient.admission.pastSurgicalHistory"></ccdb-form-textarea>
         </div>
@@ -84,68 +70,27 @@
 <script type="text/ng-template" id="admission/operative.form.html">
 <div class="panel form-panel">
     <div class="row">
-        <div class="col-sm-6"> <!-- if non-operative, disable and don't require the rest -->
-            <ccdb-form-select label="Operative Details" options="operativeDetails"
-                              value="patient.admission.operativeDetails"></ccdb-form-select>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-date label="Date and time of surgery"
-                            ng-model="patient.admission.surgeryDateAndTime"></ccdb-form-date>
-        </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6" ng-if="patient.referral.operativeStatusAtTimeOfReferral !== 'Not for surgery'"> <!-- if non-operative, disable and don't require the rest -->
+            <ccdb-form-date label="Date and time of surgery" ng-model="patient.admission.surgeryDateTime"></ccdb-form-date>
             <ccdb-form-text label="Operation performed" value="patient.admission.operationPerformed"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
             <ccdb-form-text label="Operative findings" value="patient.admission.operativeFindings"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
             <ccdb-form-textarea label="Operative Plan" value="patient.admission.operativePlan"></ccdb-form-textarea>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-text label="Duration of operation"
-                            value="patient.admission.durationOfOperation"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
+            <ccdb-form-text label="Duration of operation" value="patient.admission.durationOfOperation"></ccdb-form-text>
             <ccdb-form-text label="Anaesthesia" value="patient.admission.anaesthesia"></ccdb-form-text>
         </div>
 
         <div class="col-sm-6"><!-- leave this in even if non-operative -->
-            <ccdb-form-text label="Grade of laryngoscopy"
-                            value="patient.admission.gradeOfLaryngoscopy"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-text label="Duration of anaesthesia"
-                            value="patient.admission.durationOfAnaesthesia"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
+            <ccdb-form-text label="Grade of laryngoscopy" value="patient.admission.gradeOfLaryngoscopy"></ccdb-form-text>
+            <ccdb-form-text label="Duration of anaesthesia" value="patient.admission.durationOfAnaesthesia"></ccdb-form-text>
             <ccdb-form-text label="Antibiotic" value="patient.admission.antibiotics"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-text label="Intra-operative total volumes"
-                            value="patient.admission.intraOperativeTotalVolumes"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
+            <ccdb-form-text label="Intra-operative total volumes" value="patient.admission.intraOperativeTotalVolumes"></ccdb-form-text>
             <ccdb-form-text label="Blood loss" value="patient.admission.bloodLoss"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
             <ccdb-form-text label="Urine output (mls/hr)" value="patient.admission.urineOutput"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
             <ccdb-form-text label="Crystalloid volume" value="patient.admission.crystalloidVolume"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
             <ccdb-form-text label="Colloid volume" value="patient.admission.colloidVolume"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
             <ccdb-form-text label="Packed cell" value=" patient.admission.packedCells"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
             <ccdb-form-text label="Freeze dried plasma" value="patient.admission.freezeDriedPlasma"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
             <ccdb-form-text label="Platelets" value="patient.admission.platelets"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
             <ccdb-form-text label="Cruoprecipitate" value="patient.admission.cruoprecipitate"></ccdb-form-text>
         </div>
     </div>
@@ -156,35 +101,16 @@
     <div class="row">
         <div class="col-sm-6">
             <ccdb-form-text label="Airway and breathing" value="patient.admission.airwayAndBreathing"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
             <ccdb-form-text label="Circulation" value="patient.admission.circulation"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-text label="Renal and electrolytes"
-                            value="patient.admission.renalAndElectrolytes"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
+            <ccdb-form-text label="Renal and electrolytes" value="patient.admission.renalAndElectrolytes"></ccdb-form-text>
             <ccdb-form-text label="Fluids and feeds" value="patient.admission.fluids"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
             <ccdb-form-text label="Antibiotics" value="patient.admission.antibiotics"></ccdb-form-text>
         </div>
         <div class="col-sm-6">
             <ccdb-form-text label="Lines" value="patient.admission.lines"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-text label="Analgesia And Sedation"
-                            value="patient.admission.analgesiaAndSedation"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-text label="Thrombosis Management"
-                            value="patient.admission.thrombosisManagement"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
+            <ccdb-form-text label="Analgesia And Sedation" value="patient.admission.analgesiaAndSedation"></ccdb-form-text>
+            <ccdb-form-text label="Thrombosis Management" value="patient.admission.thrombosisManagement"></ccdb-form-text>
             <ccdb-form-text label="Ulcer prophylaxis" value="patient.admission.ulcerProphylaxis"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
             <ccdb-form-text label="Other" value="patient.admission.other"></ccdb-form-text>
         </div>
     </div>
@@ -194,8 +120,7 @@
 <div class="panel form-panel">
     <div class="row">
         <div class="col-sm-6">
-            <ccdb-form-textarea label="Admission summary notes"
-                                value="patient.admission.admissionSummaryNotes"></ccdb-form-textarea>
+            <ccdb-form-textarea label="Admission summary notes" value="patient.admission.admissionSummaryNotes"></ccdb-form-textarea>
         </div>
     </div>
 </div>
@@ -235,20 +160,14 @@
         <div class="row">
             <div class="col-sm-6">
                 <ccdb-form-date label="Discharge date" ng-model="patient.discharge.dischargeDate"></ccdb-form-date>
+                <ccdb-form-select label="Discharge status" options="dischargeStatuses" value="patient.discharge.dischargeStatus"></ccdb-form-select>
             </div>
-            <div class="col-sm-6">
-                <ccdb-form-select label="Discharge status" options="dischargeStatuses"
-                                  value="patient.discharge.dischargeStatus"></ccdb-form-select>
-            </div>
-        </div>
-        <div class="row">
             <div class="col-sm-6">
                 <ccdb-form-textarea label="Comments" value="patient.discharge.comments"></ccdb-form-textarea>
             </div>
         </div>
 
         <button type="submit" class="btn btn-primary">Save</button>
-
     </form>
 </div>
 </script>
@@ -508,18 +427,13 @@ this is the view page</script>
 <script type="text/ng-template" id="referral/elective/assessment.form.html">
 <div class="panel form-panel">
     <div class="row">
-        <!-- assessment  (bigger text boxes) -->
         <div class="col-sm-6">
-            <ccdb-form-text label="History" value="patient.referral.history"></ccdb-form-text>
+            <ccdb-form-textarea label="History" value="patient.referral.history"></ccdb-form-textarea>
+            <ccdb-form-textarea label="Examination" value="patient.referral.examination"></ccdb-form-textarea>
         </div>
         <div class="col-sm-6">
-            <ccdb-form-text label="Examination" value="patient.referral.examination"></ccdb-form-text>
+            <ccdb-form-textarea label="Suggested Management and Investigations Requested" value="patient.referral.managementPlan"></ccdb-form-textarea>
         </div>
-        <div class="col-sm-6">
-            <ccdb-form-text label="Suggested Management and Investigations Requested"
-                            value="patient.referral.managementPlan"></ccdb-form-text>
-        </div>
-        <!-- end of assessment -->
     </div>
 </div></script>
 <script type="text/ng-template" id="referral/elective/decision.form.html">
@@ -527,15 +441,10 @@ this is the view page</script>
     <div class="row">
         <div class="col-sm-6">
             <ccdb-form-select label="SCCM" options="sCCM" value="patient.referral.sCCM"></ccdb-form-select>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-select label="Level of care required" options="levelOfCareRequired"
-                              value="patient.referral.levelOfCareRequired"></ccdb-form-select>
+            <ccdb-form-select label="Level of care required" options="levelOfCareRequired" value="patient.referral.levelOfCareRequired"></ccdb-form-select>
         </div>
         <div class="col-sm-6">
             <ccdb-form-select label="Decision" options="decision" value="patient.referral.decision"></ccdb-form-select>
-        </div>
-        <div class="col-sm-6">
             <ccdb-form-text label="Decision reason" value="patient.referral.decisionReason"></ccdb-form-text>
         </div>
     </div>
@@ -544,34 +453,16 @@ this is the view page</script>
 <div class="panel form-panel">
     <div class="row">
         <div class="col-sm-6">
-            <ccdb-form-date label="Outcome entry time and date"
-                            ng-model="patient.referral.outcomeEntryTimeandDate"></ccdb-form-date>
-        </div>
-        <div class="col-sm-6">
+            <ccdb-form-date label="Outcome entry time and date" ng-model="patient.referral.outcomeEntryDateTime"></ccdb-form-date>
             <ccdb-form-text label="Doctor finalising" value="patient.referral.doctorFinalising"></ccdb-form-text>
+            <ccdb-form-select label="Revised SCCCM" options="revisedScccm" value="patient.referral.revisedScccm"></ccdb-form-select>
+            <ccdb-form-select label="Any delay on admission" options="yesNo" value="patient.referral.ifAcceptedAnyDelay"></ccdb-form-select>
+            <ccdb-form-textarea label="Reason for delay" value="patient.referral.delayReason" ng-if="patient.referral.ifAcceptedAnyDelay !== 'No'"></ccdb-form-textarea>
         </div>
         <div class="col-sm-6">
-            <ccdb-form-select label="Revised SCCCM" options="revisedScccm"
-                              value="patient.referral.revisedScccm"></ccdb-form-select>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-select label="Any delay on admission" options="yesNo"
-                                value="patient.referral.ifAcceptedAnyDelay"></ccdb-form-select>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-textarea label="Reason for delay" value="patient.referral.delayReason"></ccdb-form-textarea>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-textarea label="If accepted but never admitted"
-                                value="patient.referral.ReasonPatientWasNeverAdmitted"></ccdb-form-textarea>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-text label="Unit transferred to if transferred"
-                            value="patient.referral.unitTransferredToIfTransferred "></ccdb-form-text>
-        </div>
-        <div class="col-sm-6"><!-- admitted or not admitted -->
-            <ccdb-form-select label="Final outcome" options="finalOutcome"
-                              value="patient.referral.finalOutcomeNote"></ccdb-form-select>
+            <ccdb-form-textarea label="If accepted but never admitted" value="patient.referral.ReasonPatientWasNeverAdmitted"></ccdb-form-textarea>
+            <ccdb-form-text label="Unit transferred to if transferred" value="patient.referral.unitTransferredToIfTransferred "></ccdb-form-text>
+            <ccdb-form-select label="Final outcome" options="finalOutcome" value="patient.referral.finalOutcome"></ccdb-form-select>
         </div>
     </div>
 </div></script>
@@ -580,60 +471,22 @@ this is the view page</script>
     <div class="row">
         <div class="col-sm-6"><!-- the time the ICU hears about the patient  -->
             <ccdb-form-date label="Referral date" ng-model="patient.referral.referralDate"></ccdb-form-date>
-        </div>
-
-        <div class="col-sm-6">
-            <ccdb-form-select label="Patient location" options="patientLocation"
-                              value="patient.referral.patientLocation"></ccdb-form-select>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-select label="Operative status at time of referral" options="operativeStatusAtTimeOfReferral"
-                              value="patient.referral.operativeStatusAtTimeOfReferral"></ccdb-form-select>
-        </div>
-
-        <div class="col-sm-6">
-            <ccdb-form-text label="Base discipline referring"
-                            value="patient.referral.baseDisciplineReferring"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-text label="Base discipline consultant"
-                            value="patient.referral.baseDisciplineConsultant"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
+            <ccdb-form-select label="Patient location" options="patientLocation" value="patient.referral.patientLocation"></ccdb-form-select>
+            <ccdb-form-select label="Operative status at time of referral" options="operativeStatusAtTimeOfReferral" value="patient.referral.operativeStatusAtTimeOfReferral"></ccdb-form-select>
+            <ccdb-form-text label="Base discipline referring" value="patient.referral.baseDisciplineReferring"></ccdb-form-text>
+            <ccdb-form-text label="Base discipline consultant" value="patient.referral.baseDisciplineConsultant"></ccdb-form-text>
             <ccdb-form-text label="Referring doctor" value="patient.referral.referringDoctor"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-text label="Discipline of referring doctor"
-                            value="patient.referral.disciplineOfReferringDoctor"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
+            <ccdb-form-text label="Discipline of referring doctor" value="patient.referral.disciplineOfReferringDoctor"></ccdb-form-text>
             <ccdb-form-text label="Referring hospital" value="patient.referral.referringHospital"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
             <ccdb-form-text label="Diagnosis type" value="patient.referral.diagnosisType"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-select label="Diagnosis" options="diagnosis"
-                              value="patient.referral.diagnosis"></ccdb-form-select>
-        </div>
-        <div class="col-sm-6">
+            <ccdb-form-select label="Diagnosis" options="diagnosis" value="patient.referral.diagnosis"></ccdb-form-select>
             <ccdb-form-text label="Diagnosis details" value="patient.referral.diagnosisDetails"></ccdb-form-text>
         </div>
         <div class="col-sm-6">
-            <ccdb-form-multiselect label="Comorbidities" options="comorbidities"
-                                   value="patient.referral.comorbidities"></ccdb-form-multiselect>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-textarea label="Planned operation"
-                                value="patient.referral.plannedOperation"></ccdb-form-textarea>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-textarea label="Planned operation reason"
-                                value="patient.referral.reasonForOperation"></ccdb-form-textarea>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-date label="Date operation planned"
-                            ng-model="patient.referral.dateOperationPlanned"></ccdb-form-date>
+            <ccdb-form-multiselect label="Comorbidities" options="comorbidities" value="patient.referral.comorbidities"></ccdb-form-multiselect>
+            <ccdb-form-textarea label="Planned operation" value="patient.referral.plannedOperation"></ccdb-form-textarea>
+            <ccdb-form-textarea label="Planned operation reason" value="patient.referral.reasonForOperation"></ccdb-form-textarea>
+            <ccdb-form-date label="Date operation planned" ng-model="patient.referral.dateOperationPlanned"></ccdb-form-date>
         </div>
     </div>
 </div></script>
@@ -641,20 +494,12 @@ this is the view page</script>
 <div class="panel form-panel">
     <div class="row">
         <div class="col-sm-6"><!-- needs to be a multiple -->
-            <ccdb-form-select label="Reason of referral to ICU" options="reasonOfReferralToICU"
-                              value="patient.referral.reasonOfReferralToICU"></ccdb-form-select>
+            <ccdb-form-select label="Reason of referral to ICU" options="reasonOfReferralToICU" value="patient.referral.reasonOfReferralToICU"></ccdb-form-select>
+            <ccdb-form-text label="Number of days in hospital" value="patient.referral.numberOfDaysInHospital"></ccdb-form-text>
         </div>
         <div class="col-sm-6">
-            <ccdb-form-text label="Number of days in hospital"
-                            value="patient.referral.numberOfDaysInHospital"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-text label="Is the patient currently ventilated"
-                            value="patient.referral.patientCurrentlyVentilated"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-text label="Was this patient in ICU in the previous 48 hours"
-                            value="patient.referral.wasThisPatientInIcuInThePrevious48Hours"></ccdb-form-text>
+            <ccdb-form-text label="Is the patient currently ventilated" value="patient.referral.patientCurrentlyVentilated"></ccdb-form-text>
+            <ccdb-form-text label="Was this patient in ICU in the previous 48 hours" value="patient.referral.wasThisPatientInIcuInThePrevious48Hours"></ccdb-form-text>
         </div>
     </div>
 </div></script>
@@ -663,8 +508,6 @@ this is the view page</script>
     <div class="row">
         <div class="col-sm-6">
             <ccdb-form-text label="History" value="patient.referral.history"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
             <ccdb-form-text label="Examination" value="patient.referral.examination"></ccdb-form-text>
         </div>
         <div class="col-sm-6">
@@ -677,15 +520,10 @@ this is the view page</script>
     <div class="row">
         <div class="col-sm-6">
             <ccdb-form-select label="SCCM" options="sCCM" value="patient.referral.sCCM"></ccdb-form-select>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-select label="Level of care required" options="levelOfCareRequired"
-                              value="patient.referral.levelOfCareRequired"></ccdb-form-select>
+            <ccdb-form-select label="Level of care required" options="levelOfCareRequired" value="patient.referral.levelOfCareRequired"></ccdb-form-select>
         </div>
         <div class="col-sm-6">
             <ccdb-form-select label="Decision" options="decision" value="patient.referral.decision"></ccdb-form-select>
-        </div>
-        <div class="col-sm-6">
             <ccdb-form-text label="Decision reason" value="patient.referral.decisionReason"></ccdb-form-text>
         </div>
     </div>
@@ -694,34 +532,16 @@ this is the view page</script>
 <div class="panel form-panel">
     <div class="row">
         <div class="col-sm-6">
-            <ccdb-form-date label="Outcome entry time and date"
-                            ng-model="patient.referral.outcomeEntryTimeandDate"></ccdb-form-date>
-        </div>
-        <div class="col-sm-6">
+            <ccdb-form-date label="Outcome entry time and date" ng-model="patient.referral.outcomeEntryDateTime"></ccdb-form-date>
             <ccdb-form-text label="Doctor finalising" value="patient.referral.doctorFinalising"></ccdb-form-text>
+            <ccdb-form-select label="Revised SCCCM" options="revisedScccm" value="patient.referral.revisedScccm"></ccdb-form-select>
+            <ccdb-form-select label="Any delay on admission" options="yesNo" value="patient.referral.ifAcceptedAnyDelay"></ccdb-form-select>
+            <ccdb-form-textarea label="Reason for delay" value="patient.referral.delayReason" ng-if="patient.referral.ifAcceptedAnyDelay !== 'No'"></ccdb-form-textarea>
         </div>
         <div class="col-sm-6">
-            <ccdb-form-select label="Revised SCCCM" options="revisedScccm"
-                              value="patient.referral.revisedScccm"></ccdb-form-select>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-textarea label="Any delay on admission"
-                                value="patient.referral.ifAcceptedAnyDelay"></ccdb-form-textarea>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-textarea label="Reason for delay" value="patient.referral.delayReason"></ccdb-form-textarea>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-textarea label="If accepted but never admitted"
-                                value="patient.referral.ReasonPatientWasNeverAdmitted"></ccdb-form-textarea>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-text label="Unit transferred to if transferred"
-                            value="patient.referral.unitTransferredToIfTransferred "></ccdb-form-text>
-        </div>
-        <div class="col-sm-6"><!-- admitted or not admitted -->
-            <ccdb-form-select label="Final outcome" options="finalOutcome"
-                              value="patient.referral.finalOutcomeNote"></ccdb-form-select>
+            <ccdb-form-textarea label="If accepted but never admitted" value="patient.referral.ReasonPatientWasNeverAdmitted"></ccdb-form-textarea>
+            <ccdb-form-text label="Unit transferred to if transferred" value="patient.referral.unitTransferredToIfTransferred "></ccdb-form-text>
+            <ccdb-form-select label="Final outcome" options="finalOutcome" value="patient.referral.finalOutcome"></ccdb-form-select>
         </div>
     </div>
 </div></script>
@@ -730,48 +550,19 @@ this is the view page</script>
     <div class="row">
         <div class="col-sm-6"><!-- the time the ICU hears about the patient  -->
             <ccdb-form-date label="Referral date" ng-model="patient.referral.referralDate"></ccdb-form-date>
-        </div>
-
-        <div class="col-sm-6">
-            <ccdb-form-select label="Patient location" options="patientLocation"
-                              value="patient.referral.patientLocation"></ccdb-form-select>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-select label="Operative status at time of referral" options="operativeStatusAtTimeOfReferral"
-                              value="patient.referral.operativeStatusAtTimeOfReferral"></ccdb-form-select>
-        </div>
-
-        <div class="col-sm-6">
-            <ccdb-form-text label="Base discipline referring"
-                            value="patient.referral.baseDisciplineReferring"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-text label="Base discipline consultant"
-                            value="patient.referral.baseDisciplineConsultant"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
+            <ccdb-form-select label="Patient location" options="patientLocation" value="patient.referral.patientLocation"></ccdb-form-select>
+            <ccdb-form-select label="Operative status at time of referral" options="operativeStatusAtTimeOfReferral" value="patient.referral.operativeStatusAtTimeOfReferral"></ccdb-form-select>
+            <ccdb-form-text label="Base discipline referring" value="patient.referral.baseDisciplineReferring"></ccdb-form-text>
+            <ccdb-form-text label="Base discipline consultant" value="patient.referral.baseDisciplineConsultant"></ccdb-form-text>
             <ccdb-form-text label="Referring doctor" value="patient.referral.referringDoctor"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-text label="Discipline of referring doctor"
-                            value="patient.referral.disciplineOfReferringDoctor"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
+            <ccdb-form-text label="Discipline of referring doctor" value="patient.referral.disciplineOfReferringDoctor"></ccdb-form-text>
             <ccdb-form-text label="Referring hospital" value="patient.referral.referringHospital"></ccdb-form-text>
         </div>
         <div class="col-sm-6">
             <ccdb-form-text label="Diagnosis type" value="patient.referral.diagnosisType"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-select label="Diagnosis" options="diagnosis"
-                              value="patient.referral.diagnosis"></ccdb-form-select>
-        </div>
-        <div class="col-sm-6">
+            <ccdb-form-select label="Diagnosis" options="diagnosis" value="patient.referral.diagnosis"></ccdb-form-select>
             <ccdb-form-text label="Diagnosis details" value="patient.referral.diagnosisDetails"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-multiselect label="Comorbidities" options="comorbidities"
-                                   value="patient.referral.comorbidities"></ccdb-form-multiselect>
+            <ccdb-form-multiselect label="Comorbidities" options="comorbidities" value="patient.referral.comorbidities"></ccdb-form-multiselect>
         </div>
     </div>
 </div></script>
@@ -779,25 +570,13 @@ this is the view page</script>
 <div class="panel form-panel">
     <div class="row">
         <div class="col-sm-6">
-            <ccdb-form-select label="Reason of referral to ICU" options="reasonOfReferralToICU"
-                              value="patient.referral.reasonOfReferralToICU"></ccdb-form-select>
+            <ccdb-form-select label="Reason of referral to ICU" options="reasonOfReferralToICU" value="patient.referral.reasonOfReferralToICU"></ccdb-form-select>
+            <ccdb-form-select label="Is the referral for a complication of" options="referralForComplicationOf" value="patient.referral.referralForComplicationOf"></ccdb-form-select>
+            <ccdb-form-text label="Number of days in hospital" value="patient.referral.numberOfDaysInHospital"></ccdb-form-text>
         </div>
         <div class="col-sm-6">
-            <ccdb-form-select label="Is the referral for a complication of" options="referralForComplicationOf"
-                              value="patient.referral.referralForComplicationOf"></ccdb-form-select>
-        </div>
-
-        <div class="col-sm-6">
-            <ccdb-form-text label="Number of days in hospital"
-                            value="patient.referral.numberOfDaysInHospital"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-text label="Is the patient currently ventilated"
-                            value="patient.referral.patientCurrentlyVentilated"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-text label="Was this patient in ICU in the previous 48 hours"
-                            value="patient.referral.wasThisPatientInIcuInThePrevious48Hours"></ccdb-form-text>
+            <ccdb-form-text label="Is the patient currently ventilated" value="patient.referral.patientCurrentlyVentilated"></ccdb-form-text>
+            <ccdb-form-text label="Was this patient in ICU in the previous 48 hours" value="patient.referral.wasThisPatientInIcuInThePrevious48Hours"></ccdb-form-text>
         </div>
     </div>
 </div></script>
@@ -1040,12 +819,13 @@ low
 </script>
 <script type="text/ng-template" id="utils/form/date.html">
 <div class="form-group">
-    <label>{{ label }}</label>
-    <select ng-model="date" ng-change="modelChanged()" ng-options="d as d for d in dates"></select>
-    <select ng-model="month" ng-change="modelChanged()" ng-options="m.key as m.value for m in months"></select>
-    <select ng-model="year" ng-change="modelChanged()" ng-options="y as y for y in years"></select>
+    <label for="right-label">{{ label }}</label>
+    <div id="right-label"><select ng-model="date" ng-change="modelChanged()" ng-options="d as d for d in dates"></select>
+        <select ng-model="month" ng-change="modelChanged()" ng-options="m.key as m.value for m in months"></select>
+        <select ng-model="year" ng-change="modelChanged()" ng-options="y as y for y in years"></select>
 
-    <a class="btn btn-default noselect" ng-click="modelChanged(true)">now</a>
+        <a class="btn btn-default noselect" ng-click="modelChanged(true)">now</a>
+    </div>
 </div>
 </script>
 <script type="text/ng-template" id="utils/form/multiselect.html">

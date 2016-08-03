@@ -133,9 +133,6 @@ angular.module('ccdb.patient.controller', ['ngRoute', 'ccdb.patient.service', 'c
   $scope.baseDisciplines = ['Anaesthetics', 'Orthodontics', 'Paediatrics', 'Obstetrics'];
   $scope.complications = ['Operation', 'Anaesthesia '];
 
-  // admission
-  $scope.operativeDetails = ['Pre-op', 'Post-op', 'Non-operative'];
-
   //scores
   $scope.eyeOpening = ['1', '2', '3', '4'];
   $scope.verbalResponse = ['1', '2', '3', '4', '5'];

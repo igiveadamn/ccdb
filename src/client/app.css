@@ -8,6 +8,10 @@ body h1:first-child {
   margin-top: 5px;
 }
 
+.form-group {
+    margin-right: 30px;
+}
+
 .form-panel {
     padding: 9.5px;
     border-radius: 0;
