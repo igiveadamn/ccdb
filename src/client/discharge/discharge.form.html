@@ -6,7 +6,7 @@
         <form name="patientForm" ng-submit="save()" novalidate>
             <div class="row">
                 <div class="col-sm-6">
-                    <ccdb-form-date label="Discharge date" ng-model="patient.discharge.dischargeDate"></ccdb-form-date>
+                    <ccdb-form-date label="Discharge date" ng-model="patient.discharge.dischargeDateTime"></ccdb-form-date>
                     <ccdb-form-select label="Discharge status" options="dischargeStatuses" value="patient.discharge.dischargeStatus"></ccdb-form-select>
                 </div>
                 <div class="col-sm-6">

@@ -11,13 +11,13 @@
 <div class="divider"></div>
 <div class="panel box">
     <ccdb-patient-count title="Number of Referrals"
-                        range-field="referral.referralDate"
+                        range-field="referral.referralDateTime"
                         filter='{"referral.decision": "Cannot make decision now"}'
     ></ccdb-patient-count>
 </div>
 <div class="panel box">
     <ccdb-patient-count title="Admitted patients"
-                        range-field="admission.firstAdmittedDate"
-                        filter='{"referral.decision": "Accepted", "discharge.dischargeDate": null}'
+                        range-field="admission.firstAdmittedDateTime"
+                        filter='{"referral.decision": "Accepted", "discharge.dischargeDateTime": null}'
     ></ccdb-patient-count>
 </div>

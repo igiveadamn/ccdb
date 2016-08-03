@@ -17,19 +17,6 @@ var patientsHandler = function (dbConn) {
   };
 };
 
-// TODO: make this pull out score data...
-// var scoresHandler = function (dbConn) {
-//   return function (req, res) {
-//     var cursor = dbConn.collection('patients').find({}).stream({ transform: JSON.stringify });
-//     var columns = _.filter(_.keys(schema.patientSchema.paths.scores.schema.paths), function (k) {
-//       return !contains(['_id', '__v'], k);
-//     });
-//     var titleRow = buildTitleRow(columns);
-//     res.write(titleRow);
-//     // return cursor.pipe(transform(_.identity)).pipe(res);
-//     return cursor.pipe(transform(jsonToCsv(columns))).pipe(res);
-//   };
-// };
 
 function csvEscape(delimiter) {
   return function (value) {

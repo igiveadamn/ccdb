@@ -1,7 +1,7 @@
 <div class="panel form-panel">
     <div class="row">
         <div class="col-sm-6"><!-- the time the ICU hears about the patient  -->
-            <ccdb-form-date label="Referral date" ng-model="patient.referral.referralDate"></ccdb-form-date>
+            <ccdb-form-date label="Referral date" ng-model="patient.referral.referralDateTime"></ccdb-form-date>
             <ccdb-form-select label="Patient location" options="patientLocation" value="patient.referral.patientLocation"></ccdb-form-select>
             <ccdb-form-select label="Operative status at time of referral" options="operativeStatusAtTimeOfReferral" value="patient.referral.operativeStatusAtTimeOfReferral"></ccdb-form-select>
             <ccdb-form-text label="Base discipline referring" value="patient.referral.baseDisciplineReferring"></ccdb-form-text>

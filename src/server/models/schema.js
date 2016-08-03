@@ -34,7 +34,7 @@ var score = {
     systolicPressure: Number,
     temperature: Number,
     thrombolyticTherapy: String,
-    scoreDate: Date,
+    scoreDateTime: Date,
     urea: String,
     urineOutput: String,
     ventilated: String,
@@ -81,7 +81,7 @@ var admission = {
     thrombosisManagement: String,
     ulcerProphylaxis: String,
     other: String,
-    timeOfArrival: Date,
+    arrivalDateTime: Date,
     pastSurgicalHistory: String,
     chronicMedication: String
 };
@@ -92,9 +92,9 @@ var referral = {
     referralHospital:String,
     icuRegistrar: String,
     icuConsultant: String,
-    firstAdmittedDate: Date,
-    referralDate: Date,
-    entryTimeAndDate: Date,
+    firstAdmittedDateTime: Date,
+    referralDateTime: Date,
+    entryDateTime: Date,
     baseDisciplineReferring: String,
     timePatientSeenByICU: String,
     operativeStatusAtTimeOfReferral: String,
@@ -136,7 +136,7 @@ var referral = {
 
 var discharge = {
     status: String,
-    dischargeDate: Date,
+    dischargeDateTime: Date,
     comments: String
 };
 

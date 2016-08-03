@@ -53,7 +53,7 @@ module.exports = {
         };
         filter.hospital = request.hospital;
         Patient.find(filter)
-        .sort('-referral.referralDate')
+        .sort('-referral.referralDateTime')
         .limit(20)
         .exec(function (err, patients) {
             if (err) {
