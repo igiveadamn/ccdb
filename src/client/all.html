@@ -50,7 +50,7 @@
     </div>
 </ng-form></script>
 <script type="text/ng-template" id="admission/condition.form.html">
-<ccdb-score-form score="patient.scores[1]" admission="true"></ccdb-score-form></script>
+<ccdb-score-form score="patient.admissionScore" admission="true"></ccdb-score-form></script>
 <script type="text/ng-template" id="admission/history.form.html">
 <div class="panel form-panel">
     <div class="row">
@@ -581,7 +581,7 @@ this is the view page</script>
     </div>
 </div></script>
 <script type="text/ng-template" id="referral/emergency/score.form.html">
-<ccdb-score-form score="patient.scores[0]" referral="true"></ccdb-score-form></script>
+<ccdb-score-form score="patient.referralScore" referral="true"></ccdb-score-form></script>
 <script type="text/ng-template" id="referral/referral.form.html">
 <h1>New {{patient.referral.emergencyVsElective}} Referral:</h1>
 <div class="divider"></div>

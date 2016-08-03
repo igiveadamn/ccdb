@@ -151,7 +151,10 @@ exports.patientSchema = mongoose.Schema({
     referral: referral,
     admission: admission,
     discharge: discharge,
-    scores: [score]
+    referralScore: score,
+    admissionScore: score,
+    apacheHi: score,
+    apacheLow: score
 });
 
 exports.userSchema = mongoose.Schema({
