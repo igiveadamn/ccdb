@@ -7,42 +7,42 @@
         <uib-tab index="0">
             <uib-tab-heading>
                 Admission
-                <i ng-show="patientForm.admissionInfoForm.$invalid" class="glyphicon glyphicon-flag red"></i>
+                <i ng-class="(patientForm.admissionInfoForm.$invalid) ? 'glyphicon glyphicon-exclamation-sign red' : 'glyphicon glyphicon-ok-sign green'"></i>
             </uib-tab-heading>
             <ng-include src="'admission/admission.info.form.html'"></ng-include>
         </uib-tab>
         <uib-tab index="1">
             <uib-tab-heading>
                 Condition on arrival
-                <i ng-show="patientForm.scoreForm.$invalid" class="glyphicon glyphicon-flag red"></i>
+                <i ng-class="(patientForm.scoreForm.$invalid) ? 'glyphicon glyphicon-exclamation-sign red' : 'glyphicon glyphicon-ok-sign green'"></i>
             </uib-tab-heading>
             <ng-include src="'admission/condition.form.html'"></ng-include>
         </uib-tab>
         <uib-tab index="2">
             <uib-tab-heading>
                 History
-                <i ng-show="patientForm.historyForm.$invalid" class="glyphicon glyphicon-flag red"></i>
+                <i ng-class="(patientForm.historyForm.$invalid) ? 'glyphicon glyphicon-exclamation-sign red' : 'glyphicon glyphicon-ok-sign green'"></i>
             </uib-tab-heading>
             <ng-include src="'admission/history.form.html'"></ng-include>
         </uib-tab>
         <uib-tab index="3">
             <uib-tab-heading>
                 Operative details
-                <i ng-show="patientForm.operativeForm.$invalid" class="glyphicon glyphicon-flag red"></i>
+                <i ng-class="(patientForm.operativeForm.$invalid) ? 'glyphicon glyphicon-exclamation-sign red' : 'glyphicon glyphicon-ok-sign green'"></i>
             </uib-tab-heading>
             <ng-include src="'admission/operative.form.html'"></ng-include>
         </uib-tab>
         <uib-tab index="4" heading="Plan"><!-- score -->
             <uib-tab-heading>
                 Plan
-                <i ng-show="patientForm.planForm.$invalid" class="glyphicon glyphicon-flag red"></i>
+                <i ng-class="(patientForm.planForm.$invalid) ? 'glyphicon glyphicon-exclamation-sign red' : 'glyphicon glyphicon-ok-sign green'"></i>
             </uib-tab-heading>
             <ng-include src="'admission/plan.form.html'"></ng-include>
         </uib-tab>
         <uib-tab index="5" heading="Summary">
             <uib-tab-heading>
                 Summary
-                <i ng-show="patientForm.summaryForm.$invalid" class="glyphicon glyphicon-flag red"></i>
+                <i ng-class="(patientForm.summaryForm.$invalid) ? 'glyphicon glyphicon-exclamation-sign red' : 'glyphicon glyphicon-ok-sign green'"></i>
             </uib-tab-heading>
             <ng-include src="'admission/summary.form.html'"></ng-include>
         </uib-tab>
