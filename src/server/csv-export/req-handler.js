@@ -3,7 +3,7 @@ var schema = require('../models/schema');
 var _ = require('lodash');
 
 var DELIMITER = ',';
-var IGNORED_FIELDS = ['_id', '__v', 'scores'];
+var IGNORED_FIELDS = ['_id', '__v'];
 
 var patientsHandler = function (dbConn) {
   return function (req, res) {

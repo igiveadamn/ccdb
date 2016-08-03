@@ -6,7 +6,8 @@
     "node": "4.4.0"
   },
   "scripts": {
-    "postinstall": "grunt clean bowercopy deploy"
+    "postinstall": "grunt clean bowercopy deploy",
+    "test": "node_modules/.bin/mocha test/model/*.js"
   },
   "description": "icu data",
   "repository": "",
@@ -50,5 +51,9 @@
     "postmark": "^1.2.1",
     "protractor": "^3.3.0",
     "shelljs": "^0.7.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.0"
   }
 }
