@@ -183,35 +183,26 @@
 </div>
 </script>
 <script type="text/ng-template" id="discharge/discharge.form.html">
-<div class="panel form-panel">
-    <form name="patientForm" ng-submit="save()" novalidate>
-        <div class="row">
-            <div class="col-sm-6">
-                <ccdb-form-date label="Discharge date" ng-model="patient.discharge.dischargeDate"></ccdb-form-date>
-                <ccdb-form-select label="Discharge status" options="dischargeStatuses" value="patient.discharge.dischargeStatus"></ccdb-form-select>
+<h1>Discharge</h1>
+<div class="divider"></div>
+
+<form name="patientForm" ng-submit="save()" novalidate>
+    <div class="panel form-panel">
+        <form name="patientForm" ng-submit="save()" novalidate>
+            <div class="row">
+                <div class="col-sm-6">
+                    <ccdb-form-date label="Discharge date" ng-model="patient.discharge.dischargeDate"></ccdb-form-date>
+                    <ccdb-form-select label="Discharge status" options="dischargeStatuses" value="patient.discharge.dischargeStatus"></ccdb-form-select>
+                </div>
+                <div class="col-sm-6">
+                    <ccdb-form-textarea label="Comments" value="patient.discharge.comments"></ccdb-form-textarea>
+                </div>
             </div>
-            <div class="col-sm-6">
-                <ccdb-form-textarea label="Comments" value="patient.discharge.comments"></ccdb-form-textarea>
-            </div>
-        </div>
 
-        <button type="submit" class="btn btn-primary">Save</button>
-    </form>
-</div>
-</script>
-<script type="text/ng-template" id="discharge/discharge.html">
-<h3>Discharge Details</h3>
-<dl>
-    <dt>Discharge date :</dt>
-    <dd>{{ patient.discharge.dischargeDate | date: "dd/MM/yyyy HH:mm"  || 'empty' }}</dd>
-
-    <dt>Status :</dt>
-    <dd>{{ patient.discharge.status }}</dd>
-
-    <dt>Comments :</dt>
-    <dd><pre>{{ patient.discharge.comments }}</pre></dd>
-</dl>
-</script>
+            <button type="submit" ng-disabled="patientForm.$invalid" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</form></script>
 <script type="text/ng-template" id="login/login.html">
 <div ng-hide="!errorHandler.message" data-alert class="alert-box alert">
     {{errorHanlder.message}}

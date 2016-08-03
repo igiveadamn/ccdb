@@ -1,15 +1,20 @@
-<div class="panel form-panel">
-    <form name="patientForm" ng-submit="save()" novalidate>
-        <div class="row">
-            <div class="col-sm-6">
-                <ccdb-form-date label="Discharge date" ng-model="patient.discharge.dischargeDate"></ccdb-form-date>
-                <ccdb-form-select label="Discharge status" options="dischargeStatuses" value="patient.discharge.dischargeStatus"></ccdb-form-select>
-            </div>
-            <div class="col-sm-6">
-                <ccdb-form-textarea label="Comments" value="patient.discharge.comments"></ccdb-form-textarea>
-            </div>
-        </div>
+<h1>Discharge</h1>
+<div class="divider"></div>
 
-        <button type="submit" class="btn btn-primary">Save</button>
-    </form>
-</div>
+<form name="patientForm" ng-submit="save()" novalidate>
+    <div class="panel form-panel">
+        <form name="patientForm" ng-submit="save()" novalidate>
+            <div class="row">
+                <div class="col-sm-6">
+                    <ccdb-form-date label="Discharge date" ng-model="patient.discharge.dischargeDate"></ccdb-form-date>
+                    <ccdb-form-select label="Discharge status" options="dischargeStatuses" value="patient.discharge.dischargeStatus"></ccdb-form-select>
+                </div>
+                <div class="col-sm-6">
+                    <ccdb-form-textarea label="Comments" value="patient.discharge.comments"></ccdb-form-textarea>
+                </div>
+            </div>
+
+            <button type="submit" ng-disabled="patientForm.$invalid" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</form>
