@@ -36,7 +36,9 @@ angular.module('ccdb.patient.list.directive', ['ccdb.patient.service', 'ccdb.uti
                 $scope.act = function (task, patient) {
                     if (task === 'View') {
                         $location.path('/patient/' + patient._id);
-                    } else if (task === 'Admit') {
+                    } else if (task === 'Referral') {
+                        return $location.path('/referral/' + patient._id);
+                    } else if (task === 'Admit' || task === 'Admission') {
                         return $location.path('/admitPatient/' + patient._id);
                     } else if (task === 'Score') {
                         return $location.path('/scorePatient/' + patient._id);

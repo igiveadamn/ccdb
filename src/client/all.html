@@ -321,12 +321,12 @@ this is the view page</script>
     <h3>{{title}}</h3>
     <thead>
     <tr>
-        <th width="250">Last name</th>
-        <th width="250">First name</th>
+        <th width="230">Last name</th>
+        <th width="230">First name</th>
         <th width="80">Age</th>
         <th width="80">Gender</th>
-        <th width="220">Reference</th>
-        <th width="350">Actions</th>
+        <th width="180">Reference</th>
+        <th width="430">Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -776,7 +776,7 @@ low
 <div class="divider"></div>
 <div class="panel panel-default">
   <input autofocus type="text" ng-model="query" class="form-control" placeholder="Search by patient detail..."/>
-  <ccdb-patient-list title="" buttons="View,Admit,Score,Discharge" query="query"></ccdb-patient-list>
+  <ccdb-patient-list title="" buttons="Referral,Admission,Score,Discharge" query="query"></ccdb-patient-list>
 </div>
 </script>
 <script type="text/ng-template" id="user/user.form.html">

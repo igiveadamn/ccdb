@@ -22,6 +22,16 @@ angular.module('ccdb.patient.controller', ['ngRoute', 'ccdb.patient.service', 'c
   }
   );
   $routeProvider.when(
+  '/referral/:patientId',
+  {
+    templateUrl: 'referral/referral.form.html',
+    controller: 'PatientController',
+    access: {
+      requiredLogin: true
+    }
+  }
+  );
+  $routeProvider.when(
   '/admitPatient/:patientId',
   {
     templateUrl: 'admission/admission.form.html',
