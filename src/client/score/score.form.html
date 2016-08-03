@@ -9,13 +9,13 @@
             <ccdb-form-text label="Respiratory heart rate" placeholder="breaths/minute" value="score.respiratoryRate" ng-if="!referral"></ccdb-form-text>
             <ccdb-form-text label="Urine output" placeholder="mls/hr" value="score.urineOutput" ng-if="!admission"></ccdb-form-text>
             <ccdb-form-text label="Glucose" placeholder="mmol/L" value="score.glucose" ng-if="!referral && !admission"></ccdb-form-text>
-            <ccdb-form-select label="Eye opening" options="eyeOpening" value="score.eyeOpening"></ccdb-form-select>
-            <ccdb-form-select label="Verbal response" options="verbalResponse" value="score.verbalResponse"></ccdb-form-select>
-            <ccdb-form-select label="Motor response" options="motorResponse" value="score.motorResponse"></ccdb-form-select>
+            <ccdb-form-select label="Eye opening" options="$parent.eyeOpening" value="score.eyeOpening"></ccdb-form-select>
+            <ccdb-form-select label="Verbal response" options="$parent.verbalResponse" value="score.verbalResponse"></ccdb-form-select>
+            <ccdb-form-select label="Motor response" options="$parent.motorResponse" value="score.motorResponse"></ccdb-form-select>
             <!-- this one is a calculated, we still want to write it to the database, but would be good to sum the three above automagically -->
             <ccdb-form-text label="Glasgow coma scale" value="score.glasgowcomaScale"></ccdb-form-text>
-            <ccdb-form-select label="Sedated" options="yesNo" value="score.sedated" ng-if="!referral && !apache"></ccdb-form-select>
-            <ccdb-form-select label="Airway" options="airway" value="patient.score.airway" ng-if="!referral && !apache"></ccdb-form-select>
+            <ccdb-form-select label="Sedated" options="$parent.$parent.yesNo" value="score.sedated" ng-if="!referral && !apache"></ccdb-form-select>
+            <ccdb-form-select label="Airway" options="$parent.$parent.airway" value="patient.score.airway" ng-if="!referral && !apache"></ccdb-form-select>
             <ccdb-form-text label="Pupils" value="score.pupils" ng-if="!referral"></ccdb-form-text>
             <ccdb-form-text label="Ventilated" value="score.ventilated" ng-if="!referral"></ccdb-form-text>
             <ccdb-form-text label="Thrombolytic therapy" value="score.thrombolyticTherapy" ng-if="!referral"></ccdb-form-text>
