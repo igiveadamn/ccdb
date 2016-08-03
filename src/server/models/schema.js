@@ -43,6 +43,7 @@ var score = {
 };
 
 var admission = {
+    admissionEntryAndTime: Date,
     admissionDateAndTime: Date,
     surgeryDateAndTime: Date,
     operativeDetails: String,
