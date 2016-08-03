@@ -1,20 +1,22 @@
-<div class="panel form-panel">
-    <div class="row">
-        <div class="col-sm-6"><!-- the time the ICU hears about the patient  -->
-            <ccdb-form-date label="Referral date" ng-model="patient.referral.referralDateTime"></ccdb-form-date>
-            <ccdb-form-select label="Patient location" options="patientLocation" value="patient.referral.patientLocation"></ccdb-form-select>
-            <ccdb-form-select label="Operative status at time of referral" options="operativeStatusAtTimeOfReferral" value="patient.referral.operativeStatusAtTimeOfReferral"></ccdb-form-select>
-            <ccdb-form-text label="Base discipline referring" value="patient.referral.baseDisciplineReferring"></ccdb-form-text>
-            <ccdb-form-text label="Base discipline consultant" value="patient.referral.baseDisciplineConsultant"></ccdb-form-text>
-            <ccdb-form-text label="Referring doctor" value="patient.referral.referringDoctor"></ccdb-form-text>
-            <ccdb-form-text label="Discipline of referring doctor" value="patient.referral.disciplineOfReferringDoctor"></ccdb-form-text>
-            <ccdb-form-text label="Referring hospital" value="patient.referral.referringHospital"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-text label="Diagnosis type" value="patient.referral.diagnosisType"></ccdb-form-text>
-            <ccdb-form-select label="Diagnosis" options="diagnosis" value="patient.referral.diagnosis"></ccdb-form-select>
-            <ccdb-form-text label="Diagnosis details" value="patient.referral.diagnosisDetails"></ccdb-form-text>
-            <ccdb-form-multiselect label="Comorbidities" options="comorbidities" value="patient.referral.comorbidities"></ccdb-form-multiselect>
+<ng-form name="emergencyReferralDetailsForm">
+    <div class="panel form-panel">
+        <div class="row">
+            <div class="col-sm-6"><!-- the time the ICU hears about the patient  -->
+                <ccdb-form-date label="Referral date" ng-model="patient.referral.referralDateTime"></ccdb-form-date>
+                <ccdb-form-select label="Patient location" options="patientLocation" value="patient.referral.patientLocation"></ccdb-form-select>
+                <ccdb-form-select label="Operative status at time of referral" options="operativeStatusAtTimeOfReferral" value="patient.referral.operativeStatusAtTimeOfReferral"></ccdb-form-select>
+                <ccdb-form-text label="Base discipline referring" value="patient.referral.baseDisciplineReferring"></ccdb-form-text>
+                <ccdb-form-text label="Base discipline consultant" value="patient.referral.baseDisciplineConsultant"></ccdb-form-text>
+                <ccdb-form-text label="Referring doctor" value="patient.referral.referringDoctor"></ccdb-form-text>
+                <ccdb-form-text label="Discipline of referring doctor" value="patient.referral.disciplineOfReferringDoctor"></ccdb-form-text>
+                <ccdb-form-text label="Referring hospital" value="patient.referral.referringHospital"></ccdb-form-text>
+            </div>
+            <div class="col-sm-6">
+                <ccdb-form-text label="Diagnosis type" value="patient.referral.diagnosisType"></ccdb-form-text>
+                <ccdb-form-select label="Diagnosis" options="diagnosis" value="patient.referral.diagnosis"></ccdb-form-select>
+                <ccdb-form-text label="Diagnosis details" value="patient.referral.diagnosisDetails"></ccdb-form-text>
+                <ccdb-form-multiselect label="Comorbidities" options="comorbidities" value="patient.referral.comorbidities"></ccdb-form-multiselect>
+            </div>
         </div>
     </div>
-</div>
+</ng-form>

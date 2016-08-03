@@ -178,7 +178,7 @@
 <div class="panel panel-default">
   <ccdb-patient-list title="Current Admissions"
                      buttons="Score,Discharge"
-                     filter='{"referral.decision": "Accepted", "discharge.dischargeDate": null}'
+                     filter='{"referral.decision": "Accepted", "discharge.dischargeDateTime": null}'
   ></ccdb-patient-list>
 </div>
 </script>
@@ -191,7 +191,7 @@
         <form name="patientForm" ng-submit="save()" novalidate>
             <div class="row">
                 <div class="col-sm-6">
-                    <ccdb-form-date label="Discharge date" ng-model="patient.discharge.dischargeDate"></ccdb-form-date>
+                    <ccdb-form-date label="Discharge date" ng-model="patient.discharge.dischargeDateTime"></ccdb-form-date>
                     <ccdb-form-select label="Discharge status" options="dischargeStatuses" value="patient.discharge.dischargeStatus"></ccdb-form-select>
                 </div>
                 <div class="col-sm-6">
@@ -203,6 +203,8 @@
         </form>
     </div>
 </form></script>
+<script type="text/ng-template" id="discharge/discharge.html">
+</script>
 <script type="text/ng-template" id="login/login.html">
 <div ng-hide="!errorHandler.message" data-alert class="alert-box alert">
     {{errorHanlder.message}}
@@ -444,163 +446,186 @@ this is the view page</script>
 </div>
 </script>
 <script type="text/ng-template" id="referral/elective/assessment.form.html">
-<div class="panel form-panel">
-    <div class="row">
-        <div class="col-sm-6">
-            <ccdb-form-textarea label="History" value="patient.referral.history"></ccdb-form-textarea>
-            <ccdb-form-textarea label="Examination" value="patient.referral.examination"></ccdb-form-textarea>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-textarea label="Suggested Management and Investigations Requested" value="patient.referral.managementPlan"></ccdb-form-textarea>
+<ng-form name="electiveAssessmentForm">
+    <div class="panel form-panel">
+        <div class="row">
+            <div class="col-sm-6">
+                <ccdb-form-textarea label="History" value="patient.referral.history"></ccdb-form-textarea>
+                <ccdb-form-textarea label="Examination" value="patient.referral.examination"></ccdb-form-textarea>
+            </div>
+            <div class="col-sm-6">
+                <ccdb-form-textarea label="Suggested Management and Investigations Requested" value="patient.referral.managementPlan"></ccdb-form-textarea>
+            </div>
         </div>
     </div>
-</div></script>
+</ng-form></script>
 <script type="text/ng-template" id="referral/elective/decision.form.html">
-<div class="panel form-panel">
-    <div class="row">
-        <div class="col-sm-6">
-            <ccdb-form-select label="SCCM" options="sCCM" value="patient.referral.sCCM"></ccdb-form-select>
-            <ccdb-form-select label="Level of care required" options="levelOfCareRequired" value="patient.referral.levelOfCareRequired"></ccdb-form-select>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-select label="Decision" options="decision" value="patient.referral.decision"></ccdb-form-select>
-            <ccdb-form-text label="Decision reason" value="patient.referral.decisionReason"></ccdb-form-text>
+<ng-form name="electiveDecisionForm">
+    <div class="panel form-panel">
+        <div class="row">
+            <div class="col-sm-6">
+                <ccdb-form-select label="SCCM" options="sCCM" value="patient.referral.sCCM"></ccdb-form-select>
+                <ccdb-form-select label="Level of care required" options="levelOfCareRequired" value="patient.referral.levelOfCareRequired"></ccdb-form-select>
+            </div>
+            <div class="col-sm-6">
+                <ccdb-form-select label="Decision" options="decision" value="patient.referral.decision"></ccdb-form-select>
+                <ccdb-form-text label="Decision reason" value="patient.referral.decisionReason"></ccdb-form-text>
+            </div>
         </div>
     </div>
-</div></script>
+</ng-form></script>
 <script type="text/ng-template" id="referral/elective/outcome.form.html">
-<div class="panel form-panel">
-    <div class="row">
-        <div class="col-sm-6">
-            <ccdb-form-date label="Outcome entry time and date" ng-model="patient.referral.outcomeEntryDateTime"></ccdb-form-date>
-            <ccdb-form-text label="Doctor finalising" value="patient.referral.doctorFinalising"></ccdb-form-text>
-            <ccdb-form-select label="Revised SCCCM" options="revisedScccm" value="patient.referral.revisedScccm"></ccdb-form-select>
-            <ccdb-form-select label="Any delay on admission" options="yesNo" value="patient.referral.ifAcceptedAnyDelay"></ccdb-form-select>
-            <ccdb-form-textarea label="Reason for delay" value="patient.referral.delayReason" ng-if="patient.referral.ifAcceptedAnyDelay !== 'No'"></ccdb-form-textarea>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-textarea label="If accepted but never admitted" value="patient.referral.ReasonPatientWasNeverAdmitted"></ccdb-form-textarea>
-            <ccdb-form-text label="Unit transferred to if transferred" value="patient.referral.unitTransferredToIfTransferred "></ccdb-form-text>
-            <ccdb-form-select label="Final outcome" options="finalOutcome" value="patient.referral.finalOutcome"></ccdb-form-select>
+<ng-form name="electiveOutcomeForm">
+    <div class="panel form-panel">
+        <div class="row">
+            <div class="col-sm-6">
+                <ccdb-form-date label="Outcome entry time and date" ng-model="patient.referral.outcomeEntryDateTime"></ccdb-form-date>
+                <ccdb-form-text label="Doctor finalising" value="patient.referral.doctorFinalising"></ccdb-form-text>
+                <ccdb-form-select label="Revised SCCCM" options="revisedScccm" value="patient.referral.revisedScccm"></ccdb-form-select>
+                <ccdb-form-select label="Any delay on admission" options="yesNo" value="patient.referral.ifAcceptedAnyDelay"></ccdb-form-select>
+                <ccdb-form-textarea label="Reason for delay" value="patient.referral.delayReason" ng-if="patient.referral.ifAcceptedAnyDelay !== 'No'"></ccdb-form-textarea>
+            </div>
+            <div class="col-sm-6">
+                <ccdb-form-textarea label="If accepted but never admitted" value="patient.referral.ReasonPatientWasNeverAdmitted"></ccdb-form-textarea>
+                <ccdb-form-text label="Unit transferred to if transferred" value="patient.referral.unitTransferredToIfTransferred "></ccdb-form-text>
+                <ccdb-form-select label="Final outcome" options="finalOutcome" value="patient.referral.finalOutcome"></ccdb-form-select>
+            </div>
         </div>
     </div>
-</div></script>
+</ng-form></script>
 <script type="text/ng-template" id="referral/elective/referral.details.form.html">
-<div class="panel form-panel">
-    <div class="row">
-        <div class="col-sm-6"><!-- the time the ICU hears about the patient  -->
-            <ccdb-form-date label="Referral date" ng-model="patient.referral.referralDate"></ccdb-form-date>
-            <ccdb-form-select label="Patient location" options="patientLocation" value="patient.referral.patientLocation"></ccdb-form-select>
-            <ccdb-form-select label="Operative status at time of referral" options="operativeStatusAtTimeOfReferral" value="patient.referral.operativeStatusAtTimeOfReferral"></ccdb-form-select>
-            <ccdb-form-text label="Base discipline referring" value="patient.referral.baseDisciplineReferring"></ccdb-form-text>
-            <ccdb-form-text label="Base discipline consultant" value="patient.referral.baseDisciplineConsultant"></ccdb-form-text>
-            <ccdb-form-text label="Referring doctor" value="patient.referral.referringDoctor"></ccdb-form-text>
-            <ccdb-form-text label="Discipline of referring doctor" value="patient.referral.disciplineOfReferringDoctor"></ccdb-form-text>
-            <ccdb-form-text label="Referring hospital" value="patient.referral.referringHospital"></ccdb-form-text>
-            <ccdb-form-text label="Diagnosis type" value="patient.referral.diagnosisType"></ccdb-form-text>
-            <ccdb-form-select label="Diagnosis" options="diagnosis" value="patient.referral.diagnosis"></ccdb-form-select>
-            <ccdb-form-text label="Diagnosis details" value="patient.referral.diagnosisDetails"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-multiselect label="Comorbidities" options="comorbidities" value="patient.referral.comorbidities"></ccdb-form-multiselect>
-            <ccdb-form-textarea label="Planned operation" value="patient.referral.plannedOperation"></ccdb-form-textarea>
-            <ccdb-form-textarea label="Planned operation reason" value="patient.referral.reasonForOperation"></ccdb-form-textarea>
-            <ccdb-form-date label="Date operation planned" ng-model="patient.referral.dateOperationPlanned"></ccdb-form-date>
+<ng-form name="electiveReferralDetailsForm">
+    <div class="panel form-panel">
+        <div class="row">
+            <div class="col-sm-6"><!-- the time the ICU hears about the patient  -->
+                <ccdb-form-date label="Referral date" ng-model="patient.referral.referralDateTime"></ccdb-form-date>
+                <ccdb-form-select label="Patient location" options="patientLocation" value="patient.referral.patientLocation"></ccdb-form-select>
+                <ccdb-form-select label="Operative status at time of referral" options="operativeStatusAtTimeOfReferral" value="patient.referral.operativeStatusAtTimeOfReferral"></ccdb-form-select>
+                <ccdb-form-text label="Base discipline referring" value="patient.referral.baseDisciplineReferring"></ccdb-form-text>
+                <ccdb-form-text label="Base discipline consultant" value="patient.referral.baseDisciplineConsultant"></ccdb-form-text>
+                <ccdb-form-text label="Referring doctor" value="patient.referral.referringDoctor"></ccdb-form-text>
+                <ccdb-form-text label="Discipline of referring doctor" value="patient.referral.disciplineOfReferringDoctor"></ccdb-form-text>
+                <ccdb-form-text label="Referring hospital" value="patient.referral.referringHospital"></ccdb-form-text>
+                <ccdb-form-text label="Diagnosis type" value="patient.referral.diagnosisType"></ccdb-form-text>
+                <ccdb-form-select label="Diagnosis" options="diagnosis" value="patient.referral.diagnosis"></ccdb-form-select>
+                <ccdb-form-text label="Diagnosis details" value="patient.referral.diagnosisDetails"></ccdb-form-text>
+            </div>
+            <div class="col-sm-6">
+                <ccdb-form-multiselect label="Comorbidities" options="comorbidities" value="patient.referral.comorbidities"></ccdb-form-multiselect>
+                <ccdb-form-textarea label="Planned operation" value="patient.referral.plannedOperation"></ccdb-form-textarea>
+                <ccdb-form-textarea label="Planned operation reason" value="patient.referral.reasonForOperation"></ccdb-form-textarea>
+                <ccdb-form-date label="Date operation planned" ng-model="patient.referral.dateOperationPlanned"></ccdb-form-date>
+            </div>
         </div>
     </div>
-</div></script>
+</ng-form></script>
 <script type="text/ng-template" id="referral/elective/referral.form.html">
-<div class="panel form-panel">
-    <div class="row">
-        <div class="col-sm-6"><!-- needs to be a multiple -->
-            <ccdb-form-select label="Reason of referral to ICU" options="reasonOfReferralToICU" value="patient.referral.reasonOfReferralToICU"></ccdb-form-select>
-            <ccdb-form-text label="Number of days in hospital" value="patient.referral.numberOfDaysInHospital"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-text label="Is the patient currently ventilated" value="patient.referral.patientCurrentlyVentilated"></ccdb-form-text>
-            <ccdb-form-text label="Was this patient in ICU in the previous 48 hours" value="patient.referral.wasThisPatientInIcuInThePrevious48Hours"></ccdb-form-text>
+<ng-form name="electiveReferralForm">
+    <div class="panel form-panel">
+        <div class="row">
+            <div class="col-sm-6"><!-- needs to be a multiple -->
+                <ccdb-form-select label="Reason of referral to ICU" options="reasonOfReferralToICU" value="patient.referral.reasonOfReferralToICU"></ccdb-form-select>
+                <ccdb-form-text label="Number of days in hospital" value="patient.referral.numberOfDaysInHospital"></ccdb-form-text>
+            </div>
+            <div class="col-sm-6">
+                <ccdb-form-text label="Is the patient currently ventilated" value="patient.referral.patientCurrentlyVentilated"></ccdb-form-text>
+                <ccdb-form-text label="Was this patient in ICU in the previous 48 hours" value="patient.referral.wasThisPatientInIcuInThePrevious48Hours"></ccdb-form-text>
+            </div>
         </div>
     </div>
-</div></script>
+</ng-form></script>
 <script type="text/ng-template" id="referral/emergency/assessment.form.html">
-<div class="panel form-panel">
-    <div class="row">
-        <div class="col-sm-6">
-            <ccdb-form-text label="History" value="patient.referral.history"></ccdb-form-text>
-            <ccdb-form-text label="Examination" value="patient.referral.examination"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-text label="Management plan" value="patient.referral.managementPlan"></ccdb-form-text>
+<ng-form name="emergencyAssessmentForm">
+    <div class="panel form-panel">
+        <div class="row">
+            <div class="col-sm-6">
+                <ccdb-form-text label="History" value="patient.referral.history"></ccdb-form-text>
+                <ccdb-form-text label="Examination" value="patient.referral.examination"></ccdb-form-text>
+            </div>
+            <div class="col-sm-6">
+                <ccdb-form-text label="Management plan" value="patient.referral.managementPlan"></ccdb-form-text>
+            </div>
         </div>
     </div>
-</div></script>
+</ng-form></script>
 <script type="text/ng-template" id="referral/emergency/decision.form.html">
-<div class="panel form-panel">
-    <div class="row">
-        <div class="col-sm-6">
-            <ccdb-form-select label="SCCM" options="sCCM" value="patient.referral.sCCM"></ccdb-form-select>
-            <ccdb-form-select label="Level of care required" options="levelOfCareRequired" value="patient.referral.levelOfCareRequired"></ccdb-form-select>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-select label="Decision" options="decision" value="patient.referral.decision"></ccdb-form-select>
-            <ccdb-form-text label="Decision reason" value="patient.referral.decisionReason"></ccdb-form-text>
+<ng-form name="emergencyDecisionForm">
+    <div class="panel form-panel">
+        <div class="row">
+            <div class="col-sm-6">
+                <ccdb-form-select label="SCCM" options="sCCM" value="patient.referral.sCCM"></ccdb-form-select>
+                <ccdb-form-select label="Level of care required" options="levelOfCareRequired" value="patient.referral.levelOfCareRequired"></ccdb-form-select>
+            </div>
+            <div class="col-sm-6">
+                <ccdb-form-select label="Decision" options="decision" value="patient.referral.decision"></ccdb-form-select>
+                <ccdb-form-text label="Decision reason" value="patient.referral.decisionReason"></ccdb-form-text>
+            </div>
         </div>
     </div>
-</div></script>
+</ng-form></script>
 <script type="text/ng-template" id="referral/emergency/outcome.form.html">
-<div class="panel form-panel">
-    <div class="row">
-        <div class="col-sm-6">
-            <ccdb-form-date label="Outcome entry time and date" ng-model="patient.referral.outcomeEntryDateTime"></ccdb-form-date>
-            <ccdb-form-text label="Doctor finalising" value="patient.referral.doctorFinalising"></ccdb-form-text>
-            <ccdb-form-select label="Revised SCCCM" options="revisedScccm" value="patient.referral.revisedScccm"></ccdb-form-select>
-            <ccdb-form-select label="Any delay on admission" options="yesNo" value="patient.referral.ifAcceptedAnyDelay"></ccdb-form-select>
-            <ccdb-form-textarea label="Reason for delay" value="patient.referral.delayReason" ng-if="patient.referral.ifAcceptedAnyDelay !== 'No'"></ccdb-form-textarea>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-textarea label="If accepted but never admitted" value="patient.referral.ReasonPatientWasNeverAdmitted"></ccdb-form-textarea>
-            <ccdb-form-text label="Unit transferred to if transferred" value="patient.referral.unitTransferredToIfTransferred "></ccdb-form-text>
-            <ccdb-form-select label="Final outcome" options="finalOutcome" value="patient.referral.finalOutcome"></ccdb-form-select>
+<ng-form name="emergencyOutcomeForm">
+    <div class="panel form-panel">
+        <div class="row">
+            <div class="col-sm-6">
+                <ccdb-form-date label="Outcome entry time and date" ng-model="patient.referral.outcomeEntryDateTime"></ccdb-form-date>
+                <ccdb-form-text label="Doctor finalising" value="patient.referral.doctorFinalising"></ccdb-form-text>
+                <ccdb-form-select label="Revised SCCCM" options="revisedScccm" value="patient.referral.revisedScccm"></ccdb-form-select>
+                <ccdb-form-select label="Any delay on admission" options="yesNo" value="patient.referral.ifAcceptedAnyDelay"></ccdb-form-select>
+                <ccdb-form-textarea label="Reason for delay" value="patient.referral.delayReason" ng-if="patient.referral.ifAcceptedAnyDelay !== 'No'"></ccdb-form-textarea>
+            </div>
+            <div class="col-sm-6">
+                <ccdb-form-textarea label="If accepted but never admitted" value="patient.referral.ReasonPatientWasNeverAdmitted"></ccdb-form-textarea>
+                <ccdb-form-text label="Unit transferred to if transferred" value="patient.referral.unitTransferredToIfTransferred "></ccdb-form-text>
+                <ccdb-form-select label="Final outcome" options="finalOutcome" value="patient.referral.finalOutcome"></ccdb-form-select>
+            </div>
         </div>
     </div>
-</div></script>
+</ng-form></script>
 <script type="text/ng-template" id="referral/emergency/referral.details.form.html">
-<div class="panel form-panel">
-    <div class="row">
-        <div class="col-sm-6"><!-- the time the ICU hears about the patient  -->
-            <ccdb-form-date label="Referral date" ng-model="patient.referral.referralDate"></ccdb-form-date>
-            <ccdb-form-select label="Patient location" options="patientLocation" value="patient.referral.patientLocation"></ccdb-form-select>
-            <ccdb-form-select label="Operative status at time of referral" options="operativeStatusAtTimeOfReferral" value="patient.referral.operativeStatusAtTimeOfReferral"></ccdb-form-select>
-            <ccdb-form-text label="Base discipline referring" value="patient.referral.baseDisciplineReferring"></ccdb-form-text>
-            <ccdb-form-text label="Base discipline consultant" value="patient.referral.baseDisciplineConsultant"></ccdb-form-text>
-            <ccdb-form-text label="Referring doctor" value="patient.referral.referringDoctor"></ccdb-form-text>
-            <ccdb-form-text label="Discipline of referring doctor" value="patient.referral.disciplineOfReferringDoctor"></ccdb-form-text>
-            <ccdb-form-text label="Referring hospital" value="patient.referral.referringHospital"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-text label="Diagnosis type" value="patient.referral.diagnosisType"></ccdb-form-text>
-            <ccdb-form-select label="Diagnosis" options="diagnosis" value="patient.referral.diagnosis"></ccdb-form-select>
-            <ccdb-form-text label="Diagnosis details" value="patient.referral.diagnosisDetails"></ccdb-form-text>
-            <ccdb-form-multiselect label="Comorbidities" options="comorbidities" value="patient.referral.comorbidities"></ccdb-form-multiselect>
+<ng-form name="emergencyReferralDetailsForm">
+    <div class="panel form-panel">
+        <div class="row">
+            <div class="col-sm-6"><!-- the time the ICU hears about the patient  -->
+                <ccdb-form-date label="Referral date" ng-model="patient.referral.referralDateTime"></ccdb-form-date>
+                <ccdb-form-select label="Patient location" options="patientLocation" value="patient.referral.patientLocation"></ccdb-form-select>
+                <ccdb-form-select label="Operative status at time of referral" options="operativeStatusAtTimeOfReferral" value="patient.referral.operativeStatusAtTimeOfReferral"></ccdb-form-select>
+                <ccdb-form-text label="Base discipline referring" value="patient.referral.baseDisciplineReferring"></ccdb-form-text>
+                <ccdb-form-text label="Base discipline consultant" value="patient.referral.baseDisciplineConsultant"></ccdb-form-text>
+                <ccdb-form-text label="Referring doctor" value="patient.referral.referringDoctor"></ccdb-form-text>
+                <ccdb-form-text label="Discipline of referring doctor" value="patient.referral.disciplineOfReferringDoctor"></ccdb-form-text>
+                <ccdb-form-text label="Referring hospital" value="patient.referral.referringHospital"></ccdb-form-text>
+            </div>
+            <div class="col-sm-6">
+                <ccdb-form-text label="Diagnosis type" value="patient.referral.diagnosisType"></ccdb-form-text>
+                <ccdb-form-select label="Diagnosis" options="diagnosis" value="patient.referral.diagnosis"></ccdb-form-select>
+                <ccdb-form-text label="Diagnosis details" value="patient.referral.diagnosisDetails"></ccdb-form-text>
+                <ccdb-form-multiselect label="Comorbidities" options="comorbidities" value="patient.referral.comorbidities"></ccdb-form-multiselect>
+            </div>
         </div>
     </div>
-</div></script>
+</ng-form></script>
 <script type="text/ng-template" id="referral/emergency/referral.form.html">
-<div class="panel form-panel">
-    <div class="row">
-        <div class="col-sm-6">
-            <ccdb-form-select label="Reason of referral to ICU" options="reasonOfReferralToICU" value="patient.referral.reasonOfReferralToICU"></ccdb-form-select>
-            <ccdb-form-select label="Is the referral for a complication of" options="referralForComplicationOf" value="patient.referral.referralForComplicationOf"></ccdb-form-select>
-            <ccdb-form-text label="Number of days in hospital" value="patient.referral.numberOfDaysInHospital"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-text label="Is the patient currently ventilated" value="patient.referral.patientCurrentlyVentilated"></ccdb-form-text>
-            <ccdb-form-text label="Was this patient in ICU in the previous 48 hours" value="patient.referral.wasThisPatientInIcuInThePrevious48Hours"></ccdb-form-text>
+<ng-form name="emergencyReferralForm">
+    <div class="panel form-panel">
+        <div class="row">
+            <div class="col-sm-6">
+                <ccdb-form-select label="Reason of referral to ICU" options="reasonOfReferralToICU" value="patient.referral.reasonOfReferralToICU"></ccdb-form-select>
+                <ccdb-form-select label="Is the referral for a complication of" options="referralForComplicationOf" value="patient.referral.referralForComplicationOf"></ccdb-form-select>
+                <ccdb-form-text label="Number of days in hospital" value="patient.referral.numberOfDaysInHospital"></ccdb-form-text>
+            </div>
+            <div class="col-sm-6">
+                <ccdb-form-text label="Is the patient currently ventilated" value="patient.referral.patientCurrentlyVentilated"></ccdb-form-text>
+                <ccdb-form-text label="Was this patient in ICU in the previous 48 hours" value="patient.referral.wasThisPatientInIcuInThePrevious48Hours"></ccdb-form-text>
+            </div>
         </div>
     </div>
-</div></script>
+</ng-form>
+</script>
 <script type="text/ng-template" id="referral/emergency/score.form.html">
-<ccdb-score-form score="patient.referralScore" referral="true"></ccdb-score-form></script>
+<ng-form name="emergencyScoreForm">
+    <ccdb-score-form score="patient.referralScore" referral="true"></ccdb-score-form>
+</ng-form></script>
 <script type="text/ng-template" id="referral/referral.form.html">
 <h1>New {{patient.referral.emergencyVsElective}} Referral:</h1>
 <div class="divider"></div>
@@ -612,30 +637,107 @@ this is the view page</script>
             <ng-include src="'referral/referral.patient.details.form.html'"></ng-include>
         </uib-tab>
         <uib-tab index="1" heading="Referral Details">
+            <uib-tab-heading>
+                Referral Details
+                <i ng-if="patient.referral.emergencyVsElective=='Emergency'"
+                   ng-class="(patientForm.emergencyReferralDetailsForm.$invalid)
+                   ? 'glyphicon glyphicon-exclamation-sign red'
+                   : 'glyphicon glyphicon-ok-sign green'">
+                </i>
+                <i ng-if="patient.referral.emergencyVsElective=='Elective'"
+                   ng-class="(patientForm.electiveReferralDetailsForm.$invalid)
+                   ? 'glyphicon glyphicon-exclamation-sign red'
+                   : 'glyphicon glyphicon-ok-sign green'">
+
+                </i>
+            </uib-tab-heading>
             <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/referral.details.form.html'"></ng-include>
             <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/referral.details.form.html'"></ng-include>
         </uib-tab>
         <uib-tab index="2" heading="Referral">
+            <uib-tab-heading>
+                Referral
+                <i ng-if="patient.referral.emergencyVsElective=='Emergency'"
+                   ng-class="(patientForm.emergencyReferralForm.$invalid)
+                   ? 'glyphicon glyphicon-exclamation-sign red'
+                   : 'glyphicon glyphicon-ok-sign green'">
+
+                </i>
+                <i ng-if="patient.referral.emergencyVsElective=='Elective'"
+                   ng-class="(patientForm.electiveReferralForm.$invalid) ?
+                   'glyphicon glyphicon-exclamation-sign red' :
+                   'glyphicon glyphicon-ok-sign green'">
+
+                </i>
+            </uib-tab-heading>
             <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/referral.form.html'"></ng-include>
             <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/referral.form.html'"></ng-include>
         </uib-tab>
         <uib-tab index="3" heading="Assessment">
+            <uib-tab-heading>
+                Assessment
+                <i ng-if="patient.referral.emergencyVsElective=='Emergency'"
+                   ng-class="(patientForm.emergencyAssessmentForm.$invalid)
+                   ? 'glyphicon glyphicon-exclamation-sign red'
+                   : 'glyphicon glyphicon-ok-sign green'">
+
+                </i>
+                <i ng-if="patient.referral.emergencyVsElective=='Elective'"
+                   ng-class="(patientForm.electiveAssessmentForm.$invalid)
+                   ? 'glyphicon glyphicon-exclamation-sign red'
+                   : 'glyphicon glyphicon-ok-sign green'">
+
+                </i>
+            </uib-tab-heading>
             <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/assessment.form.html'"></ng-include>
             <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/assessment.form.html'"></ng-include>
         </uib-tab>
         <uib-tab index="4" heading="Vitals and Results" ng-if="patient.referral.emergencyVsElective=='Emergency'" ><!-- score -->
+            <uib-tab-heading>
+                Vitals and Results
+                <i ng-class="(patientForm.emergencyScoreForm.$invalid) ? 'glyphicon glyphicon-exclamation-sign red' : 'glyphicon glyphicon-ok-sign green'"></i>
+            </uib-tab-heading>
             <ng-include src="'referral/emergency/score.form.html'"></ng-include>
         </uib-tab>
         <uib-tab index="5" heading="Decision">
+            <uib-tab-heading>
+                Decision
+                <i ng-if="patient.referral.emergencyVsElective=='Emergency'"
+                   ng-class="(patientForm.emergencyDecisionForm.$invalid)
+                   ? 'glyphicon glyphicon-exclamation-sign red'
+                   : 'glyphicon glyphicon-ok-sign green'">
+
+                </i>
+                <i ng-if="patient.referral.emergencyVsElective=='Elective'"
+                   ng-class="(patientForm.electiveDecisionForm.$invalid)
+                   ? 'glyphicon glyphicon-exclamation-sign red'
+                   : 'glyphicon glyphicon-ok-sign green'">
+
+                </i>
+            </uib-tab-heading>
             <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/decision.form.html'"></ng-include>
             <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/decision.form.html'"></ng-include>
         </uib-tab>
         <uib-tab index="6" heading="Outcome">
+            <uib-tab-heading>
+                Outcome
+                <i ng-if="patient.referral.emergencyVsElective=='Emergency'"
+                   ng-class="(patientForm.emergencyOutcomeForm.$invalid)
+                   ? 'glyphicon glyphicon-exclamation-sign red'
+                   : 'glyphicon glyphicon-ok-sign green'"></i>
+                <i ng-if="patient.referral.emergencyVsElective=='Elective'"
+                   ng-class="(patientForm.electiveOutcomeForm.$invalid)
+                   ? 'glyphicon glyphicon-exclamation-sign red' :
+                   'glyphicon glyphicon-ok-sign green'">
+
+                </i>
+            </uib-tab-heading>
             <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/outcome.form.html'"></ng-include>
             <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/outcome.form.html'"></ng-include>
         </uib-tab>
     </uib-tabset>
-    <button type="submit" class="btn btn-primary">Save</button>
+
+    <button type="submit" ng-disabled="patientForm.$invalid" class="btn btn-primary">Save</button>
 
 </form></script>
 <script type="text/ng-template" id="referral/referral.patient.details.form.html">
@@ -663,7 +765,7 @@ this is the view page</script>
             <ccdb-form-text label="ICU consultant" value="patient.referral.icuConsultant"></ccdb-form-text>
         </div>
         <div class="col-sm-6"><!-- this is the time the data is recorded (don't need to show. just store) -->
-            <ccdb-form-date label="Entry time and date" ng-model="patient.referral.entryTimeAndDate"></ccdb-form-date>
+            <ccdb-form-date label="Entry time and date" ng-model="patient.referral.entryDateTime"></ccdb-form-date>
         </div>
         <div class="col-sm-6">
             <ccdb-form-date label="Time patient seen by ICU"
@@ -687,14 +789,14 @@ this is the view page</script>
 <div class="divider"></div>
 <div class="panel box">
     <ccdb-patient-count title="Number of Referrals"
-                        range-field="referral.referralDate"
+                        range-field="referral.referralDateTime"
                         filter='{"referral.decision": "Cannot make decision now"}'
     ></ccdb-patient-count>
 </div>
 <div class="panel box">
     <ccdb-patient-count title="Admitted patients"
-                        range-field="admission.firstAdmittedDate"
-                        filter='{"referral.decision": "Accepted", "discharge.dischargeDate": null}'
+                        range-field="admission.firstAdmittedDateTime"
+                        filter='{"referral.decision": "Accepted", "discharge.dischargeDateTime": null}'
     ></ccdb-patient-count>
 </div>
 </script>

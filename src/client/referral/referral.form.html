@@ -8,29 +8,106 @@
             <ng-include src="'referral/referral.patient.details.form.html'"></ng-include>
         </uib-tab>
         <uib-tab index="1" heading="Referral Details">
+            <uib-tab-heading>
+                Referral Details
+                <i ng-if="patient.referral.emergencyVsElective=='Emergency'"
+                   ng-class="(patientForm.emergencyReferralDetailsForm.$invalid)
+                   ? 'glyphicon glyphicon-exclamation-sign red'
+                   : 'glyphicon glyphicon-ok-sign green'">
+                </i>
+                <i ng-if="patient.referral.emergencyVsElective=='Elective'"
+                   ng-class="(patientForm.electiveReferralDetailsForm.$invalid)
+                   ? 'glyphicon glyphicon-exclamation-sign red'
+                   : 'glyphicon glyphicon-ok-sign green'">
+
+                </i>
+            </uib-tab-heading>
             <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/referral.details.form.html'"></ng-include>
             <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/referral.details.form.html'"></ng-include>
         </uib-tab>
         <uib-tab index="2" heading="Referral">
+            <uib-tab-heading>
+                Referral
+                <i ng-if="patient.referral.emergencyVsElective=='Emergency'"
+                   ng-class="(patientForm.emergencyReferralForm.$invalid)
+                   ? 'glyphicon glyphicon-exclamation-sign red'
+                   : 'glyphicon glyphicon-ok-sign green'">
+
+                </i>
+                <i ng-if="patient.referral.emergencyVsElective=='Elective'"
+                   ng-class="(patientForm.electiveReferralForm.$invalid) ?
+                   'glyphicon glyphicon-exclamation-sign red' :
+                   'glyphicon glyphicon-ok-sign green'">
+
+                </i>
+            </uib-tab-heading>
             <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/referral.form.html'"></ng-include>
             <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/referral.form.html'"></ng-include>
         </uib-tab>
         <uib-tab index="3" heading="Assessment">
+            <uib-tab-heading>
+                Assessment
+                <i ng-if="patient.referral.emergencyVsElective=='Emergency'"
+                   ng-class="(patientForm.emergencyAssessmentForm.$invalid)
+                   ? 'glyphicon glyphicon-exclamation-sign red'
+                   : 'glyphicon glyphicon-ok-sign green'">
+
+                </i>
+                <i ng-if="patient.referral.emergencyVsElective=='Elective'"
+                   ng-class="(patientForm.electiveAssessmentForm.$invalid)
+                   ? 'glyphicon glyphicon-exclamation-sign red'
+                   : 'glyphicon glyphicon-ok-sign green'">
+
+                </i>
+            </uib-tab-heading>
             <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/assessment.form.html'"></ng-include>
             <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/assessment.form.html'"></ng-include>
         </uib-tab>
         <uib-tab index="4" heading="Vitals and Results" ng-if="patient.referral.emergencyVsElective=='Emergency'" ><!-- score -->
+            <uib-tab-heading>
+                Vitals and Results
+                <i ng-class="(patientForm.emergencyScoreForm.$invalid) ? 'glyphicon glyphicon-exclamation-sign red' : 'glyphicon glyphicon-ok-sign green'"></i>
+            </uib-tab-heading>
             <ng-include src="'referral/emergency/score.form.html'"></ng-include>
         </uib-tab>
         <uib-tab index="5" heading="Decision">
+            <uib-tab-heading>
+                Decision
+                <i ng-if="patient.referral.emergencyVsElective=='Emergency'"
+                   ng-class="(patientForm.emergencyDecisionForm.$invalid)
+                   ? 'glyphicon glyphicon-exclamation-sign red'
+                   : 'glyphicon glyphicon-ok-sign green'">
+
+                </i>
+                <i ng-if="patient.referral.emergencyVsElective=='Elective'"
+                   ng-class="(patientForm.electiveDecisionForm.$invalid)
+                   ? 'glyphicon glyphicon-exclamation-sign red'
+                   : 'glyphicon glyphicon-ok-sign green'">
+
+                </i>
+            </uib-tab-heading>
             <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/decision.form.html'"></ng-include>
             <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/decision.form.html'"></ng-include>
         </uib-tab>
         <uib-tab index="6" heading="Outcome">
+            <uib-tab-heading>
+                Outcome
+                <i ng-if="patient.referral.emergencyVsElective=='Emergency'"
+                   ng-class="(patientForm.emergencyOutcomeForm.$invalid)
+                   ? 'glyphicon glyphicon-exclamation-sign red'
+                   : 'glyphicon glyphicon-ok-sign green'"></i>
+                <i ng-if="patient.referral.emergencyVsElective=='Elective'"
+                   ng-class="(patientForm.electiveOutcomeForm.$invalid)
+                   ? 'glyphicon glyphicon-exclamation-sign red' :
+                   'glyphicon glyphicon-ok-sign green'">
+
+                </i>
+            </uib-tab-heading>
             <ng-include ng-if="patient.referral.emergencyVsElective=='Emergency'" src="'referral/emergency/outcome.form.html'"></ng-include>
             <ng-include ng-if="patient.referral.emergencyVsElective=='Elective'" src="'referral/elective/outcome.form.html'"></ng-include>
         </uib-tab>
     </uib-tabset>
-    <button type="submit" class="btn btn-primary">Save</button>
+
+    <button type="submit" ng-disabled="patientForm.$invalid" class="btn btn-primary">Save</button>
 
 </form>

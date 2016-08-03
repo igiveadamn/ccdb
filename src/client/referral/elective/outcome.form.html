@@ -1,16 +1,18 @@
-<div class="panel form-panel">
-    <div class="row">
-        <div class="col-sm-6">
-            <ccdb-form-date label="Outcome entry time and date" ng-model="patient.referral.outcomeEntryDateTime"></ccdb-form-date>
-            <ccdb-form-text label="Doctor finalising" value="patient.referral.doctorFinalising"></ccdb-form-text>
-            <ccdb-form-select label="Revised SCCCM" options="revisedScccm" value="patient.referral.revisedScccm"></ccdb-form-select>
-            <ccdb-form-select label="Any delay on admission" options="yesNo" value="patient.referral.ifAcceptedAnyDelay"></ccdb-form-select>
-            <ccdb-form-textarea label="Reason for delay" value="patient.referral.delayReason" ng-if="patient.referral.ifAcceptedAnyDelay !== 'No'"></ccdb-form-textarea>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-textarea label="If accepted but never admitted" value="patient.referral.ReasonPatientWasNeverAdmitted"></ccdb-form-textarea>
-            <ccdb-form-text label="Unit transferred to if transferred" value="patient.referral.unitTransferredToIfTransferred "></ccdb-form-text>
-            <ccdb-form-select label="Final outcome" options="finalOutcome" value="patient.referral.finalOutcome"></ccdb-form-select>
+<ng-form name="electiveOutcomeForm">
+    <div class="panel form-panel">
+        <div class="row">
+            <div class="col-sm-6">
+                <ccdb-form-date label="Outcome entry time and date" ng-model="patient.referral.outcomeEntryDateTime"></ccdb-form-date>
+                <ccdb-form-text label="Doctor finalising" value="patient.referral.doctorFinalising"></ccdb-form-text>
+                <ccdb-form-select label="Revised SCCCM" options="revisedScccm" value="patient.referral.revisedScccm"></ccdb-form-select>
+                <ccdb-form-select label="Any delay on admission" options="yesNo" value="patient.referral.ifAcceptedAnyDelay"></ccdb-form-select>
+                <ccdb-form-textarea label="Reason for delay" value="patient.referral.delayReason" ng-if="patient.referral.ifAcceptedAnyDelay !== 'No'"></ccdb-form-textarea>
+            </div>
+            <div class="col-sm-6">
+                <ccdb-form-textarea label="If accepted but never admitted" value="patient.referral.ReasonPatientWasNeverAdmitted"></ccdb-form-textarea>
+                <ccdb-form-text label="Unit transferred to if transferred" value="patient.referral.unitTransferredToIfTransferred "></ccdb-form-text>
+                <ccdb-form-select label="Final outcome" options="finalOutcome" value="patient.referral.finalOutcome"></ccdb-form-select>
+            </div>
         </div>
     </div>
-</div>
+</ng-form>
