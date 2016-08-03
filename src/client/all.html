@@ -630,7 +630,7 @@ this is the view page</script>
 <h1>New {{patient.referral.emergencyVsElective}} Referral:</h1>
 <div class="divider"></div>
 
-<form name="patientForm" ng-submit="save()" novalidate>
+<form name="patientForm" ng-submit="save()" novalidate autocomplete="off" >
 
     <uib-tabset active="active">
         <uib-tab index="0" heading="Patient Details">
@@ -745,34 +745,18 @@ this is the view page</script>
     <div class="row">
         <div class="col-sm-6">
             <ccdb-form-text label="Last name" value="patient.lastName"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
             <ccdb-form-text label="First name" value="patient.firstName"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
             <ccdb-form-select label="Race" options="races" value="patient.race"></ccdb-form-select>
-        </div>
-        <div class="col-sm-6">
             <ccdb-form-select label="Gender" options="genders" value="patient.gender"></ccdb-form-select>
-        </div>
-        <div class="col-sm-6">
             <ccdb-form-date label="Birth date" ng-model="patient.birthDate" ></ccdb-form-date>
         </div>
         <div class="col-sm-6">
             <ccdb-form-text label="ICU registrar/Doctor" value="patient.referral.icuRegistrar"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6">
             <ccdb-form-text label="ICU consultant" value="patient.referral.icuConsultant"></ccdb-form-text>
-        </div>
-        <div class="col-sm-6"><!-- this is the time the data is recorded (don't need to show. just store) -->
-            <ccdb-form-date label="Entry time and date" ng-model="patient.referral.entryDateTime"></ccdb-form-date>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-date label="Time patient seen by ICU"
-                            ng-model="patient.referral.timePatientSeenByICU"></ccdb-form-date>
+            <ccdb-form-date label="Entry time and date" ng-model="patient.referral.entryDateTime"></ccdb-form-date><!-- this is the time the data is recorded (don't need to show. just store) -->
+            <ccdb-form-date label="Time patient seen by ICU" ng-model="patient.referral.timePatientSeenByICU"></ccdb-form-date>
         </div>
     </div>
-    <div class="divider"></div>
 </div>
 </script>
 <script type="text/ng-template" id="reports/reports.html">
@@ -950,15 +934,15 @@ low
 <script type="text/ng-template" id="utils/form/text.html">
 <div class="form-group">
     <label for="right-label">{{ label }}</label>
-        <input type="text"
-               class="form-control"
-               id="right-label"
-               placeholder="{{ placeholder }}"
-               ng-model="value"
-               typeahead="item for item in getSuggestions($viewValue) | filter:$viewValue"
-               typeahead-loading="loading"
-               required
-        >
+    <input type="text"
+           class="form-control"
+           id="right-label"
+           placeholder="{{ placeholder }}"
+           ng-model="value"
+           uib-typeahead="item for item in getSuggestions($viewValue)"
+           required
+           autocomplete="off"
+    >
 </div>
 </script>
 <script type="text/ng-template" id="utils/form/textarea.html">

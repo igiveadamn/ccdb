@@ -1,12 +1,12 @@
 <div class="form-group">
     <label for="right-label">{{ label }}</label>
-        <input type="text"
-               class="form-control"
-               id="right-label"
-               placeholder="{{ placeholder }}"
-               ng-model="value"
-               typeahead="item for item in getSuggestions($viewValue) | filter:$viewValue"
-               typeahead-loading="loading"
-               required
-        >
+    <input type="text"
+           class="form-control"
+           id="right-label"
+           placeholder="{{ placeholder }}"
+           ng-model="value"
+           uib-typeahead="item for item in getSuggestions($viewValue)"
+           required
+           autocomplete="off"
+    >
 </div>

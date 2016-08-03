@@ -2,6 +2,7 @@ angular.module('ccdb',
     [
         'ngRoute',
         'angularCombine',
+        'ui.bootstrap',
         'ccdb.authentication.authentication',
         'ccdb.authentication.token.interceptor',
         'ccdb.cache.localStorage.interceptor',
@@ -19,8 +20,7 @@ angular.module('ccdb',
         'ccdb.reset',
         'ccdb.user',
         'ccdb.utils.age.filter',
-        'ccdb.utils.localStorage.factory',
-        'ui.bootstrap'
+        'ccdb.utils.localStorage.factory'
     ])
     .config(function ($routeProvider, $httpProvider, angularCombineConfigProvider) {
         $routeProvider.otherwise(
