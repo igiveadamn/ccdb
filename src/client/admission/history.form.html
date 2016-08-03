@@ -1,14 +1,16 @@
-<div class="panel form-panel">
-    <div class="row">
-        <!-- show the history recorded at referral above the boxes -->
-        <div class="col-sm-6">
-            <ccdb-form-textarea label="Past medical history"
-                                value="patient.admission.pastMedicalHistory"></ccdb-form-textarea>
-            <ccdb-form-textarea label="Past surgical history"
-                                value="patient.admission.pastSurgicalHistory"></ccdb-form-textarea>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-textarea label="Chronic medications" value="patient.admission.medications"></ccdb-form-textarea>
+<ng-form name="historyForm">
+    <div class="panel form-panel">
+        <div class="row">
+            <!-- show the history recorded at referral above the boxes -->
+            <div class="col-sm-6">
+                <ccdb-form-textarea label="Past medical history"
+                                    value="patient.admission.pastMedicalHistory"></ccdb-form-textarea>
+                <ccdb-form-textarea label="Past surgical history"
+                                    value="patient.admission.pastSurgicalHistory"></ccdb-form-textarea>
+            </div>
+            <div class="col-sm-6">
+                <ccdb-form-textarea label="Chronic medications" value="patient.admission.medications"></ccdb-form-textarea>
+            </div>
         </div>
     </div>
-</div>
+</ng-form>

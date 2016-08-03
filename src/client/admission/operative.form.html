@@ -1,27 +1,29 @@
-<div class="panel form-panel">
-    <div class="row">
-        <div class="col-sm-6" ng-if="patient.referral.operativeStatusAtTimeOfReferral !== 'Not for surgery'"> <!-- if non-operative, disable and don't require the rest -->
-            <ccdb-form-date label="Date and time of surgery" ng-model="patient.admission.surgeryDateTime"></ccdb-form-date>
-            <ccdb-form-text label="Operation performed" value="patient.admission.operationPerformed"></ccdb-form-text>
-            <ccdb-form-text label="Operative findings" value="patient.admission.operativeFindings"></ccdb-form-text>
-            <ccdb-form-textarea label="Operative Plan" value="patient.admission.operativePlan"></ccdb-form-textarea>
-            <ccdb-form-text label="Duration of operation" value="patient.admission.durationOfOperation"></ccdb-form-text>
-            <ccdb-form-text label="Anaesthesia" value="patient.admission.anaesthesia"></ccdb-form-text>
-        </div>
+<ng-form name="operativeForm">
+    <div class="panel form-panel">
+        <div class="row">
+            <div class="col-sm-6" ng-if="patient.referral.operativeStatusAtTimeOfReferral !== 'Not for surgery'"> <!-- if non-operative, disable and don't require the rest -->
+                <ccdb-form-date label="Date and time of surgery" ng-model="patient.admission.surgeryDateTime"></ccdb-form-date>
+                <ccdb-form-text label="Operation performed" value="patient.admission.operationPerformed"></ccdb-form-text>
+                <ccdb-form-text label="Operative findings" value="patient.admission.operativeFindings"></ccdb-form-text>
+                <ccdb-form-textarea label="Operative Plan" value="patient.admission.operativePlan"></ccdb-form-textarea>
+                <ccdb-form-text label="Duration of operation" value="patient.admission.durationOfOperation"></ccdb-form-text>
+                <ccdb-form-text label="Anaesthesia" value="patient.admission.anaesthesia"></ccdb-form-text>
+            </div>
 
-        <div class="col-sm-6"><!-- leave this in even if non-operative -->
-            <ccdb-form-text label="Grade of laryngoscopy" value="patient.admission.gradeOfLaryngoscopy"></ccdb-form-text>
-            <ccdb-form-text label="Duration of anaesthesia" value="patient.admission.durationOfAnaesthesia"></ccdb-form-text>
-            <ccdb-form-text label="Antibiotic" value="patient.admission.antibiotics"></ccdb-form-text>
-            <ccdb-form-text label="Intra-operative total volumes" value="patient.admission.intraOperativeTotalVolumes"></ccdb-form-text>
-            <ccdb-form-text label="Blood loss" value="patient.admission.bloodLoss"></ccdb-form-text>
-            <ccdb-form-text label="Urine output (mls/hr)" value="patient.admission.urineOutput"></ccdb-form-text>
-            <ccdb-form-text label="Crystalloid volume" value="patient.admission.crystalloidVolume"></ccdb-form-text>
-            <ccdb-form-text label="Colloid volume" value="patient.admission.colloidVolume"></ccdb-form-text>
-            <ccdb-form-text label="Packed cell" value=" patient.admission.packedCells"></ccdb-form-text>
-            <ccdb-form-text label="Freeze dried plasma" value="patient.admission.freezeDriedPlasma"></ccdb-form-text>
-            <ccdb-form-text label="Platelets" value="patient.admission.platelets"></ccdb-form-text>
-            <ccdb-form-text label="Cruoprecipitate" value="patient.admission.cruoprecipitate"></ccdb-form-text>
+            <div class="col-sm-6"><!-- leave this in even if non-operative -->
+                <ccdb-form-text label="Grade of laryngoscopy" value="patient.admission.gradeOfLaryngoscopy"></ccdb-form-text>
+                <ccdb-form-text label="Duration of anaesthesia" value="patient.admission.durationOfAnaesthesia"></ccdb-form-text>
+                <ccdb-form-text label="Antibiotic" value="patient.admission.antibiotics"></ccdb-form-text>
+                <ccdb-form-text label="Intra-operative total volumes" value="patient.admission.intraOperativeTotalVolumes"></ccdb-form-text>
+                <ccdb-form-text label="Blood loss" value="patient.admission.bloodLoss"></ccdb-form-text>
+                <ccdb-form-text label="Urine output (mls/hr)" value="patient.admission.urineOutput"></ccdb-form-text>
+                <ccdb-form-text label="Crystalloid volume" value="patient.admission.crystalloidVolume"></ccdb-form-text>
+                <ccdb-form-text label="Colloid volume" value="patient.admission.colloidVolume"></ccdb-form-text>
+                <ccdb-form-text label="Packed cell" value=" patient.admission.packedCells"></ccdb-form-text>
+                <ccdb-form-text label="Freeze dried plasma" value="patient.admission.freezeDriedPlasma"></ccdb-form-text>
+                <ccdb-form-text label="Platelets" value="patient.admission.platelets"></ccdb-form-text>
+                <ccdb-form-text label="Cruoprecipitate" value="patient.admission.cruoprecipitate"></ccdb-form-text>
+            </div>
         </div>
     </div>
-</div>
+</ng-form>
