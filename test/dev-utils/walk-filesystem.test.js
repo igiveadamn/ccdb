@@ -1,5 +1,5 @@
-const expect = require('chai').expect;
-const walk = require('../../dev-utils/walk-filesystem');
+var expect = require('chai').expect;
+var walk = require('../../dev-utils/walk-filesystem');
 
 describe('Walk filesystem', function () {
   it('returns a list of all filepaths', function (done) {

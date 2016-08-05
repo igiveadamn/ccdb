@@ -28,7 +28,6 @@ var getPaths = function (startPath, paths, cb) {
 
     });
   } catch (e) {
-    console.log('In Catch');
     cb(e);
   }
 };
