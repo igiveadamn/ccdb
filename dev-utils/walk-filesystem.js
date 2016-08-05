@@ -36,7 +36,6 @@ var getPaths = function (startPath, paths, cb) {
 var walk = {
   paths: function (startDir, cb) {
     var paths = [];
-    var recursionDepth = 0;
     getPaths(startDir, paths, function (err) {
       if (err) return cb(err);
       return cb(null, paths);
