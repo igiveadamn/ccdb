@@ -12,7 +12,6 @@ describe('HTML Parser', function () {
   it('returns the correct name for a node one level deep', function () {
     var html = '<html></html>';
     var tree = parseXml(html);
-    console.log('tree', tree);
     expect(tree.root.name).to.equal('html');
   });
 
@@ -21,4 +20,21 @@ describe('HTML Parser', function () {
     var firstChild = parseXml(html).root.children[0];
     expect(firstChild.name).to.equal('head');
   });
+
+  it('correctly lists multiple child nodes', function () {
+    var html = '<html><head></head><body></body></html>';
+    var firstChild = parseXml(html).root.children[0];
+    var secondChild = parseXml(html).root.children[1];
+    expect(firstChild.name).to.equal('head');
+    expect(secondChild.name).to.equal('body');
+  });
+
+  it('parses attribute key value pairs correctly', function () {
+    var node = '<lang name="Scala" lonely paradigm="functional"></lang>';
+    var attributes = parseXml(node).root.attributes;
+    expect(attributes).to.deep.equal([{ key: 'name', value: 'Scala' }, {
+      key: 'lonely',
+      value: null
+    }, { key: 'paradigm', value: 'functional' }]);
+  })
 });
