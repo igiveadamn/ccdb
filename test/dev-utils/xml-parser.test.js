@@ -37,4 +37,43 @@ describe('HTML Parser', function () {
       value: null
     }, { key: 'paradigm', value: 'functional' }]);
   })
+
+  it('handles tags that close themselves <selfcloser/>');
+  it('throws an error when there is a space between attribute key = "value"');
+  it('handles the top lines <? xml > <!DOCTYPE> etc...');
+  it('adds content to nodes that have it <p>something</p>')
+  it('throws an error when given garbage <blah <someth><hhh></hhh>');
+  it.skip('correctly parses a large document', function () {
+    var doc = [
+      '<!DOCTYPE html>',
+      '<html>',
+      '<body>',
+      '<p>Hello, World!</p>',
+      '<div class="classy"><p>What a fine day</div>',
+      '<body>',
+      '</html>'
+    ].join('\n');
+
+    var expectedTree = {
+      root: {
+        name: 'html',
+        children: [{
+          name: 'body',
+          children: [{
+            name: 'p',
+            content: 'Hello, World!'
+          }, {
+            name: 'div',
+            attributes: [{ key: 'class', value: 'classy' }],
+            children: [{
+              name: 'p',
+              content: 'What a fine day'
+            }]
+          }]
+        }]
+      }
+    };
+
+    expect(parseXml(doc)).to.deep.equal(expectedTree);
+  });
 });
