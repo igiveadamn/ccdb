@@ -54,6 +54,11 @@ body h1:first-child {
     padding-left: 10px;
 }
 
+input.ng-invalid {
+    border-color: #F9685C;
+    border-width: thin;
+}
+
 .loader {
     font-size: 20px;
     margin: 100px auto;
