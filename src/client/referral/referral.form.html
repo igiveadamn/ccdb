@@ -3,8 +3,15 @@
 
 <form name="patientForm" ng-submit="save()" novalidate autocomplete="off" >
 
-    <uib-tabset active="active">
-        <uib-tab index="0" heading="Patient Details">
+    <uib-tabset active="activeForm">
+        <uib-tab index="0">
+            <uib-tab-heading>
+                Patient details
+                <i ng-class="(patientForm.referralPatientDetailsForm.$invalid)
+                   ? 'glyphicon glyphicon-exclamation-sign red'
+                   : 'glyphicon glyphicon-ok-sign green'">
+                </i>
+            </uib-tab-heading>
             <ng-include src="'referral/referral.patient.details.form.html'"></ng-include>
         </uib-tab>
         <uib-tab index="1" heading="Referral Details">

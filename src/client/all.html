@@ -4,7 +4,7 @@
 
 <form name="patientForm" ng-submit="save()" novalidate>
 
-    <uib-tabset active="active">
+    <uib-tabset active="activeForm">
         <uib-tab index="0">
             <uib-tab-heading>
                 Admission
@@ -632,8 +632,15 @@ this is the view page</script>
 
 <form name="patientForm" ng-submit="save()" novalidate autocomplete="off" >
 
-    <uib-tabset active="active">
-        <uib-tab index="0" heading="Patient Details">
+    <uib-tabset active="activeForm">
+        <uib-tab index="0">
+            <uib-tab-heading>
+                Patient details
+                <i ng-class="(patientForm.referralPatientDetailsForm.$invalid)
+                   ? 'glyphicon glyphicon-exclamation-sign red'
+                   : 'glyphicon glyphicon-ok-sign green'">
+                </i>
+            </uib-tab-heading>
             <ng-include src="'referral/referral.patient.details.form.html'"></ng-include>
         </uib-tab>
         <uib-tab index="1" heading="Referral Details">
@@ -741,23 +748,26 @@ this is the view page</script>
 
 </form></script>
 <script type="text/ng-template" id="referral/referral.patient.details.form.html">
-<div class="panel form-panel">
-    <div class="row">
-        <div class="col-sm-6">
-            <ccdb-form-text label="Last name" value="patient.lastName"></ccdb-form-text>
-            <ccdb-form-text label="First name" value="patient.firstName"></ccdb-form-text>
-            <ccdb-form-select label="Race" options="races" value="patient.race"></ccdb-form-select>
-            <ccdb-form-select label="Gender" options="genders" value="patient.gender"></ccdb-form-select>
-            <ccdb-form-date label="Birth date" ng-model="patient.birthDate" ></ccdb-form-date>
-        </div>
-        <div class="col-sm-6">
-            <ccdb-form-text label="ICU registrar/Doctor" value="patient.referral.icuRegistrar"></ccdb-form-text>
-            <ccdb-form-text label="ICU consultant" value="patient.referral.icuConsultant"></ccdb-form-text>
-            <ccdb-form-date label="Entry time and date" ng-model="patient.referral.entryDateTime"></ccdb-form-date><!-- this is the time the data is recorded (don't need to show. just store) -->
-            <ccdb-form-date label="Time patient seen by ICU" ng-model="patient.referral.timePatientSeenByICU"></ccdb-form-date>
+<ng-form name="referralPatientDetailsForm">
+    <div class="panel form-panel">
+        <div class="row">
+            <div class="col-sm-6">
+                <ccdb-form-text label="Last name" value="patient.lastName"></ccdb-form-text>
+                <ccdb-form-text label="First name" value="patient.firstName"></ccdb-form-text>
+                <ccdb-form-select label="Race" options="races" value="patient.race"></ccdb-form-select>
+                <ccdb-form-select label="Gender" options="genders" value="patient.gender"></ccdb-form-select>
+                <ccdb-form-date label="Birth date" ng-model="patient.birthDate" ></ccdb-form-date>
+            </div>
+            <div class="col-sm-6">
+                <ccdb-form-text label="ICU registrar/Doctor" value="patient.referral.icuRegistrar"></ccdb-form-text>
+                <ccdb-form-text label="ICU consultant" value="patient.referral.icuConsultant"></ccdb-form-text>
+                <ccdb-form-date label="Entry time and date" ng-model="patient.referral.entryDateTime"></ccdb-form-date><!-- this is the time the data is recorded (don't need to show. just store) -->
+                <ccdb-form-date label="Time patient seen by ICU" ng-model="patient.referral.timePatientSeenByICU"></ccdb-form-date>
+            </div>
         </div>
     </div>
-</div>
+</ng-form>
+
 </script>
 <script type="text/ng-template" id="reports/reports.html">
 <div class="row">
