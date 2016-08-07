@@ -105,7 +105,7 @@ var referral = {
     diagnosisDetails: String,
     patientLocation: String,
     levelOfCareRequired: String,
-    reasonOfReferralToICU: String, // this is meant for reason for referral to the ICU.
+    reasonOfReferralToICU: [String],
     referralForComplicationOf: String,
     CurrentPatientLocation: String,
     numberOfDaysInHospital: String,
