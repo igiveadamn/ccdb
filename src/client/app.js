@@ -5,7 +5,7 @@ angular.module('ccdb',
         'ui.bootstrap',
         'ccdb.authentication.authentication',
         'ccdb.authentication.token.interceptor',
-        'ccdb.cache.localStorage.interceptor',
+        //'ccdb.cache.localStorage.interceptor',
         'ccdb.authentication.user.authentication',
         'ccdb.dashboard',
         'ccdb.date.range.directive',
@@ -19,8 +19,8 @@ angular.module('ccdb',
         'ccdb.search',
         'ccdb.reset',
         'ccdb.user',
-        'ccdb.utils.age.filter',
-        'ccdb.utils.localStorage.factory'
+        'ccdb.utils.age.filter'
+        //'ccdb.utils.localStorage.factory'
     ])
     .config(function ($routeProvider, $httpProvider, angularCombineConfigProvider) {
         $routeProvider.otherwise(
@@ -32,10 +32,10 @@ angular.module('ccdb',
         angularCombineConfigProvider.addConf(/.*/, '/all.html');
 
         $httpProvider.interceptors.push('TokenInterceptor');
-        $httpProvider.interceptors.push('LocalStorageInterceptor');
+        //$httpProvider.interceptors.push('LocalStorageInterceptor');
     })
 
-    .run(function ($rootScope, $window, $location, $timeout, $log, Authentication, PatientRule, PatientService) {
+    .run(function ($rootScope, $window, $location, $timeout, $log, Authentication) {
         Authentication.check();
 
         $rootScope.$on('$routeChangeStart', function (event, nextRoute, currentRoute) {
@@ -60,56 +60,56 @@ angular.module('ccdb',
         });
 
         $rootScope.online = navigator.onLine;
-        $window.addEventListener("offline", function () {
-            $log.debug("offline0");
-            $rootScope.$apply(function () {
-                $rootScope.online = false;
-            });
-        }, false);
-
-        $window.addEventListener("online", function () {
-            $log.debug("online0");
-            $rootScope.$apply(function () {
-                $rootScope.online = true;
-            });
-        }, false);
-
-        var sync = function () {
-            var top = PatientRule.listDirty().pop();
-            $log.debug('storage dirty top', top);
-            if (!top) {
-                $rootScope.sync = false;
-                $log.info('refresh after sync');
-                // $location.path('/search');
-                return;
-            }
-            $rootScope.sync = true;
-            $log.debug('sync', top._id);
-            return PatientService.save(top);
-        };
-
-        var recursiveSync = function () {
-            $log.debug('recursive');
-            var lastResponse = sync();
-            if (lastResponse) {
-                lastResponse.then(recursiveSync).catch(function (responseError) {
-                    $log.error('Failed to sync', responseError);
-                });
-            }
-        };
-
-        $rootScope.$watch('online', function (newValue) {
-            if (!newValue) {
-                $log.debug('offline1');
-                return;
-            }
-            $log.debug('online1');
-            recursiveSync();
-        });
-
-        $rootScope.$watch('sync', function (newValue, oldValue) {
-            $log.debug('sync...', newValue, '->', oldValue);
-        });
+        //$window.addEventListener("offline", function () {
+        //    $log.debug("offline0");
+        //    $rootScope.$apply(function () {
+        //        $rootScope.online = false;
+        //    });
+        //}, false);
+        //
+        //$window.addEventListener("online", function () {
+        //    $log.debug("online0");
+        //    $rootScope.$apply(function () {
+        //        $rootScope.online = true;
+        //    });
+        //}, false);
+        //
+        //var sync = function () {
+        //    var top = PatientRule.listDirty().pop();
+        //    //$log.debug('storage dirty top', top);
+        //    if (!top) {
+        //        $rootScope.sync = false;
+        //        $log.info('refresh after sync');
+        //        // $location.path('/search');
+        //        return;
+        //    }
+        //    $rootScope.sync = true;
+        //    $log.debug('sync', top._id);
+        //    return PatientService.save(top);
+        //};
+        //
+        //var recursiveSync = function () {
+        //    $log.debug('recursive');
+        //    var lastResponse = sync();
+        //    if (lastResponse) {
+        //        lastResponse.then(recursiveSync).catch(function (responseError) {
+        //            $log.error('Failed to sync', responseError);
+        //        });
+        //    }
+        //};
+        //
+        //$rootScope.$watch('online', function (newValue) {
+        //    if (!newValue) {
+        //        $log.debug('offline1');
+        //        return;
+        //    }
+        //    $log.debug('online1');
+        //    recursiveSync();
+        //});
+        //
+        //$rootScope.$watch('sync', function (newValue, oldValue) {
+        //    $log.debug('sync...', newValue, '->', oldValue);
+        //});
 
         $rootScope.$on('login-success', function(event, username) {
           $rootScope.loggedInUser = username[0];
