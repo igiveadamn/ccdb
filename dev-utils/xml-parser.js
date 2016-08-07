@@ -71,6 +71,13 @@ var parseXml = function (xml) {
       currentNode._successfullyClosed = true;
       currentNode = currentNode._parent;
       tagName = '';
+    } else if(inOpeningTag && char === '/' && nextChar() === '>') {
+      inOpeningTag = false;
+      inClosingTag = false;
+      currentNode._successfullyClosed = true;
+      currentNode = currentNode._parent;
+      currentNode.name = tagName;
+      tagName = '';
     } else if (inOpeningTag || inClosingTag) {
       if (!inAttributeValue && char === ' ') {
         if (attributeKey) { // valueless attribute
@@ -87,12 +94,14 @@ var parseXml = function (xml) {
             throw new Error('Not allowed spaces between "=" and attribute value: ' + xml.substr(index - 10, index + 10))
           }
         } else if (char === '"') {
-          if (previousChar() != '\\') {
+          if (previousChar() !== '\\') {
             if (inAttributeValue) {
               addAttributeToNode(currentNode, { key: attributeKey, value: attributeValue });
               attributeKey = '';
               attributeValue = '';
+              ignoreSpecialChars = false;
             }
+            ignoreSpecialChars = true;
             inAttributeValue = !inAttributeValue;
           } else {
             if (inAttributeValue) { // should only be here for value, no back slashes allowed in key
