@@ -36,12 +36,12 @@ describe('HTML Parser', function () {
       key: 'lonely',
       value: null
     }, { key: 'paradigm', value: 'functional' }]);
-  })
+  });
 
   it('handles tags that close themselves <selfcloser/>');
   it('throws an error when there is a space between attribute key = "value"');
   it('handles the top lines <? xml > <!DOCTYPE> etc...');
-  it('adds content to nodes that have it <p>something</p>')
+  it('adds content to nodes that have it <p>something</p>');
   it('throws an error when given garbage <blah <someth><hhh></hhh>');
   it.skip('correctly parses a large document', function () {
     var doc = [

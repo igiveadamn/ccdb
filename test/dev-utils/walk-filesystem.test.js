@@ -11,6 +11,6 @@ describe('Walk filesystem', function () {
        );
        expect(paths).to.deep.equal(exepectedPaths);
        done();
-     })
+     });
   });
 });
