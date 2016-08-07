@@ -133,7 +133,10 @@ module.exports = {
         var filter = {};
         filter[value] = new RegExp(text, 'i');
         filter.hospital = request.hospital;
-        Patient.find(filter, function (err, patients) {
+        Patient.find(filter)
+        .sort('-referral.referralDateTime')
+        .limit(200)
+        .exec(function (err, patients) {
             if (err) {
                 console.log(err);
             }
@@ -145,6 +148,8 @@ module.exports = {
                     });
                     return v;
                 });
+            values = _.uniq(values);
+            values = values.slice(0, 20);
             response.json(values);
         });
     }
