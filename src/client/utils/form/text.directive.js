@@ -25,5 +25,4 @@ angular.module('ccdb.utils.form.text.directive', ['ccdb.patient.service', 'ui.bo
             }
         };
     }
-)
-;
+);

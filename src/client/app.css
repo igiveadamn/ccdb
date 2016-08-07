@@ -58,6 +58,14 @@ input.ng-invalid {
     border-color: #F9685C;
     border-width: thin;
 }
+textarea.ng-invalid {
+    border-color: #F9685C;
+    border-width: thin;
+}
+select.ng-invalid {
+    border-color: #F9685C;
+    border-width: thin;
+}
 
 .loader {
     font-size: 20px;
