@@ -5,6 +5,7 @@ angular.module('ccdb.utils.form',
         'ccdb.utils.form.multiselect.directive',
         'ccdb.utils.form.select.directive',
         'ccdb.utils.form.textarea.directive',
-        'ccdb.utils.form.text.directive'
+        'ccdb.utils.form.text.directive',
+        'ccdb.utils.form.number.directive'
     ]
 );
