@@ -39,9 +39,9 @@ function extractAttributePaths(htmlAsJson) {
       if (k && k.constructor === String && k.substr(0, cxForm.length) === cxForm.toUpperCase()) {
         if(v[0] && v[0].$) {
           if (v[0].$['NG-MODEL']) {
-            attributePaths.push(v[0].$['NG-MODEL'])
+            attributePaths.push(v[0].$['NG-MODEL']);
           } else if (v[0].$.VALUE) {
-            attributePaths.push(v[0].$.VALUE)
+            attributePaths.push(v[0].$.VALUE);
           }
         }
       }
