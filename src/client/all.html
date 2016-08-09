@@ -488,7 +488,7 @@ this is the view page</script>
             <div class="col-sm-6">
                 <ccdb-form-textarea label="If accepted but never admitted" value="patient.referral.ReasonPatientWasNeverAdmitted"></ccdb-form-textarea>
                 <ccdb-form-text label="Unit transferred to if transferred" value="patient.referral.unitTransferredToIfTransferred "></ccdb-form-text>
-                <ccdb-form-select label="Final outcome" options="finalOutcome" value="patient.referral.finalOutcome"></ccdb-form-select>
+                <ccdb-form-select label="Final outcome" options="finalOutcome" value="patient.referral.finalOutcome" optional="true" ></ccdb-form-select>
             </div>
         </div>
     </div>
@@ -577,7 +577,7 @@ this is the view page</script>
             <div class="col-sm-6">
                 <ccdb-form-textarea label="If accepted but never admitted" value="patient.referral.ReasonPatientWasNeverAdmitted"></ccdb-form-textarea>
                 <ccdb-form-text label="Unit transferred to if transferred" value="patient.referral.unitTransferredToIfTransferred "></ccdb-form-text>
-                <ccdb-form-select label="Final outcome" options="finalOutcome" value="patient.referral.finalOutcome"></ccdb-form-select>
+                <ccdb-form-select label="Final outcome" options="finalOutcome" value="patient.referral.finalOutcome" optional="true"></ccdb-form-select>
             </div>
         </div>
     </div>
@@ -968,7 +968,7 @@ low
 <script type="text/ng-template" id="utils/form/select.html">
 <div class="form-group">
     <label for="right-label">{{ label }}</label>
-    <select id="right-label" class="form-control" ng-model="value" required>
+    <select id="right-label" class="form-control" ng-model="value" ng-required="{{ !optional }}">
     <option ng-repeat="option in options">{{ option }}</option>
     </select>
 </div>

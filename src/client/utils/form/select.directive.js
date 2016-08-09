@@ -8,8 +8,8 @@ angular.module('ccdb.utils.form.select.directive', [])
             scope: {
                 label: '@',
                 options: '=',
-                value: '='
+                value: '=',
+                optional: '@'
             }
         };
-    })
-;
+    });
