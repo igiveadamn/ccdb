@@ -140,7 +140,7 @@ angular.module('ccdb.patient.controller', ['ngRoute', 'ccdb.patient.service', 'c
   $scope.admissionFailureReasons = ['Became too well', 'Became too sick', 'Transferred to another unit', 'Died', 'Referral withdrawn']; // if patient is decision:admit but not admitted
 
   $scope.referralToICU = ['Sepsis', 'Airway', 'Respiratory', 'Cardiac', 'Renal', 'Metabolic', 'Neurological', 'Bleeding', 'Polytrauma', 'Pain', 'Perioperative physiological support'];
-  $scope.baseDisciplines = ['Anaesthetics', 'Orthodontics', 'Paediatrics', 'Obstetrics'];
+  $scope.baseDisciplines = ['Anaesthesia', 'Burns', 'Cardiothoracics', 'Colorectal surgery', 'Dental', 'Dermatology', 'Emergency medicine', 'Endocrinology', 'ENT', 'Gastroenterology', 'General practitioner', 'General surgery', 'Gynaecology', 'Haematology', 'Hepatology', 'ICU', 'Immunology', 'Infectious diseases', 'Maxillofacial', 'Medicine', 'Neonatology', 'Nephrology', 'Neurology', 'Neurosurgery', 'Obstetrics', 'Occupational therapy', 'Oncology', 'Ophthalmology', 'Orthopaedics', 'Other', 'Paediatric surgery', 'Paediatrics', 'Pain clinic', 'Physiotherapy', 'Plastic and reconstructive', 'Psychiatry', 'Radiology', 'Rheumatology', 'Transplant surgery', 'Trauma', 'Upper GIT surgery', 'Urology', 'Vascular surgery'];
   $scope.complications = ['Operation', 'Anaesthesia '];
   $scope.patientCurrentlyVentilated = ['Yes', 'No', 'Non-invasive PPV'];
 
