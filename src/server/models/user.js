@@ -57,8 +57,8 @@ module.exports = {
                 postmark.send({
                     From: 'andy@igiveada.mn',
                     To: user.username,
-                    Subject: 'Please reset your CCDB password',
-                    HtmlBody: 'Please click on the link to reset your CCDB password: <a href="' + process.env.CCDB_SERVER + '#/password/'+ user.passwordChange +'">Reset password</a>',
+                    Subject: 'Please reset your SHIELD password',
+                    HtmlBody: 'Please click on the link to reset your SHIELD password: <a href="' + process.env.CCDB_SERVER + '#/password/'+ user.passwordChange +'">Reset password</a>',
                     Tag: 'reset password'
                 }, function (error, success) {
                     if (error) {
@@ -130,8 +130,8 @@ module.exports = {
                 postmark.send({
                     From: 'andy@igiveada.mn',
                     To: user.username,
-                    Subject: 'Please reset your CCDB password',
-                    HtmlBody: 'Please click on the link to reset your CCDB password: <a href="' + process.env.CCDB_SERVER + '#/password/'+ user.passwordChange +'">Reset password</a>',
+                    Subject: 'Please reset your SHIELD password',
+                    HtmlBody: 'Please click on the link to reset your SHIELD password: <a href="' + process.env.CCDB_SERVER + '#/password/'+ user.passwordChange +'">Reset password</a>',
                     Tag: 'reset password'
                 }, function (error, success) {
                     if (error) {
