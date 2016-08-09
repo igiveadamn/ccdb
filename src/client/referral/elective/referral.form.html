@@ -6,8 +6,8 @@
             </div>
             <div class="col-sm-6">
                 <ccdb-form-number label="Number of days in hospital" value="patient.referral.numberOfDaysInHospital"></ccdb-form-number>
-                <ccdb-form-text label="Is the patient currently ventilated" value="patient.referral.patientCurrentlyVentilated"></ccdb-form-text>
-                <ccdb-form-text label="Was this patient in ICU in the previous 48 hours" value="patient.referral.wasThisPatientInIcuInThePrevious48Hours"></ccdb-form-text>
+                <ccdb-form-select label="Is the patient currently ventilated" options="patientCurrentlyVentilated" value="patient.referral.patientCurrentlyVentilated"></ccdb-form-select>
+                <ccdb-form-select label="Was this patient in ICU in the previous 48 hours" options="yesNo" value="patient.referral.wasThisPatientInIcuInThePrevious48Hours"></ccdb-form-select>
             </div>
         </div>
     </div>

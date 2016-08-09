@@ -142,6 +142,7 @@ angular.module('ccdb.patient.controller', ['ngRoute', 'ccdb.patient.service', 'c
   $scope.referralToICU = ['Sepsis', 'Airway', 'Respiratory', 'Cardiac', 'Renal', 'Metabolic', 'Neurological', 'Bleeding', 'Polytrauma', 'Pain', 'Perioperative physiological support'];
   $scope.baseDisciplines = ['Anaesthetics', 'Orthodontics', 'Paediatrics', 'Obstetrics'];
   $scope.complications = ['Operation', 'Anaesthesia '];
+  $scope.patientCurrentlyVentilated = ['Yes', 'No', 'Non-invasive PPV'];
 
   //scores
   $scope.eyeOpening = ['1', '2', '3', '4'];
