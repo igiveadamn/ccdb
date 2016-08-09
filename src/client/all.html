@@ -761,8 +761,8 @@ this is the view page</script>
             <div class="col-sm-6">
                 <ccdb-form-text label="ICU registrar/Doctor" value="patient.referral.icuRegistrar"></ccdb-form-text>
                 <ccdb-form-text label="ICU consultant" value="patient.referral.icuConsultant"></ccdb-form-text>
-                <ccdb-form-date label="Entry time and date" ng-model="patient.referral.entryDateTime"></ccdb-form-date><!-- this is the time the data is recorded (don't need to show. just store) -->
-                <ccdb-form-date label="Time patient seen by ICU" ng-model="patient.referral.timePatientSeenByICU"></ccdb-form-date>
+                <ccdb-form-date-and-time label="Entry time and date" ng-model="patient.referral.entryDateTime"></ccdb-form-date-and-time>
+                <ccdb-form-date-and-time label="Time patient seen by ICU" ng-model="patient.referral.timePatientSeenByICU"></ccdb-form-date-and-time>
             </div>
         </div>
     </div>
@@ -920,7 +920,25 @@ low
         <select ng-model="month" ng-change="modelChanged()" ng-options="m.key as m.value for m in months" required ></select>
         <select ng-model="year" ng-change="modelChanged()" ng-options="y as y for y in years" required ></select>
 
-        <a class="btn btn-default noselect" ng-click="modelChanged(true)">now</a>
+        <a class="btn btn-default btn-xs noselect" ng-click="modelChanged(true)">now</a>
+    </div>
+</div>
+</script>
+<script type="text/ng-template" id="utils/form/dateAndTime.html">
+<div class="form-group">
+    <label for="right-label">{{ label }}</label>
+        <div>
+            <h6>Date</h6>
+            <div id="right-label" ><select ng-model="date" ng-change="modelChanged()" ng-options="d as d for d in dates" required ></select>
+            <select ng-model="month" ng-change="modelChanged()" ng-options="m.key as m.value for m in months" required ></select>
+            <select ng-model="year" ng-change="modelChanged()" ng-options="y as y for y in years" required ></select>
+        </div>
+        <div>
+            <h6>Time</h6>
+            <select ng-model="hour" ng-change="modelChanged()" ng-options="h as h for h in hours" required ></select>
+            <select ng-model="minute" ng-change="modelChanged()" ng-options="m as m for m in minutes" required ></select>
+            <a class="btn btn-default btn-xs noselect" ng-click="modelChanged(true)">now</a>
+        </div>
     </div>
 </div>
 </script>

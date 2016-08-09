@@ -4,6 +4,6 @@
         <select ng-model="month" ng-change="modelChanged()" ng-options="m.key as m.value for m in months" required ></select>
         <select ng-model="year" ng-change="modelChanged()" ng-options="y as y for y in years" required ></select>
 
-        <a class="btn btn-default noselect" ng-click="modelChanged(true)">now</a>
+        <a class="btn btn-default btn-xs noselect" ng-click="modelChanged(true)">now</a>
     </div>
 </div>
