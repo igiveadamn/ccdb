@@ -7,7 +7,8 @@
             <ccdb-form-number label="Heart rate" placeholder="beats/minute" value="score.heartRate"></ccdb-form-number>
             <ccdb-form-number label="Saturation" value="score.saturation" ng-if="!referral && !apache"></ccdb-form-number>
             <ccdb-form-number label="Respiratory heart rate" placeholder="breaths/minute" value="score.respiratoryRate" ng-if="!referral"></ccdb-form-number>
-            <ccdb-form-number label="Urine output" placeholder="mls/hr" value="score.urineOutput" ng-if="!admission"></ccdb-form-number>
+            <ccdb-form-number label="Urine output volume" placeholder="mls" value="score.urineOutput" ng-if="!admission"></ccdb-form-number>
+            <ccdb-form-number label="Urine output hours" placeholder="hrs" value="score.urineOutputHours" ng-if="!admission"></ccdb-form-number>
             <ccdb-form-number label="Glucose" placeholder="mmol/L" value="score.glucose" ng-if="!referral && !admission"></ccdb-form-number>
             <ccdb-form-select label="Eye opening" options="$parent.eyeOpening" value="score.eyeOpening"></ccdb-form-select>
             <ccdb-form-select label="Verbal response" options="$parent.verbalResponse" value="score.verbalResponse"></ccdb-form-select>

@@ -37,6 +37,7 @@ var score = {
     scoreDateTime: Date,
     urea: String,
     urineOutput: String,
+    urineOutputHours: Number,
     ventilated: String,
     verbalResponse: Number,
     wBC: String
