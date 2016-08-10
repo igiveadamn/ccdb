@@ -5,19 +5,29 @@ var xml2js = require('xml2js');
 var xmlParse = new xml2js.Parser({ strict: false }).parseString;
 var fs = require('fs');
 var async = require('async');
+var expect = require('chai').expect;
 
 describe('Application consistency', function () {
   it('uses every property in the schema somewhere in the application', function (done) {
     fsWalker.paths(__dirname + '/../src/client', function (err, filepaths) {
       if (err) return done(err);
       var htmlFiles = _.filter(filepaths, isHtmlFile);
-      var paths = getSchemaPaths();
+      var schemaPaths = getSchemaPaths();
       async.map(htmlFiles, fs.readFile, function (err, listFileContents) {
         if (err) return done(err);
-        console.log('listOfFileContents[i]', String(listFileContents[3]));
-        async.map([listFileContents[3]], xmlParse, function (err, listOfHtmlAsJson) {
-          var attributePaths = _.flatten(_.map(listOfHtmlAsJson, extractAttributePaths));
-          console.log('Attribute Paths: ', attributePaths);
+        async.map(listFileContents, xmlParse, function (err, listOfHtmlAsJson) {
+          var attributePaths = _.flatten(_.map(listOfHtmlAsJson, extractAttributePaths))
+            .map(function (p) {
+              var prefix = 'patient.';
+              if (p.indexOf(prefix) === 0) {
+                return p.substr(prefix.length, p.length);
+              }
+              return p;
+            });
+          // make a set of paths and a set of attribute paths
+          var attPathSet = createSet(attributePaths);
+          var schemaPathSet = createSet(schemaPaths);
+          expect(attPathSet).to.deep.equal(schemaPathSet);
           done();
         });
       });
@@ -25,34 +35,47 @@ describe('Application consistency', function () {
   });
 });
 
+function createSet(xs) {
+  var set = {};
+  _.forEach(xs, function (p) {
+    var v = {};
+    v[p] = true;
+    _.merge(set, v);
+  });
+  return set;
+}
+
 function extractAttributePaths(htmlAsJson) {
   var attributePaths = [];
 
-  // depth first search
-  function extractAttributePathsIter(node) {
+  function iter(node) {
+    _.forEach(node, function (value, key) {
+      if (!key || key.constructor !== String) {
+        return;
+      }
 
-    // TODO: can't simply map the object because sometimes it's a list of objects sometimes it's an object
-    // depending on if it has any children or not...
-    _.map(node, function (v, k) {
-      if (k === 'DIV') console.log('v: ', v);
-      var cxForm = 'ccdb-form';
-      if (k && k.constructor === String && k.substr(0, cxForm.length) === cxForm.toUpperCase()) {
-        if(v[0] && v[0].$) {
-          if (v[0].$['NG-MODEL']) {
-            attributePaths.push(v[0].$['NG-MODEL']);
-          } else if (v[0].$.VALUE) {
-            attributePaths.push(v[0].$.VALUE);
-          }
+      var cxForm = 'CCDB-FORM';
+      if (key.substr(0, cxForm.length) === cxForm) {
+        if (value.constructor === Array) {
+          _.forEach(value, function (formElement) {
+            if (formElement.$.VALUE) {
+              attributePaths.push(formElement.$.VALUE);
+            } else if (formElement.$['NG-MODEL']) {
+              attributePaths.push(formElement.$['NG-MODEL']);
+            }
+          })
+        } else {
+          throw new Error('Did not expect ccdb-form-xxx to not be an array');
         }
       }
-      if (k && k.constructor === String && k !== '$') {
-        console.log('Key recursing on: ', k);
-        extractAttributePathsIter(v);
-      }
-    });
+
+      value.constructor === Array ? _.forEach(value, function (v) {
+        iter(v)
+      }) : iter(value);
+    })
   }
 
-  extractAttributePathsIter(htmlAsJson);
+  iter(htmlAsJson);
   return attributePaths;
 }
 
@@ -69,8 +92,7 @@ function isHtmlFile(filepath) {
 
 function getSchemaPaths() {
   var IGNORED_FIELDS = ['_id', '__v'];
-  var paths = _.filter(_.keys(schema.patientSchema.paths), function (k) {
+  return _.filter(_.keys(schema.patientSchema.paths), function (k) {
     return !contains(IGNORED_FIELDS, k);
   });
-  return paths;
 }
