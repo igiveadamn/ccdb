@@ -28,6 +28,7 @@ describe('Application consistency', function () {
           var attPathSet = createSet(attributePaths);
           var schemaPathSet = createSet(schemaPaths);
           expect(attPathSet).to.deep.equal(schemaPathSet);
+          // expect(actual).to.deep.equal(expected);
           done();
         });
       });
