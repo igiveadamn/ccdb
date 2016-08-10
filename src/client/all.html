@@ -171,13 +171,13 @@
 <div class="panel panel-default">
   <ccdb-patient-list title="Active Referrals"
                      buttons="Outcome,Admit,Discharge"
-                     filter='{"referral.decision": "Cannot make decision now"}'
+                     filter='{"referral.entryDateTime": { "$exists": true }, "discharge.entryDateTime": null, "admission.entryDateTime": null}'
   ></ccdb-patient-list>
 </div>
 <div class="panel panel-default">
   <ccdb-patient-list title="Current Admissions"
                      buttons="Score,Discharge"
-                     filter='{"referral.decision": "Accepted", "discharge.dischargeDateTime": null}'
+                     filter='{"admission.entryDateTime": { "$exists": true }, "discharge.dischargeDateTime": null}'
   ></ccdb-patient-list>
 </div>
 </script>
