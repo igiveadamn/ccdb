@@ -2,7 +2,7 @@
 <h1>Admission</h1>
 <div class="divider"></div>
 
-<form name="patientForm" ng-submit="save()" novalidate>
+<form name="patientForm" ng-submit="save('admission')" novalidate>
 
     <uib-tabset active="activeForm">
         <uib-tab index="0">
@@ -57,7 +57,6 @@
     <div class="panel form-panel">
         <div class="row">
             <div class="col-sm-6">
-                <ccdb-form-date label="Admission entry date and time" ng-model="patient.admission.admissionEntryDateTime"></ccdb-form-date><!-- this can be hidden. record when they hit save -->
                 <ccdb-form-date label="Admission date and time" ng-model="patient.admission.admissionDateTime"></ccdb-form-date>
                 <ccdb-form-text label="Hospital admitted from" value="patient.admission.admittedFrom"></ccdb-form-text>
                 <ccdb-form-text label="Days in Hospital before ICU" value="patient.admission.numOfdaysInhospitalBeforeICU"></ccdb-form-text>
@@ -186,9 +185,8 @@
 <h1>Discharge</h1>
 <div class="divider"></div>
 
-<form name="patientForm" ng-submit="save()" novalidate>
+<form name="patientForm" ng-submit="save('discharge')" novalidate>
     <div class="panel form-panel">
-        <form name="patientForm" ng-submit="save()" novalidate>
             <div class="row">
                 <div class="col-sm-6">
                     <ccdb-form-date label="Discharge date" ng-model="patient.discharge.dischargeDateTime"></ccdb-form-date>
@@ -200,7 +198,6 @@
             </div>
 
             <button type="submit" ng-disabled="patientForm.$invalid" class="btn btn-primary">Save</button>
-        </form>
     </div>
 </form></script>
 <script type="text/ng-template" id="discharge/discharge.html">
@@ -630,7 +627,7 @@ this is the view page</script>
 <h1>New {{patient.referral.emergencyVsElective}} Referral:</h1>
 <div class="divider"></div>
 
-<form name="patientForm" ng-submit="save()" novalidate autocomplete="off" >
+<form name="patientForm" ng-submit="save('referral')" novalidate autocomplete="off" >
 
     <uib-tabset active="activeForm">
         <uib-tab index="0">

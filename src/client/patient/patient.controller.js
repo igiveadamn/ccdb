@@ -106,7 +106,11 @@ angular.module('ccdb.patient.controller', ['ngRoute', 'ccdb.patient.service', 'c
     return $location.path('/editPatient/' + $scope.patient._id).hash('Patient details');
   };
 
-  $scope.save = function () {
+  $scope.save = function (formName) {
+    if (!$scope.patient[formName].entryDateTime) {
+      $scope.patient[formName].entryDateTime = new Date();
+    }
+
     PatientService.save($scope.patient)
     .then(function (patient) {
       $location.path('/dashboard');

@@ -44,7 +44,7 @@ var score = {
 };
 
 var admission = {
-    admissionEntryDateTime: Date,
+    entryDateTime: Date,
     admissionDateTime: Date,
     surgeryDateTime: Date,
     operativeDetails: String,
@@ -88,6 +88,7 @@ var admission = {
 };
 
 var referral = {
+    entryDateTime: Date,
     emergencyVsElective: String,
     referringHospital: String,
     referralHospital:String,
@@ -95,7 +96,6 @@ var referral = {
     icuConsultant: String,
     firstAdmittedDateTime: Date,
     referralDateTime: Date,
-    entryDateTime: Date,
     baseDisciplineReferring: String,
     timePatientSeenByICU: String,
     operativeStatusAtTimeOfReferral: String,
@@ -137,6 +137,7 @@ var referral = {
 };
 
 var discharge = {
+    entryDateTime: Date,
     status: String,
     dischargeDateTime: Date,
     comments: String
