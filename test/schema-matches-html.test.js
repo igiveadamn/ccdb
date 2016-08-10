@@ -64,16 +64,16 @@ function extractAttributePaths(htmlAsJson) {
             } else if (formElement.$['NG-MODEL']) {
               attributePaths.push(formElement.$['NG-MODEL']);
             }
-          })
+          });
         } else {
           throw new Error('Did not expect ccdb-form-xxx to not be an array');
         }
       }
 
-      value.constructor === Array ? _.forEach(value, function (v) {
-        iter(v)
+      return value.constructor === Array ? _.forEach(value, function (v) {
+        iter(v);
       }) : iter(value);
-    })
+    });
   }
 
   iter(htmlAsJson);
