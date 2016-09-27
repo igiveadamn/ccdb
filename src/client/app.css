@@ -184,3 +184,31 @@ select.ng-invalid {
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
   border: none;
 }
+
+@media print {
+    .nav {
+        display: none !important;
+    }
+
+    .tab-content > .tab-pane {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    .form-group > input.form-control {
+        float: right;
+        width: 33%;
+        padding: 0;
+        border-style: none;
+    }
+
+    .form-group > select.form-control {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        float: right;
+        width: 33%;
+        padding: 0;
+        border-style: none;
+    }
+}
