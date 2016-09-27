@@ -7,7 +7,14 @@ var IGNORED_FIELDS = ['_id', '__v'];
 
 var patientsHandler = function (dbConn) {
   return function (req, res) {
-    var cursor = dbConn.collection('patients').find({}).stream({ transform: JSON.stringify });
+    var filter = {};
+    if (req.role === 'hospital-administrator') {
+      if (!req.hospital) {
+        res.status(403).json({ 'status': 403, 'message': 'Not Authorized' });
+      }
+      filter.hospital = req.hospital;
+    }
+    var cursor = dbConn.collection('patients').find(filter).stream({ transform: JSON.stringify });
     var columns = _.filter(_.keys(schema.patientSchema.paths), function (k) {
       return !contains(IGNORED_FIELDS, k);
     });

@@ -70,7 +70,8 @@ angular.module('ccdb.user.controller', ['ngRoute', 'ccdb.user.service', 'ccdb.ut
         ];
 
         $scope.roles = [
-            'admin'
+            'admin',
+            'hospital-administrator'
         ];
     })
 ;

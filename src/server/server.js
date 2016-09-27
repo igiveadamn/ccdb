@@ -55,14 +55,14 @@ app.get('/api/patient/patient', patient.single);
 app.post('/api/patient/patient', patient.save);
 
 //routes that can be accessed only by authenticated & authorised users
-app.all('/api/user/*', [require('./middlewares/authenticate'), require('./middlewares/authorise')]);
+app.all('/api/user/*', [require('./middlewares/authenticate'), require('./middlewares/authorise')()]);
 app.get('/api/user/users', user.list);
 app.get('/api/user/user', user.single);
 app.post('/api/user/user', user.save);
 
 // Download - admin only (authenticated & authorised users)
 // TODO: fix authentication for non JS => API calls
-app.all('/downloads/*', [require('./middlewares/authenticate'), require('./middlewares/authorise')]);
+app.all('/downloads/*', [require('./middlewares/authenticate'), require('./middlewares/localise'), require('./middlewares/authorise')('hospital-administrator')]);
 app.get('/downloads/csv/patients', require('./csv-export/req-handler').patientsHandler(mongoose.connection));
 // app.get('/downloads/csv/scores', require('./csv-export/req-handler').scoresHandler(mongoose.connection));
 
