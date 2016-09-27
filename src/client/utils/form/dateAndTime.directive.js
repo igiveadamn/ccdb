@@ -1,15 +1,5 @@
-angular.module('ccdb.utils.form.dateAndTime.directive', [])
-
-    .directive('ccdbFormDateAndTime', function () {
-
-        function range(a, z) {
-            var list = [];
-            for (; a <= z; a++) {
-                list.push(a);
-            }
-            return list;
-        }
-
+angular.module('ccdb.utils.form.dateAndTime.directive', ['ccdb.utils.form.date.helper'])
+    .directive('ccdbFormDateAndTime', function (dateHelper) {
         return {
             restrict: 'E',
             templateUrl: 'utils/form/dateAndTime.html',
@@ -19,53 +9,14 @@ angular.module('ccdb.utils.form.dateAndTime.directive', [])
             },
 
             link: function (scope, element, attrs, ngModel) {
+              ngModel.$render = dateHelper.dateTimeRender(ngModel, scope);
+              scope.modelChanged = dateHelper.dateTimeModelChanged(ngModel, scope);
 
-                // also need a directive that will set a related date field when another field gets a first value
-                // e.g. first admitted date.
-
-                ngModel.$render = function () {
-                    var modelValue = ngModel.$modelValue;
-                    if (modelValue) {
-                        scope.date = moment(modelValue).date();
-                        scope.month = moment(modelValue).month();
-                        scope.year = moment(modelValue).year();
-                        scope.hour = moment(modelValue).hour();
-                        scope.minute = moment(modelValue).minute();
-                    }
-                };
-
-                scope.modelChanged = function (value) {
-                    if (value) {
-                        value = moment();
-                        ngModel.$setViewValue(value);
-                        ngModel.$render();
-                    } else {
-                        ngModel.$setViewValue(moment().date(scope.date).month(scope.month).year(scope.year).hour(scope.hour).minute(scope.minute).format());
-                    }
-                };
-
-                scope.dates = range(1, 31);
-
-                scope.months = [
-                    {key: 0, value: 'January'},
-                    {key: 1, value: 'February'},
-                    {key: 2, value: 'March'},
-                    {key: 3, value: 'April'},
-                    {key: 4, value: 'May'},
-                    {key: 5, value: 'June'},
-                    {key: 6, value: 'July'},
-                    {key: 7, value: 'August'},
-                    {key: 8, value: 'September'},
-                    {key: 9, value: 'October'},
-                    {key: 10, value: 'November'},
-                    {key: 11, value: 'December'}
-                ];
-
-                scope.years = range(1910, 2020);
-
-                scope.hours = range(0, 23);
-
-                scope.minutes = range(0, 59);
+              scope.dates = dateHelper.dates;
+              scope.months = dateHelper.months;
+              scope.years = dateHelper.years;
+              scope.hours = dateHelper.hours;
+              scope.minutes = dateHelper.minutes;
             }
         };
     })
