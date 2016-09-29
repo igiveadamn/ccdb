@@ -186,14 +186,42 @@ select.ng-invalid {
 }
 
 @media print {
+    body:before {
+        content: 'SHEILD';
+        font-size: xx-large;
+    }
+
+    body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container-fluid {
+        padding-left: 0px;
+    }
+
+    .container-fluid h1 {
+        display: none !important;
+    }
+
+    .panel {
+        padding: 0px;
+    }
+
     .nav {
         display: none !important;
     }
 
     .tab-content > .tab-pane {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2 !important;
         display: block !important;
         opacity: 1 !important;
         visibility: visible !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
     .form-group > input.form-control {
@@ -203,12 +231,15 @@ select.ng-invalid {
         border-style: none;
     }
 
-    .form-group > select.form-control {
+    select {
         -webkit-appearance: none;
         -moz-appearance: none;
         float: right;
         width: 33%;
         padding: 0;
-        border-style: none;
+        border-style: none !important;
     }
-}
+
+    a.btn {
+        display: none !important;
+    }
