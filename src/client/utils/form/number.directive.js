@@ -9,7 +9,8 @@ angular.module('ccdb.utils.form.number.directive', ['ccdb.patient.service', 'ui.
                 label: '@',
                 placeholder: '@',
                 value: '=',
-                noSuggestions: '@'
+                noSuggestions: '@',
+                required: '='
             }
         };
     }

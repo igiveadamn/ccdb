@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 var score = {
+    allValuesNotAvailable: Boolean,
     airway: String,
     albumin: String,
     baseExcess: String,

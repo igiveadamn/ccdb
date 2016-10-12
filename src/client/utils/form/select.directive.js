@@ -9,7 +9,8 @@ angular.module('ccdb.utils.form.select.directive', [])
                 label: '@',
                 options: '=',
                 value: '=',
-                optional: '@'
+                optional: '=',
+                required: '='
             }
         };
     });
