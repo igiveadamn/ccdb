@@ -197,6 +197,10 @@ select.ng-invalid {
         padding: 0;
     }
 
+    body label {
+        line-height: 1 !important;
+    }
+
     .container-fluid {
         padding-left: 0px;
     }
@@ -214,9 +218,6 @@ select.ng-invalid {
     }
 
     .tab-content > .tab-pane {
-        -webkit-column-count: 2;
-        -moz-column-count: 2;
-        column-count: 2 !important;
         display: block !important;
         opacity: 1 !important;
         visibility: visible !important;
@@ -224,23 +225,27 @@ select.ng-invalid {
         padding: 0 !important;
     }
 
+    .form-group {
+        margin-bottom: 0;
+    }
+
     .form-group > input.form-control {
         float: right;
         width: 33%;
-        padding: 0;
         border-style: none;
+        height: 0;
     }
 
-    select {
+    .form-group > select.form-control {
         -webkit-appearance: none;
         -moz-appearance: none;
-        float: right;
         width: 33%;
         padding: 0;
         border-style: none !important;
+        float: right;
     }
 
-    a.btn {
-        display: none !important;
+    a > .btn, .btn-xs {
+        visibility: hidden;
     }
 }
