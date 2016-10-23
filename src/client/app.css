@@ -197,10 +197,6 @@ select.ng-invalid {
         padding: 0;
     }
 
-    body label {
-        line-height: 1 !important;
-    }
-
     .container-fluid {
         padding-left: 0px;
     }
@@ -226,26 +222,45 @@ select.ng-invalid {
     }
 
     .form-group {
-        margin-bottom: 0;
+        display: inline-block;
+        border-bottom: solid !important;
+        border-width: thin !important;
+        border-color: #798d8f !important;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        width: 100%
     }
 
     .form-group > input.form-control {
         float: right;
         width: 33%;
         border-style: none;
-        height: 0;
+        height: 20px;
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+    }
+
+    .form-group > label{
+        font-weight: normal !important;
+        margin-bottom: 0px;
     }
 
     .form-group > select.form-control {
         -webkit-appearance: none;
         -moz-appearance: none;
         width: 33%;
-        padding: 0;
+        padding-top: 0px;
+        padding-bottom: 0px !important;
         border-style: none !important;
         float: right;
+        height: 20px;
     }
 
     a > .btn, .btn-xs {
+        visibility: hidden;
+    }
+
+    button {
         visibility: hidden;
     }
 }
