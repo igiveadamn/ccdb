@@ -828,11 +828,13 @@ low
 <script type="text/ng-template" id="utils/form/multiselect.html">
 <div class="form-group">
     <label>{{ label }}</label>
-    <div class="checkbox" ng-repeat="option in options">
-        <label >
-            <input type="checkbox" checklist-model="value" checklist-value="option"/>{{option}}
-        </label>
-    </div>
+    <div class="form-multiselect-options">
+        <div class="checkbox" ng-repeat="option in options">
+            <label >
+                <input type="checkbox" checklist-model="value" checklist-value="option"/>{{option}}
+            </label>
+        </div>
+    <div>
 </div>
 </script>
 <script type="text/ng-template" id="utils/form/number.html">

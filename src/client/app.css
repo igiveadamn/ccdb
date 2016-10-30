@@ -195,6 +195,7 @@ select.ng-invalid {
         width: 100%;
         margin: 0;
         padding: 0;
+        overflow: visible !important;
     }
 
     .container-fluid {
@@ -219,6 +220,7 @@ select.ng-invalid {
         visibility: visible !important;
         margin: 0 !important;
         padding: 0 !important;
+        page-break-after: auto;
     }
 
     .form-group {
@@ -228,7 +230,7 @@ select.ng-invalid {
         border-color: #798d8f !important;
         margin-right: 0px;
         margin-bottom: 0px;
-        width: 100%
+        width: 100%;
     }
 
     .form-group > input.form-control {
@@ -240,9 +242,17 @@ select.ng-invalid {
         padding-bottom: 0px !important;
     }
 
-    .form-group > label{
+    .form-group > label {
         font-weight: normal !important;
         margin-bottom: 0px;
+    }
+
+    #right-label {
+        float: right;
+    }
+
+    .form-group, select {
+        border: none;
     }
 
     .form-group > select.form-control {
@@ -257,10 +267,27 @@ select.ng-invalid {
     }
 
     a > .btn, .btn-xs {
-        visibility: hidden;
+        display: none;
     }
 
     button {
         visibility: hidden;
+    }
+
+    textarea {
+        -webkit-box-shadow: none !important;
+        -moz-box-shadow: none !important;
+        border: none !important;
+        overflow: auto !important;
+        outline: none !important;
+        box-shadow: none !important;
+        resize: none !important;
+        min-height: 500px;
+    }
+
+    .form-multiselect-options {
+        -webkit-column-count: 2;
+        column-count: 2;
+        vertical-align: top;
     }
 }
