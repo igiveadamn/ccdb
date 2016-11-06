@@ -423,6 +423,7 @@ this is the view page</script>
 <script type="text/ng-template" id="referral/emergency/assessment.form.html">
 <ng-form name="emergencyAssessmentForm">
     <div class="panel form-panel">
+        <h1 class="form-print-heading">Assessment</h1>
         <div class="row">
             <div class="col-sm-6">
                 <ccdb-form-textarea label="History" value="patient.referral.history"></ccdb-form-textarea>
@@ -437,6 +438,7 @@ this is the view page</script>
 <script type="text/ng-template" id="referral/emergency/decision.form.html">
 <ng-form name="emergencyDecisionForm">
     <div class="panel form-panel">
+        <h1 class="form-print-heading">Decision</h1>
         <div class="row">
             <div class="col-sm-6">
                 <ccdb-form-select label="SCCM" options="sCCM" value="patient.referral.sccmScore"></ccdb-form-select>
@@ -452,6 +454,7 @@ this is the view page</script>
 <script type="text/ng-template" id="referral/emergency/outcome.form.html">
 <ng-form name="emergencyOutcomeForm">
     <div class="panel form-panel">
+        <h1 class="form-print-heading">Outcome</h1>
         <div class="row">
             <div class="col-sm-6">
                 <ccdb-form-date-and-time label="Outcome entry time and date" ng-model="patient.referral.outcomeEntryDateTime"></ccdb-form-date-and-time>
@@ -471,6 +474,7 @@ this is the view page</script>
 <script type="text/ng-template" id="referral/emergency/referral.details.form.html">
 <ng-form name="emergencyReferralDetailsForm">
     <div class="panel form-panel">
+        <h1 class="form-print-heading">Referral Details</h1>
         <div class="row">
             <div class="col-sm-6"><!-- the time the ICU hears about the patient  -->
                 <ccdb-form-date label="Referral date" ng-model="patient.referral.referralDateTime"></ccdb-form-date>
@@ -494,6 +498,7 @@ this is the view page</script>
 <script type="text/ng-template" id="referral/emergency/referral.form.html">
 <ng-form name="emergencyReferralForm">
     <div class="panel form-panel">
+        <h1 class="form-print-heading">Referral</h1>
         <div class="row">
             <div class="col-sm-6">
                 <ccdb-form-multiselect label="Reason of referral to ICU" options="reasonOfReferralToICU" value="patient.referral.reasonOfReferralToICU"></ccdb-form-multiselect>
@@ -521,7 +526,7 @@ this is the view page</script>
     <uib-tabset active="activeForm">
         <uib-tab index="0">
             <uib-tab-heading>
-                Patient details
+                Patient Details
                 <i ng-class="(patientForm.referralPatientDetailsForm.$invalid)
                    ? 'glyphicon glyphicon-exclamation-sign red'
                    : 'glyphicon glyphicon-ok-sign green'">
@@ -636,6 +641,7 @@ this is the view page</script>
 <script type="text/ng-template" id="referral/referral.patient.details.form.html">
 <ng-form name="referralPatientDetailsForm">
     <div class="panel form-panel">
+        <h1 class="form-print-heading">Patient Details</h1>
         <div class="row">
             <div class="col-sm-6">
                 <ccdb-form-text label="Last name" value="patient.lastName"></ccdb-form-text>
@@ -691,6 +697,7 @@ this is the view page</script>
 </div></script>
 <script type="text/ng-template" id="score/score.form.html">
 <div class="panel form-panel">
+    <h1 class="form-print-heading">Vitals and Results</h1>
     <div class="row">
         <div class="col-sm-6">
             <div class="form-group"><span class="pull-right">Not all values are available <input type="checkbox" ng-model="score.allValuesNotAvailable"></span></div>

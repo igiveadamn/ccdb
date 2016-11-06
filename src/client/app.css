@@ -12,6 +12,10 @@ body h1:first-child {
     margin-right: 30px;
 }
 
+.form-print-heading {
+    display: none;
+}
+
 .form-panel {
     padding: 9.5px;
     border-radius: 0;
@@ -220,7 +224,7 @@ select.ng-invalid {
         visibility: visible !important;
         margin: 0 !important;
         padding: 0 !important;
-        page-break-after: auto;
+        page-break-inside:avoid !important;
     }
 
     .form-group {
@@ -289,5 +293,12 @@ select.ng-invalid {
         -webkit-column-count: 2;
         column-count: 2;
         vertical-align: top;
+    }
+
+    .container-fluid .form-print-heading {
+        display: block !important;
+        font-size: large;
+        page-break-before: auto !important;
+        page-break-after: avoid !important;
     }
 }
