@@ -243,7 +243,7 @@ select.ng-invalid {
 
     .form-group > input.form-control {
         float: right;
-        width: 46%;
+        width: 45%;
         border-style: none;
         height: 20px;
         padding-top: 0px !important;
@@ -266,7 +266,7 @@ select.ng-invalid {
     .form-group > select.form-control {
         -webkit-appearance: none;
         -moz-appearance: none;
-        width:46%;
+        width:45%;
         padding-top: 0px;
         padding-bottom: 0px !important;
         border-style: none !important;
@@ -315,7 +315,7 @@ select.ng-invalid {
     }
 
     .form-date {
-        width: 45%;
+        width: 44%;
     }
 
     .form-date-month {
@@ -327,7 +327,7 @@ select.ng-invalid {
     }
 
     .form-dateAndTime {
-        width: 45%;
+        width: 44%;
     }
 
     .form-dateAndTime-label {
