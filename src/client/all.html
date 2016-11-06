@@ -809,8 +809,9 @@ low
 <script type="text/ng-template" id="utils/form/date.html">
 <div class="form-group">
     <label for="right-label">{{ label }}</label>
-    <div id="right-label" ><select ng-model="date" ng-change="modelChanged()" ng-options="d as d for d in dates" required ></select>
-        <select ng-model="month" ng-change="modelChanged()" ng-options="m.key as m.value for m in months" required ></select>
+    <div id="right-label" class="form-date" >
+        <select class="form-date-day" ng-model="date" ng-change="modelChanged()" ng-options="d as d for d in dates" required ></select>
+        <select class="form-date-month" ng-model="month" ng-change="modelChanged()" ng-options="m.key as m.value for m in months" required ></select>
         <select ng-model="year" ng-change="modelChanged()" ng-options="y as y for y in years" required ></select>
 
         <a class="btn btn-default btn-xs noselect" ng-click="modelChanged(true)">now</a>
@@ -820,14 +821,15 @@ low
 <script type="text/ng-template" id="utils/form/dateAndTime.html">
 <div class="form-group">
     <label for="right-label">{{ label }}</label>
-    <div id="right-label">
-        Date
-        <select ng-model="date" ng-change="modelChanged()" ng-options="d as d for d in dates" required></select>
-        <select ng-model="month" ng-change="modelChanged()" ng-options="m.key as m.value for m in months" required></select>
-        <select ng-model="year" ng-change="modelChanged()" ng-options="y as y for y in years" required></select>
-        Time
-        <select ng-model="hour" ng-change="modelChanged()" ng-options="h as h for h in hours" required></select>
-        <select ng-model="minute" ng-change="modelChanged()" ng-options="m as m for m in minutes" required></select>
+    <div id="right-label" class="form-dateAndTime">
+        <p class="form-dateAndTime-label">Time</p>
+        <select class="form-dateAndTime-hour" ng-model="hour" ng-change="modelChanged()" ng-options="h as h for h in hours" required></select>
+        <p class="form-dateAndTime-colon"> :</p>
+        <select class="form-dateAndTime-minute"ng-model="minute" ng-change="modelChanged()" ng-options="m as m for m in minutes" required></select>
+        <p class="form-dateAndTime-label">Date</p>
+        <select class="form-dateAndTime-day" ng-model="date" ng-change="modelChanged()" ng-options="d as d for d in dates" required></select>
+        <select class="form-dateAndTime-month" ng-model="month" ng-change="modelChanged()" ng-options="m.key as m.value for m in months" required></select>
+        <select class="form-dateAndTime-year" ng-model="year" ng-change="modelChanged()" ng-options="y as y for y in years" required></select>
         <a class="btn btn-default btn-xs noselect" ng-click="modelChanged(true)">now</a>
     </div>
 </div>

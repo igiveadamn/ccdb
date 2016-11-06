@@ -16,6 +16,10 @@ body h1:first-child {
     display: none;
 }
 
+.form-dateAndTime-colon {
+    display: none;
+}
+
 .form-panel {
     padding: 9.5px;
     border-radius: 0;
@@ -287,6 +291,7 @@ select.ng-invalid {
         box-shadow: none !important;
         resize: none !important;
         min-height: 500px;
+        padding-left: 0px !important;
     }
 
     .form-multiselect-label {
@@ -307,5 +312,51 @@ select.ng-invalid {
         font-size: large;
         page-break-before: auto !important;
         page-break-after: avoid !important;
+    }
+
+    .form-date {
+        width: 45%;
+    }
+
+    .form-date-month {
+        margin-right: -20px;
+    }
+
+    .form-date-day {
+        margin-right: -15px;
+    }
+
+    .form-dateAndTime {
+        width: 45%;
+    }
+
+    .form-dateAndTime-label {
+        display: none;
+    }
+
+    .form-dateAndTime-day {
+        margin-right: -15px;
+    }
+
+    .form-dateAndTime-month {
+        margin-right: -20px;
+    }
+
+    .form-dateAndTime-hour {
+        margin-right: -25px;
+    }
+
+    .form-dateAndTime-minute::before {
+        content: 'Charlie';
+    }
+
+    .form-dateAndTime-minute {
+        margin-left: -6px;
+    }
+
+    .form-dateAndTime-colon {
+        font-weight: bold;
+        display: inline;
+        padding-left: 3px;
     }
 }
