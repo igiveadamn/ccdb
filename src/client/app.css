@@ -239,7 +239,7 @@ select.ng-invalid {
 
     .form-group > input.form-control {
         float: right;
-        width: 33%;
+        width: 46%;
         border-style: none;
         height: 20px;
         padding-top: 0px !important;
@@ -247,11 +247,11 @@ select.ng-invalid {
     }
 
     .form-group > label {
-        font-weight: normal !important;
         margin-bottom: 0px;
     }
 
     #right-label {
+        page-break-before: avoid !important;
         float: right;
     }
 
@@ -262,7 +262,7 @@ select.ng-invalid {
     .form-group > select.form-control {
         -webkit-appearance: none;
         -moz-appearance: none;
-        width: 33%;
+        width:46%;
         padding-top: 0px;
         padding-bottom: 0px !important;
         border-style: none !important;
@@ -289,10 +289,17 @@ select.ng-invalid {
         min-height: 500px;
     }
 
+    .form-multiselect-label {
+        padding-top: 5px;
+    }
+
     .form-multiselect-options {
         -webkit-column-count: 2;
         column-count: 2;
         vertical-align: top;
+        padding-bottom: 10px;
+        margin-top: -5px;
+        margin-right: -10%;
     }
 
     .container-fluid .form-print-heading {
