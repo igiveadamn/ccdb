@@ -68,22 +68,13 @@ angular.module('ccdb.patient.controller', ['ngRoute', 'ccdb.patient.service', 'c
   var patientId = $routeParams.patientId || 'new';
   var referralType = $routeParams.type;
 
-  function initialiseScores() {
-    // referral (subset of values)
-    // admission (subset of values)
-    // 2 scores together after 24 hours (for an APACHE score)
-    return [
-      {notes: 'Referral Score'},
-      {notes: 'Admission Score'},
-      {notes: 'Apache Score Low'},
-      {notes: 'Apache Score High'}
-    ];
-  }
-
   function initialisePatient(patient) {
-    patient.referral = patient.referral || {};
+    patient.referral = patient.referral || { comorbidities: [], diagnosis: [], reasonOfReferralToICU: [] };
     patient.admission = patient.admission || {};
-    patient.scores = patient.scores || initialiseScores();
+    patient.referralScore = patient.referralScore || {};
+    patient.admissionScore = patient.admissionScore || {};
+    patient.apacheHi = patient.apacheHi || {};
+    patient.apacheLow = patient.apacheLow || {};
     patient.discharge = patient.discharge || {};
     return patient;
   }
