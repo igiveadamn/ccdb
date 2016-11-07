@@ -243,7 +243,7 @@ select.ng-invalid {
 
     .form-group > input.form-control {
         float: right;
-        width: 45%;
+        width: 46%;
         border-style: none;
         height: 20px;
         padding-top: 0px !important;
@@ -266,8 +266,11 @@ select.ng-invalid {
     .form-group > select.form-control {
         -webkit-appearance: none;
         -moz-appearance: none;
+        text-indent: 1px;
+        text-overflow: '';
         width:45%;
         padding-top: 0px;
+        padding-left: 4px;
         padding-bottom: 0px !important;
         border-style: none !important;
         float: right;
@@ -315,15 +318,24 @@ select.ng-invalid {
     }
 
     .form-date {
-        width: 44%;
+        width: 45%;
+        padding-left: 4px;
     }
 
     .form-date-month {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        margin-right: -20px;
+    }
+    .form-date-year {
+        -webkit-appearance: none;
+        -moz-appearance: none;
         margin-right: -20px;
     }
 
     .form-date-day {
-        margin-right: -15px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
     }
 
     .form-dateAndTime {
@@ -335,28 +347,40 @@ select.ng-invalid {
     }
 
     .form-dateAndTime-day {
-        margin-right: -15px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        margin-right: 0px;
     }
 
     .form-dateAndTime-month {
-        margin-right: -20px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        margin-right: -6px;
     }
 
     .form-dateAndTime-hour {
-        margin-right: -25px;
-    }
-
-    .form-dateAndTime-minute::before {
-        content: 'Charlie';
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        margin-right: -6px;
     }
 
     .form-dateAndTime-minute {
+        -webkit-appearance: none;
+        -moz-appearance: none;
         margin-left: -6px;
+        padding-right: 1px;
+    }
+
+    .form-dateAndTime-year {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        margin-left: -8px;
     }
 
     .form-dateAndTime-colon {
         font-weight: bold;
         display: inline;
         padding-left: 3px;
+        padding-right: 3px;
     }
 }

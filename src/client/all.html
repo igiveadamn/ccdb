@@ -812,7 +812,7 @@ low
     <div id="right-label" class="form-date" >
         <select class="form-date-day" ng-model="date" ng-change="modelChanged()" ng-options="d as d for d in dates" required ></select>
         <select class="form-date-month" ng-model="month" ng-change="modelChanged()" ng-options="m.key as m.value for m in months" required ></select>
-        <select ng-model="year" ng-change="modelChanged()" ng-options="y as y for y in years" required ></select>
+        <select  class="form-date-year" ng-model="year" ng-change="modelChanged()" ng-options="y as y for y in years" required ></select>
 
         <a class="btn btn-default btn-xs noselect" ng-click="modelChanged(true)">now</a>
     </div>
