@@ -120,7 +120,7 @@ var referral = {
     referringHospital: String,
     revisedScccm: String,
     sccmScore: String,
-    timePatientSeenByICU: String,
+    timePatientSeenByICU: Date,
     unitTransferredToIfTransferred: String,
     wasThisPatientInIcuInThePrevious48Hours: String
 };
