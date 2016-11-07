@@ -105,7 +105,7 @@ var referral = {
     ifAcceptedAnyDelay: String,
     levelOfCareRequired: String,
     managementPlan: String,
-    numberOfDaysInHospital: String,
+    numberOfDaysInHospital: Number,
     operativeStatusAtTimeOfReferral: String,
     outcomeEntryDateTime: Date,
     patientCurrentlyVentilated: String,
