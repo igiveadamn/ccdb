@@ -1,0 +1,7 @@
+<form name="patientForm" ng-submit="save()" novalidate>
+
+    <ccdb-apache-form patient="patient"></ccdb-apache-form>
+
+    <button type="submit" ng-disabled="patientForm.$invalid" class="btn btn-primary">Save</button>
+
+</form>

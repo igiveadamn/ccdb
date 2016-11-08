@@ -1,0 +1,19 @@
+<div class="form-group">
+    <label for="right-label">{{ label }}</label>
+    <input type="number"
+           class="form-control"
+           id="left-label"
+           placeholder="{{ placeholder }}"
+           ng-model="$parent.patient.apacheLow[field]"
+           ng-required="required"
+           autocomplete="off"
+    >
+    <input type="number"
+           class="form-control"
+           id="right-label"
+           placeholder="{{ placeholder }}"
+           ng-model="$parent.patient.apacheHigh[field]"
+           ng-required="required"
+           autocomplete="off"
+    >
+</div>

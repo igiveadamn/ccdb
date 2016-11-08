@@ -1,0 +1,9 @@
+<div class="form-group">
+    <label for="right-label">{{ label }}</label>
+    <select id="left-label" class="form-control" ng-model="$parent.patient.apacheLow[field]" ng-required="required==true || (required==undefined && !optional)">
+    <option ng-repeat="option in options">{{ option }}</option>
+    </select>
+    <select id="right-label" class="form-control" ng-model="$parent.patient.apacheHigh[field]" ng-required="required==true || (required==undefined && !optional)">
+    <option ng-repeat="option in options">{{ option }}</option>
+    </select>
+</div>

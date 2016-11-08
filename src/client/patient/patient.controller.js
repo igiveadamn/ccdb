@@ -44,7 +44,7 @@ angular.module('ccdb.patient.controller', ['ngRoute', 'ccdb.patient.service', 'c
   $routeProvider.when(
   '/scorePatient/:patientId',
   {
-    templateUrl: 'score/score.html',
+    templateUrl: 'apache/apache.html',
     controller: 'PatientController',
     access: {
       requiredLogin: true
@@ -73,8 +73,8 @@ angular.module('ccdb.patient.controller', ['ngRoute', 'ccdb.patient.service', 'c
     patient.admission = patient.admission || {};
     patient.referralScore = patient.referralScore || {};
     patient.admissionScore = patient.admissionScore || {};
-    patient.apacheHi = patient.apacheHi || {};
     patient.apacheLow = patient.apacheLow || {};
+    patient.apacheHigh = patient.apacheHigh || {};
     patient.discharge = patient.discharge || {};
     return patient;
   }
@@ -98,7 +98,7 @@ angular.module('ccdb.patient.controller', ['ngRoute', 'ccdb.patient.service', 'c
   };
 
   $scope.save = function (formName) {
-    if (!$scope.patient[formName].entryDateTime) {
+    if (formName && !$scope.patient[formName].entryDateTime) {
       $scope.patient[formName].entryDateTime = new Date();
     }
 

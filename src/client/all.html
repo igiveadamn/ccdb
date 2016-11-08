@@ -152,6 +152,217 @@
     </div>
 </ng-form>
 </script>
+<script type="text/ng-template" id="apache/apache.form.html">
+<div class="panel form-panel">
+    <h1 class="form-print-heading">Apache Score</h1>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <span class="pull-right">Not all values are available <input type="checkbox" ng-model="allValuesNotAvailable"></span>
+            </div>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Temperature"
+                    placeholder="&deg;C"
+                    field="temperature"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Systolic blood pressure"
+                    placeholder="mm Hg"
+                    field="systolicPressure"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Diastolic blood pressure"
+                    placeholder="mm Hg"
+                    field="diastolicPressure"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Heart rate"
+                    placeholder="beats/minute"
+                    field="heartRate"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Respiratory heart rate"
+                    placeholder="breaths/minute"
+                    field="respiratoryRate"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Urine output volume"
+                    placeholder="mls"
+                    field="urineOutput"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Urine output hours"
+                    placeholder="hrs"
+                    field="urineOutputHours"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Glucose"
+                    placeholder="mmol/L"
+                    field="glucose"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-select
+                    required="!allValuesNotAvailable"
+                    label="Eye opening"
+                    options="$parent.eyeOpening"
+                    field="eyeOpening"
+            ></ccdb-form-apache-select>
+            <ccdb-form-apache-select
+                    required="!allValuesNotAvailable"
+                    label="Verbal response"
+                    options="$parent.verbalResponse"
+                    field="verbalResponse"
+            ></ccdb-form-apache-select>
+            <ccdb-form-apache-select
+                    required="!allValuesNotAvailable"
+                    label="Motor response"
+                    options="$parent.motorResponse"
+                    field="motorResponse"
+            ></ccdb-form-apache-select>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Glasgow coma scale"
+                    field="glasgowComaScale"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Pupils"
+                    field="pupils"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Ventilated"
+                    field="ventilated"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Thrombolytic therapy"
+                    field="thrombolyticTherapy"
+            ></ccdb-form-apache-number>
+        </div>
+        <div class="col-sm-6">
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Haematocrit"
+                    placeholder="%"
+                    field="haematocrit"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="WBC"
+                    placeholder="x103/mm3"
+                    field="wBC"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Sodium"
+                    placeholder="mEq/L"
+                    field="sodium"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Potassium"
+                    placeholder="mEq/L"
+                    field="potassium"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Corr Calcium"
+                    placeholder="mmol/l"
+                    field="corrCalcium"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Urea"
+                    placeholder="mmol/l"
+                    field="urea"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Creatinine"
+                    placeholder="mg/dL"
+                    field="creatinine"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Albumin"
+                    placeholder="g/l"
+                    field="albumin"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Bilirubin"
+                    placeholder="umol/l"
+                    field="bilirubin"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Glucose"
+                    placeholder="mmol/L"
+                    field="glucose"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="INR"
+                    field="iNR"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="FiO2"
+                    placeholder="%"
+                    field="fiO2"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="PH"
+                    field="pH"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="pO2"
+                    placeholder="kPa OR mmHg"
+                    field="pO2"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="PCO2"
+                    placeholder="kPa"
+                    field="pCO2"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Lactate"
+                    field="lactate"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="HCO3"
+                    placeholder="mEq/L"
+                    field="hCO3"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Base excess"
+                    field="baseExcess"
+            ></ccdb-form-apache-number>
+        </div>
+    </div>
+</div></script>
+<script type="text/ng-template" id="apache/apache.html">
+<form name="patientForm" ng-submit="save()" novalidate>
+
+    <ccdb-apache-form patient="patient"></ccdb-apache-form>
+
+    <button type="submit" ng-disabled="patientForm.$invalid" class="btn btn-primary">Save</button>
+
+</form></script>
 <script type="text/ng-template" id="dashboard/dashboard.html">
 <div class="row">
   <div class="col-md-6">
@@ -746,12 +957,6 @@ this is the view page</script>
         </div>
     </div>
 </div></script>
-<script type="text/ng-template" id="score/score.html">
-<!-- next we need to create a special layout for side-by-side apache high-low scores -->
-high
-<ccdb-score-form score="patient.scores[2]" apache="true"></ccdb-score-form>
-low
-<ccdb-score-form score="patient.scores[3]" apache="true"></ccdb-score-form></script>
 <script type="text/ng-template" id="search/search.html">
 <h1>Find patient</h1>
 <div class="divider"></div>
@@ -805,6 +1010,38 @@ low
 </script>
 <script type="text/ng-template" id="utils/date.range.html">
 {{dateRangeService.dateRange.startDate | date : 'MMM d'}} - {{dateRangeService.dateRange.endDate | date : 'MMM d, y'}}<span class="noselect left-space"><a ng-click="dateRangeService.previous()" class="btn btn-default noselect">&lt;</a> <a ng-click="dateRangeService.next()" class="btn btn-default noselect">&gt;</a> </span>
+</script>
+<script type="text/ng-template" id="utils/form/apache.number.html">
+<div class="form-group">
+    <label for="right-label">{{ label }}</label>
+    <input type="number"
+           class="form-control"
+           id="left-label"
+           placeholder="{{ placeholder }}"
+           ng-model="$parent.patient.apacheLow[field]"
+           ng-required="required"
+           autocomplete="off"
+    >
+    <input type="number"
+           class="form-control"
+           id="right-label"
+           placeholder="{{ placeholder }}"
+           ng-model="$parent.patient.apacheHigh[field]"
+           ng-required="required"
+           autocomplete="off"
+    >
+</div>
+</script>
+<script type="text/ng-template" id="utils/form/apache.select.html">
+<div class="form-group">
+    <label for="right-label">{{ label }}</label>
+    <select id="left-label" class="form-control" ng-model="$parent.patient.apacheLow[field]" ng-required="required==true || (required==undefined && !optional)">
+    <option ng-repeat="option in options">{{ option }}</option>
+    </select>
+    <select id="right-label" class="form-control" ng-model="$parent.patient.apacheHigh[field]" ng-required="required==true || (required==undefined && !optional)">
+    <option ng-repeat="option in options">{{ option }}</option>
+    </select>
+</div>
 </script>
 <script type="text/ng-template" id="utils/form/date.html">
 <div class="form-group">

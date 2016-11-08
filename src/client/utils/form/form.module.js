@@ -1,6 +1,7 @@
 angular.module('ccdb.utils.form',
     [
-        'ccdb.score.form.directive',
+        'ccdb.utils.form.apache.number.directive',
+        'ccdb.utils.form.apache.select.directive',
         'ccdb.utils.form.date.directive',
         'ccdb.utils.form.dateAndTime.directive',
         'ccdb.utils.form.multiselect.directive',

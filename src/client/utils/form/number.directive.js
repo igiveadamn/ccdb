@@ -1,4 +1,4 @@
-angular.module('ccdb.utils.form.number.directive', ['ccdb.patient.service', 'ui.bootstrap'])
+angular.module('ccdb.utils.form.number.directive', [])
 
     .directive('ccdbFormNumber', function () {
         return {
@@ -9,7 +9,6 @@ angular.module('ccdb.utils.form.number.directive', ['ccdb.patient.service', 'ui.
                 label: '@',
                 placeholder: '@',
                 value: '=',
-                noSuggestions: '@',
                 required: '='
             }
         };

@@ -1,0 +1,202 @@
+<div class="panel form-panel">
+    <h1 class="form-print-heading">Apache Score</h1>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <span class="pull-right">Not all values are available <input type="checkbox" ng-model="allValuesNotAvailable"></span>
+            </div>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Temperature"
+                    placeholder="&deg;C"
+                    field="temperature"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Systolic blood pressure"
+                    placeholder="mm Hg"
+                    field="systolicPressure"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Diastolic blood pressure"
+                    placeholder="mm Hg"
+                    field="diastolicPressure"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Heart rate"
+                    placeholder="beats/minute"
+                    field="heartRate"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Respiratory heart rate"
+                    placeholder="breaths/minute"
+                    field="respiratoryRate"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Urine output volume"
+                    placeholder="mls"
+                    field="urineOutput"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Urine output hours"
+                    placeholder="hrs"
+                    field="urineOutputHours"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Glucose"
+                    placeholder="mmol/L"
+                    field="glucose"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-select
+                    required="!allValuesNotAvailable"
+                    label="Eye opening"
+                    options="$parent.eyeOpening"
+                    field="eyeOpening"
+            ></ccdb-form-apache-select>
+            <ccdb-form-apache-select
+                    required="!allValuesNotAvailable"
+                    label="Verbal response"
+                    options="$parent.verbalResponse"
+                    field="verbalResponse"
+            ></ccdb-form-apache-select>
+            <ccdb-form-apache-select
+                    required="!allValuesNotAvailable"
+                    label="Motor response"
+                    options="$parent.motorResponse"
+                    field="motorResponse"
+            ></ccdb-form-apache-select>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Glasgow coma scale"
+                    field="glasgowComaScale"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Pupils"
+                    field="pupils"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Ventilated"
+                    field="ventilated"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Thrombolytic therapy"
+                    field="thrombolyticTherapy"
+            ></ccdb-form-apache-number>
+        </div>
+        <div class="col-sm-6">
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Haematocrit"
+                    placeholder="%"
+                    field="haematocrit"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="WBC"
+                    placeholder="x103/mm3"
+                    field="wBC"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Sodium"
+                    placeholder="mEq/L"
+                    field="sodium"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Potassium"
+                    placeholder="mEq/L"
+                    field="potassium"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Corr Calcium"
+                    placeholder="mmol/l"
+                    field="corrCalcium"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Urea"
+                    placeholder="mmol/l"
+                    field="urea"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Creatinine"
+                    placeholder="mg/dL"
+                    field="creatinine"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Albumin"
+                    placeholder="g/l"
+                    field="albumin"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Bilirubin"
+                    placeholder="umol/l"
+                    field="bilirubin"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Glucose"
+                    placeholder="mmol/L"
+                    field="glucose"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="INR"
+                    field="iNR"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="FiO2"
+                    placeholder="%"
+                    field="fiO2"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="PH"
+                    field="pH"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="pO2"
+                    placeholder="kPa OR mmHg"
+                    field="pO2"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="PCO2"
+                    placeholder="kPa"
+                    field="pCO2"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Lactate"
+                    field="lactate"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="HCO3"
+                    placeholder="mEq/L"
+                    field="hCO3"
+            ></ccdb-form-apache-number>
+            <ccdb-form-apache-number
+                    required="!allValuesNotAvailable"
+                    label="Base excess"
+                    field="baseExcess"
+            ></ccdb-form-apache-number>
+        </div>
+    </div>
+</div>

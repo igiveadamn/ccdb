@@ -145,8 +145,8 @@ exports.patientSchema = mongoose.Schema({
     discharge: discharge,
     referralScore: score,
     admissionScore: score,
-    apacheHi: score,
-    apacheLow: score
+    apacheLow: score,
+    apacheHigh: score
 });
 
 exports.userSchema = mongoose.Schema({
