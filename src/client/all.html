@@ -2,8 +2,15 @@
 <h1>Admission</h1>
 <div class="divider"></div>
 
-<form name="patientForm" ng-submit="save('admission')" novalidate>
+<div class="from-print-heading">
+    <h2 class="form-shield-heading">SHIELD</h2>
+    <div class="form-metadata" >
+        <h5 class="form-patient-reference">{{patient.reference}}</h5>
+        <h5 class="form-hospital">{{patient.hospital}}</h5>
+    </div>
+</div>
 
+<form name="patientForm" ng-submit="save('admission')" novalidate>
     <uib-tabset active="activeForm">
         <uib-tab index="0">
             <uib-tab-heading>
@@ -28,7 +35,7 @@
         </uib-tab>
         <uib-tab index="3">
             <uib-tab-heading>
-                Operative details
+                Operative Details
                 <i ng-class="(patientForm.operativeForm.$invalid) ? 'glyphicon glyphicon-exclamation-sign red' : 'glyphicon glyphicon-ok-sign green'"></i>
             </uib-tab-heading>
             <ng-include src="'admission/operative.form.html'"></ng-include>
@@ -55,6 +62,7 @@
 <script type="text/ng-template" id="admission/admission.info.form.html">
 <ng-form name="admissionInfoForm">
     <div class="panel form-panel">
+        <h1 class="form-print-heading">Admission</h1>
         <div class="row">
             <div class="col-sm-6">
                 <ccdb-form-date label="Admission date and time" ng-model="patient.admission.admissionDateTime"></ccdb-form-date>
@@ -76,6 +84,7 @@
 <script type="text/ng-template" id="admission/history.form.html">
 <ng-form name="historyForm">
     <div class="panel form-panel">
+        <h1 class="form-print-heading">History</h1>
         <div class="row">
             <!-- show the history recorded at referral above the boxes -->
             <div class="col-sm-6">
@@ -93,6 +102,7 @@
 <script type="text/ng-template" id="admission/operative.form.html">
 <ng-form name="operativeForm">
     <div class="panel form-panel">
+        <h1 class="form-print-heading">Operative Details</h1>
         <div class="row">
             <div class="col-sm-6" ng-if="patient.referral.operativeStatusAtTimeOfReferral !== 'Not for surgery'"> <!-- if non-operative, disable and don't require the rest -->
                 <ccdb-form-date label="Date and time of surgery" ng-model="patient.admission.surgeryDateTime"></ccdb-form-date>
@@ -123,6 +133,7 @@
 <script type="text/ng-template" id="admission/plan.form.html">
 <ng-form name="planForm">
     <div class="panel form-panel">
+        <h1 class="form-print-heading">Plan</h1>
         <div class="row">
             <div class="col-sm-6">
                 <ccdb-form-text label="Airway and breathing" value="patient.admission.airwayAndBreathing"></ccdb-form-text>
@@ -143,6 +154,7 @@
 </ng-form></script>
 <script type="text/ng-template" id="admission/summary.form.html">
 <ng-form name="summaryForm">
+    <h1 class="form-print-heading">Summary</h1>
     <div class="panel form-panel">
         <div class="row">
             <div class="col-sm-6">
@@ -918,7 +930,7 @@ this is the view page</script>
     <h1 class="form-print-heading">Vitals and Results</h1>
     <div class="row">
         <div class="col-sm-6">
-            <div class="form-group"><span class="pull-right">Not all values are available <input type="checkbox" ng-model="score.allValuesNotAvailable"></span></div>
+            <div class="form-group form-print-hide"><span class="pull-right">Not all values are available <input type="checkbox" ng-model="score.allValuesNotAvailable"></span></div>
             <ccdb-form-number required="!score.allValuesNotAvailable" label="Temperature" placeholder="&deg;C" value="score.temperature"></ccdb-form-number>
             <ccdb-form-number required="!score.allValuesNotAvailable" label="Systolic blood pressure" placeholder="mm Hg" value="score.systolicPressure"></ccdb-form-number>
             <ccdb-form-number required="!score.allValuesNotAvailable" label="Diastolic blood pressure" placeholder="mm Hg" value="score.diastolicPressure"></ccdb-form-number>

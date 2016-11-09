@@ -1,8 +1,15 @@
 <h1>Admission</h1>
 <div class="divider"></div>
 
-<form name="patientForm" ng-submit="save('admission')" novalidate>
+<div class="from-print-heading">
+    <h2 class="form-shield-heading">SHIELD</h2>
+    <div class="form-metadata" >
+        <h5 class="form-patient-reference">{{patient.reference}}</h5>
+        <h5 class="form-hospital">{{patient.hospital}}</h5>
+    </div>
+</div>
 
+<form name="patientForm" ng-submit="save('admission')" novalidate>
     <uib-tabset active="activeForm">
         <uib-tab index="0">
             <uib-tab-heading>
@@ -27,7 +34,7 @@
         </uib-tab>
         <uib-tab index="3">
             <uib-tab-heading>
-                Operative details
+                Operative Details
                 <i ng-class="(patientForm.operativeForm.$invalid) ? 'glyphicon glyphicon-exclamation-sign red' : 'glyphicon glyphicon-ok-sign green'"></i>
             </uib-tab-heading>
             <ng-include src="'admission/operative.form.html'"></ng-include>

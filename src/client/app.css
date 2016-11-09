@@ -408,4 +408,8 @@ select.ng-invalid {
         padding-left: 3px;
         padding-right: 3px;
     }
+
+    .form-print-hide {
+        display: none;
+    }
 }

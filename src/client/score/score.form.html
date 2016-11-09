@@ -2,7 +2,7 @@
     <h1 class="form-print-heading">Vitals and Results</h1>
     <div class="row">
         <div class="col-sm-6">
-            <div class="form-group"><span class="pull-right">Not all values are available <input type="checkbox" ng-model="score.allValuesNotAvailable"></span></div>
+            <div class="form-group form-print-hide"><span class="pull-right">Not all values are available <input type="checkbox" ng-model="score.allValuesNotAvailable"></span></div>
             <ccdb-form-number required="!score.allValuesNotAvailable" label="Temperature" placeholder="&deg;C" value="score.temperature"></ccdb-form-number>
             <ccdb-form-number required="!score.allValuesNotAvailable" label="Systolic blood pressure" placeholder="mm Hg" value="score.systolicPressure"></ccdb-form-number>
             <ccdb-form-number required="!score.allValuesNotAvailable" label="Diastolic blood pressure" placeholder="mm Hg" value="score.diastolicPressure"></ccdb-form-number>

@@ -1,5 +1,6 @@
 <ng-form name="operativeForm">
     <div class="panel form-panel">
+        <h1 class="form-print-heading">Operative Details</h1>
         <div class="row">
             <div class="col-sm-6" ng-if="patient.referral.operativeStatusAtTimeOfReferral !== 'Not for surgery'"> <!-- if non-operative, disable and don't require the rest -->
                 <ccdb-form-date label="Date and time of surgery" ng-model="patient.admission.surgeryDateTime"></ccdb-form-date>
