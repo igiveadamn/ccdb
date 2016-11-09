@@ -262,17 +262,40 @@ select.ng-invalid {
         width: 100%;
     }
 
-    input.form-control {
-        float: right;
-        width: 46%;
-        border-style: none;
-        height: 20px;
-        padding-top: 0px !important;
-        padding-bottom: 0px !important;
-    }
-
     .form-group > label {
         margin-bottom: 0px;
+    }
+
+    .form-control {
+        float: right;
+        border-style: none;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        height: 20px;
+    }
+
+    input.form-control {
+        width:46%;
+    }
+
+    select.form-control {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-indent: 1px;
+        width:46%;
+    }
+
+    textarea.form-control {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        border: none;
+        overflow: auto;
+        outline: none;
+        box-shadow: none;
+        resize: none;
+        min-height: 500px;
+        padding-left: 0px;
+        width: 100%;
     }
 
     #right-label {
@@ -284,19 +307,6 @@ select.ng-invalid {
         border: none;
     }
 
-    select.form-control {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        text-indent: 1px;
-        text-overflow: '';
-        width:45%;
-        padding-top: 0px;
-        padding-left: 4px;
-        padding-bottom: 0px !important;
-        border-style: none !important;
-        float: right;
-        height: 20px;
-    }
 
     a > .btn, .btn-xs {
         display: none;
@@ -306,17 +316,6 @@ select.ng-invalid {
         visibility: hidden;
     }
 
-    textarea {
-        -webkit-box-shadow: none !important;
-        -moz-box-shadow: none !important;
-        border: none !important;
-        overflow: auto !important;
-        outline: none !important;
-        box-shadow: none !important;
-        resize: none !important;
-        min-height: 500px;
-        padding-left: 0px !important;
-    }
 
     .from-print-heading {
         display: block !important;
