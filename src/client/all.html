@@ -1044,9 +1044,10 @@ this is the view page</script>
 </script>
 <script type="text/ng-template" id="utils/form/apache.number.html">
 <div class="form-group">
-    <label for="right-label">{{ label }}</label>
+    <label for="right-label" class="form-adjacent-group-label">{{ label }}</label>
+    <div class="form-adjacent-group">
     <input type="number"
-           class="form-control"
+           class="form-control form-adjacent-group-align-left"
            id="left-label"
            placeholder="{{ placeholder }}"
            ng-model="$parent.patient.apacheLow[field]"
@@ -1054,24 +1055,35 @@ this is the view page</script>
            autocomplete="off"
     >
     <input type="number"
-           class="form-control"
+           class="form-control form-adjacent-group-align-right"
            id="right-label"
            placeholder="{{ placeholder }}"
            ng-model="$parent.patient.apacheHigh[field]"
            ng-required="required"
            autocomplete="off"
     >
-</div>
-</script>
+    <div>
+</div></script>
 <script type="text/ng-template" id="utils/form/apache.select.html">
 <div class="form-group">
-    <label for="right-label">{{ label }}</label>
-    <select id="left-label" class="form-control" ng-model="$parent.patient.apacheLow[field]" ng-required="required==true || (required==undefined && !optional)">
-    <option ng-repeat="option in options">{{ option }}</option>
-    </select>
-    <select id="right-label" class="form-control" ng-model="$parent.patient.apacheHigh[field]" ng-required="required==true || (required==undefined && !optional)">
-    <option ng-repeat="option in options">{{ option }}</option>
-    </select>
+    <label for="right-label" class="form-adjacent-group-label">{{ label }}</label>
+    <div class="form-adjacent-group">
+        <select
+                id="left-label"
+                class="form-control form-adjacent-group-align-left" ng-model="$parent.patient.apacheLow[field]"
+                ng-required="required==true || (required==undefined && !optional)"
+        >
+        <option ng-repeat="option in options">{{ option }}</option>
+        </select>
+        <select
+                id="right-label"
+                class="form-control form-adjacent-group-align-right"
+                ng-model="$parent.patient.apacheHigh[field]"
+                ng-required="required==true || (required==undefined && !optional)"
+        >
+        <option ng-repeat="option in options">{{ option }}</option>
+        </select>
+    </div>
 </div>
 </script>
 <script type="text/ng-template" id="utils/form/date.html">

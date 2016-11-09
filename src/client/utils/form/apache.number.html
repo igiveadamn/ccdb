@@ -1,7 +1,8 @@
 <div class="form-group">
-    <label for="right-label">{{ label }}</label>
+    <label for="right-label" class="form-adjacent-group-label">{{ label }}</label>
+    <div class="form-adjacent-group">
     <input type="number"
-           class="form-control"
+           class="form-control form-adjacent-group-align-left"
            id="left-label"
            placeholder="{{ placeholder }}"
            ng-model="$parent.patient.apacheLow[field]"
@@ -9,11 +10,12 @@
            autocomplete="off"
     >
     <input type="number"
-           class="form-control"
+           class="form-control form-adjacent-group-align-right"
            id="right-label"
            placeholder="{{ placeholder }}"
            ng-model="$parent.patient.apacheHigh[field]"
            ng-required="required"
            autocomplete="off"
     >
+    </div>
 </div>

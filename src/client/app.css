@@ -32,6 +32,27 @@ body h1:first-child {
     border-right: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
 }
+
+.form-adjacent-group-label {
+    display: block;
+    clear: both;
+    padding-top: 5px;
+}
+
+.form-adjacent-group {
+    clear: both;
+}
+
+.form-adjacent-group-align-left {
+    float: left;
+    width: 48%;
+}
+
+.form-adjacent-group-align-right {
+    float: right;
+    width: 48%;
+}
+
 .panel {
   border-radius: 0;
   border: none;
