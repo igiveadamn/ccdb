@@ -220,6 +220,36 @@ select.ng-invalid {
 }
 
 @media print {
+    .container-fluid .form-print-heading {
+        display: block !important;
+        font-size: large;
+        page-break-before: auto;
+        page-break-after: avoid;
+    }
+
+    .form-shield-heading {
+        text-align: left;
+        display: inline-block;
+        margin: 0px;
+    }
+
+    .form-metadata {
+        float: right;
+    }
+
+    .form-metadata .form-patient-reference {
+        display: inline-block;
+        float: right;
+        margin: 0px;
+
+    }
+
+    .form-metadata .form-hospital {
+        display: block;
+        text-align: right;
+        margin: 0px;
+    }
+
     body {
         width: 100%;
         margin: 0;
@@ -256,6 +286,10 @@ select.ng-invalid {
         page-break-inside:avoid !important;
     }
 
+    .form-two-column-print {
+        column-count: 2;
+    }
+
     .form-group {
         display: inline-block;
         border-bottom: solid !important;
@@ -270,12 +304,21 @@ select.ng-invalid {
         margin-bottom: 0px;
     }
 
+    .form-group, select {
+        border: none;
+    }
+
     .form-control {
         float: right;
         border-style: none;
         padding-top: 0px;
         padding-bottom: 0px;
         height: 20px;
+    }
+
+    .from-print-heading {
+        display: block !important;
+        margin-bottom: 25px;
     }
 
     input.form-control {
@@ -302,38 +345,8 @@ select.ng-invalid {
         width: 100%;
     }
 
-    #right-label {
-        page-break-before: avoid !important;
-        float: right;
-    }
-
-    .form-group, select {
-        border: none;
-    }
-
-    .from-print-heading {
-        display: block !important;
-        margin-bottom: 25px;
-    }
-    .form-shield-heading {
-        text-align: left;
-        display: inline-block;
-        margin: 0px;
-    }
-    .form-metadata {
-        float: right;
-    }
-
-    .form-patient-reference {
-        display: inline-block;
-        float: right;
-        margin: 0px;
-
-    }
-    .form-hospital {
-        display: block;
-        text-align: right;
-        margin: 0px;
+    .form-print-hide {
+        display: none;
     }
 
     .form-multiselect-label {
@@ -345,27 +358,21 @@ select.ng-invalid {
         column-count: 2;
         vertical-align: top;
         padding-bottom: 10px;
-        margin-top: -5px;
         margin-right: -10%;
-    }
-
-    .container-fluid .form-print-heading {
-        display: block !important;
-        font-size: large;
-        page-break-before: auto !important;
-        page-break-after: avoid !important;
     }
 
     .form-date {
         width: 45%;
         padding-left: 4px;
+        float: right;
     }
 
     .form-date-month {
         -webkit-appearance: none;
         -moz-appearance: none;
         margin-right: -20px;
-    }
+   }
+
     .form-date-year {
         -webkit-appearance: none;
         -moz-appearance: none;
@@ -379,6 +386,7 @@ select.ng-invalid {
 
     .form-dateAndTime {
         width: 44%;
+        float: right;
     }
 
     .form-dateAndTime-label {
@@ -421,13 +429,5 @@ select.ng-invalid {
         display: inline;
         padding-left: 3px;
         padding-right: 3px;
-    }
-
-    .form-print-hide {
-        display: none;
-    }
-
-    .form-two-column-print {
-        column-count: 2;
     }
 }
