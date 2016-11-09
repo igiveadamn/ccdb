@@ -729,11 +729,18 @@ this is the view page</script>
     <ccdb-score-form score="patient.referralScore" referral="true"></ccdb-score-form>
 </ng-form></script>
 <script type="text/ng-template" id="referral/referral.form.html">
-<h1>New {{patient.referral.emergencyVsElective}} Referral:</h1>
+<h1>New {{patient.referral.emergencyVsElective}} Referral: </h1>
 <div class="divider"></div>
 
-<form name="patientForm" ng-submit="save('referral')" novalidate autocomplete="off" >
+<div class="from-print-heading">
+    <h2 class="form-shield-heading">SHIELD</h2>
+    <div class="form-metadata" >
+        <h5 class="form-patient-reference">{{patient.reference}}</h5>
+        <h5 class="form-hospital">{{patient.hospital}}</h5>
+    </div>
+</div>
 
+<form name="patientForm" ng-submit="save('referral')" novalidate autocomplete="off" >
     <uib-tabset active="activeForm">
         <uib-tab index="0">
             <uib-tab-heading>

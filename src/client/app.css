@@ -20,6 +20,13 @@ body h1:first-child {
     display: none;
 }
 
+.form-patient-reference {
+    display: none;
+}
+.form-hospital {
+    display: none;
+}
+
 .form-panel {
     padding: 9.5px;
     border-radius: 0;
@@ -194,11 +201,6 @@ select.ng-invalid {
 }
 
 @media print {
-    body:before {
-        content: 'SHEILD';
-        font-size: xx-large;
-    }
-
     body {
         width: 100%;
         margin: 0;
@@ -295,6 +297,30 @@ select.ng-invalid {
         resize: none !important;
         min-height: 500px;
         padding-left: 0px !important;
+    }
+
+    .from-print-heading {
+        margin-bottom: 25px;
+    }
+    .form-shield-heading {
+        text-align: left;
+        display: inline-block;
+        margin: 0px;
+    }
+    .form-metadata {
+        float: right;
+    }
+
+    .form-patient-reference {
+        display: inline-block;
+        float: right;
+        margin: 0px;
+
+    }
+    .form-hospital {
+        display: block;
+        text-align: right;
+        margin: 0px;
     }
 
     .form-multiselect-label {
