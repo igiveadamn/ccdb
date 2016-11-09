@@ -35,62 +35,65 @@
                     placeholder="breaths/minute"
                     field="respiratoryRate"
             ></ccdb-form-apache-number>
-            <ccdb-form-apache-number
+            <ccdb-form-number
                     required="!allValuesNotAvailable"
                     label="Urine output volume"
                     placeholder="mls"
-                    field="urineOutput"
-            ></ccdb-form-apache-number>
-            <ccdb-form-apache-number
+                    value="patient.apacheLow.urineOutput"
+            ></ccdb-form-number>
+            <ccdb-form-number
                     required="!allValuesNotAvailable"
                     label="Urine output hours"
                     placeholder="hrs"
-                    field="urineOutputHours"
-            ></ccdb-form-apache-number>
+                    value="patient.apacheLow.urineOutputHours"
+            ></ccdb-form-number>
             <ccdb-form-apache-number
                     required="!allValuesNotAvailable"
                     label="Glucose"
                     placeholder="mmol/L"
                     field="glucose"
             ></ccdb-form-apache-number>
-            <ccdb-form-apache-select
+            <ccdb-form-select
                     required="!allValuesNotAvailable"
                     label="Eye opening"
                     options="$parent.eyeOpening"
-                    field="eyeOpening"
-            ></ccdb-form-apache-select>
-            <ccdb-form-apache-select
+                    value="patient.apacheLow.eyeOpening"
+            ></ccdb-form-select>
+            <ccdb-form-select
                     required="!allValuesNotAvailable"
                     label="Verbal response"
                     options="$parent.verbalResponse"
-                    field="verbalResponse"
-            ></ccdb-form-apache-select>
-            <ccdb-form-apache-select
+                    value="patient.apacheLow.verbalResponse"
+            ></ccdb-form-select>
+            <ccdb-form-select
                     required="!allValuesNotAvailable"
                     label="Motor response"
                     options="$parent.motorResponse"
-                    field="motorResponse"
-            ></ccdb-form-apache-select>
-            <ccdb-form-apache-number
+                    value="patient.apacheLow.motorResponse"
+            ></ccdb-form-select>
+            <ccdb-form-number
                     required="!allValuesNotAvailable"
                     label="Glasgow coma scale"
-                    field="glasgowComaScale"
-            ></ccdb-form-apache-number>
-            <ccdb-form-apache-number
+                    value="patient.apacheLow.glasgowComaScale"
+            ></ccdb-form-number>
+            <ccdb-form-select
                     required="!allValuesNotAvailable"
                     label="Pupils"
-                    field="pupils"
-            ></ccdb-form-apache-number>
-            <ccdb-form-apache-number
+                    options="$parent.pupils"
+                    value="patient.apacheLow.pupils"
+            ></ccdb-form-select>
+            <ccdb-form-select
                     required="!allValuesNotAvailable"
                     label="Ventilated"
-                    field="ventilated"
-            ></ccdb-form-apache-number>
-            <ccdb-form-apache-number
+                    options="$parent.yesNo"
+                    value="patient.apacheLow.ventilated"
+            ></ccdb-form-select>
+            <ccdb-form-select
                     required="!allValuesNotAvailable"
                     label="Thrombolytic therapy"
-                    field="thrombolyticTherapy"
-            ></ccdb-form-apache-number>
+                    options="$parent.yesNo"
+                    value="patient.apacheLow.thrombolyticTherapy"
+            ></ccdb-form-select>
         </div>
         <div class="col-sm-6">
             <ccdb-form-apache-number

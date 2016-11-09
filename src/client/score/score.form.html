@@ -15,13 +15,12 @@
             <ccdb-form-select required="!score.allValuesNotAvailable" label="Eye opening" options="$parent.eyeOpening" value="score.eyeOpening"></ccdb-form-select>
             <ccdb-form-select required="!score.allValuesNotAvailable" label="Verbal response" options="$parent.verbalResponse" value="score.verbalResponse"></ccdb-form-select>
             <ccdb-form-select required="!score.allValuesNotAvailable" label="Motor response" options="$parent.motorResponse" value="score.motorResponse"></ccdb-form-select>
-            <!-- this one is a calculated, we still want to write it to the database, but would be good to sum the three above automagically -->
             <ccdb-form-number required="!score.allValuesNotAvailable" label="Glasgow coma scale" value="score.glasgowComaScale"></ccdb-form-number>
             <ccdb-form-select required="!score.allValuesNotAvailable" label="Sedated" options="$parent.$parent.yesNo" value="score.sedated" ng-if="!referral && !apache"></ccdb-form-select>
             <ccdb-form-select required="!score.allValuesNotAvailable" label="Airway" options="$parent.$parent.airway" value="score.airway" ng-if="!referral && !apache"></ccdb-form-select>
-            <ccdb-form-number required="!score.allValuesNotAvailable" label="Pupils" value="score.pupils" ng-if="!referral"></ccdb-form-number>
-            <ccdb-form-number required="!score.allValuesNotAvailable" label="Ventilated" value="score.ventilated" ng-if="!referral"></ccdb-form-number>
-            <ccdb-form-number required="!score.allValuesNotAvailable" label="Thrombolytic therapy" value="score.thrombolyticTherapy" ng-if="!referral"></ccdb-form-number>
+            <ccdb-form-select required="!score.allValuesNotAvailable" label="Pupils" options="$parent.$parent.pupils" value="score.pupils" ng-if="!referral"></ccdb-form-select>
+            <ccdb-form-select required="!score.allValuesNotAvailable" label="Ventilated" options="$parent.$parent.yesNo" value="score.ventilated" ng-if="!referral"></ccdb-form-select>
+            <ccdb-form-select required="!score.allValuesNotAvailable" label="Thrombolytic therapy" options="$parent.$parent.yesNo" value="score.thrombolyticTherapy" ng-if="!referral"></ccdb-form-select>
         </div>
         <div class="col-sm-6">
             <ccdb-form-number required="!score.allValuesNotAvailable" label="Haematocrit" placeholder="%" value="score.haematocrit" ng-if="!admission"></ccdb-form-number>
@@ -43,8 +42,8 @@
             <ccdb-form-number required="!score.allValuesNotAvailable" label="HCO3" placeholder="mEq/L" value="score.hCO3" ng-if="!referral"></ccdb-form-number>
             <ccdb-form-number required="!score.allValuesNotAvailable" label="Base excess" value="score.baseExcess" ng-if="!referral"></ccdb-form-number>
             <ccdb-form-number required="!score.allValuesNotAvailable" label="Bicarbonate" value="score.bicarbonate" ng-if="!referral && !apache"></ccdb-form-number>
-            <ccdb-form-number required="!score.allValuesNotAvailable" label="Current antibiotic therapy in ward" value="score.currentAntibioticTherapyInWard" ng-if="!referral && !apache"></ccdb-form-number>
-            <ccdb-form-number required="!score.allValuesNotAvailable" label="Duration of antibiotics" value="score.durationOfAntibiotics" ng-if="!referral && !apache"></ccdb-form-number>
+            <ccdb-form-text   required="!score.allValuesNotAvailable" label="Current antibiotic therapy in ward" value="score.currentAntibioticTherapyInWard" ng-if="!referral && !apache"></ccdb-form-text>
+            <ccdb-form-number required="!score.allValuesNotAvailable" label="Duration of antibiotics" placeholder="days" value="score.durationOfAntibiotics" ng-if="!referral && !apache"></ccdb-form-number>
         </div>
     </div>
 </div>

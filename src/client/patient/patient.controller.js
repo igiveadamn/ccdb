@@ -144,6 +144,7 @@ angular.module('ccdb.patient.controller', ['ngRoute', 'ccdb.patient.service', 'c
   $scope.verbalResponse = ['1', '2', '3', '4', '5'];
   $scope.motorResponse = ['1', '2', '3', '4', '5', '6'];
   $scope.airway = ['Own', 'OPA', 'NPA', 'ETT', 'Tracheostomy'];
+  $scope.pupils = ['pupils1', 'pupils2', 'pupils3'];
 
   // discharge
   $scope.dischargeStatuses = ['Alive', 'Deceased'];
