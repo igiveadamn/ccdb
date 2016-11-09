@@ -243,6 +243,10 @@ select.ng-invalid {
         display: none !important;
     }
 
+    .btn {
+        display: none;
+    }
+
     .tab-content > .tab-pane {
         display: block !important;
         opacity: 1 !important;
@@ -306,16 +310,6 @@ select.ng-invalid {
     .form-group, select {
         border: none;
     }
-
-
-    a > .btn, .btn-xs {
-        display: none;
-    }
-
-    button {
-        visibility: hidden;
-    }
-
 
     .from-print-heading {
         display: block !important;
