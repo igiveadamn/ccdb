@@ -20,10 +20,8 @@ body h1:first-child {
     display: none;
 }
 
-.form-patient-reference {
-    display: none;
-}
-.form-hospital {
+
+.from-print-heading {
     display: none;
 }
 
@@ -300,6 +298,7 @@ select.ng-invalid {
     }
 
     .from-print-heading {
+        display: block !important;
         margin-bottom: 25px;
     }
     .form-shield-heading {
