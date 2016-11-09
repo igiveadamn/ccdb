@@ -557,6 +557,7 @@ this is the view page</script>
 <script type="text/ng-template" id="referral/elective/assessment.form.html">
 <ng-form name="electiveAssessmentForm">
     <div class="panel form-panel">
+        <h1 class="form-print-heading">Assessment</h1>
         <div class="row">
             <div class="col-sm-6">
                 <ccdb-form-textarea label="History" value="patient.referral.history"></ccdb-form-textarea>
@@ -571,6 +572,7 @@ this is the view page</script>
 <script type="text/ng-template" id="referral/elective/decision.form.html">
 <ng-form name="electiveDecisionForm">
     <div class="panel form-panel">
+        <h1 class="form-print-heading">Decision</h1>
         <div class="row">
             <div class="col-sm-6">
                 <ccdb-form-select label="SCCM" options="sCCM" value="patient.referral.sccmScore"></ccdb-form-select>
@@ -586,6 +588,7 @@ this is the view page</script>
 <script type="text/ng-template" id="referral/elective/outcome.form.html">
 <ng-form name="electiveOutcomeForm">
     <div class="panel form-panel">
+        <h1 class="form-print-heading">Outcome</h1>
         <div class="row">
             <div class="col-sm-6">
                 <ccdb-form-date-and-time label="Outcome entry time and date" ng-model="patient.referral.outcomeEntryDateTime"></ccdb-form-date-and-time>
@@ -605,6 +608,7 @@ this is the view page</script>
 <script type="text/ng-template" id="referral/elective/referral.details.form.html">
 <ng-form name="electiveReferralDetailsForm">
     <div class="panel form-panel">
+        <h1 class="form-print-heading">Referral Details</h1>
         <div class="row">
             <div class="col-sm-6"><!-- the time the ICU hears about the patient  -->
                 <ccdb-form-date label="Referral date" ng-model="patient.referral.referralDateTime"></ccdb-form-date>
@@ -631,6 +635,7 @@ this is the view page</script>
 <script type="text/ng-template" id="referral/elective/referral.form.html">
 <ng-form name="electiveReferralForm">
     <div class="panel form-panel">
+        <h1 class="form-print-heading">Referral</h1>
         <div class="row">
             <div class="col-sm-6"><!-- needs to be a multiple -->
                 <ccdb-form-multiselect label="Reason of referral to ICU" options="reasonOfReferralToICU" value="patient.referral.reasonOfReferralToICU"></ccdb-form-multiselect>
