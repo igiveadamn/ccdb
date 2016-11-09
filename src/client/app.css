@@ -262,7 +262,7 @@ select.ng-invalid {
         width: 100%;
     }
 
-    .form-group > input.form-control {
+    input.form-control {
         float: right;
         width: 46%;
         border-style: none;
@@ -284,7 +284,7 @@ select.ng-invalid {
         border: none;
     }
 
-    .form-group > select.form-control {
+    select.form-control {
         -webkit-appearance: none;
         -moz-appearance: none;
         text-indent: 1px;
@@ -432,5 +432,9 @@ select.ng-invalid {
 
     .form-print-hide {
         display: none;
+    }
+
+    .form-two-column-print {
+        column-count: 2;
     }
 }

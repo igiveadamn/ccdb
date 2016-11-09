@@ -167,9 +167,9 @@
 <script type="text/ng-template" id="apache/apache.form.html">
 <div class="panel form-panel">
     <h1 class="form-print-heading">Apache Score</h1>
-    <div class="row">
+    <div class="row form-two-column-print">
         <div class="col-sm-6">
-            <div class="form-group">
+            <div class="form-group form-print-hide">
                 <span class="pull-right">Not all values are available <input type="checkbox" ng-model="allValuesNotAvailable"></span>
             </div>
             <ccdb-form-apache-number
@@ -368,6 +368,14 @@
     </div>
 </div></script>
 <script type="text/ng-template" id="apache/apache.html">
+<div class="from-print-heading">
+    <h2 class="form-shield-heading">SHIELD</h2>
+    <div class="form-metadata" >
+        <h5 class="form-patient-reference">{{patient.reference}}</h5>
+        <h5 class="form-hospital">{{patient.hospital}}</h5>
+    </div>
+</div>
+
 <form name="patientForm" ng-submit="save()" novalidate>
 
     <ccdb-apache-form patient="patient"></ccdb-apache-form>
@@ -1062,7 +1070,7 @@ this is the view page</script>
            ng-required="required"
            autocomplete="off"
     >
-    <div>
+    </div>
 </div></script>
 <script type="text/ng-template" id="utils/form/apache.select.html">
 <div class="form-group">
