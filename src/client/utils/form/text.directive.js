@@ -9,7 +9,8 @@ angular.module('ccdb.utils.form.text.directive', ['ccdb.patient.service', 'ui.bo
                 label: '@',
                 placeholder: '@',
                 value: '=',
-                noSuggestions: '@'
+                noSuggestions: '@',
+                required: '='
             },
 
             controller: function ($scope, $element, $attrs) {

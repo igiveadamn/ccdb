@@ -1166,7 +1166,7 @@ this is the view page</script>
            placeholder="{{ placeholder }}"
            ng-model="value"
            uib-typeahead="item for item in getSuggestions($viewValue)"
-           required
+           ng-required="required"
            autocomplete="off"
     >
 </div>
