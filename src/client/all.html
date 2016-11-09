@@ -408,9 +408,18 @@
 <h1>Discharge</h1>
 <div class="divider"></div>
 
+<div class="from-print-heading">
+    <h2 class="form-shield-heading">SHIELD</h2>
+    <div class="form-metadata" >
+        <h5 class="form-patient-reference">{{patient.reference}}</h5>
+        <h5 class="form-hospital">{{patient.hospital}}</h5>
+    </div>
+</div>
+
 <form name="patientForm" ng-submit="save('discharge')" novalidate>
     <div class="panel form-panel">
-            <div class="row">
+        <h1 class="form-print-heading">Discharge</h1>
+        <div class="row">
                 <div class="col-sm-6">
                     <ccdb-form-date label="Discharge date" ng-model="patient.discharge.dischargeDateTime"></ccdb-form-date>
                     <ccdb-form-select label="Discharge status" options="dischargeStatuses" value="patient.discharge.dischargeStatus"></ccdb-form-select>
@@ -423,8 +432,6 @@
             <button type="submit" ng-disabled="patientForm.$invalid" class="btn btn-primary">Save</button>
     </div>
 </form></script>
-<script type="text/ng-template" id="discharge/discharge.html">
-</script>
 <script type="text/ng-template" id="login/login.html">
 <div ng-hide="!errorHandler.message" data-alert class="alert-box alert">
     {{errorHanlder.message}}
