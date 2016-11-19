@@ -1,0 +1,210 @@
+.container-fluid .form-print-heading {
+    display: block !important;
+    font-size: large;
+    page-break-before: auto;
+    page-break-after: avoid;
+}
+
+.form-shield-heading {
+    text-align: left;
+    display: inline-block;
+    margin: 0px;
+}
+
+.form-metadata {
+    float: right;
+}
+
+.form-metadata .form-patient-reference {
+    display: inline-block;
+    float: right;
+    margin: 0px;
+
+}
+
+.form-metadata .form-hospital {
+    display: block;
+    text-align: right;
+    margin: 0px;
+}
+
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: visible !important;
+}
+
+.container-fluid {
+    padding-left: 0px;
+}
+
+.container-fluid h1 {
+    display: none !important;
+}
+
+.panel {
+    padding: 0px;
+}
+
+.nav {
+    display: none !important;
+}
+
+.btn {
+    display: none;
+}
+
+.tab-content > .tab-pane {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    page-break-inside:avoid !important;
+}
+
+.form-two-column-print {
+    column-count: 2;
+}
+
+.form-group {
+    display: inline-block;
+    border-bottom: solid !important;
+    border-width: thin !important;
+    border-color: #798d8f !important;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    width: 100%;
+}
+
+.form-group > label {
+    margin-bottom: 0px;
+}
+
+.form-group, select {
+    border: none;
+}
+
+.form-control {
+    float: right;
+    border-style: none;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    height: 20px;
+}
+
+.from-print-heading {
+    display: block !important;
+    margin-bottom: 25px;
+}
+
+input.form-control {
+    width:46%;
+}
+
+select.form-control {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    width:46%;
+}
+
+textarea.form-control {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    border: none;
+    overflow: auto;
+    outline: none;
+    box-shadow: none;
+    resize: none;
+    min-height: 500px;
+    padding-left: 0px;
+    width: 100%;
+}
+
+.form-print-hide {
+    display: none;
+}
+
+.form-multiselect-label {
+    padding-top: 5px;
+}
+
+.form-multiselect-options {
+    -webkit-column-count: 2;
+    column-count: 2;
+    vertical-align: top;
+    padding-bottom: 10px;
+    margin-right: -10%;
+}
+
+.form-date {
+    width: 45%;
+    padding-left: 4px;
+    float: right;
+}
+
+.form-date-month {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin-right: -20px;
+}
+
+.form-date-year {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin-right: -20px;
+}
+
+.form-date-day {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.form-dateAndTime {
+    width: 44%;
+    float: right;
+}
+
+.form-dateAndTime-label {
+    display: none;
+}
+
+.form-dateAndTime-day {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin-right: 0px;
+}
+
+.form-dateAndTime-month {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin-right: -6px;
+}
+
+.form-dateAndTime-hour {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin-right: -6px;
+}
+
+.form-dateAndTime-minute {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin-left: -6px;
+    padding-right: 1px;
+}
+
+.form-dateAndTime-year {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin-left: -8px;
+}
+
+.form-dateAndTime-colon {
+    font-weight: bold;
+    display: inline;
+    padding-left: 3px;
+    padding-right: 3px;
+}
