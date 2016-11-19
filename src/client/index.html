@@ -78,5 +78,25 @@
 <script src="utils/localStorage/storage.js"></script>
 <!-- /include -->
 
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+                .register('./service-worker')
+                .then(function() { return navigator.serviceWorker.ready })
+                .then(function(registration) { // register sync
+                    document.getElementById('formSubmitButton')
+                        .addEventListener('click', function() {
+                            registration.sync.register('submit-form-data')
+                                .then(function() { console.log('Sync registered') })
+
+                        })
+                });
+    } else {
+        document.getElementById('referralSubmitButton').addEventListener('click', function() {
+            console.log('Fallback to fetch the image as usual');
+        });
+    }
+</script>
+
 </body>
 </html>
