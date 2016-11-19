@@ -9,6 +9,7 @@
     text-align: left;
     display: inline-block;
     margin: 0px;
+    margin-left: 20px;
 }
 
 .form-metadata {
@@ -41,10 +42,6 @@ body {
 
 .container-fluid h1 {
     display: none !important;
-}
-
-.panel {
-    padding: 0px;
 }
 
 .nav {
