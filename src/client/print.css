@@ -145,21 +145,12 @@ textarea.form-control {
     float: right;
 }
 
-.form-date-month {
+.form-date > select {
     -webkit-appearance: none;
     -moz-appearance: none;
-    margin-right: -20px;
 }
-
-.form-date-year {
-    -webkit-appearance: none;
-    -moz-appearance: none;
+.form-date-month, .form-date-year {
     margin-right: -20px;
-}
-
-.form-date-day {
-    -webkit-appearance: none;
-    -moz-appearance: none;
 }
 
 .form-dateAndTime {
@@ -167,44 +158,33 @@ textarea.form-control {
     float: right;
 }
 
+.form-dateAndTime select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
 .form-dateAndTime-label {
     display: none;
 }
 
-.form-dateAndTime-day {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    margin-right: 0px;
-}
-
-.form-dateAndTime-month {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    margin-right: -6px;
-}
-
-.form-dateAndTime-hour {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    margin-right: -6px;
-}
-
-.form-dateAndTime-minute {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    margin-left: -6px;
-    padding-right: 1px;
-}
-
-.form-dateAndTime-year {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    margin-left: -8px;
+.form-dateAndTime-time {
+    padding-right: 25px;
+    margin-bottom: 0;
 }
 
 .form-dateAndTime-colon {
-    font-weight: bold;
-    display: inline;
     padding-left: 3px;
-    padding-right: 3px;
 }
+
+.form-dateAndTime-month, .form-dateAndTime-hour, .form-dateAndTime-minute {
+    margin-right: -6px;
+}
+
+.form-dateAndTime-day {
+    margin-right: 0px;
+}
+
+.form-dateAndTime-year {
+    margin-left: -8px;
+}
+

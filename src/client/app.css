@@ -16,10 +16,6 @@ body h1:first-child {
     display: none;
 }
 
-.form-dateAndTime-colon {
-    display: none;
-}
-
 
 .from-print-heading {
     display: none;
@@ -51,6 +47,16 @@ body h1:first-child {
 .form-adjacent-group-align-right {
     float: right;
     width: 48%;
+}
+
+.form-dateAndTime-time {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.form-dateAndTime-colon {
+    font-weight: bold;
+    display: inline;
 }
 
 .panel {
