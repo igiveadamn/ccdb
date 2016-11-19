@@ -78,5 +78,15 @@
 <script src="utils/localStorage/storage.js"></script>
 <!-- /include -->
 
+<script>
+    if ('serviceWorker' in navigator && (typeof Cache !== 'undefined' && Cache.prototype.addAll)) {
+        navigator.serviceWorker.register("./service-worker")
+                .then(function(registration) {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                })
+                .catch(function(err) { console.log('ServiceWorker registration failed: ', err); });
+    }
+</script>
+
 </body>
 </html>
