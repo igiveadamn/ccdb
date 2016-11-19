@@ -70,9 +70,6 @@ app.get('/downloads/csv/patients', require('./csv-export/req-handler').patientsH
 app.use(cache(3 * 3600));
 app.use(express.static(path.join(__dirname, '../client')));
 
-// service worker js file
-app.use('/service-worker', express.static(path.join(__dirname, '/utils/service-worker.js')));
-
 // catch all others
 app.use(function (req, res, next) {
     var err = new Error('Not Found');
