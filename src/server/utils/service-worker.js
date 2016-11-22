@@ -4,7 +4,7 @@ var CACHE_NAME = 'shield-cache';
 var config = {
   name: 'shield-form',
   version: 'v1',
-  cachePathPattern: /\/bower_components|\/app|\/patient|\/score|\/user|\/login|\/apache|\/dashboard|\/navigation|\/search|\/password|\/reset|\/utils|\/all|\/$/
+  cachePathPattern: /\/bower_components|\/app|\/api|\/patient|\/score|\/user|\/login|\/apache|\/dashboard|\/navigation|\/search|\/password|\/reset|\/utils|\/all|\/$/
 };
 
 function cacheName(type, options) {
