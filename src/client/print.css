@@ -47,13 +47,14 @@ body {
     display: none;
 }
 
-.tab-content > .tab-pane {
+.tab-pane {
     display: block !important;
     opacity: 1 !important;
     visibility: visible !important;
     margin: 0 !important;
     padding: 0 !important;
-    page-break-inside:avoid !important;
+    page-break-inside: avoid;
+    page-break-after: auto;
 }
 
 .form-two-column-print {
