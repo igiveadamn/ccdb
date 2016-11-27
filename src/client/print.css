@@ -1,3 +1,6 @@
+* {
+    box-sizing: unset !important;
+}
 .container-fluid .form-print-heading {
     display: block !important;
     font-size: large;
@@ -86,8 +89,7 @@ body {
 .form-control {
     float: right;
     border-style: none;
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding: 0 0 0 0;
     height: 20px;
 }
 
@@ -97,14 +99,14 @@ body {
 }
 
 input.form-control {
-    width:46%;
+    width:40%;
 }
 
 select.form-control {
     -webkit-appearance: none;
     -moz-appearance: none;
     text-indent: 1px;
-    width:46%;
+    width:40%;
 }
 
 textarea.form-control {
@@ -133,11 +135,11 @@ textarea.form-control {
     column-count: 2;
     vertical-align: top;
     padding-bottom: 10px;
-    margin-right: -10%;
+    margin-right: -20%;
 }
 
 .form-date {
-    width: 45%;
+    width: 40%;
     padding-left: 4px;
     float: right;
 }
@@ -151,7 +153,7 @@ textarea.form-control {
 }
 
 .form-dateAndTime {
-    width: 44%;
+    width: 40%;
     float: right;
 }
 
@@ -182,6 +184,6 @@ textarea.form-control {
 }
 
 .form-dateAndTime-year {
-    margin-left: -8px;
+    margin-left: 6px;
 }
 
