@@ -94,7 +94,7 @@ input.form-control, select.form-control {
     width:40%;
 }
 
-select.form-control {
+select {
     -webkit-appearance: none;
     -moz-appearance: none;
 }
@@ -133,17 +133,8 @@ textarea.form-control {
     float: right;
 }
 
-.form-date > select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-}
 .form-date-month, .form-date-year {
     margin-right: -20px;
-}
-
-.form-dateAndTime select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
 }
 
 .form-dateAndTime-label {
