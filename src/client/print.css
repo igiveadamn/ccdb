@@ -43,15 +43,7 @@ body {
     padding-left: 0;
 }
 
-.container-fluid h1 {
-    display: none !important;
-}
-
-.nav {
-    display: none !important;
-}
-
-.btn {
+.nav, .btn, .container-fluid h1 {
     display: none;
 }
 
@@ -98,15 +90,13 @@ body {
     margin-bottom: 25px;
 }
 
-input.form-control {
+input.form-control, select.form-control {
     width:40%;
 }
 
 select.form-control {
     -webkit-appearance: none;
     -moz-appearance: none;
-    text-indent: 1px;
-    width:40%;
 }
 
 textarea.form-control {
@@ -138,9 +128,8 @@ textarea.form-control {
     margin-right: -20%;
 }
 
-.form-date {
+.form-date, .form-dateAndTime {
     width: 40%;
-    padding-left: 4px;
     float: right;
 }
 
@@ -150,11 +139,6 @@ textarea.form-control {
 }
 .form-date-month, .form-date-year {
     margin-right: -20px;
-}
-
-.form-dateAndTime {
-    width: 40%;
-    float: right;
 }
 
 .form-dateAndTime select {
