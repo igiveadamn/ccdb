@@ -11,7 +11,7 @@
 .form-shield-heading {
     text-align: left;
     display: inline-block;
-    margin: 0px;
+    margin: 0;
     margin-left: 20px;
 }
 
@@ -22,14 +22,14 @@
 .form-metadata .form-patient-reference {
     display: inline-block;
     float: right;
-    margin: 0px;
+    margin: 0;
 
 }
 
 .form-metadata .form-hospital {
     display: block;
     text-align: right;
-    margin: 0px;
+    margin: 0;
 }
 
 body {
@@ -40,7 +40,7 @@ body {
 }
 
 .container-fluid {
-    padding-left: 0px;
+    padding-left: 0;
 }
 
 .container-fluid h1 {
@@ -73,13 +73,13 @@ body {
     border-bottom: solid !important;
     border-width: thin !important;
     border-color: #798d8f !important;
-    margin-right: 0px;
-    margin-bottom: 0px;
+    margin-right: 0;
+    margin-bottom: 0;
     width: 100%;
 }
 
 .form-group > label {
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 .form-group, select {
@@ -118,7 +118,7 @@ textarea.form-control {
     box-shadow: none;
     resize: none;
     min-height: 500px;
-    padding-left: 0px;
+    padding-left: 0;
     width: 100%;
 }
 
@@ -180,7 +180,7 @@ textarea.form-control {
 }
 
 .form-dateAndTime-day {
-    margin-right: 0px;
+    margin-right: 0;
 }
 
 .form-dateAndTime-year {
