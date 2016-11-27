@@ -117,7 +117,7 @@ textarea.form-control {
     outline: none;
     box-shadow: none;
     resize: none;
-    min-height: 500px;
+    min-height: 460px;
     padding-left: 0;
     width: 100%;
 }
